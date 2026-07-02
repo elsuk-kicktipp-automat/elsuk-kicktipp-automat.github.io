@@ -1,0 +1,1407 @@
+{
+  "mode": "national",
+  "competition": "wm2026",
+  "season": 2026,
+  "elo_hinweis": "eloratings.net liefert nur aktuelle Ratings (leichter Lookahead-Bias)",
+  "rounds": [
+    {
+      "matchday": 1,
+      "stage": "1. Runde",
+      "matches": 24,
+      "points": 25,
+      "points_per_match": 1.042,
+      "baseline_elo_points": 25,
+      "baseline_draw_points": 30,
+      "hits": {
+        "exact": 1,
+        "goal_diff": 1,
+        "tendency": 9
+      },
+      "hit_rate": 0.458,
+      "matches_detail": [
+        {
+          "home": "Mexiko",
+          "away": "Südafrika",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.801,
+          "result": [
+            2,
+            0
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Südkorea",
+          "away": "Tschechien",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.136,
+          "result": [
+            2,
+            1
+          ],
+          "points": 3,
+          "baseline_elo_points": 4,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Kanada",
+          "away": "Bosnien-Herzegowina",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.394,
+          "result": [
+            1,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 4
+        },
+        {
+          "home": "USA",
+          "away": "Paraguay",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.095,
+          "result": [
+            4,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Katar",
+          "away": "Schweiz",
+          "tip": [
+            0,
+            2
+          ],
+          "expected_points": 1.992,
+          "result": [
+            1,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 4
+        },
+        {
+          "home": "Brasilien",
+          "away": "Marokko",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.363,
+          "result": [
+            1,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 4
+        },
+        {
+          "home": "Haiti",
+          "away": "Schottland",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.536,
+          "result": [
+            0,
+            1
+          ],
+          "points": 4,
+          "baseline_elo_points": 3,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Australien",
+          "away": "Türkei",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.156,
+          "result": [
+            2,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Deutschland",
+          "away": "Curaçao",
+          "tip": [
+            2,
+            0
+          ],
+          "expected_points": 1.945,
+          "result": [
+            7,
+            1
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Niederlande",
+          "away": "Japan",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.226,
+          "result": [
+            2,
+            2
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Elfenbeinküste",
+          "away": "Ecuador",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.361,
+          "result": [
+            1,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Schweden",
+          "away": "Tunesien",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.415,
+          "result": [
+            5,
+            1
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Spanien",
+          "away": "Kap Verde",
+          "tip": [
+            2,
+            0
+          ],
+          "expected_points": 2.017,
+          "result": [
+            0,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Belgien",
+          "away": "Ägypten",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.413,
+          "result": [
+            1,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 4
+        },
+        {
+          "home": "Saudi-Arabien",
+          "away": "Uruguay",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.569,
+          "result": [
+            1,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 4
+        },
+        {
+          "home": "Iran",
+          "away": "Neuseeland",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.54,
+          "result": [
+            2,
+            2
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Frankreich",
+          "away": "Senegal",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.7,
+          "result": [
+            3,
+            1
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Irak",
+          "away": "Norwegen",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.785,
+          "result": [
+            1,
+            4
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Argentinien",
+          "away": "Algerien",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.771,
+          "result": [
+            3,
+            0
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Österreich",
+          "away": "Jordanien",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.496,
+          "result": [
+            3,
+            1
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Portugal",
+          "away": "DR Kongo",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.645,
+          "result": [
+            1,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 4
+        },
+        {
+          "home": "England",
+          "away": "Kroatien",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.355,
+          "result": [
+            4,
+            2
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Ghana",
+          "away": "Panama",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.226,
+          "result": [
+            1,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Usbekistan",
+          "away": "Kolumbien",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.785,
+          "result": [
+            1,
+            3
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        }
+      ]
+    },
+    {
+      "matchday": 2,
+      "stage": "2. Runde",
+      "matches": 24,
+      "points": 34,
+      "points_per_match": 1.417,
+      "baseline_elo_points": 43,
+      "baseline_draw_points": 12,
+      "hits": {
+        "exact": 3,
+        "goal_diff": 2,
+        "tendency": 8
+      },
+      "hit_rate": 0.542,
+      "matches_detail": [
+        {
+          "home": "Tschechien",
+          "away": "Südafrika",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.446,
+          "result": [
+            1,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 4
+        },
+        {
+          "home": "Schweiz",
+          "away": "Bosnien-Herzegowina",
+          "tip": [
+            1,
+            1
+          ],
+          "expected_points": 1.13,
+          "result": [
+            4,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Kanada",
+          "away": "Katar",
+          "tip": [
+            1,
+            1
+          ],
+          "expected_points": 1.124,
+          "result": [
+            6,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Mexiko",
+          "away": "Südkorea",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.628,
+          "result": [
+            1,
+            0
+          ],
+          "points": 4,
+          "baseline_elo_points": 3,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "USA",
+          "away": "Australien",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.284,
+          "result": [
+            2,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Schottland",
+          "away": "Marokko",
+          "tip": [
+            0,
+            0
+          ],
+          "expected_points": 1.617,
+          "result": [
+            0,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 3,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Brasilien",
+          "away": "Haiti",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.972,
+          "result": [
+            3,
+            0
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Türkei",
+          "away": "Paraguay",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.218,
+          "result": [
+            0,
+            1
+          ],
+          "points": 4,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Niederlande",
+          "away": "Schweden",
+          "tip": [
+            2,
+            1
+          ],
+          "expected_points": 1.02,
+          "result": [
+            5,
+            1
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Deutschland",
+          "away": "Elfenbeinküste",
+          "tip": [
+            1,
+            1
+          ],
+          "expected_points": 1.107,
+          "result": [
+            2,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 4,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Ecuador",
+          "away": "Curaçao",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.21,
+          "result": [
+            0,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Tunesien",
+          "away": "Japan",
+          "tip": [
+            1,
+            4
+          ],
+          "expected_points": 2.096,
+          "result": [
+            0,
+            4
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Spanien",
+          "away": "Saudi-Arabien",
+          "tip": [
+            0,
+            0
+          ],
+          "expected_points": 1.878,
+          "result": [
+            4,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Belgien",
+          "away": "Iran",
+          "tip": [
+            2,
+            1
+          ],
+          "expected_points": 1.334,
+          "result": [
+            0,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Uruguay",
+          "away": "Kap Verde",
+          "tip": [
+            0,
+            0
+          ],
+          "expected_points": 2.003,
+          "result": [
+            2,
+            2
+          ],
+          "points": 2,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Neuseeland",
+          "away": "Ägypten",
+          "tip": [
+            1,
+            2
+          ],
+          "expected_points": 1.325,
+          "result": [
+            1,
+            3
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Argentinien",
+          "away": "Österreich",
+          "tip": [
+            2,
+            0
+          ],
+          "expected_points": 1.973,
+          "result": [
+            2,
+            0
+          ],
+          "points": 4,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Frankreich",
+          "away": "Irak",
+          "tip": [
+            4,
+            0
+          ],
+          "expected_points": 2.19,
+          "result": [
+            3,
+            0
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Norwegen",
+          "away": "Senegal",
+          "tip": [
+            2,
+            1
+          ],
+          "expected_points": 1.458,
+          "result": [
+            3,
+            2
+          ],
+          "points": 3,
+          "baseline_elo_points": 3,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Jordanien",
+          "away": "Algerien",
+          "tip": [
+            1,
+            1
+          ],
+          "expected_points": 1.092,
+          "result": [
+            1,
+            2
+          ],
+          "points": 0,
+          "baseline_elo_points": 4,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Portugal",
+          "away": "Usbekistan",
+          "tip": [
+            2,
+            1
+          ],
+          "expected_points": 1.425,
+          "result": [
+            5,
+            0
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "England",
+          "away": "Ghana",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.233,
+          "result": [
+            0,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Panama",
+          "away": "Kroatien",
+          "tip": [
+            0,
+            2
+          ],
+          "expected_points": 1.961,
+          "result": [
+            0,
+            1
+          ],
+          "points": 2,
+          "baseline_elo_points": 3,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Kolumbien",
+          "away": "DR Kongo",
+          "tip": [
+            2,
+            1
+          ],
+          "expected_points": 1.3,
+          "result": [
+            1,
+            0
+          ],
+          "points": 3,
+          "baseline_elo_points": 3,
+          "baseline_draw_points": 0
+        }
+      ]
+    },
+    {
+      "matchday": 3,
+      "stage": "3. Runde",
+      "matches": 24,
+      "points": 33,
+      "points_per_match": 1.375,
+      "baseline_elo_points": 34,
+      "baseline_draw_points": 20,
+      "hits": {
+        "exact": 3,
+        "goal_diff": 1,
+        "tendency": 9
+      },
+      "hit_rate": 0.542,
+      "matches_detail": [
+        {
+          "home": "Bosnien-Herzegowina",
+          "away": "Katar",
+          "tip": [
+            2,
+            0
+          ],
+          "expected_points": 1.67,
+          "result": [
+            3,
+            1
+          ],
+          "points": 3,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Schweiz",
+          "away": "Kanada",
+          "tip": [
+            0,
+            2
+          ],
+          "expected_points": 1.593,
+          "result": [
+            2,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 4,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Marokko",
+          "away": "Haiti",
+          "tip": [
+            3,
+            0
+          ],
+          "expected_points": 2.311,
+          "result": [
+            4,
+            2
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Schottland",
+          "away": "Brasilien",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.621,
+          "result": [
+            0,
+            3
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Südafrika",
+          "away": "Südkorea",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.493,
+          "result": [
+            1,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Tschechien",
+          "away": "Mexiko",
+          "tip": [
+            0,
+            2
+          ],
+          "expected_points": 2.265,
+          "result": [
+            0,
+            3
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Curaçao",
+          "away": "Elfenbeinküste",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.944,
+          "result": [
+            0,
+            2
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Ecuador",
+          "away": "Deutschland",
+          "tip": [
+            0,
+            2
+          ],
+          "expected_points": 2.201,
+          "result": [
+            2,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Japan",
+          "away": "Schweden",
+          "tip": [
+            3,
+            1
+          ],
+          "expected_points": 1.778,
+          "result": [
+            1,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 4
+        },
+        {
+          "home": "Tunesien",
+          "away": "Niederlande",
+          "tip": [
+            0,
+            5
+          ],
+          "expected_points": 2.47,
+          "result": [
+            1,
+            3
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Paraguay",
+          "away": "Australien",
+          "tip": [
+            0,
+            0
+          ],
+          "expected_points": 1.323,
+          "result": [
+            0,
+            0
+          ],
+          "points": 4,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Türkei",
+          "away": "USA",
+          "tip": [
+            0,
+            5
+          ],
+          "expected_points": 2.434,
+          "result": [
+            3,
+            2
+          ],
+          "points": 0,
+          "baseline_elo_points": 3,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Norwegen",
+          "away": "Frankreich",
+          "tip": [
+            0,
+            2
+          ],
+          "expected_points": 1.629,
+          "result": [
+            0,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Senegal",
+          "away": "Irak",
+          "tip": [
+            2,
+            0
+          ],
+          "expected_points": 1.843,
+          "result": [
+            5,
+            0
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Kap Verde",
+          "away": "Saudi-Arabien",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.793,
+          "result": [
+            0,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Uruguay",
+          "away": "Spanien",
+          "tip": [
+            0,
+            3
+          ],
+          "expected_points": 2.245,
+          "result": [
+            0,
+            1
+          ],
+          "points": 2,
+          "baseline_elo_points": 3,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Neuseeland",
+          "away": "Belgien",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.326,
+          "result": [
+            0,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Ägypten",
+          "away": "Iran",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.342,
+          "result": [
+            1,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 4
+        },
+        {
+          "home": "Kroatien",
+          "away": "Ghana",
+          "tip": [
+            0,
+            0
+          ],
+          "expected_points": 1.505,
+          "result": [
+            2,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 4,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Panama",
+          "away": "England",
+          "tip": [
+            0,
+            2
+          ],
+          "expected_points": 2.175,
+          "result": [
+            0,
+            2
+          ],
+          "points": 4,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "DR Kongo",
+          "away": "Usbekistan",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.696,
+          "result": [
+            3,
+            1
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Kolumbien",
+          "away": "Portugal",
+          "tip": [
+            0,
+            0
+          ],
+          "expected_points": 1.15,
+          "result": [
+            0,
+            0
+          ],
+          "points": 4,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Algerien",
+          "away": "Österreich",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.334,
+          "result": [
+            3,
+            3
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "Jordanien",
+          "away": "Argentinien",
+          "tip": [
+            0,
+            5
+          ],
+          "expected_points": 2.503,
+          "result": [
+            1,
+            3
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        }
+      ]
+    },
+    {
+      "matchday": 4,
+      "stage": "Sechzehntelfinale",
+      "matches": 10,
+      "points": 15,
+      "points_per_match": 1.5,
+      "baseline_elo_points": 21,
+      "baseline_draw_points": 10,
+      "hits": {
+        "exact": 1,
+        "goal_diff": 1,
+        "tendency": 4
+      },
+      "hit_rate": 0.6,
+      "matches_detail": [
+        {
+          "home": "Südafrika",
+          "away": "Kanada",
+          "tip": [
+            0,
+            1
+          ],
+          "expected_points": 1.633,
+          "result": [
+            0,
+            1
+          ],
+          "points": 4,
+          "baseline_elo_points": 3,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Brasilien",
+          "away": "Japan",
+          "tip": [
+            1,
+            0
+          ],
+          "expected_points": 1.44,
+          "result": [
+            2,
+            1
+          ],
+          "points": 3,
+          "baseline_elo_points": 4,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Deutschland",
+          "away": "Paraguay",
+          "tip": [
+            2,
+            1
+          ],
+          "expected_points": 1.496,
+          "result": [
+            1,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 4
+        },
+        {
+          "home": "Niederlande",
+          "away": "Marokko",
+          "tip": [
+            2,
+            1
+          ],
+          "expected_points": 1.074,
+          "result": [
+            1,
+            1
+          ],
+          "points": 0,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 4
+        },
+        {
+          "home": "Elfenbeinküste",
+          "away": "Norwegen",
+          "tip": [
+            0,
+            0
+          ],
+          "expected_points": 1.411,
+          "result": [
+            1,
+            2
+          ],
+          "points": 0,
+          "baseline_elo_points": 4,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Frankreich",
+          "away": "Schweden",
+          "tip": [
+            2,
+            0
+          ],
+          "expected_points": 1.931,
+          "result": [
+            3,
+            0
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Mexiko",
+          "away": "Ecuador",
+          "tip": [
+            0,
+            0
+          ],
+          "expected_points": 2.209,
+          "result": [
+            2,
+            0
+          ],
+          "points": 0,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "England",
+          "away": "DR Kongo",
+          "tip": [
+            2,
+            0
+          ],
+          "expected_points": 1.784,
+          "result": [
+            2,
+            1
+          ],
+          "points": 2,
+          "baseline_elo_points": 4,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Belgien",
+          "away": "Senegal",
+          "tip": [
+            0,
+            0
+          ],
+          "expected_points": 1.422,
+          "result": [
+            2,
+            2
+          ],
+          "points": 2,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 2
+        },
+        {
+          "home": "USA",
+          "away": "Bosnien und Herzegowina",
+          "tip": [
+            5,
+            2
+          ],
+          "expected_points": 1.981,
+          "result": [
+            2,
+            0
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        }
+      ]
+    }
+  ],
+  "total": {
+    "matches": 82,
+    "points": 107,
+    "points_per_match": 1.305,
+    "baseline_elo_points": 123,
+    "baseline_draw_points": 72,
+    "hits": {
+      "exact": 8,
+      "goal_diff": 5,
+      "tendency": 30
+    },
+    "hit_rate": 0.524
+  },
+  "created_utc": "2026-07-02T21:32:13Z",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2
+  }
+}

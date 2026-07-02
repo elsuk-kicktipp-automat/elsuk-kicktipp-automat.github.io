@@ -8,7 +8,8 @@ __pycache__/
 .env
 
 # API-Cache (Rohdaten, jederzeit neu abrufbar)
-data/cache/*.json
+data/cache/*
+!data/cache/.gitkeep
 
 # macOS
 .DS_Store

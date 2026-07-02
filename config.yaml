@@ -1,25 +1,57 @@
-# Konfiguration für "Der Automat" – Phase 1
-league: bl1 # OpenLigaDB-Kürzel: bl1 = 1. Bundesliga
+# Konfiguration für "Der Automat"
+#
+# Aktiver Wettbewerb: WM 2026 (Test-/Härtungsbetrieb bis 19.07.2026).
+# Für den Bundesliga-Betrieb ab August 2026 umstellen auf:
+#   competition: bl1
+#   leagues: [bl1]
+#   season: 2026
+#   team_type: club
+#   neutral_venue: false
+competition: wm2026
+# OpenLigaDB verteilt die WM 2026 auf zwei Ligen: 'wm2026' = Gruppenphase
+# (Spieltag 1-3), 'mb' = K.o.-Runde (fortlaufend ab groupOrderID 4)
+leagues: [wm2026, mb]
+season: 2026
+team_type: national # wählt den ELO-Adapter: club (clubelo.com) | national (eloratings.net)
+neutral_venue: true # WM: kein Heimvorteil
 
 kicktipp:
-  # Punkteschema der Runde (Standard: 4/3/2)
+  # Punkteschema der Runde (Standard 4/3/2). Bei Unentschieden gibt es keine
+  # Tordifferenz-Punkte, nur exakt oder Tendenz (Kicktipp-Standard).
   points:
-    exact: 4     # exaktes Ergebnis
-    goal_diff: 3 # richtige Tordifferenz (inkl. falsches Unentschieden, z.B. 1:1 statt 2:2)
-    tendency: 2  # richtige Tendenz (Sieger richtig, Differenz falsch)
+    exact: 4
+    goal_diff: 3
+    tendency: 2
 
 model:
   # Zeitgewichtung: Gewicht = exp(-xi * Tage seit Spiel). 0.002/Tag ≈ Halbwertszeit ~1 Jahr.
   time_decay_xi: 0.002
   # L2-Regularisierung der Team-Parameter (hält Teams mit wenig Daten nahe am Ligaschnitt)
   l2_penalty: 0.1
-  # Tor-Raster der Wahrscheinlichkeitsmatrix: 0..max_goals
-  max_goals: 8
+  # Tor-Raster der Wahrscheinlichkeitsmatrix: 0:0 bis 6:6
+  max_goals: 6
   # Kandidaten-Tipps: 0..max_tip_goals pro Team
   max_tip_goals: 5
+  elo:
+    enabled: true
+    # Prior für beta (log-Tor-Verhältnis pro 100 Punkte ELO-Differenz);
+    # wird mitgeschätzt und zum Prior regularisiert
+    beta_prior: 0.15
+    beta_penalty: 50.0
 
 backtest:
-  # OpenLigaDB-Saisonschlüssel = Jahr des Saisonstarts (2025 = Saison 2025/26)
-  seasons: [2023, 2024, 2025]
-  # So viele Vorsaisons fließen zusätzlich als Trainingsdaten ein
-  lookback_seasons: 2
+  # Vereinsfußball: rollierend über die letzten 3 Bundesliga-Saisons
+  club:
+    competition: bl1
+    leagues: [bl1]
+    seasons: [2023, 2024, 2025]
+    lookback_seasons: 2 # Vorsaisons als Trainings-Warmup
+    team_type: club
+    neutral_venue: false
+  # WM 2026: Gruppenphase + bisherige K.o.-Spiele als Out-of-Sample-Test
+  national:
+    competition: wm2026
+    leagues: [wm2026, mb]
+    season: 2026
+    team_type: national
+    neutral_venue: true
