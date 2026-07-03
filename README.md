@@ -14,9 +14,10 @@ ist Phase 4.
 ## Wie es funktioniert
 
 1. **Spieldaten:** [OpenLigaDB](https://api.openligadb.de) (kostenlos, kein API-Key).
-   Die WM 2026 ist dort auf zwei Ligen verteilt: `wm2026` (Gruppenphase) und `mb`
-   (K.o.-Runde) – die Engine führt sie zusammen. Teams werden über normalisierte
-   Namen identifiziert, weil die Community-Ligen keine stabilen Team-IDs haben.
+   Für die WM 2026 die Liga `wm26` (durchgehend gepflegt, Gruppenphase bis
+   Finale, stabile Team-IDs). Teams werden trotzdem über normalisierte Namen
+   identifiziert – bei anderen Community-Ligen (z.B. Vereinswettbewerbe) sind
+   Namensvarianten wie „Bosnien-Herzegowina" vs. „Bosnien und Herzegowina" die Norm.
 2. **ELO-Ratings:** gemeinsame Schnittstelle mit zwei Adaptern (`team_type` in
    config.yaml): [clubelo.com](http://clubelo.com/API) für Vereine (mit historischen
    Ständen pro Stichtag) und [eloratings.net](https://eloratings.net) für
@@ -33,8 +34,9 @@ ist Phase 4.
    Kicktipp-Schema der Runde (config.yaml, Default 4/3/2). Kicktipp-Standard:
    bei Unentschieden gibt es keine Tordifferenz-Punkte, nur exakt oder Tendenz.
 5. **K.o.-Spiele:** Gewertet wird das Ergebnis nach 90 Minuten (OpenLigaDB
-   resultTypeID 2, bei der WM „Endergebniss (o.E.)" = ohne Elfmeterschießen) –
-   ein Unentschieden ist ein gültiger und tippbarer Ausgang.
+   resultTypeID 2 = „Ende der offiziellen Spielzeit", in `wm26` sauber getrennt
+   von „nach Verlängerung" und „nach Elfmeterschießen") – ein Unentschieden ist
+   ein gültiger und tippbarer Ausgang.
 6. **Quoten-Prior:** [The Odds API](https://the-odds-api.com) (Free Tier, 500
    Requests/Monat). Anders als ELO gibt es hier keinen historischen Endpunkt –
    Quoten fließen deshalb nicht ins Fitting, sondern verschieben zur

@@ -7,10 +7,13 @@
 #   season: 2026
 #   team_type: club
 #   neutral_venue: false
-competition: wm2026
-# OpenLigaDB verteilt die WM 2026 auf zwei Ligen: 'wm2026' = Gruppenphase
-# (Spieltag 1-3), 'mb' = K.o.-Runde (fortlaufend ab groupOrderID 4)
-leagues: [wm2026, mb]
+competition: wm26
+# 'wm26' ist eine einzelne, durchgehend gepflegte OpenLigaDB-Liga für das
+# gesamte Turnier (Gruppenphase bis Finale, stabile Team-IDs, korrekt und
+# zeitnah aktualisiert) - abgelöst wurde die frühere Kombination aus
+# 'wm2026' (Gruppenphase) + 'mb' (K.o.-Runde), die teils unterschiedliche
+# Team-IDs/Schreibweisen hatte und bei einzelnen Spielen hinterherhinkte.
+leagues: [wm26]
 season: 2026
 team_type: national # wählt den ELO-Adapter: club (clubelo.com) | national (eloratings.net)
 neutral_venue: true # WM: kein Heimvorteil
@@ -76,8 +79,8 @@ backtest:
     neutral_venue: false
   # WM 2026: Gruppenphase + bisherige K.o.-Spiele als Out-of-Sample-Test
   national:
-    competition: wm2026
-    leagues: [wm2026, mb]
+    competition: wm26
+    leagues: [wm26]
     season: 2026
     team_type: national
     neutral_venue: true

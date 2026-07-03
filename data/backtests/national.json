@@ -1,12 +1,12 @@
 {
   "mode": "national",
-  "competition": "wm2026",
+  "competition": "wm26",
   "season": 2026,
   "elo_hinweis": "eloratings.net liefert nur aktuelle Ratings (leichter Lookahead-Bias)",
   "rounds": [
     {
       "matchday": 1,
-      "stage": "1. Runde",
+      "stage": "Gruppenphase 1",
       "matches": 24,
       "points": 25,
       "points_per_match": 1.042,
@@ -53,7 +53,7 @@
         },
         {
           "home": "Kanada",
-          "away": "Bosnien-Herzegowina",
+          "away": "Bosnien und Herzegowina",
           "tip": [
             1,
             0
@@ -244,7 +244,7 @@
           "baseline_draw_points": 4
         },
         {
-          "home": "Saudi-Arabien",
+          "home": "Saudi Arabien",
           "away": "Uruguay",
           "tip": [
             0,
@@ -407,7 +407,7 @@
     },
     {
       "matchday": 2,
-      "stage": "2. Runde",
+      "stage": "Gruppenphase 2",
       "matches": 24,
       "points": 49,
       "points_per_match": 2.042,
@@ -438,7 +438,7 @@
         },
         {
           "home": "Schweiz",
-          "away": "Bosnien-Herzegowina",
+          "away": "Bosnien und Herzegowina",
           "tip": [
             2,
             1
@@ -614,7 +614,7 @@
         },
         {
           "home": "Spanien",
-          "away": "Saudi-Arabien",
+          "away": "Saudi Arabien",
           "tip": [
             2,
             0
@@ -808,21 +808,21 @@
     },
     {
       "matchday": 3,
-      "stage": "3. Runde",
+      "stage": "Gruppenphase 3",
       "matches": 24,
-      "points": 42,
-      "points_per_match": 1.75,
-      "baseline_elo_points": 34,
-      "baseline_draw_points": 20,
+      "points": 46,
+      "points_per_match": 1.917,
+      "baseline_elo_points": 38,
+      "baseline_draw_points": 16,
       "hits": {
         "exact": 4,
         "goal_diff": 2,
-        "tendency": 10
+        "tendency": 12
       },
-      "hit_rate": 0.667,
+      "hit_rate": 0.75,
       "matches_detail": [
         {
-          "home": "Bosnien-Herzegowina",
+          "home": "Bosnien und Herzegowina",
           "away": "Katar",
           "tip": [
             2,
@@ -1022,12 +1022,12 @@
           ],
           "expected_points": 1.467,
           "result": [
-            0,
-            0
+            1,
+            4
           ],
-          "points": 0,
-          "baseline_elo_points": 0,
-          "baseline_draw_points": 2
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
         },
         {
           "home": "Senegal",
@@ -1047,7 +1047,7 @@
         },
         {
           "home": "Kap Verde",
-          "away": "Saudi-Arabien",
+          "away": "Saudi Arabien",
           "tip": [
             1,
             0
@@ -1086,12 +1086,12 @@
           ],
           "expected_points": 1.864,
           "result": [
-            0,
-            0
+            1,
+            5
           ],
-          "points": 0,
-          "baseline_elo_points": 0,
-          "baseline_draw_points": 2
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
         },
         {
           "home": "Ägypten",
@@ -1210,17 +1210,17 @@
     {
       "matchday": 4,
       "stage": "Sechzehntelfinale",
-      "matches": 10,
-      "points": 22,
-      "points_per_match": 2.2,
-      "baseline_elo_points": 21,
-      "baseline_draw_points": 10,
+      "matches": 14,
+      "points": 35,
+      "points_per_match": 2.5,
+      "baseline_elo_points": 29,
+      "baseline_draw_points": 14,
       "hits": {
-        "exact": 2,
-        "goal_diff": 2,
+        "exact": 6,
+        "goal_diff": 1,
         "tendency": 4
       },
-      "hit_rate": 0.8,
+      "hit_rate": 0.786,
       "matches_detail": [
         {
           "home": "Südafrika",
@@ -1229,7 +1229,7 @@
             0,
             1
           ],
-          "expected_points": 1.486,
+          "expected_points": 1.49,
           "result": [
             0,
             1
@@ -1245,7 +1245,7 @@
             1,
             0
           ],
-          "expected_points": 1.299,
+          "expected_points": 1.305,
           "result": [
             2,
             1
@@ -1261,7 +1261,7 @@
             2,
             1
           ],
-          "expected_points": 1.333,
+          "expected_points": 1.335,
           "result": [
             1,
             1
@@ -1277,7 +1277,7 @@
             2,
             1
           ],
-          "expected_points": 1.17,
+          "expected_points": 1.176,
           "result": [
             1,
             1
@@ -1290,15 +1290,15 @@
           "home": "Elfenbeinküste",
           "away": "Norwegen",
           "tip": [
-            0,
-            1
+            1,
+            2
           ],
-          "expected_points": 1.451,
+          "expected_points": 1.377,
           "result": [
             1,
             2
           ],
-          "points": 3,
+          "points": 4,
           "baseline_elo_points": 4,
           "baseline_draw_points": 0
         },
@@ -1306,15 +1306,15 @@
           "home": "Frankreich",
           "away": "Schweden",
           "tip": [
-            2,
+            3,
             0
           ],
-          "expected_points": 1.933,
+          "expected_points": 2.019,
           "result": [
             3,
             0
           ],
-          "points": 2,
+          "points": 4,
           "baseline_elo_points": 2,
           "baseline_draw_points": 0
         },
@@ -1325,7 +1325,7 @@
             1,
             0
           ],
-          "expected_points": 1.326,
+          "expected_points": 1.33,
           "result": [
             2,
             0
@@ -1341,7 +1341,7 @@
             2,
             0
           ],
-          "expected_points": 1.689,
+          "expected_points": 1.704,
           "result": [
             2,
             1
@@ -1354,15 +1354,15 @@
           "home": "Belgien",
           "away": "Senegal",
           "tip": [
-            1,
+            2,
             1
           ],
-          "expected_points": 1.043,
+          "expected_points": 1.078,
           "result": [
             2,
             2
           ],
-          "points": 2,
+          "points": 0,
           "baseline_elo_points": 0,
           "baseline_draw_points": 2
         },
@@ -1373,7 +1373,7 @@
             2,
             0
           ],
-          "expected_points": 1.72,
+          "expected_points": 1.732,
           "result": [
             2,
             0
@@ -1381,27 +1381,92 @@
           "points": 4,
           "baseline_elo_points": 2,
           "baseline_draw_points": 0
+        },
+        {
+          "home": "Spanien",
+          "away": "Österreich",
+          "tip": [
+            2,
+            0
+          ],
+          "expected_points": 1.733,
+          "result": [
+            3,
+            0
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Portugal",
+          "away": "Kroatien",
+          "tip": [
+            2,
+            1
+          ],
+          "expected_points": 1.324,
+          "result": [
+            2,
+            1
+          ],
+          "points": 4,
+          "baseline_elo_points": 4,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Schweiz",
+          "away": "Algerien",
+          "tip": [
+            2,
+            1
+          ],
+          "expected_points": 1.272,
+          "result": [
+            2,
+            0
+          ],
+          "points": 2,
+          "baseline_elo_points": 2,
+          "baseline_draw_points": 0
+        },
+        {
+          "home": "Australien",
+          "away": "Ägypten",
+          "tip": [
+            1,
+            1
+          ],
+          "expected_points": 1.088,
+          "result": [
+            1,
+            1
+          ],
+          "points": 4,
+          "baseline_elo_points": 0,
+          "baseline_draw_points": 4
         }
       ]
     }
   ],
   "total": {
-    "matches": 82,
-    "points": 138,
-    "points_per_match": 1.683,
-    "baseline_elo_points": 123,
+    "matches": 86,
+    "points": 155,
+    "points_per_match": 1.802,
+    "baseline_elo_points": 135,
     "baseline_draw_points": 72,
     "hits": {
-      "exact": 11,
-      "goal_diff": 10,
-      "tendency": 32
+      "exact": 15,
+      "goal_diff": 9,
+      "tendency": 34
     },
-    "hit_rate": 0.646
+    "hit_rate": 0.674
   },
-  "created_utc": "2026-07-03T05:15:48Z",
+  "created_utc": "2026-07-03T21:47:22Z",
   "kicktipp_scheme": {
     "exact": 4,
     "goal_diff": 3,
-    "tendency": 2
+    "tendency": 2,
+    "advance": 2
   }
 }

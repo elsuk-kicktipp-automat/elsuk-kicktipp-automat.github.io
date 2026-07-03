@@ -53,6 +53,13 @@ class TestTeams:
         assert is_placeholder("Verlierer HF 1")
         assert not is_placeholder("Deutschland")
 
+    def test_is_placeholder_slash_code_pattern(self):
+        # wm26-Liga: Platzhalter als "XXX/YYY" statt "Sieger SF 12"
+        assert is_placeholder("ARG/CPV")
+        assert is_placeholder("MEX/ENG")
+        assert not is_placeholder("USA")
+        assert not is_placeholder("Bosnien-Herzegowina")
+
     def test_is_knockout_stage(self):
         for stage in ("Sechzehntelfinale", "Achtelfinale", "Viertelfinale", "Halbfinale", "Finale"):
             assert is_knockout_stage(stage)
