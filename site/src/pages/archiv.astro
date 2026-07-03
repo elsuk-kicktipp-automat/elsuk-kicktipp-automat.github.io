@@ -19,7 +19,7 @@ const results = loadResults();
             <span class="muted"> · {scored.points_total} Punkte aus {scored.matches_scored} Spielen</span>
           )}
         </h2>
-        {md.hinweis && <p class="notice">⚠️ {md.hinweis}</p>}
+        {md.hinweis && <div class="notice">{md.hinweis}</div>}
         <div class="table-wrap">
           <table>
             <thead>

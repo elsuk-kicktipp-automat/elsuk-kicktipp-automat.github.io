@@ -7,48 +7,94 @@ const matchdays = loadMatchdays();
 const results = loadResults();
 const current = matchdays.at(-1);
 const scored = current ? resultsFor(current, results) : undefined;
+
+const COMPETITION_LABELS = { wm2026: 'WM 2026', bl1: 'Bundesliga' };
+const competitionLabel = current
+  ? COMPETITION_LABELS[current.competition] ?? current.competition
+  : '';
+
+// Zweifarbiger Hero-Titel: bei "…finale" wird der Suffix abgesetzt eingefärbt,
+// sonst das letzte Wort ("1. Runde" -> "1." / "Runde").
+function splitTitle(stage) {
+  const finale = stage.match(/^(.*?)(finale)$/i);
+  if (finale && finale[1]) return [finale[1], finale[2]];
+  const idx = stage.lastIndexOf(' ');
+  return idx > -1 ? [stage.slice(0, idx + 1), stage.slice(idx + 1)] : ['', stage];
+}
+const [titlePrefix, titleSuffix] = current ? splitTitle(current.stage) : ['', ''];
+
+const stats = scored?.matches_scored > 0
+  ? [
+      { value: String(scored.points_total), label: 'Punkte bisher' },
+      { value: `${scored.matches_scored}/${current.matches.length}`, label: 'Spiele gewertet' },
+      { value: (scored.points_total / scored.matches_scored).toFixed(2), label: 'Punkte / Spiel' },
+      ...(scored.brier_avg != null ? [{ value: scored.brier_avg.toFixed(3), label: 'Ø Brier-Score' }] : []),
+    ]
+  : [];
 ---
 
 <Layout title="Aktueller Spieltag">
   {current ? (
     <>
-      <h1>{current.stage}</h1>
-      <p class="muted">
-        {current.competition === 'wm2026' ? 'WM 2026' : current.competition} · Runde {current.matchday}
-      </p>
-      {current.hinweis && <p class="notice">⚠️ {current.hinweis}</p>}
-      {scored?.matches_scored > 0 && (
-        <div class="stat-grid">
-          <div class="stat-tile">
-            <span class="stat-value accent">{scored.points_total}</span>
-            <span class="stat-label">Punkte bisher</span>
-          </div>
-          <div class="stat-tile">
-            <span class="stat-value">{scored.matches_scored}/{current.matches.length}</span>
-            <span class="stat-label">Spiele gewertet</span>
-          </div>
-          <div class="stat-tile">
-            <span class="stat-value">{(scored.points_total / scored.matches_scored).toFixed(2)}</span>
-            <span class="stat-label">Punkte / Spiel</span>
-          </div>
-          {scored.brier_avg != null && (
-            <div class="stat-tile">
-              <span class="stat-value">{scored.brier_avg.toFixed(3)}</span>
-              <span class="stat-label">Ø Brier-Score</span>
-            </div>
-          )}
+      <section class="hero">
+        <div class="kicker">
+          <span class="kicker-bar"></span>
+          <span class="kicker-text">{competitionLabel} · Runde {current.matchday}</span>
         </div>
+        <h1>{titlePrefix}<span class="accent">{titleSuffix}</span></h1>
+      </section>
+
+      {current.hinweis && <div class="notice">{current.hinweis}</div>}
+
+      {stats.length > 0 && (
+        <section class="stats">
+          {stats.map((s) => (
+            <div class="stat-tile">
+              <span class="stat-value accent">{s.value}</span>
+              <span class="stat-label">{s.label}</span>
+            </div>
+          ))}
+        </section>
       )}
-      <div class="match-grid">
-        {current.matches.map((m) => (
-          <MatchCard match={m} scored={scoredMatch(m, scored)} />
+
+      <section class="matches">
+        {current.matches.map((m, i) => (
+          <MatchCard match={m} scored={scoredMatch(m, scored)} delay={i * 60} />
         ))}
-      </div>
+      </section>
     </>
   ) : (
     <>
       <h1>Saisonpause</h1>
-      <p>Der Automat wartet auf den nächsten Spielplan. Bis dahin: <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/bilanz/`}>die Bilanz</a>.</p>
+      <p>
+        Der Automat wartet auf den nächsten Spielplan. Bis dahin:{' '}
+        <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/bilanz/`}>die Bilanz</a>.
+      </p>
     </>
   )}
 </Layout>
+
+<style>
+  .hero { padding: 44px 4px 0; animation: riseIn 0.5s both; }
+  .kicker { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+  .kicker-bar {
+    width: 44px; height: 5px;
+    background: var(--lime);
+    transform: skewX(-12deg);
+    box-shadow: 0 0 16px rgba(212, 255, 63, 0.5);
+  }
+  .kicker-text {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text-muted);
+  }
+  .hero h1 { margin: 0; }
+
+  .stat-tile { animation: riseIn 0.5s 0.1s both; }
+
+  .matches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+    gap: 22px;
+    margin: 28px 0 0;
+  }
+</style>

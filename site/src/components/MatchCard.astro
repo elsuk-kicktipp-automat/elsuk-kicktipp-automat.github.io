@@ -2,67 +2,208 @@
 import { formatKickoff } from '../lib/data.mjs';
 
 // match: Eintrag aus data/matchdays/*.json, scored: passender Eintrag aus data/results/
-const { match, scored } = Astro.props;
+const { match, scored, delay = 0 } = Astro.props;
 const sealed = match.status === 'sealed';
 const probs = match.factors?.probabilities;
 const xg = match.factors?.expected_goals;
 const pointsClass = scored ? `p${scored.points}` : '';
 ---
 
-<article class="card">
+<article class="match-card" style={`animation-delay:${delay}ms`}>
   <div class="match-head">
-    <span class="pairing">{match.home} – {match.away}</span>
-    <span class="kickoff">{formatKickoff(match.kickoff_utc)}</span>
+    <span class="match-title">{match.home} <span class="sep">–</span> {match.away}</span>
+    <span class="match-kickoff">{formatKickoff(match.kickoff_utc)}</span>
   </div>
 
   {sealed ? (
-    <>
-      <p><span class="badge sealed">🔒 Tipp abgegeben, versiegelt</span></p>
+    <div class="sealed-block">
+      <span class="badge badge-muted">🔒 Tipp abgegeben, versiegelt</span>
       <p class="hash" title="SHA-256 der versiegelten Tipp-Payload">{match.hash}</p>
-      <p class="muted" style="font-size:0.85rem">
-        Der Tipp steht fest und wird nach Anstoß enthüllt – der Hash beweist es.
-      </p>
-    </>
+      <p class="sealed-note">Der Tipp steht fest und wird nach Anstoß enthüllt – der Hash beweist es.</p>
+    </div>
   ) : (
     <>
-      <p>
-        <span class="tip">{match.tip[0]}:{match.tip[1]}</span>
+      <div class="match-tip-row">
+        <span class="tip-chip"><span>{match.tip[0]}:{match.tip[1]}</span></span>
         {scored && (
           <>
-            {' '}<span class="muted">Ergebnis {scored.result[0]}:{scored.result[1]}</span>
-            {' '}<span class:list={['badge', pointsClass]}>{scored.points} Punkte</span>
+            <span class="result">Ergebnis <b>{scored.result[0]}:{scored.result[1]}</b></span>
+            <span class:list={['badge', 'badge-points', pointsClass]}>{scored.points} Punkte</span>
           </>
         )}
         {match.advance_tip && (
-          <>
-            {' '}<span class="badge info" title="Zusatzfrage: Sieger im Elfmeterschießen bei Remis nach 90 Minuten">
-              🥅 Elfmeterschießen: {match.advance_tip.pick} ({Math.round(match.advance_tip.probability * 100)} %)
-            </span>
-          </>
+          <span class="badge badge-lime" title="Zusatzfrage: Sieger im Elfmeterschießen bei Remis nach 90 Minuten">
+            🥅 Elfmeterschießen: {match.advance_tip.pick} ({Math.round(match.advance_tip.probability * 100)} %)
+          </span>
         )}
-      </p>
+      </div>
+
       {probs && xg && (
-        <>
-          <div class="prob-bar" role="img" aria-label={`Heimsieg ${Math.round(probs.home * 100)} Prozent, Remis ${Math.round(probs.draw * 100)} Prozent, Auswärtssieg ${Math.round(probs.away * 100)} Prozent`}>
-            <span class="p-home" style={`width:${probs.home * 100}%`}></span>
-            <span class="p-draw" style={`width:${probs.draw * 100}%`}></span>
-            <span class="p-away" style={`width:${probs.away * 100}%`}></span>
+        <div class="probs">
+          <div
+            class="prob-bar"
+            role="img"
+            aria-label={`Heimsieg ${Math.round(probs.home * 100)} Prozent, Remis ${Math.round(probs.draw * 100)} Prozent, Auswärtssieg ${Math.round(probs.away * 100)} Prozent`}
+          >
+            <span class="bar bar-home" style={`width:${probs.home * 100}%`}></span>
+            <span class="bar bar-draw" style={`width:${probs.draw * 100}%`}></span>
+            <span class="bar bar-away" style={`width:${probs.away * 100}%`}></span>
           </div>
-          <p class="factors">
-            Heimsieg {Math.round(probs.home * 100)} % · Remis {Math.round(probs.draw * 100)} % ·
-            Auswärtssieg {Math.round(probs.away * 100)} % · erwartete Tore {xg[0]}:{xg[1]}
-          </p>
-        </>
+          <div class="prob-legend">
+            <span><i class="dot dot-home"></i> Heim {Math.round(probs.home * 100)} %</span>
+            <span><i class="dot dot-draw"></i> Remis {Math.round(probs.draw * 100)} %</span>
+            <span><i class="dot dot-away"></i> Auswärts {Math.round(probs.away * 100)} %</span>
+            <span class="xg">xG {xg[0]} : {xg[1]}</span>
+          </div>
+        </div>
       )}
-      {match.begruendung && <p style="font-size:0.92rem">{match.begruendung}</p>}
+
+      {match.begruendung && <p class="analysis">{match.begruendung}</p>}
+
       {match.salt && match.hash && (
-        <details>
+        <details class="reveal-proof">
           <summary>Fairness-Beweis nachrechnen</summary>
           <p>Salt: <code>{match.salt}</code></p>
           <p>Hash: <code>{match.hash}</code></p>
-          <p>Anleitung: siehe „Wie ich denke“.</p>
+          <p>Anleitung: siehe „Wie ich denke".</p>
         </details>
       )}
     </>
   )}
 </article>
+
+<style>
+  .match-card {
+    border-radius: var(--r-card);
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-highlight), var(--shadow-card);
+    padding: 0 0 22px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: riseIn 0.5s both;
+  }
+  .match-card:hover {
+    transform: perspective(1000px) rotateX(1.5deg) translateY(-5px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), var(--shadow-card-hover);
+  }
+
+  .match-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 16px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .match-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .match-title .sep { color: var(--text-muted); }
+  .match-kickoff { font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.06em; }
+
+  .match-tip-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 22px 4px;
+  }
+  .tip-chip {
+    background: var(--lime);
+    color: var(--bg);
+    transform: skewX(-12deg);
+    padding: 6px 16px;
+    box-shadow: var(--glow-lime);
+  }
+  .tip-chip span {
+    display: inline-block;
+    transform: skewX(12deg);
+    font-family: var(--font-display);
+    font-size: 26px;
+  }
+  .result { font-size: 14px; color: var(--text-muted); }
+  .result b { color: var(--text); }
+
+  .badge {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--r-badge);
+  }
+  .badge-points.p4, .badge-points.p3, .badge-points.p2 {
+    color: var(--gold);
+    border: 1px solid rgba(232, 201, 106, 0.4);
+    background: rgba(232, 201, 106, 0.08);
+  }
+  .badge-points.p0 {
+    color: var(--red);
+    border: 1px solid rgba(255, 77, 94, 0.4);
+    background: rgba(255, 77, 94, 0.08);
+  }
+  .badge-lime {
+    color: var(--lime);
+    border: 1px solid rgba(212, 255, 63, 0.35);
+    background: rgba(212, 255, 63, 0.07);
+  }
+  .badge-muted {
+    color: var(--text-muted);
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .probs { padding: 16px 22px 0; }
+  .prob-bar { display: flex; height: 8px; gap: 2px; }
+  .bar { transform: skewX(-24deg); }
+  .bar-home { background: var(--lime); box-shadow: 0 0 12px rgba(212, 255, 63, 0.4); }
+  .bar-draw { background: rgba(255, 255, 255, 0.18); }
+  .bar-away { background: var(--red); }
+  .prob-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    margin-top: 9px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .dot { display: inline-block; width: 9px; height: 9px; }
+  .dot-home { background: var(--lime); }
+  .dot-draw { background: #8b93a5; }
+  .dot-away { background: var(--red); }
+  .xg { margin-left: auto; }
+
+  .analysis { margin: 16px 22px 0; font-size: 13.5px; line-height: 1.6; color: var(--text-body); }
+
+  .reveal-proof {
+    margin: 14px 22px 0;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+  .reveal-proof summary { cursor: pointer; color: var(--lime); font-weight: 600; }
+  .reveal-proof code { font-family: var(--font-mono); font-size: 11.5px; word-break: break-all; }
+
+  .sealed-block { padding: 16px 22px 0; }
+  .sealed-block .badge-muted { display: inline-block; }
+  .hash {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    word-break: break-all;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin: 12px 0 0;
+  }
+  .sealed-note { font-size: 12.5px; color: var(--text-muted); margin: 10px 0 0; }
+</style>
