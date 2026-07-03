@@ -4,7 +4,7 @@
 
 Wichtig fuer Claude / naechsten Agenten:
 
-- Aktueller produktiver Stand ist `main` bei Commit `c037761` (`Fix bilanz Astro build`).
+- Aktueller produktiver Stand ist `main` bei Commit `9f6cfcb` (`Document manual result source`).
 - GitHub Actions nach diesem Commit:
   - `Tests`: success
   - `Site deployen`: success
@@ -14,6 +14,33 @@ Wichtig fuer Claude / naechsten Agenten:
   Diese lokale Claude-Konfiguration nicht committen.
 
 ### Was am 2026-07-03 gemacht wurde
+
+Manueller Ergebnis-Fallback:
+
+- Problem: OpenLigaDB-API meldete Schweiz - Algerien (`matchID 82070`) weiterhin offen:
+  - `matchIsFinished: false`
+  - `matchResults: []`
+- Die OpenLigaDB-Webseite zeigte dagegen bereits das Ergebnis `2:0`.
+- Die Webseite ist eine Blazor-Server-App; das sichtbare Ergebnis steht nicht im initialen HTML und laesst sich nicht sauber per statischem HTML-Scraping lesen.
+- Deshalb wurde ein kostenloser, nachvollziehbarer Repo-Fallback eingebaut:
+  - `data/manual_results/*.json`
+  - `engine.evaluate.load_manual_results()`
+  - `engine.evaluate.main()` merged diese Overrides nach den API-Ergebnissen.
+- Konkreter Override:
+  - `data/manual_results/wm2026_2026_md04.json`
+  - Schweiz - Algerien, OpenLigaDB-Match-ID `82070`, Ergebnis `[2, 0]`
+- Danach wurde `data/results/wm2026_2026_md04.json` neu bewertet:
+  - `points_total: 2`
+  - `matches_scored: 1`
+  - Schweiz - Algerien: Tipp `2:1`, Ergebnis `2:0`, `2` Punkte
+- Test ergaenzt:
+  - `tests/test_evaluate.py::TestEvaluateMatchday::test_loads_manual_results`
+
+Wichtig:
+
+- Manuelle Overrides sind bewusst committed, nicht gitignored.
+- Sie sollen nur fuer Faelle genutzt werden, in denen die API haengt oder nachweislich unvollstaendig ist.
+- Der Override ist transparent durch `openligadb_match_id` und `source_url` dokumentiert.
 
 Site-Redesign / Dashboard-Polish:
 
