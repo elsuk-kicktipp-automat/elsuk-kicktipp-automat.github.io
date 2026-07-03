@@ -1,5 +1,104 @@
 # Claude Handoff
 
+## Aktueller Stand 2026-07-03: Site-Redesign ist auf main deployed
+
+Wichtig fuer Claude / naechsten Agenten:
+
+- Aktueller produktiver Stand ist `main` bei Commit `c037761` (`Fix bilanz Astro build`).
+- GitHub Actions nach diesem Commit:
+  - `Tests`: success
+  - `Site deployen`: success
+- GitHub Pages ist aktualisiert:
+  - <https://elsuk-kicktipp-automat.github.io/der-automat/>
+- Lokaler Arbeitsbaum war nach dem Deploy sauber bis auf untracked `.claude/`.
+  Diese lokale Claude-Konfiguration nicht committen.
+
+### Was am 2026-07-03 gemacht wurde
+
+Site-Redesign / Dashboard-Polish:
+
+- `site/src/layouts/Layout.astro`
+  - dunkles Dashboard-Theme
+  - globale KPI-Kacheln (`.stat-grid`, `.stat-tile`)
+  - Balkendiagramm-Styles (`.bar-chart`, `.bar-row`, `.bar-track`, `.bar-fill`)
+  - Wahrscheinlichkeitsbalken und Punkt-Badges
+- `site/src/pages/index.astro`
+  - aktueller Spieltag zeigt KPI-Kacheln fuer bereits gewertete Spiele
+- `site/src/components/MatchCard.astro`
+  - Wahrscheinlichkeitsbalken Heim/Remis/Auswaerts
+  - Punkt-Badges fuer gewertete Tipps
+- `site/src/pages/bilanz.astro`
+  - Live-Bilanz mit KPI-Kacheln
+  - Balkenvergleich Automat vs. Schattentipper
+  - Backtest-KPIs und Backtest-Balkenvergleich
+
+### Build-Falle in `bilanz.astro`
+
+Der Astro-Build brach mehrfach mit einer irrefuehrenden Meldung ab:
+
+```text
+Unterminated regular expression
+Location: site/src/pages/bilanz.astro:<line>:56
+```
+
+Tatsaechlicher Kontext:
+
+- Python-Tests waren auf GitHub gruen.
+- Nur `npm run build` / Astro-Site-Build war rot.
+- Die gemeldete Zeile zeigte auf normales HTML in `bilanz.astro`, war aber nur ein Symptom.
+- Der Compiler erzeugte kaputten JS-Code, solange in `bilanz.astro` folgende Dinge kombiniert waren:
+  - TypeScript-Typannotationen im Frontmatter
+  - Fragment-Kurzform `<>...</>`
+  - verschachtelte Tabellen-`<strong>`-Tags in dynamischen Rows
+  - JSX/`class:list`/Inline-Style-Ausdruecke in den Balken-Maps
+
+Der lokal gruen gebaute Fix:
+
+- `bilanz.astro` ist im Frontmatter wieder plain JavaScript, keine TS-Typen.
+- Balken werden per `barHtml(...)` vorbereitet und mit `set:html` eingesetzt.
+- Die Fragment-Kurzform wurde durch normale `<div>`-Wrapper ersetzt.
+- Die problematischen Tabellen-`<strong>`-Tags wurden entfernt.
+- Lokaler Check:
+
+```powershell
+cd site
+npm run build
+```
+
+Ergebnis:
+
+```text
+4 page(s) built
+Complete!
+```
+
+### Lokales Setup fuer Site-Checks
+
+Python-Tests laufen im Repo-Root:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python -m pytest tests/ -v
+```
+
+Astro-Site im `site/`-Ordner:
+
+```powershell
+cd site
+npm ci
+npm run build
+```
+
+Hinweise:
+
+- `npm ci` kann Warnungen zu `tsconfck`, `audit` und `allow-scripts` ausgeben; der erfolgreiche Build ist entscheidend.
+- Lokal wurde Node `v24.18.0` / npm `11.16.0` genutzt.
+- GitHub Actions nutzt Node 22.
+
+---
+
 Stand: 2026-07-02, nach Codex-Zwischenarbeit im bestehenden Claude-Umbau.
 
 ## Ausgangslage bei Übernahme
