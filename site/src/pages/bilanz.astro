@@ -9,6 +9,13 @@ const national = loadBacktest('national');
 const live = [...loadResults().values()].sort((a, b) => a.matchday - b.matchday);
 const liveTotal = live.reduce((s, r) => s + r.points_total, 0);
 const liveScored = live.reduce((s, r) => s + r.matches_scored, 0);
+
+// Schatten-Summen nur, wenn der Tipper in allen gewerteten Spielen mitlief
+function sumShadow(name: string): number | null {
+  const rows = live.filter((r) => r.matches_scored > 0);
+  if (!rows.every((r) => r.shadow_matches?.[name] === r.matches_scored)) return null;
+  return rows.reduce((s: number, r) => s + (r.shadow_points?.[name] ?? 0), 0);
+}
 ---
 
 <Layout title="Bilanz">
@@ -18,29 +25,48 @@ const liveScored = live.reduce((s, r) => s + r.matches_scored, 0);
   {liveScored === 0 ? (
     <p class="muted">Noch keine gewerteten Spiele – die Abrechnung folgt nach den Anstößen.</p>
   ) : (
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr><th>Runde</th><th class="num">Spiele</th><th class="num">Punkte</th><th class="num">Ø/Spiel</th></tr>
-        </thead>
-        <tbody>
-          {live.filter((r) => r.matches_scored > 0).map((r) => (
+    <>
+      <p class="muted">
+        Neben dem Automaten laufen drei Schattentipper mit: das wahrscheinlichste
+        Einzelergebnis (statt EV-Optimierung), immer 2:1 für den ELO-Favoriten
+        und immer 1:1. Brier misst die Kalibrierung der Wahrscheinlichkeiten
+        (kleiner = besser).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
             <tr>
-              <td>{r.stage}</td>
-              <td class="num">{r.matches_scored}</td>
-              <td class="num">{r.points_total}</td>
-              <td class="num">{(r.points_total / r.matches_scored).toFixed(2)}</td>
+              <th>Runde</th><th class="num">Spiele</th>
+              <th class="num">Automat</th><th class="num">wahrsch. Ergebnis</th>
+              <th class="num">ELO-Favorit 2:1</th><th class="num">immer 1:1</th>
+              <th class="num">Ø Brier</th>
             </tr>
-          ))}
-          <tr>
-            <td><strong>Gesamt</strong></td>
-            <td class="num"><strong>{liveScored}</strong></td>
-            <td class="num"><strong>{liveTotal}</strong></td>
-            <td class="num"><strong>{(liveTotal / liveScored).toFixed(2)}</strong></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {live.filter((r) => r.matches_scored > 0).map((r) => (
+              <tr>
+                <td>{r.stage}</td>
+                <td class="num">{r.matches_scored}</td>
+                <td class="num"><strong>{r.points_total}</strong></td>
+                <td class="num">{r.shadow_points?.most_probable ?? '–'}</td>
+                <td class="num">{r.shadow_points?.elo_favorite ?? '–'}</td>
+                <td class="num">{r.shadow_points?.always_draw ?? '–'}</td>
+                <td class="num">{r.brier_avg?.toFixed(3) ?? '–'}</td>
+              </tr>
+            ))}
+            <tr>
+              <td><strong>Gesamt</strong></td>
+              <td class="num"><strong>{liveScored}</strong></td>
+              <td class="num"><strong>{liveTotal}</strong></td>
+              <td class="num"><strong>{sumShadow('most_probable') ?? '–'}</strong></td>
+              <td class="num"><strong>{sumShadow('elo_favorite') ?? '–'}</strong></td>
+              <td class="num"><strong>{sumShadow('always_draw') ?? '–'}</strong></td>
+              <td class="num"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </>
   )}
 
   <h2>Backtests</h2>

@@ -12,7 +12,7 @@ import numpy as np
 
 from .config import MATCHDAYS_DIR, PREDICTIONS_DIR, PROJECT_ROOT
 from .model import DixonColes
-from .optimizer import best_tip
+from .optimizer import ALWAYS_DRAW_TIP, best_tip, elo_favorite_tip, most_probable_score
 from .sources.elo import make_elo_source
 from .sources.openligadb import Match, fetch_competition
 
@@ -99,6 +99,15 @@ def predict_matches(
                 "stage": m.stage_name,
                 "tip": list(tip),
                 "expected_points": round(ev, 3),
+                # Schattentipper (concept.md Schicht 4): parallel geführte
+                # Vergleichsstrategien, abgerechnet in evaluate
+                "shadow_tips": {
+                    "most_probable": list(most_probable_score(matrix)),
+                    "elo_favorite": list(
+                        elo_favorite_tip((elo or {}).get(m.home_key), (elo or {}).get(m.away_key))
+                    ),
+                    "always_draw": list(ALWAYS_DRAW_TIP),
+                },
                 "factors": {
                     "expected_goals": [round(lam, 2), round(mu, 2)],
                     "probabilities": {k: round(v, 3) for k, v in probs.items()},

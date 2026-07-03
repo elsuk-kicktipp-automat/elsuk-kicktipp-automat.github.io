@@ -34,7 +34,7 @@ REVEAL_DELAY = timedelta(minutes=5)
 HASHED_FIELDS = ("home", "away", "kickoff_utc", "tip", "begruendung")
 
 # Beim Entsiegeln werden zusätzlich diese Felder veröffentlicht.
-REVEALED_FIELDS = ("tip", "expected_points", "factors", "begruendung")
+REVEALED_FIELDS = ("tip", "expected_points", "factors", "begruendung", "shadow_tips")
 
 
 def _fernet(secret: str) -> Fernet:
@@ -140,7 +140,7 @@ def unseal_all(
             )
             priv = by_pairing.get((pm["home"], pm["away"]))
             if priv is not None and pm["status"] == "sealed" and now >= kickoff + REVEAL_DELAY:
-                pm.update({field: priv[field] for field in REVEALED_FIELDS})
+                pm.update({field: priv[field] for field in REVEALED_FIELDS if field in priv})
                 pm["salt"] = priv["salt"]
                 pm["status"] = "revealed"
                 changed = True

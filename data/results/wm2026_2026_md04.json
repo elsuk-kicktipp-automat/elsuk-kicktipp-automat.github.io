@@ -13,6 +13,17 @@
     "tendency": 0,
     "miss": 0
   },
+  "shadow_points": {
+    "most_probable": 0,
+    "elo_favorite": 0,
+    "always_draw": 0
+  },
+  "shadow_matches": {
+    "most_probable": 0,
+    "elo_favorite": 0,
+    "always_draw": 0
+  },
+  "brier_avg": null,
   "matches": [
     {
       "home": "Schweiz",
