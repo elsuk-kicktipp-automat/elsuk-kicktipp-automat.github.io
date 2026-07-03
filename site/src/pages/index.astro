@@ -19,6 +19,7 @@ const scored = current ? resultsFor(current, results) : undefined;
         {scored?.matches_scored > 0 &&
           ` · bisher ${scored.points_total} Punkte aus ${scored.matches_scored} Spielen`}
       </p>
+      {current.hinweis && <p class="notice">⚠️ {current.hinweis}</p>}
       <div class="match-grid">
         {current.matches.map((m) => (
           <MatchCard match={m} scored={scoredMatch(m, scored)} />
