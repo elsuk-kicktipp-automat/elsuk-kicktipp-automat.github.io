@@ -12,9 +12,16 @@ import numpy as np
 
 from .config import MATCHDAYS_DIR, PREDICTIONS_DIR, PROJECT_ROOT
 from .model import DixonColes
-from .optimizer import ALWAYS_DRAW_TIP, best_tip, elo_favorite_tip, most_probable_score
+from .optimizer import (
+    ALWAYS_DRAW_TIP,
+    best_tip,
+    elo_favorite_tip,
+    most_probable_score,
+    penalty_shootout_favorite,
+)
 from .sources.elo import make_elo_source
 from .sources.openligadb import Match, fetch_competition
+from .teams import is_knockout_stage
 
 MODEL_VERSION = "dixon-coles-elo-1"
 
@@ -28,7 +35,9 @@ def outcome_probabilities(matrix: np.ndarray) -> dict[str, float]:
     }
 
 
-def build_begruendung(m: Match, lam: float, mu: float, probs: dict, tip: tuple, ev: float) -> str:
+def build_begruendung(
+    m: Match, lam: float, mu: float, probs: dict, tip: tuple, ev: float, advance_tip: dict | None = None
+) -> str:
     """Template-Begründung aus den Modellzahlen (LLM-Schicht kommt in Phase 3)."""
     favorit = (
         m.home_name if probs["home"] > max(probs["draw"], probs["away"])
@@ -39,13 +48,19 @@ def build_begruendung(m: Match, lam: float, mu: float, probs: dict, tip: tuple, 
         f"Das Modell sieht {favorit} vorn" if favorit
         else "Das Modell sieht ein ausgeglichenes Spiel"
     )
-    return (
+    text = (
         f"{lage} (Heimsieg {probs['home']:.0%}, Remis {probs['draw']:.0%}, "
         f"Auswärtssieg {probs['away']:.0%}) und erwartet im Schnitt "
         f"{lam:.1f}:{mu:.1f} Tore. Der Tipp {tip[0]}:{tip[1]} maximiert den "
         f"Punkte-Erwartungswert ({ev:.2f} Punkte) über alle möglichen Ergebnisse "
         f"– nicht die Trefferchance auf das exakte Resultat."
     )
+    if advance_tip:
+        text += (
+            f" Bei Unentschieden nach 90 Minuten tippt das Modell {advance_tip['pick']} "
+            f"als Sieger im Elfmeterschießen ({advance_tip['probability']:.0%})."
+        )
+    return text
 
 
 def resolve_l2_penalty(model_cfg: dict, team_type: str) -> float:
@@ -90,6 +105,15 @@ def predict_matches(
         tip, ev = best_tip(matrix, scheme, max_tip)
         lam, mu = model.expected_goals(m.home_key, m.away_key)
         probs = outcome_probabilities(matrix)
+
+        advance_tip = None
+        if tip[0] == tip[1] and is_knockout_stage(m.stage_name):
+            side, p = penalty_shootout_favorite(probs)
+            advance_tip = {
+                "pick": m.home_name if side == "home" else m.away_name,
+                "probability": round(p, 3),
+            }
+
         predictions.append(
             {
                 "home": m.home_name,
@@ -99,6 +123,9 @@ def predict_matches(
                 "stage": m.stage_name,
                 "tip": list(tip),
                 "expected_points": round(ev, 3),
+                # Bei K.o.-Remis-Tipp: Zusatzfrage "Wer kommt weiter?" (None
+                # in der Gruppenphase oder wenn der Tipp kein Remis ist)
+                "advance_tip": advance_tip,
                 # Schattentipper (concept.md Schicht 4): parallel geführte
                 # Vergleichsstrategien, abgerechnet in evaluate
                 "shadow_tips": {
@@ -119,7 +146,7 @@ def predict_matches(
                     "home_advantage": round(model.params.home_adv, 3),
                     "trained_on_matches": len([t for t in train if t.has_result]),
                 },
-                "begruendung": build_begruendung(m, lam, mu, probs, tip, ev),
+                "begruendung": build_begruendung(m, lam, mu, probs, tip, ev, advance_tip),
             }
         )
     return predictions
@@ -195,5 +222,8 @@ def main(config: dict) -> None:
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"{len(report['matches'])} Tipps für {report['stage']} (Runde {report['matchday']}):")
     for p in report["matches"]:
-        print(f"  {p['home']} - {p['away']}: {p['tip'][0]}:{p['tip'][1]} (EV {p['expected_points']})")
+        line = f"  {p['home']} - {p['away']}: {p['tip'][0]}:{p['tip'][1]} (EV {p['expected_points']})"
+        if p.get("advance_tip"):
+            line += f" | Elfmeterschießen: {p['advance_tip']['pick']}"
+        print(line)
     print(f"Gespeichert: {out.relative_to(PROJECT_ROOT)}")

@@ -30,11 +30,12 @@ from .config import MATCHDAYS_DIR, PREDICTIONS_DIR, PROJECT_ROOT, SEALED_DIR, lo
 
 REVEAL_DELAY = timedelta(minutes=5)
 
-# Diese Felder (plus Salt) gehen in den Hash.
-HASHED_FIELDS = ("home", "away", "kickoff_utc", "tip", "begruendung")
+# Diese Felder (plus Salt) gehen in den Hash. advance_tip (Elfmeterschießen-
+# Zusatzfrage bei K.o.-Remis-Tipps) muss wie der Tipp selbst vor Anstoß feststehen.
+HASHED_FIELDS = ("home", "away", "kickoff_utc", "tip", "advance_tip", "begruendung")
 
 # Beim Entsiegeln werden zusätzlich diese Felder veröffentlicht.
-REVEALED_FIELDS = ("tip", "expected_points", "factors", "begruendung", "shadow_tips")
+REVEALED_FIELDS = ("tip", "advance_tip", "expected_points", "factors", "begruendung", "shadow_tips")
 
 
 def _fernet(secret: str) -> Fernet:

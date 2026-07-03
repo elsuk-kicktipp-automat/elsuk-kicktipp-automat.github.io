@@ -69,3 +69,15 @@ def elo_favorite_tip(home_elo: float | None, away_elo: float | None) -> tuple[in
 
 
 ALWAYS_DRAW_TIP = (1, 1)  # Baseline (b): immer 1:1
+
+
+def penalty_shootout_favorite(probs: dict) -> tuple[str, float]:
+    """Wer gewinnt wahrscheinlicher ein Elfmeterschießen? Für einen Remis-Tipp
+    im K.o.-Spiel kennt das Modell keine Elfmeterschießen-Statistik; als
+    Näherung wird Heim-/Auswärtssieg-Wahrscheinlichkeit ohne das Remis
+    renormiert – wer in der regulären Spielzeit knapp vorn lag, gilt auch im
+    Elfmeterschießen als knapp favorisiert. Rückgabe: ("home"|"away", Quote)."""
+    home, away = probs["home"], probs["away"]
+    total = home + away
+    p_home = home / total if total > 0 else 0.5
+    return ("home", p_home) if p_home >= 0.5 else ("away", 1 - p_home)

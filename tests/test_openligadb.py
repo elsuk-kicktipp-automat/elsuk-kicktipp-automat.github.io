@@ -2,7 +2,7 @@ import json
 from datetime import datetime, timezone
 
 from engine.sources.openligadb import fetch_competition, fetch_season, parse_matches
-from engine.teams import is_placeholder, normalize
+from engine.teams import is_knockout_stage, is_placeholder, normalize
 
 SAMPLE_MATCH = {
     "matchID": 77561,
@@ -52,6 +52,12 @@ class TestTeams:
         assert is_placeholder("Sieger SF 12")
         assert is_placeholder("Verlierer HF 1")
         assert not is_placeholder("Deutschland")
+
+    def test_is_knockout_stage(self):
+        for stage in ("Sechzehntelfinale", "Achtelfinale", "Viertelfinale", "Halbfinale", "Finale"):
+            assert is_knockout_stage(stage)
+        for stage in ("1. Runde", "2. Runde", "3. Runde", "34. Spieltag"):
+            assert not is_knockout_stage(stage)
 
 
 class TestParseMatches:

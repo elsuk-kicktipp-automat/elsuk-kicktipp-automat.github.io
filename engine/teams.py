@@ -13,6 +13,17 @@ _STOPWORDS = {"und", "and"}
 
 PLACEHOLDER_PREFIXES = ("sieger", "verlierer", "tbd", "n.n")
 
+# OpenLigaDB-Rundennamen der K.o.-Runde ('mb'-Liga). Die Gruppenphase (Liga
+# 'wm2026') heißt "1. Runde".."3. Runde" und fällt hier nicht rein.
+KNOCKOUT_STAGES = {
+    "Sechzehntelfinale",
+    "Achtelfinale",
+    "Viertelfinale",
+    "Halbfinale",
+    "Spiel um Platz 3",
+    "Finale",
+}
+
 
 def normalize(name: str) -> str:
     """'Bosnien und Herzegowina' / 'Bosnien-Herzegowina' -> 'bosnienherzegowina',
@@ -26,3 +37,9 @@ def normalize(name: str) -> str:
 def is_placeholder(name: str) -> bool:
     """Platzhalter in K.o.-Plänen wie 'Sieger SF 12' erkennen."""
     return name.lower().startswith(PLACEHOLDER_PREFIXES)
+
+
+def is_knockout_stage(stage_name: str) -> bool:
+    """K.o.-Spiel? Dort kann bei einem Remis-Tipp zusätzlich ein Elfmeterschießen-
+    Sieger gefragt sein (in der Gruppenphase zählt ein Unentschieden final)."""
+    return stage_name in KNOCKOUT_STAGES

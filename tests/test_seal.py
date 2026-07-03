@@ -26,6 +26,7 @@ PREDICTION = {
             "tip": [1, 1],
             "expected_points": 1.2,
             "factors": {"expected_goals": [1.1, 1.2]},
+            "advance_tip": {"pick": "Kanada", "probability": 0.52},
             "begruendung": "Ausgeglichenes Spiel.",
         },
         {
@@ -37,6 +38,7 @@ PREDICTION = {
             "tip": [0, 2],
             "expected_points": 1.6,
             "factors": {"expected_goals": [0.6, 1.9]},
+            "advance_tip": None,
             "begruendung": "Frankreich klar vorn.",
         },
     ],
@@ -95,6 +97,7 @@ class TestSeal:
                 "kickoff_utc": "2026-07-05T20:00:00Z", "matchday": 5,
                 "stage": "Achtelfinale", "tip": [2, 0], "expected_points": 1.9,
                 "factors": {"expected_goals": [2.1, 0.7]},
+                "advance_tip": None,
                 "begruendung": "Brasilien klar vorn.",
             }
         ]}
@@ -129,6 +132,7 @@ class TestUnseal:
         first, second = public["matches"]
         assert first["status"] == "revealed"
         assert first["tip"] == [1, 1]
+        assert first["advance_tip"] == {"pick": "Kanada", "probability": 0.52}
         assert first["begruendung"] == "Ausgeglichenes Spiel."
         assert second["status"] == "sealed"
         assert "tip" not in second
@@ -161,6 +165,7 @@ class TestUnseal:
                         "away": m["away"],
                         "kickoff_utc": m["kickoff_utc"],
                         "tip": m["tip"],
+                        "advance_tip": m["advance_tip"],
                         "begruendung": m["begruendung"],
                         "salt": m["salt"],
                     },

@@ -21,6 +21,7 @@
         1
       ],
       "expected_points": 1.279,
+      "advance_tip": null,
       "factors": {
         "expected_goals": [
           1.73,
@@ -51,6 +52,10 @@
         1
       ],
       "expected_points": 1.088,
+      "advance_tip": {
+        "pick": "Australien",
+        "probability": 0.564
+      },
       "factors": {
         "expected_goals": [
           1.18,
@@ -69,7 +74,7 @@
         "home_advantage": 0.0,
         "trained_on_matches": 82
       },
-      "begruendung": "Das Modell sieht ein ausgeglichenes Spiel (Heimsieg 36%, Remis 37%, Auswärtssieg 27%) und erwartet im Schnitt 1.2:1.0 Tore. Der Tipp 1:1 maximiert den Punkte-Erwartungswert (1.09 Punkte) über alle möglichen Ergebnisse – nicht die Trefferchance auf das exakte Resultat."
+      "begruendung": "Das Modell sieht ein ausgeglichenes Spiel (Heimsieg 36%, Remis 37%, Auswärtssieg 27%) und erwartet im Schnitt 1.2:1.0 Tore. Der Tipp 1:1 maximiert den Punkte-Erwartungswert (1.09 Punkte) über alle möglichen Ergebnisse – nicht die Trefferchance auf das exakte Resultat. Bei Unentschieden nach 90 Minuten tippt das Modell Australien als Sieger im Elfmeterschießen (56%)."
     },
     {
       "home": "Argentinien",

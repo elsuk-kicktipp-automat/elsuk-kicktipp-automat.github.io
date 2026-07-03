@@ -33,6 +33,13 @@ const pointsClass = scored ? `p${scored.points}` : '';
             {' '}<span class:list={['badge', pointsClass]}>{scored.points} Punkte</span>
           </>
         )}
+        {match.advance_tip && (
+          <>
+            {' '}<span class="badge info" title="Zusatzfrage: Sieger im Elfmeterschießen bei Remis nach 90 Minuten">
+              🥅 Elfmeterschießen: {match.advance_tip.pick} ({Math.round(match.advance_tip.probability * 100)} %)
+            </span>
+          </>
+        )}
       </p>
       {probs && xg && (
         <p class="factors">

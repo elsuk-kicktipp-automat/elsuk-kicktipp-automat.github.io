@@ -1,7 +1,10 @@
+from datetime import datetime, timezone
+
 import numpy as np
 import pytest
 
-from engine.predict import build_model, outcome_probabilities, resolve_l2_penalty
+from engine.predict import build_begruendung, build_model, outcome_probabilities, resolve_l2_penalty
+from engine.sources.openligadb import Match
 
 MODEL_CFG = {
     "time_decay_xi": 0.002,
@@ -39,3 +42,31 @@ class TestL2PerTeamType:
         assert build_model(config, True, "national").l2_penalty == 5.0
         assert build_model(config, False, "club").l2_penalty == 0.2
         assert build_model(config, True, "national").neutral_venue is True
+
+
+def _match(home="Australien", away="Ägypten"):
+    return Match(
+        home_name=home,
+        away_name=away,
+        home_goals=None,
+        away_goals=None,
+        kickoff_utc=datetime(2026, 7, 3, 18, 0, tzinfo=timezone.utc),
+        matchday=4,
+        stage_name="Sechzehntelfinale",
+        finished=False,
+    )
+
+
+class TestBuildBegruendungAdvanceTip:
+    def test_appends_shootout_sentence_when_advance_tip_given(self):
+        probs = {"home": 0.355, "draw": 0.371, "away": 0.274}
+        advance_tip = {"pick": "Australien", "probability": 0.564}
+        text = build_begruendung(_match(), 1.18, 1.02, probs, (1, 1), 1.088, advance_tip)
+        assert "Elfmeterschießen" in text
+        assert "Australien" in text
+        assert "56%" in text or "56 %" in text
+
+    def test_no_shootout_sentence_without_advance_tip(self):
+        probs = {"home": 0.355, "draw": 0.371, "away": 0.274}
+        text = build_begruendung(_match(), 1.18, 1.02, probs, (1, 1), 1.088)
+        assert "Elfmeterschießen" not in text

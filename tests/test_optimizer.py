@@ -9,6 +9,7 @@ from engine.optimizer import (
     expected_points,
     match_points,
     most_probable_score,
+    penalty_shootout_favorite,
 )
 
 
@@ -125,3 +126,25 @@ class TestBaselines:
 
     def test_scheme_default(self):
         assert DEFAULT_SCHEME == {"exact": 4, "goal_diff": 3, "tendency": 2}
+
+
+class TestPenaltyShootoutFavorite:
+    def test_home_side_favored(self):
+        side, p = penalty_shootout_favorite({"home": 0.355, "draw": 0.371, "away": 0.274})
+        assert side == "home"
+        assert p == pytest.approx(0.355 / (0.355 + 0.274))
+
+    def test_away_side_favored(self):
+        side, p = penalty_shootout_favorite({"home": 0.2, "draw": 0.3, "away": 0.5})
+        assert side == "away"
+        assert p == pytest.approx(0.5 / 0.7)
+
+    def test_dead_heat_defaults_to_home(self):
+        side, p = penalty_shootout_favorite({"home": 0.3, "draw": 0.4, "away": 0.3})
+        assert side == "home"
+        assert p == pytest.approx(0.5)
+
+    def test_no_win_mass_defaults_to_even_odds(self):
+        side, p = penalty_shootout_favorite({"home": 0.0, "draw": 1.0, "away": 0.0})
+        assert side == "home"
+        assert p == pytest.approx(0.5)

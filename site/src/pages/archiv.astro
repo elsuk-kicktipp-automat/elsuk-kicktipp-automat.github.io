@@ -35,7 +35,13 @@ const results = loadResults();
                   <tr>
                     <td>{m.home} – {m.away}</td>
                     <td>{formatKickoff(m.kickoff_utc)}</td>
-                    <td class="num">{m.status === 'sealed' ? '🔒' : `${m.tip[0]}:${m.tip[1]}`}</td>
+                    <td class="num">
+                      {m.status === 'sealed'
+                        ? '🔒'
+                        : m.advance_tip
+                          ? `${m.tip[0]}:${m.tip[1]} (🥅 ${m.advance_tip.pick})`
+                          : `${m.tip[0]}:${m.tip[1]}`}
+                    </td>
                     <td class="num">{s ? `${s.result[0]}:${s.result[1]}` : '–'}</td>
                     <td class="num">{s ? s.points : '–'}</td>
                   </tr>
