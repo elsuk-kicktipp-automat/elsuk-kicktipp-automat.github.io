@@ -64,6 +64,10 @@ const backtestBars: BarSeries[] = [
   { name: 'immer 1:1', points: backtests.reduce((s, b) => s + b.draw, 0), color: 'var(--series-red)' },
 ];
 const backtestMax = Math.max(1, ...backtestBars.map((s) => s.points ?? 0));
+
+function barStyle(points: number, max: number, color: string): string {
+  return `--pct:${(points / max) * 100}%; --bar-color:${color}`;
+}
 ---
 
 <Layout title="Bilanz">
@@ -101,7 +105,7 @@ const backtestMax = Math.max(1, ...backtestBars.map((s) => s.points ?? 0));
           <div class:list={['bar-row', { 'is-highlight': s.highlight }]}>
             <span class="bar-name">{s.name}</span>
             <span class="bar-track">
-              <span class="bar-fill" style={`--pct:${(s.points / shadowMax) * 100}%; --bar-color:${s.color}`}></span>
+              <span class="bar-fill" style={barStyle(s.points, shadowMax, s.color)}></span>
             </span>
             <span class="bar-value">{s.points}</span>
           </div>
@@ -175,7 +179,7 @@ const backtestMax = Math.max(1, ...backtestBars.map((s) => s.points ?? 0));
           <div class:list={['bar-row', { 'is-highlight': s.highlight }]}>
             <span class="bar-name">{s.name}</span>
             <span class="bar-track">
-              <span class="bar-fill" style={`--pct:${(s.points / backtestMax) * 100}%; --bar-color:${s.color}`}></span>
+              <span class="bar-fill" style={barStyle(s.points, backtestMax, s.color)}></span>
             </span>
             <span class="bar-value">{s.points}</span>
           </div>
