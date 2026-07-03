@@ -10,6 +10,7 @@ import os
 from datetime import datetime, timedelta, timezone
 
 import numpy as np
+import requests
 
 from . import llm
 from .config import MATCHDAYS_DIR, PREDICTIONS_DIR, PROJECT_ROOT, load_dotenv
@@ -112,9 +113,17 @@ def build_model(config: dict, neutral_venue: bool, team_type: str) -> DixonColes
 
 
 def load_elo(config: dict, team_type: str, on_date=None) -> dict[str, float] | None:
+    """Best-effort: liefert None statt eines Fehlers, wenn die ELO-Quelle nicht
+    erreichbar ist (z.B. eloratings.net blockt gelegentlich einzelne IP-Bereiche).
+    Das Modell fällt dann auf den reinen Angriffs-/Abwehrstärke-Fit zurück –
+    genauso resilient wie Odds/LLM (siehe engine/sources/odds.py, engine/llm.py)."""
     if not config["model"]["elo"]["enabled"]:
         return None
-    return make_elo_source(team_type).ratings(on_date)
+    try:
+        return make_elo_source(team_type).ratings(on_date)
+    except requests.RequestException as exc:
+        print(f"ELO-Ratings nicht verfügbar ({team_type}): {exc}")
+        return None
 
 
 def predict_matches(

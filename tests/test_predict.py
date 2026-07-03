@@ -3,7 +3,14 @@ from datetime import datetime, timezone
 import numpy as np
 import pytest
 
-from engine.predict import build_begruendung, build_model, outcome_probabilities, resolve_l2_penalty
+from engine.predict import (
+    build_begruendung,
+    build_model,
+    load_elo,
+    marginal_expected_goals,
+    outcome_probabilities,
+    resolve_l2_penalty,
+)
 from engine.sources.openligadb import Match
 
 MODEL_CFG = {
@@ -25,6 +32,37 @@ class TestOutcomeProbabilities:
         assert probs["home"] == pytest.approx(0.5)
         assert probs["draw"] == pytest.approx(0.3)
         assert probs["away"] == pytest.approx(0.2)
+
+
+class TestMarginalExpectedGoals:
+    def test_matches_simple_distribution(self):
+        matrix = np.zeros((3, 3))
+        matrix[2, 0] = 0.5  # 2:0
+        matrix[0, 1] = 0.5  # 0:1
+        lam, mu = marginal_expected_goals(matrix)
+        assert lam == pytest.approx(1.0)  # 0.5*2 + 0.5*0
+        assert mu == pytest.approx(0.5)  # 0.5*0 + 0.5*1
+
+
+class TestLoadEloResilience:
+    def test_network_failure_returns_none_instead_of_raising(self, monkeypatch):
+        import requests
+
+        class FailingSource:
+            def ratings(self, on_date):
+                raise requests.ConnectionError("eloratings.net blockiert gerade")
+
+        monkeypatch.setattr("engine.predict.make_elo_source", lambda team_type: FailingSource())
+        config = {"model": {"elo": {"enabled": True}}}
+        assert load_elo(config, "national") is None
+
+    def test_disabled_returns_none_without_network_call(self, monkeypatch):
+        def fail_if_called(team_type):
+            raise AssertionError("make_elo_source darf bei enabled=False nicht aufgerufen werden")
+
+        monkeypatch.setattr("engine.predict.make_elo_source", fail_if_called)
+        config = {"model": {"elo": {"enabled": False}}}
+        assert load_elo(config, "club") is None
 
 
 class TestL2PerTeamType:
