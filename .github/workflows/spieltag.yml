@@ -29,6 +29,9 @@ jobs:
 
       - name: Prognose (idempotent pro Runde)
         run: python -m engine.cli predict
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
       - name: Versiegeln
         run: python -m engine.cli seal
