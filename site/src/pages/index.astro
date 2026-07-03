@@ -89,7 +89,13 @@ const stats = scored?.matches_scored > 0
   }
   .hero h1 { margin: 0; }
 
-  .stat-tile { animation: riseIn 0.5s 0.1s both; }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 26px;
+    animation: riseIn 0.5s 0.1s both;
+  }
 
   .matches {
     display: grid;
