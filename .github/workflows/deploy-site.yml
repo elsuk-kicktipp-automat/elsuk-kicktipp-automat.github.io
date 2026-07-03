@@ -50,11 +50,14 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # Pages-Deploys scheitern gelegentlich transient ("try again later"),
-      # deshalb ein automatischer zweiter Versuch.
+      # Pages-Deploys scheitern gelegentlich transient ("try again later");
+      # ein sofortiger Retry scheitert erfahrungsgemäß mit, nach ~1 Minute
+      # klappt es - deshalb Wartezeit vor dem zweiten Versuch.
       - id: deployment
         uses: actions/deploy-pages@v4
         continue-on-error: true
+      - if: steps.deployment.outcome == 'failure'
+        run: sleep 60
       - id: deployment-retry
         if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
