@@ -170,22 +170,24 @@ def require_secret() -> str:
 
 
 def main_seal() -> None:
-    secret = require_secret()
-    sealed = [
-        result
-        for f in sorted(PREDICTIONS_DIR.glob("*.json"))
-        if (result := seal_file(f, secret)) is not None
-    ]
-    for path in sealed:
-        print(f"Versiegelt: {path.relative_to(PROJECT_ROOT)}")
-    if not sealed:
+    # Secret erst verlangen, wenn es wirklich etwas zu versiegeln gibt -
+    # so bleibt der tägliche Lauf im Leerlauf grün.
+    pending = sorted(PREDICTIONS_DIR.glob("*.json"))
+    if not pending:
         print("Nichts zu versiegeln.")
+        return
+    secret = require_secret()
+    for f in pending:
+        result = seal_file(f, secret)
+        if result is not None:
+            print(f"Versiegelt: {result.relative_to(PROJECT_ROOT)}")
 
 
 def main_unseal() -> None:
-    secret = require_secret()
-    SEALED_DIR.mkdir(parents=True, exist_ok=True)
-    changed = unseal_all(secret)
+    if not list(SEALED_DIR.glob("*.enc")):
+        print("Nichts zu entsiegeln.")
+        return
+    changed = unseal_all(require_secret())
     for path in changed:
         print(f"Entsiegelt: {path.relative_to(PROJECT_ROOT)}")
     if not changed:
