@@ -115,6 +115,17 @@ kicktipp_submission:
   # Solange true: Formular wird nur ausgefüllt/screenshottet, nicht abgeschickt.
   dry_run: false
 
+# Selbstlernen (concept.md Schicht 4 / Phase 5, engine/learn.py): bewusst
+# konservative Mindest-Stichproben - bei der kleinen WM-Datenlage bleibt
+# praktisch alles beim Default, der Mechanismus ist für die Bundesliga gebaut.
+learning:
+  enabled: true
+  llm_trust:
+    min_samples: 10 # abgerechnete Schatten-Anpassungen, bevor scharf geschaltet wird
+  market_weight:
+    min_samples: 20    # Spiele mit Quote+Rohmodell+Ergebnis, bevor gelernt wird
+    pseudo_samples: 20 # Regularisierung Richtung odds.market_weight
+
 backtest:
   # Vereinsfußball: rollierend über die letzten 3 Bundesliga-Saisons
   club:

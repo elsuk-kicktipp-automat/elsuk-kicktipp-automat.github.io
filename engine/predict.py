@@ -14,11 +14,13 @@ import requests
 
 from . import llm
 from .config import MATCHDAYS_DIR, PREDICTIONS_DIR, PROJECT_ROOT, load_dotenv
+from .learn import load_state as load_learning_state
 from .market import blend_with_market
 from .model import DixonColes
 from .optimizer import (
     ALWAYS_DRAW_TIP,
     best_tip,
+    expected_points,
     elo_favorite_tip,
     most_probable_score,
     penalty_shootout_favorite,
@@ -136,7 +138,16 @@ def build_begruendung(
             f"{market_weight:.0%} in die Prognose eingerechnet."
         )
 
-    if llm_adjustment:
+    if llm_adjustment and llm_adjustment.get("applied"):
+        base = llm_adjustment["base_tip"]
+        sentences.append(
+            f"Eine der {llm_adjustment['news_count']} geprüften aktuellen Schlagzeilen lieferte "
+            f"einen harten Grund ({llm_adjustment['grund']}) - der Tipp wurde deshalb von "
+            f"{base[0]}:{base[1]} auf {llm_adjustment['tip'][0]}:{llm_adjustment['tip'][1]} "
+            "angepasst (der Vertrauensregler hat diese Anpassungen nach positiver "
+            "Punktebilanz scharf geschaltet)."
+        )
+    elif llm_adjustment:
         sentences.append(
             f"Eine der {llm_adjustment['news_count']} geprüften aktuellen Schlagzeilen lieferte "
             f"einen möglichen Grund für eine Anpassung auf {llm_adjustment['tip'][0]}:"
@@ -198,6 +209,22 @@ def load_elo(config: dict, team_type: str, on_date=None) -> dict[str, float] | N
         return None
 
 
+def apply_llm_adjustment(
+    tip: tuple[int, int], adjusted: tuple[int, int] | list[int], stage_name: str
+) -> tuple[int, int] | None:
+    """Wendet den LLM-Vorschlag an, wenn er regelkonform ist - sonst None.
+
+    Guards: identischer Tipp ist keine Anpassung; ein Remis ist bei
+    K.o.-Spielen unter der "nach Elfmeterschießen"-Regel nie zulässig.
+    """
+    adjusted = (int(adjusted[0]), int(adjusted[1]))
+    if adjusted == tuple(tip):
+        return None
+    if is_knockout_stage(stage_name) and adjusted[0] == adjusted[1]:
+        return None
+    return adjusted
+
+
 def predict_matches(
     config: dict,
     targets: list[Match],
@@ -207,6 +234,7 @@ def predict_matches(
     odds: dict[tuple[str, str], dict[str, float]] | None = None,
     betting_markets: dict[tuple[str, str], dict] | None = None,
     groq_api_key: str | None = None,
+    learning_state: dict | None = None,
 ) -> list[dict]:
     """Tipps für die Zielspiele; Modell wird auf den Trainingsspielen gefittet."""
     ref_date = min(m.kickoff_utc for m in targets)
@@ -217,7 +245,12 @@ def predict_matches(
 
     scheme = config["kicktipp"]["points"]
     max_tip = config["model"]["max_tip_goals"]
-    market_weight = config.get("odds", {}).get("market_weight", 0.0)
+    # Gelerntes Quotengewicht (engine/learn.py): entspricht dem config-Default,
+    # solange die Stichprobe unter der Mindestgröße liegt
+    market_weight = (learning_state or {}).get("market_weight", {}).get(
+        "applied", config.get("odds", {}).get("market_weight", 0.0)
+    )
+    llm_trusted = bool((learning_state or {}).get("llm_trust", {}).get("trusted"))
     llm_cfg = config.get("llm", {})
     llm_model = llm_cfg.get("model", llm.DEFAULT_MODEL)
 
@@ -234,30 +267,11 @@ def predict_matches(
         # Ergebnis geht bei K.o.-Spielen nie unentschieden aus (siehe
         # is_knockout_stage), ein Remis-Tipp kann dort nie Punkte bringen.
         tip, ev = best_tip(matrix, scheme, max_tip, allow_draw=not is_knockout_stage(m.stage_name))
-        lam, mu = marginal_expected_goals(matrix)
-        probs = outcome_probabilities(matrix)
-        paper_bet = build_paper_bet(
-            cfg=config.get("paper_betting", {}),
-            home=m.home_name,
-            away=m.away_name,
-            tip=tip,
-            raw_probabilities=raw_probs,
-            market=(betting_markets or {}).get((m.home_key, m.away_key)),
-        )
 
-        advance_tip = None
-        if tip[0] == tip[1] and is_knockout_stage(m.stage_name):
-            side, p = penalty_shootout_favorite(probs)
-            advance_tip = {
-                "pick": m.home_name if side == "home" else m.away_name,
-                "probability": round(p, 3),
-            }
-
-        # Schatten-Anpassung (concept.md Schicht 3, Teil 1): läuft NUR geloggt
-        # mit, ändert nie den echten Tipp - siehe engine/llm.py und
-        # engine/learn.py (Vertrauensregler entscheidet später über scharf-
-        # schalten anhand der hier gesammelten Schattentipper-Punkte). Läuft
-        # VOR der Begründung, damit diese auf den News-Check verweisen kann.
+        # News-gestützter Anpassungsvorschlag (concept.md Schicht 3): läuft als
+        # Schattentipper mit; NUR wenn der Vertrauensregler (engine/learn.py)
+        # nach positiver Bilanz scharf geschaltet hat, wird er auf den echten
+        # Tipp angewendet - deshalb VOR Wette/Zusatzfrage/Begründung entschieden.
         llm_adjustment = None
         news_checked = None
         news_cfg = config.get("llm", {}).get("adjustment", {})
@@ -278,7 +292,34 @@ def predict_matches(
                     "tip": list(adjusted),
                     "grund": proposal["grund"],
                     "news_count": len(news),
+                    "applied": False,
                 }
+                if llm_trusted:
+                    applied_tip = apply_llm_adjustment(tip, adjusted, m.stage_name)
+                    if applied_tip is not None:
+                        llm_adjustment["applied"] = True
+                        llm_adjustment["base_tip"] = list(tip)
+                        tip = applied_tip
+                        ev = expected_points(tip, matrix, scheme)
+
+        lam, mu = marginal_expected_goals(matrix)
+        probs = outcome_probabilities(matrix)
+        paper_bet = build_paper_bet(
+            cfg=config.get("paper_betting", {}),
+            home=m.home_name,
+            away=m.away_name,
+            tip=tip,
+            raw_probabilities=raw_probs,
+            market=(betting_markets or {}).get((m.home_key, m.away_key)),
+        )
+
+        advance_tip = None
+        if tip[0] == tip[1] and is_knockout_stage(m.stage_name):
+            side, p = penalty_shootout_favorite(probs)
+            advance_tip = {
+                "pick": m.home_name if side == "home" else m.away_name,
+                "probability": round(p, 3),
+            }
 
         elo_values = {"home": (elo or {}).get(m.home_key), "away": (elo or {}).get(m.away_key)}
         template_text = build_begruendung(
@@ -323,7 +364,13 @@ def predict_matches(
                     "most_probable": list(most_probable_score(matrix)),
                     "elo_favorite": list(elo_favorite_tip(elo_values["home"], elo_values["away"])),
                     "always_draw": list(ALWAYS_DRAW_TIP),
-                    **({"llm_adjusted": llm_adjustment["tip"]} if llm_adjustment else {}),
+                    **(
+                        {"model_baseline": llm_adjustment["base_tip"]}
+                        if llm_adjustment and llm_adjustment.get("applied")
+                        else {"llm_adjusted": llm_adjustment["tip"]}
+                        if llm_adjustment
+                        else {}
+                    ),
                 },
                 "factors": {
                     "expected_goals": [round(lam, 2), round(mu, 2)],
@@ -423,6 +470,7 @@ def run_predict(config: dict) -> dict | None:
         odds,
         betting_markets,
         groq_api_key,
+        learning_state=load_learning_state(),
     )
     return {
         "competition": config["competition"],

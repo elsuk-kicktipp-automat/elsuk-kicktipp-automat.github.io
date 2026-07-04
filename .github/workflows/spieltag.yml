@@ -49,6 +49,9 @@ jobs:
       - name: Punkteabrechnung
         run: python -m engine.cli evaluate
 
+      - name: Selbstlernen (Vertrauensregler, Quotengewicht)
+        run: python -m engine.cli learn
+
       - name: Änderungen committen
         id: commit
         run: |

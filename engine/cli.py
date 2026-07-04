@@ -10,7 +10,7 @@
 
 import argparse
 
-from . import backtest, evaluate, kicktipp_bot, predict, seal
+from . import backtest, evaluate, kicktipp_bot, learn, predict, seal
 from .config import load_config
 
 
@@ -22,6 +22,7 @@ def main():
     sub.add_parser("seal", help="neue Tipps versiegeln (nur Hash wird öffentlich)")
     sub.add_parser("unseal", help="Tipps nach Anstoß entsiegeln")
     sub.add_parser("evaluate", help="enthüllte Tipps gegen reale Ergebnisse abrechnen")
+    sub.add_parser("learn", help="Lernzustand aktualisieren (Vertrauensregler, Quotengewicht)")
     bt = sub.add_parser("backtest", help="Backtests ausführen")
     bt.add_argument("--mode", choices=["club", "national", "all"], default="all")
 
@@ -38,6 +39,8 @@ def main():
         seal.main_unseal()
     elif args.command == "evaluate":
         evaluate.main(config)
+    elif args.command == "learn":
+        learn.main(config)
     else:
         backtest.main(config, args.mode)
 

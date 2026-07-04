@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { loadBacktest, loadResults } from '../lib/data.mjs';
+import { loadBacktest, loadLearning, loadResults } from '../lib/data.mjs';
 
+const learning = loadLearning();
 const club = loadBacktest('club');
 const national = loadBacktest('national');
 
@@ -219,6 +220,43 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
               <td class="num">{money.format(betPayout)}</td>
               <td class:list={['num', betProfit >= 0 ? 'positive' : 'negative']}>{money.format(betProfit)}</td>
               <td class="num">{betRoi != null ? pct.format(betRoi) : '–'}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  {learning && (
+    <div>
+      <h2>Selbstlernen</h2>
+      <p class="muted">
+        Der Automat justiert sich anhand der abgerechneten Spiele nach - bewusst
+        vorsichtig (Mindest-Stichproben, Regularisierung Richtung Startwert).
+        Stand: {learning.scored_matches} abgerechnete Spiele.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Regler</th><th>Status</th><th>Details</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>News-Anpassung (LLM)</td>
+              <td>{learning.llm_trust.trusted ? 'scharf' : 'Schatten-Modus'}</td>
+              <td>
+                {learning.llm_trust.samples}/{learning.llm_trust.min_samples} Anpassungen abgerechnet,
+                Punktesaldo {learning.llm_trust.points_delta >= 0 ? '+' : ''}{learning.llm_trust.points_delta} -
+                scharf geschaltet wird erst bei ausreichender, positiver Bilanz
+              </td>
+            </tr>
+            <tr>
+              <td>Quotengewicht</td>
+              <td>{learning.market_weight.applied}</td>
+              <td>
+                Startwert {learning.market_weight.default}, gelernt aus {learning.market_weight.samples}/{learning.market_weight.min_samples} Spielen
+                {learning.market_weight.best != null ? ` (Optimum der Stichprobe: ${learning.market_weight.best})` : ' - noch zu wenige Daten, Startwert bleibt aktiv'}
+              </td>
             </tr>
           </tbody>
         </table>

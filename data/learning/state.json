@@ -1,0 +1,19 @@
+{
+  "updated_utc": "2026-07-04T16:47:10Z",
+  "competition": "wm26",
+  "season": 2026,
+  "scored_matches": 4,
+  "llm_trust": {
+    "samples": 0,
+    "min_samples": 10,
+    "points_delta": 0,
+    "trusted": false
+  },
+  "market_weight": {
+    "samples": 0,
+    "min_samples": 20,
+    "default": 0.7,
+    "best": null,
+    "applied": 0.7
+  }
+}

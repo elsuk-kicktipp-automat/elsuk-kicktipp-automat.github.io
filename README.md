@@ -112,7 +112,7 @@ GitHub Actions übernimmt den Betrieb (`.github/workflows/`):
 
 | Workflow | Zeitplan | Aufgabe |
 | --- | --- | --- |
-| `spieltag.yml` | stündlich | predict (Spiele im 4h-Fenster vor Anstoß) → seal → evaluate → Commit → Kicktipp-Abgabe (verifiziert, aus den versiegelten .enc) |
+| `spieltag.yml` | stündlich | predict (Spiele im 4h-Fenster vor Anstoß) → seal → evaluate → learn → Commit → Kicktipp-Abgabe (verifiziert, aus den versiegelten .enc) |
 | `unseal.yml` | alle 30 min | fällige Tipps enthüllen + abrechnen (früher Abbruch ohne fällige Spiele) |
 | `deploy-site.yml` | bei Daten-/Site-Änderungen | Astro-Build → GitHub Pages |
 
@@ -225,5 +225,8 @@ config.yaml            Wettbewerb, Punkteschema, Modell- und Backtest-Parameter
       (Groq). Offen: News-Dossier (Verletzungen/Sperren) und darauf gestützte
       Tipp-Adjustierung – ohne echte News-Quelle wäre das nur geraten
 - [x] **Phase 4:** Kicktipp-Bot (Playwright-Abgabe mit Rücklese-Verifikation)
-- [ ] **Phase 5:** Selbstlernen; Schattentipper und Bilanz-Dashboard laufen
-      bereits als Grundlage mit
+- [x] **Phase 5 (Kern):** Selbstlernen (engine/learn.py): LLM-Vertrauensregler
+      (Schatten-Anpassungen werden erst nach nachweislich positiver Punktebilanz
+      scharf geschaltet) und gelerntes Quotengewicht (Log-Loss-Grid-Search mit
+      Pseudo-Count-Regularisierung); Schattentipper, Kalibrierung und
+      Bilanz-Dashboard liefern die Datengrundlage. Offen: Lernkurven-Grafik

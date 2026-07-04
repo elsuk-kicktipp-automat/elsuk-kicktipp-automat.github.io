@@ -44,6 +44,12 @@ export function scoredMatch(match, resultReport) {
   );
 }
 
+/** Selbstlern-Zustand (engine/learn.py) oder null. */
+export function loadLearning() {
+  const path = join(DATA_DIR, 'learning', 'state.json');
+  return existsSync(path) ? readJson(path) : null;
+}
+
 export function loadBacktest(mode) {
   const path = join(DATA_DIR, 'backtests', `${mode}.json`);
   return existsSync(path) ? readJson(path) : null;
