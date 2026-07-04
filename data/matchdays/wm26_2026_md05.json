@@ -96,9 +96,81 @@
       "home": "Paraguay",
       "away": "Frankreich",
       "kickoff_utc": "2026-07-04T21:00:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "2e9802041505eb2f5d7fd2b71b755901fc33a48760b01622c9bc3a0ae6b70ff0",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        0,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.913,
+      "factors": {
+        "expected_goals": [
+          0.76,
+          2.82
+        ],
+        "probabilities": {
+          "home": 0.052,
+          "draw": 0.156,
+          "away": 0.793
+        },
+        "elo": {
+          "home": 1823.0,
+          "away": 2134.0,
+          "beta": 0.205
+        },
+        "market": {
+          "home": 0.052,
+          "draw": 0.132,
+          "away": 0.816,
+          "weight": 0.7
+        },
+        "home_advantage": 0.0,
+        "trained_on_matches": 88,
+        "llm_adjustment": null
+      },
+      "begruendung": "Der Tipp 0:2 für das Achtelfinale zwischen Paraguay und Frankreich basiert auf statistischen Modellen und Buchmacherquoten, die einen klaren Vorteil für Frankreich anzeigen. Die geringe Wahrscheinlichkeit für einen Heimsieg und die hohe Erwartung an Tore für Frankreich sprechen für eine klare Favoritenrolle der Franzosen. Der optimale Tipp maximiert den Punkte-Erwartungswert, da er das wahrscheinlichste Ergebnis im Kontext des Kicktipp-Schemas berücksichtigt, was nicht unbedingt das absolut wahrscheinlichste Einzelergebnis sein muss. Durch die Kombination von statistischen Analysen und Quoten wird der Tipp 0:2 als die punkteeffizienteste Wahl dargestellt.",
+      "shadow_tips": {
+        "most_probable": [
+          0,
+          2
+        ],
+        "elo_favorite": [
+          1,
+          2
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Frankreich gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 25,
+        "odds_decimal": 1.16,
+        "model_probability": 0.793,
+        "implied_probability": 0.8621,
+        "edge": -0.0801,
+        "expected_value_eur": -0.8,
+        "stake_eur": 10.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0,
+        "backfilled": true,
+        "backfilled_at_utc": "2026-07-04T11:28:14Z",
+        "probability_basis": "stored_probabilities",
+        "test_backfill": true,
+        "test_backfill_reason": "Explizite Test-Nachwette fuer bereits versiegelte Achtelfinal-Spiele."
+      },
+      "salt": "ce0d89690ac018329663110b2b5558ba"
     },
     {
       "home": "Brasilien",
