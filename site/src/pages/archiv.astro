@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import MatchCard from '../components/MatchCard.astro';
 import { formatKickoff, loadMatchdays, loadResults, resultsFor, scoredMatch } from '../lib/data.mjs';
 
 const matchdays = loadMatchdays().reverse(); // neueste zuerst
@@ -8,6 +9,7 @@ const results = loadResults();
 
 <Layout title="Archiv">
   <h1>Spieltags-Archiv</h1>
+  <p class="muted">Zeile anklicken für Tipp, Begründung und alle Details der Entscheidung.</p>
   {matchdays.length === 0 && <p>Noch keine getippten Runden.</p>}
   {matchdays.map((md) => {
     const scored = resultsFor(md, results);
@@ -20,37 +22,76 @@ const results = loadResults();
           )}
         </h2>
         {md.hinweis && <div class="notice">{md.hinweis}</div>}
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Spiel</th><th>Anstoß</th><th class="num">Tipp</th>
-                <th class="num">Ergebnis</th><th class="num">Punkte</th>
-              </tr>
-            </thead>
-            <tbody>
-              {md.matches.map((m) => {
-                const s = scoredMatch(m, scored);
-                return (
-                  <tr>
-                    <td>{m.home} – {m.away}</td>
-                    <td>{formatKickoff(m.kickoff_utc)}</td>
-                    <td class="num">
-                      {m.status === 'sealed'
-                        ? '🔒'
-                        : m.advance_tip
-                          ? `${m.tip[0]}:${m.tip[1]} (🥅 ${m.advance_tip.pick})`
-                          : `${m.tip[0]}:${m.tip[1]}`}
-                    </td>
-                    <td class="num">{s ? `${s.result[0]}:${s.result[1]}` : '–'}</td>
-                    <td class="num">{s ? s.points : '–'}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+        <div class="match-list">
+          {md.matches.map((m) => {
+            const s = scoredMatch(m, scored);
+            const tipDisplay = m.status === 'sealed'
+              ? '🔒'
+              : m.advance_tip
+                ? `${m.tip[0]}:${m.tip[1]} (🥅 ${m.advance_tip.pick})`
+                : `${m.tip[0]}:${m.tip[1]}`;
+            return (
+              <details class="match-row">
+                <summary class="match-row-summary">
+                  <span class="col-teams">{m.home} – {m.away}</span>
+                  <span class="col-kickoff">{formatKickoff(m.kickoff_utc)}</span>
+                  <span class="col-tip num">{tipDisplay}</span>
+                  <span class="col-result num">{s ? `${s.result[0]}:${s.result[1]}` : '–'}</span>
+                  <span class="col-points num">{s ? `${s.points} Pkt.` : '–'}</span>
+                </summary>
+                <div class="match-row-body">
+                  <MatchCard match={m} scored={s} />
+                </div>
+              </details>
+            );
+          })}
         </div>
       </section>
     );
   })}
 </Layout>
+
+<style>
+  .match-list {
+    border-radius: var(--r-panel);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+  }
+  .match-row { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .match-row:last-child { border-bottom: none; }
+
+  .match-row-summary {
+    display: grid;
+    grid-template-columns: 2fr auto auto auto auto 1.2em;
+    gap: 8px 16px;
+    align-items: center;
+    padding: 10px 16px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 13.5px;
+    color: var(--text);
+    transition: background 0.15s ease;
+  }
+  .match-row-summary::-webkit-details-marker { display: none; }
+  .match-row-summary::marker { content: ''; }
+  .match-row-summary:hover { background: rgba(255, 255, 255, 0.03); }
+  .match-row[open] > .match-row-summary { background: rgba(255, 255, 255, 0.04); }
+
+  .match-row-summary::after {
+    content: '▸';
+    justify-self: end;
+    color: var(--lime);
+    font-size: 1.1em;
+    transition: transform 0.2s ease;
+  }
+  .match-row[open] > .match-row-summary::after { transform: rotate(90deg); }
+
+  .col-kickoff { color: var(--text-muted); font-size: 12px; white-space: nowrap; }
+  .num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+
+  .match-row-body { padding: 0 12px 12px; }
+  .match-row-body :global(.match-card) { animation: none; }
+</style>
