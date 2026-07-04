@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LearningCurve from '../components/LearningCurve.astro';
 import { loadBacktest, loadLearning, loadResults } from '../lib/data.mjs';
 
 const learning = loadLearning();
@@ -24,6 +25,13 @@ const betProfit = betRows.reduce((s, r) => s + (r.paper_betting?.profit_total_eu
 const betScored = betRows.reduce((s, r) => s + (r.paper_betting?.bets_scored ?? 0), 0);
 const betWon = betRows.reduce((s, r) => s + (r.paper_betting?.bets_won ?? 0), 0);
 const betRoi = betStake ? betProfit / betStake : null;
+
+// Lernkurve: Ø Punkte/Spiel und Ø Brier je Runde (nicht kumuliert - zeigt die
+// Entwicklung Runde für Runde, wie sie auch in der Tabelle oben steht).
+const pointsCurve = liveRows.map((r) => ({ label: r.stage, value: r.points_total / r.matches_scored }));
+const brierCurve = liveRows.filter((r) => r.brier_avg != null).map((r) => ({ label: r.stage, value: r.brier_avg }));
+const pointsYMax = 4; // Punkteschema: exaktes Ergebnis = 4 (config.yaml kicktipp.points.exact)
+const brierYMax = Math.max(1, ...brierCurve.map((c) => c.value));
 
 // Schatten-Summen nur, wenn der Tipper in allen gewerteten Spielen mitlief
 function sumShadow(name) {
@@ -119,6 +127,23 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
           <span class="stat-value">{(liveTotal / liveScored).toFixed(2)}</span>
           <span class="stat-label">Punkte / Spiel</span>
         </div>
+      </div>
+
+      <div class="lc-grid-2">
+        <LearningCurve
+          title="Ø Punkte / Spiel"
+          subtitle="je Runde"
+          points={pointsCurve}
+          yMax={pointsYMax}
+          formatValue={(v) => v.toFixed(2)}
+        />
+        <LearningCurve
+          title="Ø Brier-Score"
+          subtitle="je Runde - kleiner ist besser"
+          points={brierCurve}
+          yMax={brierYMax}
+          formatValue={(v) => v.toFixed(3)}
+        />
       </div>
 
       <div class="bar-chart" role="img" aria-label="Punktevergleich Automat gegen Schattentipper, Gesamtsaison" set:html={shadowBarsHtml}></div>
@@ -342,4 +367,11 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
 <style>
   .positive { color: var(--lime); }
   .negative { color: var(--red); }
+
+  .lc-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 18px 0 24px;
+  }
 </style>

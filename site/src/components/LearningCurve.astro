@@ -1,0 +1,266 @@
+---
+// Build-Time-SVG-Liniendiagramm für eine einzelne Kennzahl über die Runden
+// (Lernkurve). Bewusst als Ein-Serien-Chart: kein Vergleich, kein Legendenkasten
+// nötig - der Titel sagt, was gezeigt wird.
+const {
+  title,
+  subtitle = null,
+  points, // [{ label, value }], chronologisch
+  yMin = 0,
+  yMax,
+  formatValue = (v) => v.toFixed(2),
+  ariaLabel = null,
+} = Astro.props;
+
+const width = 460;
+const height = 190;
+const marginLeft = 34;
+const marginRight = 14;
+const marginTop = 22;
+const marginBottom = 28;
+const plotWidth = width - marginLeft - marginRight;
+const plotHeight = height - marginTop - marginBottom;
+const n = points.length;
+
+function xAt(i) {
+  return n <= 1 ? marginLeft + plotWidth / 2 : marginLeft + (i * plotWidth) / (n - 1);
+}
+function yAt(value) {
+  const ratio = (value - yMin) / (yMax - yMin);
+  return marginTop + (1 - Math.min(Math.max(ratio, 0), 1)) * plotHeight;
+}
+function xLabelAnchor(i) {
+  if (n <= 1) return 'middle';
+  if (i === 0) return 'start';
+  if (i === n - 1) return 'end';
+  return 'middle';
+}
+
+const coords = points.map((p, i) => ({ label: p.label, value: p.value, x: xAt(i), y: yAt(p.value) }));
+const baselineY = yAt(yMin);
+const linePath = coords.map((c, i) => `${i === 0 ? 'M' : 'L'}${c.x.toFixed(1)},${c.y.toFixed(1)}`).join(' ');
+const areaPath = coords.length > 1
+  ? `M${coords[0].x.toFixed(1)},${baselineY.toFixed(1)} ` +
+    coords.map((c) => `L${c.x.toFixed(1)},${c.y.toFixed(1)}`).join(' ') +
+    ` L${coords[coords.length - 1].x.toFixed(1)},${baselineY.toFixed(1)} Z`
+  : null;
+
+const tickCount = 4;
+const ticks = Array.from({ length: tickCount + 1 }, (_, i) => yMin + ((yMax - yMin) * i) / tickCount);
+
+const last = coords[coords.length - 1];
+const labelAbove = last.y - marginTop > 20;
+
+const fullAriaLabel = ariaLabel ?? `${title}: ${coords.map((c) => `${c.label} ${formatValue(c.value)}`).join(', ')}`;
+---
+
+<div class="learning-curve">
+  <div class="lc-head">
+    <span class="lc-title">{title}</span>
+    {subtitle && <span class="lc-subtitle">{subtitle}</span>}
+  </div>
+  <div class="lc-chart-wrap">
+    <svg viewBox={`0 0 ${width} ${height}`} class="lc-svg" role="img" aria-label={fullAriaLabel}>
+      {ticks.map((t) => (
+        <g>
+          <line x1={marginLeft} x2={width - marginRight} y1={yAt(t)} y2={yAt(t)} class="lc-grid" />
+          <text x={marginLeft - 8} y={yAt(t)} class="lc-tick" text-anchor="end" dominant-baseline="middle">
+            {formatValue(t)}
+          </text>
+        </g>
+      ))}
+
+      {areaPath && <path d={areaPath} class="lc-area" />}
+      {coords.length > 1 && <path d={linePath} class="lc-line" />}
+
+      {coords.map((c, i) => (
+        <g>
+          <circle cx={c.x} cy={c.y} r="5" class="lc-dot" data-label={c.label} data-value={formatValue(c.value)}>
+            <title>{`${c.label}: ${formatValue(c.value)}`}</title>
+          </circle>
+          {i === coords.length - 1 && (
+            <text
+              x={c.x}
+              y={labelAbove ? c.y - 12 : c.y + 20}
+              text-anchor={coords.length === 1 ? 'middle' : 'end'}
+              class="lc-end-label"
+            >
+              {formatValue(c.value)}
+            </text>
+          )}
+        </g>
+      ))}
+
+      {coords.map((c, i) => (
+        <text x={c.x} y={height - marginBottom + 18} text-anchor={xLabelAnchor(i)} class="lc-x-label">
+          {c.label}
+        </text>
+      ))}
+
+      <line class="lc-crosshair" x1={last.x} x2={last.x} y1={marginTop} y2={height - marginBottom} />
+      <rect
+        class="lc-hit"
+        x={marginLeft}
+        y={marginTop}
+        width={plotWidth}
+        height={plotHeight}
+        fill="transparent"
+        tabindex="0"
+      />
+    </svg>
+    <div class="lc-tooltip"></div>
+  </div>
+</div>
+
+<style>
+  .learning-curve { min-width: 0; }
+  .lc-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+  .lc-title {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text);
+  }
+  .lc-subtitle { font-size: 12px; color: var(--text-muted); }
+
+  .lc-chart-wrap {
+    position: relative;
+    background: var(--surface-solid);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--r-panel);
+    padding: 10px 6px 4px;
+  }
+  .lc-svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+  .lc-grid { stroke: rgba(255, 255, 255, 0.08); stroke-width: 1; }
+  .lc-tick, .lc-x-label {
+    font-family: var(--font-body); font-size: 10px; fill: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .lc-area { fill: var(--lime); fill-opacity: 0.1; stroke: none; }
+  .lc-line { fill: none; stroke: var(--lime); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .lc-dot { fill: var(--lime); stroke: var(--surface-solid); stroke-width: 2; }
+  .lc-end-label {
+    font-family: var(--font-body); font-size: 12.5px; font-weight: 700; fill: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .lc-crosshair {
+    stroke: rgba(255, 255, 255, 0.28); stroke-width: 1; opacity: 0;
+    transition: opacity 0.12s ease; pointer-events: none;
+  }
+  .lc-hit { cursor: crosshair; }
+
+  .lc-tooltip {
+    position: absolute; top: 0; left: 0; z-index: 5;
+    transform: translate(-50%, calc(-100% - 10px));
+    background: rgba(18, 21, 30, 0.96);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.12s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .lc-tooltip strong { color: var(--text); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+  .lc-tooltip span { color: var(--text-muted); font-size: 11px; }
+</style>
+
+<script>
+  function initLearningCurves() {
+    document.querySelectorAll('.learning-curve').forEach((root) => {
+      if (root.dataset.lcInit) return;
+      root.dataset.lcInit = '1';
+
+      const svg = root.querySelector('.lc-svg');
+      const hit = root.querySelector('.lc-hit');
+      const crosshair = root.querySelector('.lc-crosshair');
+      const tooltip = root.querySelector('.lc-tooltip');
+      const dots = Array.from(root.querySelectorAll('.lc-dot'));
+      if (!svg || !hit || !crosshair || !tooltip || dots.length === 0) return;
+
+      const nodes = dots.map((d) => ({
+        x: parseFloat(d.getAttribute('cx')),
+        y: parseFloat(d.getAttribute('cy')),
+        label: d.getAttribute('data-label'),
+        value: d.getAttribute('data-value'),
+      }));
+
+      let focusIndex = nodes.length - 1;
+
+      function svgScale() {
+        const rect = svg.getBoundingClientRect();
+        const viewBox = svg.viewBox.baseVal;
+        return { rect, xScale: viewBox.width / rect.width, yScale: viewBox.height / rect.height };
+      }
+
+      function nearestIndex(svgX) {
+        let best = 0;
+        let bestDist = Infinity;
+        nodes.forEach((p, i) => {
+          const dist = Math.abs(p.x - svgX);
+          if (dist < bestDist) {
+            bestDist = dist;
+            best = i;
+          }
+        });
+        return best;
+      }
+
+      function showIndex(index) {
+        const p = nodes[index];
+        const { rect, xScale, yScale } = svgScale();
+        crosshair.setAttribute('x1', p.x);
+        crosshair.setAttribute('x2', p.x);
+        crosshair.style.opacity = '1';
+
+        tooltip.textContent = '';
+        const strong = document.createElement('strong');
+        strong.textContent = p.value;
+        const span = document.createElement('span');
+        span.textContent = p.label;
+        tooltip.appendChild(strong);
+        tooltip.appendChild(span);
+        tooltip.style.left = `${p.x / xScale}px`;
+        tooltip.style.top = `${p.y / yScale}px`;
+        tooltip.style.opacity = '1';
+      }
+
+      function hide() {
+        crosshair.style.opacity = '0';
+        tooltip.style.opacity = '0';
+      }
+
+      hit.addEventListener('pointermove', (event) => {
+        const { rect, xScale } = svgScale();
+        const svgX = (event.clientX - rect.left) * xScale;
+        focusIndex = nearestIndex(svgX);
+        showIndex(focusIndex);
+      });
+      hit.addEventListener('pointerleave', hide);
+      hit.addEventListener('focus', () => showIndex(focusIndex));
+      hit.addEventListener('blur', hide);
+      hit.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft' && focusIndex > 0) {
+          focusIndex -= 1;
+          showIndex(focusIndex);
+          event.preventDefault();
+        } else if (event.key === 'ArrowRight' && focusIndex < nodes.length - 1) {
+          focusIndex += 1;
+          showIndex(focusIndex);
+          event.preventDefault();
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLearningCurves);
+  } else {
+    initLearningCurves();
+  }
+</script>

@@ -226,8 +226,9 @@ config.yaml            Wettbewerb, Punkteschema, Modell- und Backtest-Parameter
       und News-Check über Kicker, Sportschau und BILD-News-Sitemap. News-gestützte
       Tipp-Adjustierung läuft bewusst nur als Schattentipp.
 - [x] **Phase 4:** Kicktipp-Bot (Playwright-Abgabe mit Rücklese-Verifikation)
-- [x] **Phase 5 (Kern):** Selbstlernen (engine/learn.py): LLM-Vertrauensregler
+- [x] **Phase 5:** Selbstlernen (engine/learn.py): LLM-Vertrauensregler
       (Schatten-Anpassungen werden erst nach nachweislich positiver Punktebilanz
       scharf geschaltet) und gelerntes Quotengewicht (Log-Loss-Grid-Search mit
-      Pseudo-Count-Regularisierung); Schattentipper, Kalibrierung und
-      Bilanz-Dashboard liefern die Datengrundlage. Offen: Lernkurven-Grafik
+      Pseudo-Count-Regularisierung); Schattentipper, Kalibrierung, Lernkurven-Grafik
+      (Ø Punkte/Spiel und Ø Brier je Runde) und Bilanz-Dashboard liefern die
+      Datengrundlage.
