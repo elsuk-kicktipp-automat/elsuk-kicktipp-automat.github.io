@@ -16,9 +16,81 @@
       "home": "Kanada",
       "away": "Marokko",
       "kickoff_utc": "2026-07-04T17:00:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "33e092d52cac7c4129a74f9cd6348ec961b58488440135c4036ea8daef497517",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.305,
+      "factors": {
+        "expected_goals": [
+          1.11,
+          1.79
+        ],
+        "probabilities": {
+          "home": 0.201,
+          "draw": 0.297,
+          "away": 0.502
+        },
+        "elo": {
+          "home": 1764.0,
+          "away": 1886.0,
+          "beta": 0.205
+        },
+        "market": {
+          "home": 0.195,
+          "draw": 0.281,
+          "away": 0.524,
+          "weight": 0.7
+        },
+        "home_advantage": 0.0,
+        "trained_on_matches": 88,
+        "llm_adjustment": null
+      },
+      "begruendung": "Der Tipp auf ein 1:2-Ergebnis maximiert den Punkte-Erwartungswert, da er ein gutes Verhältnis zwischen Wahrscheinlichkeit und Punkteauszahlung bietet. Obwohl ein Sieg Marokkos mit 50% am wahrscheinlichsten ist, bietet das Kicktipp-Schema oft mehr Punkte für weniger wahrscheinliche Ergebnisse, wie ein 1:2-Auswärtssieg. Der Tipp berücksichtigt sowohl die statistischen Modelle als auch die Buchmacherquoten, um das beste Verhältnis zwischen Risiko und möglicher Belohnung zu finden. Durch die Wahl dieses Ergebnisses kann der Punkte-Erwartungswert maximiert werden, auch wenn es nicht das wahrscheinlichste Einzelergebnis ist.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          1,
+          2
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Marokko gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 25,
+        "odds_decimal": 1.8,
+        "model_probability": 0.502,
+        "implied_probability": 0.5556,
+        "edge": -0.0964,
+        "expected_value_eur": -0.96,
+        "stake_eur": 10.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0,
+        "backfilled": true,
+        "backfilled_at_utc": "2026-07-04T11:28:14Z",
+        "probability_basis": "stored_probabilities",
+        "test_backfill": true,
+        "test_backfill_reason": "Explizite Test-Nachwette fuer bereits versiegelte Achtelfinal-Spiele."
+      },
+      "salt": "4ee02e1dd00850b8fabdc28508d5cf13"
     },
     {
       "home": "Paraguay",
