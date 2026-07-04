@@ -4,44 +4,96 @@
   "matchday": 5,
   "stage": "Achtelfinale",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 0,
-  "matches_scored": 0,
-  "matches_open": 8,
+  "points_total": 2,
+  "matches_scored": 1,
+  "matches_open": 7,
   "hits": {
     "exact": 0,
     "goal_diff": 0,
-    "tendency": 0,
+    "tendency": 1,
     "miss": 0
   },
   "shadow_points": {
     "most_probable": 0,
-    "elo_favorite": 0,
+    "elo_favorite": 2,
     "always_draw": 0,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 0,
-    "elo_favorite": 0,
-    "always_draw": 0,
+    "most_probable": 1,
+    "elo_favorite": 1,
+    "always_draw": 1,
     "llm_adjusted": 0
   },
-  "brier_avg": null,
-  "advance_points_total": 0,
-  "advance_scored": 0,
+  "brier_avg": 0.3766,
+  "advance_points_total": 2,
+  "advance_scored": 1,
   "paper_betting": {
-    "stake_total_eur": 0.0,
-    "payout_total_eur": 0.0,
-    "profit_total_eur": 0.0,
-    "roi": null,
-    "bets_scored": 0,
-    "bets_won": 0
+    "stake_total_eur": 10.0,
+    "payout_total_eur": 18.0,
+    "profit_total_eur": 8.0,
+    "roi": 0.8,
+    "bets_scored": 1,
+    "bets_won": 1
   },
   "matches": [
     {
       "home": "Kanada",
       "away": "Marokko",
       "kickoff_utc": "2026-07-04T17:00:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        0,
+        3
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 2,
+        "always_draw": 0
+      },
+      "brier": 0.3766,
+      "advance": {
+        "tip_side": "away",
+        "actual_side": "away",
+        "correct": true,
+        "points": 2
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Marokko gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 25,
+        "odds_decimal": 1.8,
+        "model_probability": 0.502,
+        "implied_probability": 0.5556,
+        "edge": -0.0964,
+        "expected_value_eur": -0.96,
+        "stake_eur": 10.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0,
+        "backfilled": true,
+        "backfilled_at_utc": "2026-07-04T11:28:14Z",
+        "probability_basis": "stored_probabilities",
+        "test_backfill": true,
+        "test_backfill_reason": "Explizite Test-Nachwette fuer bereits versiegelte Achtelfinal-Spiele."
+      },
+      "paper_bet_result": {
+        "outcome": "won",
+        "stake_eur": 10.0,
+        "payout_eur": 18.0,
+        "profit_eur": 8.0
+      }
     },
     {
       "home": "Paraguay",

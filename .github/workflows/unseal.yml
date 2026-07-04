@@ -24,17 +24,27 @@ jobs:
         id: check
         run: |
           pending=false
-          if ls data/sealed/*.enc >/dev/null 2>&1; then
-            now=$(date -u +%s)
-            for f in data/matchdays/*.json; do
-              if jq -e --argjson now "$now" \
-                '[.matches[] | select(.status == "sealed") | .kickoff_utc | fromdateiso8601] | any(. <= $now)' \
-                "$f" >/dev/null; then
+          now=$(date -u +%s)
+          for f in data/matchdays/*.json; do
+            if ls data/sealed/*.enc >/dev/null 2>&1 && jq -e --argjson now "$now" \
+              '[.matches[] | select(.status == "sealed") | .kickoff_utc | fromdateiso8601] | any(. <= $now)' \
+              "$f" >/dev/null; then
+              pending=true
+              break
+            fi
+
+            result_file="data/results/$(basename "$f")"
+            if jq -e --argjson now "$now" \
+              '[.matches[] | select(.status == "revealed") | select((.kickoff_utc | fromdateiso8601) + 5400 <= $now)] | length > 0' \
+              "$f" >/dev/null; then
+              if [ ! -f "$result_file" ] || jq -e \
+                '[.matches[] | select(.status == "revealed") | select((.result // null) == null)] | length > 0' \
+                "$result_file" >/dev/null; then
                 pending=true
                 break
               fi
-            done
-          fi
+            fi
+          done
           echo "pending=$pending" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-python@v5
