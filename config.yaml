@@ -81,10 +81,10 @@ llm:
 # Runde bleibt damit auch bei einem öffentlichen Repo nicht direkt auffindbar.
 kicktipp_submission:
   enabled: true
-  # Solange true: Formular wird ausgefüllt und als Screenshot geloggt, aber
-  # NICHT abgeschickt (concept.md Phase 4: "Dry-Run-Modus, dann scharf
-  # schalten"). Erst nach Sichtprüfung des Screenshots auf false stellen.
-  dry_run: true
+  # Scharf geschaltet nach erfolgreichem Dry-Run-Test (Login, Rundennavigation
+  # und alle 8 Achtelfinale-Paarungen korrekt zugeordnet/befüllt, 04.07.2026).
+  # Solange true: Formular wird nur ausgefüllt/screenshottet, nicht abgeschickt.
+  dry_run: false
 
 backtest:
   # Vereinsfußball: rollierend über die letzten 3 Bundesliga-Saisons
