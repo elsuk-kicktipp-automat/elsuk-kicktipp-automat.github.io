@@ -75,6 +75,17 @@ llm:
     enabled: true
     max_news_age_days: 5 # RSS-Schlagzeilen älter als das zählen nicht mehr
 
+# Kicktipp-Abgabe (concept.md Phase 4): trägt die Tipps automatisch bei
+# kicktipp.de ein. Zugangsdaten und Rundenname kommen ausschließlich aus
+# GitHub Actions Secrets (KICKTIPP_EMAIL/PASSWORD/RUNDE), nie hier - die
+# Runde bleibt damit auch bei einem öffentlichen Repo nicht direkt auffindbar.
+kicktipp_submission:
+  enabled: true
+  # Solange true: Formular wird ausgefüllt und als Screenshot geloggt, aber
+  # NICHT abgeschickt (concept.md Phase 4: "Dry-Run-Modus, dann scharf
+  # schalten"). Erst nach Sichtprüfung des Screenshots auf false stellen.
+  dry_run: true
+
 backtest:
   # Vereinsfußball: rollierend über die letzten 3 Bundesliga-Saisons
   club:

@@ -14,6 +14,8 @@ data/cache/*
 # Klartext-Tipps: dürfen vor Anstoß NIE ins öffentliche Repo.
 # Öffentlich sind nur data/matchdays/ (Hashes bzw. Enthülltes) und data/sealed/ (verschlüsselt).
 data/predictions/
+# Kicktipp-Dry-Run-Screenshots zeigen dieselben unversiegelten Klartext-Tipps.
+data/kicktipp_dryrun/
 
 # Astro-Site
 site/node_modules/

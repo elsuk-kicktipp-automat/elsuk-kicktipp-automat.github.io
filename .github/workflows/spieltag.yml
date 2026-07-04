@@ -33,6 +33,19 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 
+      - name: Playwright-Browser installieren
+        run: playwright install --with-deps chromium
+
+      # Läuft VOR dem Versiegeln (das die Klartext-Datei danach löscht).
+      # Dry-Run/Live per config.yaml (kicktipp_submission.dry_run) - Details
+      # zu befüllten Tipps werden bewusst nicht geloggt (öffentliches Repo).
+      - name: Kicktipp-Tippabgabe
+        run: python -m engine.cli kicktipp
+        env:
+          KICKTIPP_EMAIL: ${{ secrets.KICKTIPP_EMAIL }}
+          KICKTIPP_PASSWORD: ${{ secrets.KICKTIPP_PASSWORD }}
+          KICKTIPP_RUNDE: ${{ secrets.KICKTIPP_RUNDE }}
+
       - name: Versiegeln
         run: python -m engine.cli seal
         env:
