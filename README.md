@@ -1,7 +1,7 @@
 # Der Automat
 
 Ein selbstlernender KI-Tipper für die Kicktipp-Runde. Konzept: siehe [concept.md](concept.md).
-Website: **<https://elsuk-kicktipp-automat.github.io/der-automat/>**
+Website: **<https://elsuk-kicktipp-automat.github.io/>**
 
 **Stand: Phase 2-4 im Test-/Härtungsbetrieb** – Statistik-Engine (OpenLigaDB +
 ELO + Quoten, Dixon-Coles-Modell, Kicktipp-Punkteoptimierung, Backtesting),
@@ -117,9 +117,8 @@ GitHub Actions übernimmt den Betrieb (`.github/workflows/`):
 | `unseal.yml` | alle 5 min | fällige Tipps ab Anstoß enthüllen + abrechnen (früher Abbruch ohne fällige Spiele) |
 | `deploy-site.yml` | bei Daten-/Site-Änderungen | Astro-Build → GitHub Pages |
 
-Der Feature-Branch `feature/paper-betting` ist für Tests ebenfalls in
-`test.yml` und `deploy-site.yml` freigeschaltet. Manuelle Spieltags-/Unseal-Läufe
-auf diesem Branch triggern den Site-Deploy mit demselben Branch-Ref.
+Deploys laufen über `main`. Manuelle Spieltags-/Unseal-Läufe auf `main`
+triggern bei geänderten Daten anschließend den Site-Deploy.
 
 K.o.-Pläne mit Platzhaltern („Sieger SF 12") werden unterstützt: Sobald
 Nachzügler-Paarungen feststehen, versiegelt der nächste Lauf sie als weiteren
@@ -128,7 +127,7 @@ Batch derselben Runde.
 ## Website
 
 Astro-Site unter `site/`, deployed auf
-<https://elsuk-kicktipp-automat.github.io/der-automat/>:
+<https://elsuk-kicktipp-automat.github.io/>:
 **Spieltag** (versiegelte/enthüllte Tipps), **Archiv**, **Bilanz**
 (Live-Punkte + Backtests), **Wie ich denke** (Modell & Hash-Verifikation).
 Die Site wird statisch gebaut; ein kleiner Versions-Check (`site-version.json`)

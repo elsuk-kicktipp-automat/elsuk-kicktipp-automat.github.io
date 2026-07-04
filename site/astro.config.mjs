@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 
-// GitHub Pages: https://elsuk-kicktipp-automat.github.io/der-automat/
+// GitHub Pages root site: https://elsuk-kicktipp-automat.github.io/
 export default defineConfig({
   site: 'https://elsuk-kicktipp-automat.github.io',
-  base: '/der-automat',
 });
