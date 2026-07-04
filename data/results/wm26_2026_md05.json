@@ -33,49 +33,58 @@
       "home": "Kanada",
       "away": "Marokko",
       "kickoff_utc": "2026-07-04T17:00:00Z",
-      "status": "sealed"
+      "status": "sealed",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "Paraguay",
       "away": "Frankreich",
       "kickoff_utc": "2026-07-04T21:00:00Z",
-      "status": "sealed"
+      "status": "sealed",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "Brasilien",
       "away": "Norwegen",
       "kickoff_utc": "2026-07-05T20:00:00Z",
-      "status": "sealed"
+      "status": "sealed",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "Mexiko",
       "away": "England",
       "kickoff_utc": "2026-07-06T00:00:00Z",
-      "status": "sealed"
+      "status": "sealed",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "Portugal",
       "away": "Spanien",
       "kickoff_utc": "2026-07-06T19:00:00Z",
-      "status": "sealed"
+      "status": "sealed",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "USA",
       "away": "Belgien",
       "kickoff_utc": "2026-07-07T00:00:00Z",
-      "status": "sealed"
+      "status": "sealed",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "Argentinien",
       "away": "Ägypten",
       "kickoff_utc": "2026-07-07T16:00:00Z",
-      "status": "sealed"
+      "status": "sealed",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "Schweiz",
       "away": "Kolumbien",
       "kickoff_utc": "2026-07-07T20:00:00Z",
-      "status": "sealed"
+      "status": "sealed",
+      "paper_bet_status": "sealed"
     }
-  ]
+  ],
+  "paper_betting_backfilled_at_utc": "2026-07-04T11:28:14Z"
 }

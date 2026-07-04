@@ -29,6 +29,7 @@ const percent = new Intl.NumberFormat('de-DE', { style: 'percent', maximumFracti
   {sealed ? (
     <div class="sealed-block">
       <span class="badge badge-muted">🔒 Tipp abgegeben, versiegelt</span>
+      {match.paper_bet_status === 'sealed' && <span class="badge badge-muted">💶 Paper-Wette versiegelt</span>}
       <p class="hash" title="SHA-256 der versiegelten Tipp-Payload">{match.hash}</p>
       <p class="sealed-note">Der Tipp steht fest und wird nach Anstoß enthüllt – der Hash beweist es.</p>
     </div>

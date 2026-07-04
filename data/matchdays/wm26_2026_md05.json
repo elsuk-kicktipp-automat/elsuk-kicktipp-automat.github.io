@@ -17,56 +17,66 @@
       "away": "Marokko",
       "kickoff_utc": "2026-07-04T17:00:00Z",
       "status": "sealed",
-      "hash": "4a623ee71e6e1f96aa0688f7d0d754974778bdf91519a5e03a4d04ebde2ea26c"
+      "hash": "33e092d52cac7c4129a74f9cd6348ec961b58488440135c4036ea8daef497517",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "Paraguay",
       "away": "Frankreich",
       "kickoff_utc": "2026-07-04T21:00:00Z",
       "status": "sealed",
-      "hash": "34116b446cd25c1d15d73797a76962d1144e8d322b8350d15f150c603bb0bf2a"
+      "hash": "2e9802041505eb2f5d7fd2b71b755901fc33a48760b01622c9bc3a0ae6b70ff0",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "Brasilien",
       "away": "Norwegen",
       "kickoff_utc": "2026-07-05T20:00:00Z",
       "status": "sealed",
-      "hash": "5d82e843e6ee893e7a19cc5532bb727fba11e61c93065509c08e9d753b534219"
+      "hash": "46d27c2c617a45bd56d032d9243968b8e2d73706c331d040c97377623fa9e9b9",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "Mexiko",
       "away": "England",
       "kickoff_utc": "2026-07-06T00:00:00Z",
       "status": "sealed",
-      "hash": "8f70e4813f4dcd539c3e9d68c1f143ff8dbbc3dff6d3ed98a36440a52c618493"
+      "hash": "09203115de9be8a374e4292677a3a2362505107a7b88dd9dae6dbb17d5307bae",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "Portugal",
       "away": "Spanien",
       "kickoff_utc": "2026-07-06T19:00:00Z",
       "status": "sealed",
-      "hash": "718436b321f617f01e4b69d6a3467aae4181a6ea6794deda8a1d18f819ee66ea"
+      "hash": "7aa9fdcd6297bbfd25b4cba6b5b04ee209591bfe6f04283fa01bd8f4a6ba20c9",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "USA",
       "away": "Belgien",
       "kickoff_utc": "2026-07-07T00:00:00Z",
       "status": "sealed",
-      "hash": "28d88e806e33e8b139ee0d8b3619e8d3f064080bc1024fa26ac9e0b31db6c28a"
+      "hash": "0f66a37f66f9dc01938f3b05289c55fae9bf03ce9c6bbcf1783f7e510e995ae9",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "Argentinien",
       "away": "Ägypten",
       "kickoff_utc": "2026-07-07T16:00:00Z",
       "status": "sealed",
-      "hash": "18a9ba3a7120fced2e7c51efccc22062f2418b628b7e0e8def1b72818d0815ec"
+      "hash": "8f0ef48a11e3bc717cd0df5e6d64a36a3d7bf3d27d232ccde4f06e3e3f7ec73b",
+      "paper_bet_status": "sealed"
     },
     {
       "home": "Schweiz",
       "away": "Kolumbien",
       "kickoff_utc": "2026-07-07T20:00:00Z",
       "status": "sealed",
-      "hash": "7bc4271e20f98fd24347d84b913609f09bc72fcaac1be46ff8cc15f79ad2700d"
+      "hash": "a0bd80fcb18dc44aaab3724bcce14cafe8be4b264d8e1b58244967785392c018",
+      "paper_bet_status": "sealed"
     }
-  ]
+  ],
+  "paper_betting_backfilled_at_utc": "2026-07-04T11:28:14Z",
+  "paper_betting_backfill_note": "Test-Nachwetten fuer bereits versiegelte Runde; Paper-Wetten sind ab jetzt im Hash enthalten."
 }

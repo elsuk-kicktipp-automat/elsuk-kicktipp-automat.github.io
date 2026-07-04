@@ -125,6 +125,7 @@ def seal_file(
                 "kickoff_utc": m["kickoff_utc"],
                 "status": "sealed",
                 "hash": h,
+                **({"paper_bet_status": "sealed"} if m.get("paper_bet") else {}),
             }
         )
         private_matches.append({**m, "salt": salt, "hash": h})
