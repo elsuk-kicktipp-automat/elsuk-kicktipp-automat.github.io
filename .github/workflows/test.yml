@@ -3,7 +3,7 @@ name: Tests
 
 on:
   push:
-    branches: [main, feature/paper-betting]
+    branches: [main]
   pull_request:
 
 jobs:

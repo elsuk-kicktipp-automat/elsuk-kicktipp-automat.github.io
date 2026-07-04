@@ -123,3 +123,24 @@ class TestSettlePaperBet:
         )
         assert result["outcome"] == "skipped"
         assert result["profit_eur"] == 0.0
+
+
+class TestSettlementUses90MinuteResult:
+    """Buchmacher-1X2 wird auf 90 Minuten abgerechnet, nicht auf n.E.-Wertung."""
+
+    BET = {
+        "mode": "paper", "market": "h2h_90min", "selection": "home",
+        "status": "recommended", "odds_decimal": 2.5, "stake_eur": 10.0,
+    }
+
+    def test_extra_time_win_is_lost_bet(self):
+        # Argentinien-Kap Verde: 1:1 nach 90 -> Wette auf Heimsieg VERLOREN,
+        # auch wenn das Spiel 3:2 n.V. endete
+        settled = settle_paper_bet(self.BET, (1, 1))
+        assert settled["outcome"] == "lost"
+        assert settled["profit_eur"] == -10.0
+
+    def test_regular_win_pays_out(self):
+        settled = settle_paper_bet(self.BET, (2, 0))
+        assert settled["outcome"] == "won"
+        assert settled["payout_eur"] == 25.0

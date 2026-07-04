@@ -97,6 +97,7 @@ def evaluate_matchday(
     results_by_pairing: dict,
     scheme: dict,
     advancers_by_pairing: dict | None = None,
+    results90_by_pairing: dict | None = None,
 ) -> dict:
     """Rechnet eine Spieltags-Datei ab; Spiele ohne Ergebnis/Tipp bleiben offen."""
     matches, total, scored = [], 0, 0
@@ -149,7 +150,13 @@ def evaluate_matchday(
 
             if m.get("paper_bet"):
                 entry["paper_bet"] = m["paper_bet"]
-                settled = settle_paper_bet(m["paper_bet"], result)
+                # Buchmacher-1X2 wird auf das 90-Minuten-Ergebnis abgerechnet,
+                # nicht auf die n.E.-Gesamtwertung: Argentinien-Kap Verde 1:1
+                # nach 90 (Wette auf Argentinien verloren) endete 3:2 n.V. -
+                # gegen das Endergebnis gerechnet wäre die Bilanz geschönt.
+                pairing = (normalize(m["home"]), normalize(m["away"]))
+                result_90 = (results90_by_pairing or {}).get(pairing, result)
+                settled = settle_paper_bet(m["paper_bet"], result_90)
                 if settled is not None:
                     entry["paper_bet_result"] = settled
                     bet_stake += settled["stake_eur"]
@@ -203,7 +210,15 @@ def main(config: dict) -> None:
     results_by_pairing = {
         (m.home_key, m.away_key): (m.home_goals, m.away_goals) for m in finished
     }
-    results_by_pairing.update(load_manual_results())
+    results90_by_pairing = {
+        (m.home_key, m.away_key): (m.home_goals_90, m.away_goals_90)
+        for m in finished
+        if m.home_goals_90 is not None and m.away_goals_90 is not None
+    }
+    manual = load_manual_results()
+    results_by_pairing.update(manual)
+    # Manuelle Overrides gelten mangels separatem 90-Minuten-Feld für beide
+    results90_by_pairing.update(manual)
 
     # Wer nach einem 90-Minuten-Remis weiterkam, steht in keiner API - aber wer
     # in einer späteren Runde wieder auftaucht, hat das Elfmeterschießen gewonnen.
@@ -229,7 +244,9 @@ def main(config: dict) -> None:
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     for md_file in matchday_files:
         matchday = json.loads(md_file.read_text(encoding="utf-8"))
-        report = evaluate_matchday(matchday, results_by_pairing, scheme, advancers_by_pairing)
+        report = evaluate_matchday(
+            matchday, results_by_pairing, scheme, advancers_by_pairing, results90_by_pairing
+        )
         out = RESULTS_DIR / md_file.name
         out.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
         print(
