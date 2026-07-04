@@ -47,8 +47,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      name: ${{ github.ref_name == 'main' && 'github-pages' || 'github-pages-preview' }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment-retry.outputs.page_url }}
     steps:
       # Pages-Deploys scheitern gelegentlich transient ("try again later");
       # ein sofortiger Retry scheitert erfahrungsgemäß mit, nach ~1 Minute
