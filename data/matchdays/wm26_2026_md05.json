@@ -1,0 +1,72 @@
+{
+  "competition": "wm26",
+  "season": 2026,
+  "matchday": 5,
+  "stage": "Achtelfinale",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-07-04T06:01:17Z",
+  "matches": [
+    {
+      "home": "Kanada",
+      "away": "Marokko",
+      "kickoff_utc": "2026-07-04T17:00:00Z",
+      "status": "sealed",
+      "hash": "4a623ee71e6e1f96aa0688f7d0d754974778bdf91519a5e03a4d04ebde2ea26c"
+    },
+    {
+      "home": "Paraguay",
+      "away": "Frankreich",
+      "kickoff_utc": "2026-07-04T21:00:00Z",
+      "status": "sealed",
+      "hash": "34116b446cd25c1d15d73797a76962d1144e8d322b8350d15f150c603bb0bf2a"
+    },
+    {
+      "home": "Brasilien",
+      "away": "Norwegen",
+      "kickoff_utc": "2026-07-05T20:00:00Z",
+      "status": "sealed",
+      "hash": "5d82e843e6ee893e7a19cc5532bb727fba11e61c93065509c08e9d753b534219"
+    },
+    {
+      "home": "Mexiko",
+      "away": "England",
+      "kickoff_utc": "2026-07-06T00:00:00Z",
+      "status": "sealed",
+      "hash": "8f70e4813f4dcd539c3e9d68c1f143ff8dbbc3dff6d3ed98a36440a52c618493"
+    },
+    {
+      "home": "Portugal",
+      "away": "Spanien",
+      "kickoff_utc": "2026-07-06T19:00:00Z",
+      "status": "sealed",
+      "hash": "718436b321f617f01e4b69d6a3467aae4181a6ea6794deda8a1d18f819ee66ea"
+    },
+    {
+      "home": "USA",
+      "away": "Belgien",
+      "kickoff_utc": "2026-07-07T00:00:00Z",
+      "status": "sealed",
+      "hash": "28d88e806e33e8b139ee0d8b3619e8d3f064080bc1024fa26ac9e0b31db6c28a"
+    },
+    {
+      "home": "Argentinien",
+      "away": "Ägypten",
+      "kickoff_utc": "2026-07-07T16:00:00Z",
+      "status": "sealed",
+      "hash": "18a9ba3a7120fced2e7c51efccc22062f2418b628b7e0e8def1b72818d0815ec"
+    },
+    {
+      "home": "Schweiz",
+      "away": "Kolumbien",
+      "kickoff_utc": "2026-07-07T20:00:00Z",
+      "status": "sealed",
+      "hash": "7bc4271e20f98fd24347d84b913609f09bc72fcaac1be46ff8cc15f79ad2700d"
+    }
+  ]
+}
