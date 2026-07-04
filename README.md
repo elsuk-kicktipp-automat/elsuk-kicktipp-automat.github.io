@@ -52,9 +52,10 @@ Die Pipeline läuft mit der **WM 2026** (bis 19.07.2026), danach wird per
 8. **LLM-Begründung:** [Groq](https://console.groq.com) (Free Tier,
    `llama-3.3-70b-versatile`) formuliert den Begründungstext aus denselben
    Modellzahlen in natürlicher Sprache; ohne Key/Netzwerk springt automatisch
-   die Template-Begründung ein. Passt **nicht** den Tipp an – eine begründete
-   Anpassung bräuchte eine echte News-Quelle (Verletzungen, Sperren), die es
-   noch nicht gibt.
+   die Template-Begründung ein. Zusätzlich prüft der News-Check Kicker,
+   Sportschau und die BILD-News-Sitemap auf aktuelle Schlagzeilen zu den Teams.
+   Eine daraus abgeleitete Tipp-Anpassung läuft nur als Schattentipp mit und
+   ändert den offiziellen Tipp nicht.
 9. **Kicktipp-Abgabe:** Der Playwright-Bot trägt versiegelte Tipps bei
    kicktipp.de ein und liest die gespeicherten Werte danach serverseitig zurück.
    Abweichungen, fehlende Spiele oder verworfene Eingaben machen den Workflow rot.
@@ -221,9 +222,9 @@ config.yaml            Wettbewerb, Punkteschema, Modell- und Backtest-Parameter
       Backtesting, WM-2026-Testbetrieb
 - [x] **Phase 2:** Astro-Site, Hash-Versiegelung, GitHub-Actions-Betrieb,
       Deployment auf Pages
-- [x] **Phase 3 (teilweise):** Quoten-Prior (The Odds API), LLM-Begründungstexte
-      (Groq). Offen: News-Dossier (Verletzungen/Sperren) und darauf gestützte
-      Tipp-Adjustierung – ohne echte News-Quelle wäre das nur geraten
+- [x] **Phase 3:** Quoten-Prior (The Odds API), LLM-Begründungstexte (Groq)
+      und News-Check über Kicker, Sportschau und BILD-News-Sitemap. News-gestützte
+      Tipp-Adjustierung läuft bewusst nur als Schattentipp.
 - [x] **Phase 4:** Kicktipp-Bot (Playwright-Abgabe mit Rücklese-Verifikation)
 - [x] **Phase 5 (Kern):** Selbstlernen (engine/learn.py): LLM-Vertrauensregler
       (Schatten-Anpassungen werden erst nach nachweislich positiver Punktebilanz

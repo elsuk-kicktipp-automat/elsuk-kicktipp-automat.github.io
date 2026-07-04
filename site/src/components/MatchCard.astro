@@ -13,6 +13,14 @@ const hasElo = elo?.home != null && elo?.away != null;
 const eloDiff = hasElo ? Math.round(elo.home - elo.away) : null;
 const llmAdjustment = factors.llm_adjustment;
 const newsChecked = factors.news_checked;
+const newsSources = factors.news_sources;
+const checkedNewsSources = newsSources?.sources?.filter((source) => source.checked) ?? [];
+const failedNewsSources = newsSources?.sources?.filter((source) => !source.checked) ?? [];
+const newsSourceLabels = checkedNewsSources.map((source) => source.label).join(', ');
+const newsHitsBySource = checkedNewsSources
+  .filter((source) => source.matches > 0)
+  .map((source) => `${source.label}: ${source.matches}`)
+  .join(' · ');
 const pointsClass = scored ? `p${scored.points}` : '';
 const paperBet = match.paper_bet;
 const paperBetResult = scored?.paper_bet_result;
@@ -155,12 +163,16 @@ const possibleLoss = stake > 0 ? -stake : null;
             <li>
               News-Check: {llmAdjustment.news_count} Schlagzeile{llmAdjustment.news_count === 1 ? '' : 'n'} geprüft –
               Schattenvorschlag {llmAdjustment.tip[0]}:{llmAdjustment.tip[1]} ({llmAdjustment.grund}), nicht übernommen
+              {newsSourceLabels && <> · Quellen: {newsSourceLabels}</>}
             </li>
           ) : newsChecked != null ? (
             <li>
-              News-Check: {newsChecked} Schlagzeile{newsChecked === 1 ? '' : 'n'} geprüft{newsChecked > 0
-                ? ', kein harter Grund für eine Anpassung gefunden'
-                : ' gefunden'}
+              News-Check: {newsChecked > 0
+                ? `${newsChecked} passende Meldung${newsChecked === 1 ? '' : 'en'} gefunden`
+                : 'keine passende Meldung gefunden'}
+              {newsSourceLabels && <> · Quellen: {newsSourceLabels}</>}
+              {newsHitsBySource && <> · Treffer: {newsHitsBySource}</>}
+              {failedNewsSources.length > 0 && <> · nicht erreichbar: {failedNewsSources.map((source) => source.label).join(', ')}</>}
             </li>
           ) : null}
         </ul>

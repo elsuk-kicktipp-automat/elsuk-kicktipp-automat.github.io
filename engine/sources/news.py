@@ -23,6 +23,23 @@ FEEDS = {
     "sportschau": "https://www.sportschau.de/fussball/index~rss2.xml",
 }
 
+SOURCE_LABELS = {
+    "kicker": "Kicker",
+    "sportschau": "Sportschau",
+    "bild": "BILD",
+}
+
+BILD_NEWS_SITEMAP = "https://www.bild.de/sitemap-news.xml"
+
+
+def _parse_iso_datetime(value: str | None) -> datetime | None:
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
 
 def _fetch_feed(name: str, url: str, cache_dir: Path, cache_tag: str) -> list[dict]:
     cache_file = cache_dir / f"news_{name}_{cache_tag}.xml"
@@ -51,9 +68,119 @@ def _fetch_feed(name: str, url: str, cache_dir: Path, cache_tag: str) -> list[di
             pub_date = None
         if title:
             items.append(
-                {"title": title, "description": description, "published": pub_date, "source": name}
+                {
+                    "title": title,
+                    "description": description,
+                    "published": pub_date,
+                    "source": name,
+                    "source_label": SOURCE_LABELS.get(name, name),
+                }
             )
     return items
+
+
+def _fetch_bild_news_sitemap(cache_dir: Path, cache_tag: str) -> list[dict]:
+    cache_file = cache_dir / f"news_bild_{cache_tag}.xml"
+    if cache_file.exists():
+        raw = cache_file.read_bytes()
+    else:
+        resp = requests.get(BILD_NEWS_SITEMAP, timeout=15)
+        resp.raise_for_status()
+        raw = resp.content
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        cache_file.write_bytes(raw)
+
+    root = ElementTree.fromstring(raw)
+    ns = {
+        "sm": "http://www.sitemaps.org/schemas/sitemap/0.9",
+        "news": "http://www.google.com/schemas/sitemap-news/0.9",
+    }
+    items = []
+    for url_node in root.findall("sm:url", ns):
+        loc = (url_node.findtext("sm:loc", default="", namespaces=ns) or "").strip()
+        title = (url_node.findtext("news:news/news:title", default="", namespaces=ns) or "").strip()
+        keywords = (url_node.findtext("news:news/news:keywords", default="", namespaces=ns) or "").strip()
+        published = _parse_iso_datetime(
+            url_node.findtext("news:news/news:publication_date", default="", namespaces=ns)
+        )
+        if title:
+            items.append(
+                {
+                    "title": title,
+                    "description": keywords,
+                    "published": published,
+                    "source": "bild",
+                    "source_label": SOURCE_LABELS["bild"],
+                    "url": loc,
+                }
+            )
+    return items
+
+
+def _source_summary(source: str, items: list[dict], error: str | None = None) -> dict:
+    return {
+        "source": source,
+        "label": SOURCE_LABELS.get(source, source),
+        "checked": error is None,
+        "matches": len(items),
+        **({"error": error} if error else {}),
+    }
+
+
+def fetch_report(
+    home_name: str,
+    away_name: str,
+    max_age_days: int = 5,
+    max_items: int = 5,
+    cache_dir: Path = CACHE_DIR,
+    cache_tag: str | None = None,
+    now: datetime | None = None,
+) -> dict:
+    """News-Report für ein Spiel.
+
+    Liefert die relevanten Schnipsel plus eine Quellenübersicht für die
+    Website. Best-effort: einzelne kaputte Quellen werden im Report markiert,
+    blockieren aber keine Prognose.
+    """
+    now = now or datetime.now(timezone.utc)
+    cache_tag = cache_tag or now.date().isoformat()
+    cutoff = now - timedelta(days=max_age_days)
+    names = (home_name, away_name)
+
+    all_relevant = []
+    sources = []
+    fetchers = {
+        **{name: (lambda n=name, u=url: _fetch_feed(n, u, cache_dir, cache_tag)) for name, url in FEEDS.items()},
+        "bild": lambda: _fetch_bild_news_sitemap(cache_dir, cache_tag),
+    }
+
+    for name, fetcher in fetchers.items():
+        try:
+            items = fetcher()
+        except (requests.RequestException, ElementTree.ParseError) as exc:
+            print(f"News-Feed {name} nicht verfügbar: {exc}")
+            sources.append(_source_summary(name, [], str(exc)))
+            continue
+
+        relevant = [
+            item
+            for item in items
+            if any(n in f"{item['title']} {item['description']}" for n in names)
+            and (item["published"] is None or item["published"] >= cutoff)
+        ]
+        sources.append(_source_summary(name, relevant))
+        all_relevant += relevant
+
+    all_relevant.sort(key=lambda i: i["published"] or cutoff, reverse=True)
+    snippets = all_relevant[:max_items]
+    return {
+        "snippets": snippets,
+        "checked": sum(1 for s in sources if s["checked"]),
+        "sources": sources,
+        "total_matches": len(all_relevant),
+        "returned": len(snippets),
+        "has_news": bool(all_relevant),
+    }
 
 
 def fetch_snippets(
@@ -67,23 +194,12 @@ def fetch_snippets(
 ) -> list[dict]:
     """Bis zu `max_items` jüngste Schlagzeilen, die eines der beiden Teams
     erwähnen. Best-effort: [] statt Fehler, wenn ein Feed nicht erreichbar ist."""
-    now = now or datetime.now(timezone.utc)
-    cache_tag = cache_tag or now.date().isoformat()
-    cutoff = now - timedelta(days=max_age_days)
-
-    all_items = []
-    for name, url in FEEDS.items():
-        try:
-            all_items += _fetch_feed(name, url, cache_dir, cache_tag)
-        except (requests.RequestException, ElementTree.ParseError) as exc:
-            print(f"News-Feed {name} nicht verfügbar: {exc}")
-
-    names = (home_name, away_name)
-    relevant = [
-        item
-        for item in all_items
-        if any(n in f"{item['title']} {item['description']}" for n in names)
-        and (item["published"] is None or item["published"] >= cutoff)
-    ]
-    relevant.sort(key=lambda i: i["published"] or cutoff, reverse=True)
-    return relevant[:max_items]
+    return fetch_report(
+        home_name,
+        away_name,
+        max_age_days=max_age_days,
+        max_items=max_items,
+        cache_dir=cache_dir,
+        cache_tag=cache_tag,
+        now=now,
+    )["snippets"]

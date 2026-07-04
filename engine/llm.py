@@ -54,6 +54,11 @@ def build_prompt(match_context: dict) -> str:
         )
     llm_adjustment = match_context.get("llm_adjustment")
     news_checked = match_context.get("news_checked")
+    news_sources = match_context.get("news_sources") or {}
+    news_source_labels = [
+        s["label"] for s in news_sources.get("sources", []) if s.get("checked")
+    ]
+    news_source_text = f" aus {', '.join(news_source_labels)}" if news_source_labels else ""
     if llm_adjustment:
         lines.append(
             f"- News-Check: eine der {llm_adjustment['news_count']} geprüften Schlagzeilen lieferte "
@@ -63,8 +68,10 @@ def build_prompt(match_context: dict) -> str:
         )
     elif news_checked is not None:
         lines.append(
-            f"- News-Check: {news_checked} aktuelle Schlagzeile(n) geprüft, kein harter Grund für "
-            "eine Anpassung gefunden" if news_checked > 0 else "- News-Check: keine einschlägigen aktuellen Schlagzeilen gefunden"
+            f"- News-Check: {news_checked} aktuelle Schlagzeile(n){news_source_text} geprüft, "
+            "kein harter Grund für eine Anpassung gefunden"
+            if news_checked > 0
+            else f"- News-Check: keine einschlägigen aktuellen Schlagzeilen{news_source_text} gefunden"
         )
     lines.append(f"- Für Kicktipp ausgewählter Tipp: {tip[0]}:{tip[1]}")
     lines.append(

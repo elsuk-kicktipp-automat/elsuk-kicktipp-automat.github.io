@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 
 import pytest
 
-from engine.sources.news import fetch_snippets
+from engine.sources.news import fetch_report, fetch_snippets
 
 FEED_XML = """<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0"><channel>
@@ -24,6 +24,20 @@ FEED_XML = """<?xml version="1.0" encoding="utf-8"?>
 </channel></rss>
 """
 
+BILD_SITEMAP_XML = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  <url>
+     <loc>https://www.bild.de/sport/fussball/deutschland-ohne-stammtorwart</loc>
+     <news:news>
+         <news:publication><news:name>BILD</news:name><news:language>de</news:language></news:publication>
+         <news:publication_date>2026-07-03T11:00:00+02:00</news:publication_date>
+         <news:title>Deutschland bangt um den Stammtorwart</news:title>
+         <news:keywords>Fußball, Deutschland, Portugal</news:keywords>
+     </news:news>
+  </url>
+</urlset>
+"""
+
 
 @pytest.fixture
 def cache_with_feed(tmp_path):
@@ -31,6 +45,7 @@ def cache_with_feed(tmp_path):
     (tmp_path / "news_sportschau_2026-07-03.xml").write_text(
         '<?xml version="1.0"?><rss><channel></channel></rss>', encoding="utf-8"
     )
+    (tmp_path / "news_bild_2026-07-03.xml").write_text(BILD_SITEMAP_XML, encoding="utf-8")
     return tmp_path
 
 
@@ -69,6 +84,11 @@ class TestFetchSnippets:
         (tmp_path / "news_sportschau_2026-07-03.xml").write_text(
             '<?xml version="1.0"?><rss><channel></channel></rss>', encoding="utf-8"
         )
+        (tmp_path / "news_bild_2026-07-03.xml").write_text(
+            '<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+            'xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"></urlset>',
+            encoding="utf-8",
+        )
         now = datetime(2026, 7, 3, 12, tzinfo=timezone.utc)
         result = fetch_snippets(
             "Deutschland", "Portugal", max_items=3, cache_dir=tmp_path, cache_tag="2026-07-03", now=now
@@ -99,6 +119,15 @@ class TestFetchSnippets:
         (tmp_path / "news_sportschau_2026-07-03.xml").write_text(
             '<?xml version="1.0"?><rss><channel></channel></rss>', encoding="utf-8"
         )
+        (tmp_path / "news_bild_2026-07-03.xml").write_text(BILD_SITEMAP_XML, encoding="utf-8")
         now = datetime(2026, 7, 3, 12, tzinfo=timezone.utc)
         result = fetch_snippets("Deutschland", "Portugal", cache_dir=tmp_path, cache_tag="2026-07-03", now=now)
-        assert "Elfmeterschießen" in result[0]["title"]
+        assert any("Elfmeterschießen" in item["title"] for item in result)
+
+    def test_report_lists_sources_and_news_state(self, cache_with_feed):
+        now = datetime(2026, 7, 3, 12, tzinfo=timezone.utc)
+        report = fetch_report("Deutschland", "Portugal", cache_dir=cache_with_feed, cache_tag="2026-07-03", now=now)
+        assert report["has_news"] is True
+        assert report["checked"] == 3
+        assert {s["label"] for s in report["sources"]} == {"Kicker", "Sportschau", "BILD"}
+        assert any(s["label"] == "BILD" and s["matches"] == 1 for s in report["sources"])

@@ -104,6 +104,7 @@ def build_begruendung(
     market_probs: dict | None = None,
     market_weight: float = 0.0,
     news_checked: int | None = None,
+    news_sources: dict | None = None,
     llm_adjustment: dict | None = None,
 ) -> str:
     """Kurze, laienverständliche Template-Begründung.
@@ -158,13 +159,20 @@ def build_begruendung(
             "Schattentipp mit und ändert nicht den hier gezeigten, offiziellen Tipp."
         )
     elif news_checked is not None:
+        source_labels = [
+            s["label"] for s in (news_sources or {}).get("sources", []) if s.get("checked")
+        ]
+        source_text = f" ({', '.join(source_labels)})" if source_labels else ""
         if news_checked > 0:
             schlagzeile = "Schlagzeile" if news_checked == 1 else "Schlagzeilen"
             sentences.append(
-                f"{news_checked} aktuelle {schlagzeile} wurden geprüft; es gab keinen klaren Grund, den Tipp zu ändern."
+                f"{news_checked} aktuelle {schlagzeile}{source_text} wurden geprüft; "
+                "es gab keinen klaren Grund, den Tipp zu ändern."
             )
         else:
-            sentences.append("Es gab keine relevante aktuelle Nachricht, die den Tipp verändert.")
+            sentences.append(
+                f"Der News-Check{source_text} fand keine relevante aktuelle Nachricht, die den Tipp verändert."
+            )
 
     sentences.append(
         "Der Tipp ist nicht geraten: Er ist die Mischung, die für Kicktipp am meisten verspricht "
@@ -276,33 +284,36 @@ def predict_matches(
         # Tipp angewendet - deshalb VOR Wette/Zusatzfrage/Begründung entschieden.
         llm_adjustment = None
         news_checked = None
+        news_report = None
         news_cfg = config.get("llm", {}).get("adjustment", {})
-        if news_cfg.get("enabled") and groq_api_key:
-            news = news_source.fetch_snippets(
+        if news_cfg.get("enabled"):
+            news_report = news_source.fetch_report(
                 m.home_name, m.away_name, max_age_days=news_cfg.get("max_news_age_days", 5), now=m.kickoff_utc
             )
+            news = news_report["snippets"]
             news_checked = len(news)
-            proposal = llm.propose_adjustment(
-                {"home": m.home_name, "away": m.away_name, "tip": tip}, news, groq_api_key, llm_model
-            )
-            if proposal is not None:
-                adjusted = (
-                    max(0, tip[0] + proposal["home_delta"]),
-                    max(0, tip[1] + proposal["away_delta"]),
+            if groq_api_key:
+                proposal = llm.propose_adjustment(
+                    {"home": m.home_name, "away": m.away_name, "tip": tip}, news, groq_api_key, llm_model
                 )
-                llm_adjustment = {
-                    "tip": list(adjusted),
-                    "grund": proposal["grund"],
-                    "news_count": len(news),
-                    "applied": False,
-                }
-                if llm_trusted:
-                    applied_tip = apply_llm_adjustment(tip, adjusted, m.stage_name)
-                    if applied_tip is not None:
-                        llm_adjustment["applied"] = True
-                        llm_adjustment["base_tip"] = list(tip)
-                        tip = applied_tip
-                        ev = expected_points(tip, matrix, scheme)
+                if proposal is not None:
+                    adjusted = (
+                        max(0, tip[0] + proposal["home_delta"]),
+                        max(0, tip[1] + proposal["away_delta"]),
+                    )
+                    llm_adjustment = {
+                        "tip": list(adjusted),
+                        "grund": proposal["grund"],
+                        "news_count": len(news),
+                        "applied": False,
+                    }
+                    if llm_trusted:
+                        applied_tip = apply_llm_adjustment(tip, adjusted, m.stage_name)
+                        if applied_tip is not None:
+                            llm_adjustment["applied"] = True
+                            llm_adjustment["base_tip"] = list(tip)
+                            tip = applied_tip
+                            ev = expected_points(tip, matrix, scheme)
 
         lam, mu = marginal_expected_goals(matrix)
         probs = outcome_probabilities(matrix)
@@ -327,7 +338,7 @@ def predict_matches(
         template_text = build_begruendung(
             m, lam, mu, probs, tip, ev, advance_tip,
             elo=elo_values, market_probs=market_probs, market_weight=market_weight,
-            news_checked=news_checked, llm_adjustment=llm_adjustment,
+            news_checked=news_checked, news_sources=news_report, llm_adjustment=llm_adjustment,
         )
         begruendung, source = template_text, "template"
         if llm_cfg.get("enabled"):
@@ -343,6 +354,7 @@ def predict_matches(
                 "elo": elo_values,
                 "trained_on_matches": trained_n,
                 "news_checked": news_checked,
+                "news_sources": news_report,
                 "llm_adjustment": llm_adjustment,
             }
             llm_text, source = llm.generate_begruendung(context, groq_api_key, llm_model)
@@ -395,6 +407,7 @@ def predict_matches(
                     # llm_adjustment ist der Schatten-Anpassungsvorschlag des
                     # LLM (siehe oben), None wenn kein harter Grund gefunden wurde
                     "news_checked": news_checked,
+                    "news_sources": news_report,
                     "llm_adjustment": llm_adjustment,
                 },
                 "begruendung": begruendung,

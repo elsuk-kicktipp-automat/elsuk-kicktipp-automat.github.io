@@ -35,8 +35,9 @@ import Layout from '../layouts/Layout.astro';
       Tipp-Anpassung (siehe Abschnitt 5).
     </li>
     <li>
-      <strong>RSS-News</strong> (Kicker, Sportschau) – aktuelle Schlagzeilen zu beiden
-      Teams als Kontext fürs LLM: Verletzungen, Sperren, Rotation, Trainerwechsel.
+      <strong>News-Check</strong> – Kicker- und Sportschau-RSS sowie die
+      BILD-News-Sitemap. Geprüft werden aktuelle Schlagzeilen zu beiden Teams als
+      Kontext fürs LLM: Verletzungen, Sperren, Rotation, Trainerwechsel.
     </li>
   </ul>
   <p>
@@ -111,8 +112,9 @@ print(hashlib.sha256(payload.encode()).hexdigest())"</pre>
   </p>
   <p>
     Zusätzlich liest das LLM aktuelle Schlagzeilen zu beiden Teams (Kicker,
-    Sportschau) und darf – nur bei einem konkreten harten Grund wie einer Verletzung,
-    Sperre oder Rotation – eine Anpassung um höchstens ein Tor je Team vorschlagen.
+    Sportschau, BILD-News-Sitemap) und darf – nur bei einem konkreten harten Grund
+    wie einer Verletzung, Sperre oder Rotation – eine Anpassung um höchstens ein Tor
+    je Team vorschlagen.
     Dieser Vorschlag läuft ausschließlich als eigener <strong>Schattentipper</strong>
     mit (in der Bilanz sichtbar) und ändert <em>nie</em> den echten, versiegelten
     Tipp. Erst wenn sich über mehrere Spieltage zeigt, dass er tatsächlich Punkte
