@@ -167,3 +167,14 @@ class TestFetchAndCache:
         matches = fetch_competition(["wm2026", "mb"], 2026, cache_dir=tmp_path)
         assert [m.home_name for m in matches] == ["Deutschland", "Sieger SF 12"]
         assert matches[0].kickoff_utc < matches[1].kickoff_utc
+
+
+class TestNinetyMinuteScore:
+    def test_penalty_match_exposes_both_tallies(self):
+        (m,) = parse_matches([KO_PENALTY_MATCH])
+        assert (m.home_goals, m.away_goals) == (3, 5)      # n.E.-Wertung (Kicktipp)
+        assert (m.home_goals_90, m.away_goals_90) == (1, 1)  # Buchmacher-1X2-Basis
+
+    def test_regular_match_tallies_are_identical(self):
+        (m,) = parse_matches([SAMPLE_MATCH])
+        assert (m.home_goals_90, m.away_goals_90) == (m.home_goals, m.away_goals) == (2, 1)

@@ -14,6 +14,15 @@ const liveScored = live.reduce((s, r) => s + r.matches_scored, 0);
 // Zusatzfrage K.o.-Spiele: "Wer kommt weiter?" (separat, nicht in points_total)
 const advanceTotal = liveRows.reduce((s, r) => s + (r.advance_points_total ?? 0), 0);
 const advanceScored = liveRows.reduce((s, r) => s + (r.advance_scored ?? 0), 0);
+const money = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
+const pct = new Intl.NumberFormat('de-DE', { style: 'percent', maximumFractionDigits: 1 });
+const betRows = liveRows.filter((r) => r.paper_betting?.bets_scored > 0 || r.paper_betting?.stake_total_eur > 0);
+const betStake = betRows.reduce((s, r) => s + (r.paper_betting?.stake_total_eur ?? 0), 0);
+const betPayout = betRows.reduce((s, r) => s + (r.paper_betting?.payout_total_eur ?? 0), 0);
+const betProfit = betRows.reduce((s, r) => s + (r.paper_betting?.profit_total_eur ?? 0), 0);
+const betScored = betRows.reduce((s, r) => s + (r.paper_betting?.bets_scored ?? 0), 0);
+const betWon = betRows.reduce((s, r) => s + (r.paper_betting?.bets_won ?? 0), 0);
+const betRoi = betStake ? betProfit / betStake : null;
 
 // Schatten-Summen nur, wenn der Tipper in allen gewerteten Spielen mitlief
 function sumShadow(name) {
@@ -152,6 +161,71 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
     </div>
   )}
 
+  <h2>Paper-Betting</h2>
+  {betRows.length === 0 ? (
+    <p class="muted">Noch keine theoretischen Wetten abgerechnet.</p>
+  ) : (
+    <div>
+      <p class="muted">
+        Reine Simulation ohne echte Wettabgabe: 1X2-Wetten auf Basis der Modellwahrscheinlichkeit,
+        Tipico als Referenzquote und Marktdurchschnitt als Fallback.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-tile">
+          <span class:list={['stat-value', betProfit >= 0 ? 'accent' : 'negative']}>{money.format(betProfit)}</span>
+          <span class="stat-label">Netto</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value">{money.format(betStake)}</span>
+          <span class="stat-label">Einsatz gesamt</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value">{betRoi != null ? pct.format(betRoi) : '–'}</span>
+          <span class="stat-label">ROI</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value">{betWon}/{betScored}</span>
+          <span class="stat-label">Wetten gewonnen</span>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Runde</th><th class="num">Wetten</th><th class="num">Einsatz</th>
+              <th class="num">Auszahlung</th><th class="num">Netto</th><th class="num">ROI</th>
+            </tr>
+          </thead>
+          <tbody>
+            {betRows.map((r) => {
+              const b = r.paper_betting;
+              return (
+                <tr>
+                  <td>{r.stage}</td>
+                  <td class="num">{b.bets_won}/{b.bets_scored}</td>
+                  <td class="num">{money.format(b.stake_total_eur)}</td>
+                  <td class="num">{money.format(b.payout_total_eur)}</td>
+                  <td class:list={['num', b.profit_total_eur >= 0 ? 'positive' : 'negative']}>{money.format(b.profit_total_eur)}</td>
+                  <td class="num">{b.roi != null ? pct.format(b.roi) : '–'}</td>
+                </tr>
+              );
+            })}
+            <tr>
+              <td>Gesamt</td>
+              <td class="num">{betWon}/{betScored}</td>
+              <td class="num">{money.format(betStake)}</td>
+              <td class="num">{money.format(betPayout)}</td>
+              <td class:list={['num', betProfit >= 0 ? 'positive' : 'negative']}>{money.format(betProfit)}</td>
+              <td class="num">{betRoi != null ? pct.format(betRoi) : '–'}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
   <h2>Backtests</h2>
   <p class="muted">
     Simulierter Tippbetrieb: Vor jeder Runde wird nur auf bis dahin gespielten Partien
@@ -226,3 +300,8 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
     Tipps irrelevant.
   </p>
 </Layout>
+
+<style>
+  .positive { color: var(--lime); }
+  .negative { color: var(--red); }
+</style>

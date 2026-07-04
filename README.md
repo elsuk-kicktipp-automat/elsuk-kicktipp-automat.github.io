@@ -3,13 +3,12 @@
 Ein selbstlernender KI-Tipper für die Kicktipp-Runde. Konzept: siehe [concept.md](concept.md).
 Website: **<https://elsuk-kicktipp-automat.github.io/der-automat/>**
 
-**Stand: Phase 2+3 (teilweise)** – Statistik-Engine (OpenLigaDB + ELO + Quoten,
-Dixon-Coles-Modell, Kicktipp-Punkteoptimierung, Backtesting), LLM-Begründungsschicht
-(Groq), Astro-Website, Hash-Versiegelung und GitHub-Actions-Automatisierung. Die
-Pipeline läuft im Test-/Härtungsbetrieb mit der **WM 2026** (bis 19.07.2026), danach
-wird per `config.yaml` auf die Bundesliga 2026/27 umgestellt. Eine Kicktipp-Runde ist
-dafür nicht nötig – die Punkte rechnet die Engine selbst ab; die Abgabe bei kicktipp.de
-ist Phase 4.
+**Stand: Phase 2-4 im Test-/Härtungsbetrieb** – Statistik-Engine (OpenLigaDB +
+ELO + Quoten, Dixon-Coles-Modell, Kicktipp-Punkteoptimierung, Backtesting),
+LLM-Begründungsschicht (Groq), Paper-Betting, Astro-Website, Hash-Versiegelung,
+GitHub-Actions-Automatisierung und verifizierte Kicktipp-Abgabe per Playwright.
+Die Pipeline läuft mit der **WM 2026** (bis 19.07.2026), danach wird per
+`config.yaml` auf die Bundesliga 2026/27 umgestellt.
 
 ## Wie es funktioniert
 
@@ -45,12 +44,20 @@ ist Phase 4.
    Ergebnis wird auf einen Blend aus Markt- und Modellmeinung optimiert, die
    relative Form (Dixon-Coles-rho) bleibt vom Modell bestimmt. Cache pro
    Kalendertag hält den Verbrauch weit unter dem Freikontingent.
-7. **LLM-Begründung:** [Groq](https://console.groq.com) (Free Tier,
+7. **Paper-Betting:** rein theoretische 1X2-Wetten ohne echte Wettabgabe.
+   Referenz ist `tipico_de`, falls verfügbar; sonst wird der Durchschnitt der
+   gelieferten Bookmaker-Quoten genutzt. Der Einsatz wird per konservativem
+   Fractional-Kelly aus der rohen Modellwahrscheinlichkeit vor Markt-Blend
+   berechnet und bei 100 EUR gedeckelt (`paper_betting` in `config.yaml`).
+8. **LLM-Begründung:** [Groq](https://console.groq.com) (Free Tier,
    `llama-3.3-70b-versatile`) formuliert den Begründungstext aus denselben
    Modellzahlen in natürlicher Sprache; ohne Key/Netzwerk springt automatisch
    die Template-Begründung ein. Passt **nicht** den Tipp an – eine begründete
    Anpassung bräuchte eine echte News-Quelle (Verletzungen, Sperren), die es
    noch nicht gibt.
+9. **Kicktipp-Abgabe:** Der Playwright-Bot trägt versiegelte Tipps bei
+   kicktipp.de ein und liest die gespeicherten Werte danach serverseitig zurück.
+   Abweichungen, fehlende Spiele oder verworfene Eingaben machen den Workflow rot.
 
 ## Setup
 
@@ -93,7 +100,7 @@ Klartext-Tipps liegen **nie** vor Anstoß im öffentlichen Repo
 (`data/predictions/` ist gitignored). Stattdessen (concept.md §5):
 
 1. **Versiegeln:** Pro Spiel wird nur der SHA-256-Hash von
-   `(Teams, Anstoß, Tipp, Begründung, Salt)` veröffentlicht
+   `(Teams, Anstoß, Tipp, Begründung, Paper-Bet, Salt)` veröffentlicht
    (`data/matchdays/`); der Klartext liegt Fernet-verschlüsselt in
    `data/sealed/*.enc`. Schlüssel: `SEAL_SECRET` (GitHub Actions Secret /
    lokale `.env`). Der Commit-Zeitstempel beweist den Zeitpunkt.
@@ -109,6 +116,10 @@ GitHub Actions übernimmt den Betrieb (`.github/workflows/`):
 | `unseal.yml` | alle 30 min | fällige Tipps enthüllen + abrechnen (früher Abbruch ohne fällige Spiele) |
 | `deploy-site.yml` | bei Daten-/Site-Änderungen | Astro-Build → GitHub Pages |
 
+Der Feature-Branch `feature/paper-betting` ist für Tests ebenfalls in
+`test.yml` und `deploy-site.yml` freigeschaltet. Manuelle Spieltags-/Unseal-Läufe
+auf diesem Branch triggern den Site-Deploy mit demselben Branch-Ref.
+
 K.o.-Pläne mit Platzhaltern („Sieger SF 12") werden unterstützt: Sobald
 Nachzügler-Paarungen feststehen, versiegelt der nächste Lauf sie als weiteren
 Batch derselben Runde.
@@ -119,6 +130,9 @@ Astro-Site unter `site/`, deployed auf
 <https://elsuk-kicktipp-automat.github.io/der-automat/>:
 **Spieltag** (versiegelte/enthüllte Tipps), **Archiv**, **Bilanz**
 (Live-Punkte + Backtests), **Wie ich denke** (Modell & Hash-Verifikation).
+Die Site wird statisch gebaut; ein kleiner Versions-Check (`site-version.json`)
+lädt nach einem neuen Pages-Deploy einmal hart neu, damit Navigation zwischen
+Spieltag, Archiv und Bilanz nicht auf einer alten HTML-Version hängen bleibt.
 
 ```bash
 cd site && npm install && npm run dev   # lokale Vorschau
@@ -181,7 +195,9 @@ engine/                Python-Engine
   backtest.py          Backtests (club + national) -> data/backtests/
   model.py             Dixon-Coles-Poisson mit ELO-Term
   market.py            Quoten-Blending der Wahrscheinlichkeitsmatrix (Vorhersagezeit)
+  paper_betting.py     theoretische Wetten, Einsatzlogik, Abrechnung
   llm.py               LLM-Begründungstexte (Groq) mit Template-Fallback
+  kicktipp_bot.py      Playwright-Abgabe bei kicktipp.de mit Verifikation
   optimizer.py         Kicktipp-Punktelogik + EV-Optimierung + Baselines
   teams.py             Team-Identität über normalisierte Namen
   sources/
@@ -208,5 +224,6 @@ config.yaml            Wettbewerb, Punkteschema, Modell- und Backtest-Parameter
 - [x] **Phase 3 (teilweise):** Quoten-Prior (The Odds API), LLM-Begründungstexte
       (Groq). Offen: News-Dossier (Verletzungen/Sperren) und darauf gestützte
       Tipp-Adjustierung – ohne echte News-Quelle wäre das nur geraten
-- [ ] **Phase 4:** Kicktipp-Bot (Playwright-Abgabe)
-- [ ] **Phase 5:** Selbstlernen, Schattentipper, Dashboard
+- [x] **Phase 4:** Kicktipp-Bot (Playwright-Abgabe mit Rücklese-Verifikation)
+- [ ] **Phase 5:** Selbstlernen; Schattentipper und Bilanz-Dashboard laufen
+      bereits als Grundlage mit

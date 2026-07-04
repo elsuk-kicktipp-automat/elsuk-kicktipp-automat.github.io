@@ -119,7 +119,40 @@ print(hashlib.sha256(payload.encode()).hexdigest())"</pre>
     bringt, entscheidet ein Vertrauensregler, ob er scharf geschaltet wird.
   </p>
 
-  <h2>6. Die Kicktipp-Abgabe</h2>
+  <h2>6. Paper-Betting: Was wäre, wenn ich echtes Geld setzen würde?</h2>
+  <p>
+    Zusätzlich zum Kicktipp-Tipp führe ich eine <strong>reine Simulation</strong> mit:
+    theoretische Sportwetten mit fiktivem Geld – es wird nie eine echte Wette
+    platziert. Das ist ein zweiter, härterer Maßstab für die Modellqualität: Beim
+    Kicktipp reicht es, besser als die Mitspieler zu sein – beim Wetten müsste man
+    besser sein als der Buchmacher.
+  </p>
+  <p>
+    So funktioniert es: Eine Buchmacherquote von z.B. 2,50 auf einen Sieg bedeutet,
+    dass der Buchmacher der Mannschaft grob eine Gewinnchance von 40&nbsp;% gibt
+    (1&nbsp;÷&nbsp;2,50). Hält mein Modell dieselbe Mannschaft aber für 48&nbsp;%
+    wahrscheinlich, ist die Quote aus Modellsicht „zu hoch" – eine sogenannte
+    <strong>Value-Wette</strong>: Auf lange Sicht würde sich der Einsatz lohnen,
+    wenn das Modell recht hat. Nur bei so einem rechnerischen Vorteil (mindestens
+    2&nbsp;% „Edge") wird eine Papier-Wette notiert; wie viel fiktives Geld gesetzt
+    wird, bestimmt eine vorsichtige Einsatzformel (Bruchteil-Kelly: je größer
+    Vorteil und Quote, desto mehr – gedeckelt bei 100&nbsp;€ pro Wette). Wichtig
+    dabei: Als Modellmeinung zählt die <em>rohe</em> Wahrscheinlichkeit, bevor die
+    Buchmacherquote in die Prognose eingerechnet wurde – sonst würde die Quote
+    gegen sich selbst verglichen.
+  </p>
+  <p>
+    Zwei Feinheiten: Erstens gelten 1X2-Wetten beim Buchmacher immer für die
+    <strong>regulären 90 Minuten</strong> – endet ein K.o.-Spiel nach 90 Minuten
+    unentschieden und wird erst in der Verlängerung entschieden, hat eine Wette
+    auf den späteren Sieger trotzdem <em>verloren</em>. Die Abrechnung hier folgt
+    genau dieser Regel (anders als der Kicktipp-Tipp, der nach Elfmeterschießen
+    gewertet wird). Zweitens werden die Papier-Wetten wie die Tipps
+    <strong>mitversiegelt</strong> und erst nach Anstoß enthüllt. Die Bilanz
+    (Einsatz, Gewinn/Verlust, ROI) steht auf der Bilanz-Seite.
+  </p>
+
+  <h2>7. Die Kicktipp-Abgabe</h2>
   <p>
     Nach der Prognose und vor der Versiegelung trägt ein Bot (Playwright) die Tipps
     automatisch bei Kicktipp ein – Login, Navigation zur Tippabgabe, Zuordnung über
@@ -128,7 +161,7 @@ print(hashlib.sha256(payload.encode()).hexdigest())"</pre>
     Screenshot, aber nicht abschicken), um die Zuordnung ohne Risiko zu prüfen.
   </p>
 
-  <h2>7. Was noch kommt</h2>
+  <h2>8. Was noch kommt</h2>
   <p>
     Der Vertrauensregler für die News-Schatten-Anpassung (Abschnitt 5) sowie eine
     automatische Gewichts-Nachjustierung des Modells anhand der laufenden

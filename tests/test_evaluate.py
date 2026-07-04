@@ -14,11 +14,13 @@ MATCHDAY = {
         {"home": "Kanada", "away": "Marokko", "kickoff_utc": "2026-07-04T17:00:00Z",
          "status": "revealed", "tip": [1, 1],
          "shadow_tips": {"most_probable": [1, 1], "elo_favorite": [2, 1], "always_draw": [1, 1]},
-         "factors": {"probabilities": {"home": 0.3, "draw": 0.4, "away": 0.3}}},
+         "factors": {"probabilities": {"home": 0.3, "draw": 0.4, "away": 0.3}},
+         "paper_bet": {"selection": "draw", "stake_eur": 10.0, "odds_decimal": 3.2}},
         {"home": "Paraguay", "away": "Frankreich", "kickoff_utc": "2026-07-04T21:00:00Z",
          "status": "revealed", "tip": [0, 2],
          # Alt-Daten ohne shadow_tips: elo_favorite/always_draw werden abgeleitet
-         "factors": {"elo": {"home": 1700.0, "away": 1998.0}}},
+         "factors": {"elo": {"home": 1700.0, "away": 1998.0}},
+         "paper_bet": {"selection": "home", "stake_eur": 5.0, "odds_decimal": 4.0}},
         {"home": "Brasilien", "away": "Norwegen", "kickoff_utc": "2026-07-05T20:00:00Z",
          "status": "sealed", "hash": "ab" * 32},
     ],
@@ -87,6 +89,26 @@ class TestShadowAndCalibration:
     def test_match_without_probabilities_has_no_brier(self):
         report = evaluate_matchday(MATCHDAY, RESULTS, SCHEME)
         assert "brier" not in report["matches"][1]
+
+
+class TestPaperBettingScoring:
+    def test_scores_paper_bets_and_summarizes_profit(self):
+        report = evaluate_matchday(MATCHDAY, RESULTS, SCHEME)
+        assert report["matches"][0]["paper_bet_result"] == {
+            "outcome": "won",
+            "stake_eur": 10.0,
+            "payout_eur": 32.0,
+            "profit_eur": 22.0,
+        }
+        assert report["matches"][1]["paper_bet_result"]["outcome"] == "lost"
+        assert report["paper_betting"] == {
+            "stake_total_eur": 15.0,
+            "payout_total_eur": 32.0,
+            "profit_total_eur": 17.0,
+            "roi": pytest.approx(1.1333),
+            "bets_scored": 2,
+            "bets_won": 1,
+        }
 
 
 class TestAdvanceScoring:

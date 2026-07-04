@@ -211,3 +211,9 @@ class TestCanonicalPayload:
         payload = canonical_payload(match, "abc")
         assert payload.index('"away"') < payload.index('"home"') < payload.index('"salt"')
         assert canonical_payload(match, "abc") == payload
+
+    def test_includes_paper_bet_when_present(self):
+        match = {**PREDICTION["matches"][0], "paper_bet": {"stake_eur": 10.0}}
+        payload = canonical_payload(match, "abc")
+        assert '"paper_bet"' in payload
+        assert payload_hash(match, "abc") == hashlib.sha256(payload.encode("utf-8")).hexdigest()

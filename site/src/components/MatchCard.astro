@@ -14,6 +14,10 @@ const eloDiff = hasElo ? Math.round(elo.home - elo.away) : null;
 const llmAdjustment = factors.llm_adjustment;
 const newsChecked = factors.news_checked;
 const pointsClass = scored ? `p${scored.points}` : '';
+const paperBet = match.paper_bet;
+const paperBetResult = scored?.paper_bet_result;
+const money = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
+const percent = new Intl.NumberFormat('de-DE', { style: 'percent', maximumFractionDigits: 1 });
 ---
 
 <article class="match-card" style={`animation-delay:${delay}ms`}>
@@ -25,6 +29,7 @@ const pointsClass = scored ? `p${scored.points}` : '';
   {sealed ? (
     <div class="sealed-block">
       <span class="badge badge-muted">🔒 Tipp abgegeben, versiegelt</span>
+      {match.paper_bet_status === 'sealed' && <span class="badge badge-muted">💶 Paper-Wette versiegelt</span>}
       <p class="hash" title="SHA-256 der versiegelten Tipp-Payload">{match.hash}</p>
       <p class="sealed-note">Der Tipp steht fest und wird nach Anstoß enthüllt – der Hash beweist es.</p>
     </div>
@@ -70,6 +75,46 @@ const pointsClass = scored ? `p${scored.points}` : '';
         <p class="source-tag" title="Begründungstext von einem LLM formuliert, nicht der Tipp selbst">
           🤖 Begründung von der KI-Analyseschicht formuliert
         </p>
+      )}
+
+      {paperBet && (
+        <div class:list={['bet-box', paperBetResult?.profit_eur > 0 ? 'is-win' : paperBetResult?.profit_eur < 0 ? 'is-loss' : '']}>
+          <div class="bet-head">
+            <span class="bet-title">Paper-Wette</span>
+            <span class="bet-source">{paperBet.source_label ?? 'keine Quote'}</span>
+          </div>
+          <div class="bet-grid">
+            <span>
+              <b>{paperBet.selection_label}</b>
+              <small>Auswahl</small>
+            </span>
+            <span>
+              <b>{paperBet.odds_decimal ? paperBet.odds_decimal.toFixed(2) : '–'}</b>
+              <small>Quote</small>
+            </span>
+            <span>
+              <b>{money.format(paperBet.stake_eur ?? 0)}</b>
+              <small>Einsatz</small>
+            </span>
+            {paperBetResult ? (
+              <span>
+                <b>{money.format(paperBetResult.profit_eur)}</b>
+                <small>Netto</small>
+              </span>
+            ) : (
+              <span>
+                <b>{paperBet.edge != null ? percent.format(paperBet.edge) : '–'}</b>
+                <small>Edge</small>
+              </span>
+            )}
+          </div>
+          {paperBet.model_probability != null && (
+            <p class="bet-note">
+              Modell {percent.format(paperBet.model_probability)} · Markt {percent.format(paperBet.implied_probability)}
+              {paperBet.expected_value_eur != null && <> · Erwartungswert {money.format(paperBet.expected_value_eur)}</>}
+            </p>
+          )}
+        </div>
       )}
 
       <div class="sources">
@@ -231,6 +276,59 @@ const pointsClass = scored ? `p${scored.points}` : '';
   .analysis { margin: 16px 22px 0; font-size: 13.5px; line-height: 1.6; color: var(--text-body); }
   .source-tag { margin: 8px 22px 0; font-size: 11.5px; color: var(--text-muted); font-style: italic; }
 
+  .bet-box {
+    margin: 14px 22px 0;
+    padding: 12px 14px;
+    border-radius: var(--r-panel);
+    background: rgba(63, 140, 255, 0.06);
+    border: 1px solid rgba(63, 140, 255, 0.28);
+  }
+  .bet-box.is-win {
+    background: rgba(212, 255, 63, 0.07);
+    border-color: rgba(212, 255, 63, 0.32);
+  }
+  .bet-box.is-loss {
+    background: rgba(255, 77, 94, 0.07);
+    border-color: rgba(255, 77, 94, 0.32);
+  }
+  .bet-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+  .bet-title {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+  .bet-source { font-size: 11.5px; color: var(--text-muted); }
+  .bet-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .bet-grid span { min-width: 0; }
+  .bet-grid b {
+    display: block;
+    font-size: 14px;
+    color: var(--text);
+    overflow-wrap: anywhere;
+  }
+  .bet-grid small {
+    display: block;
+    margin-top: 2px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .bet-note { margin: 10px 0 0; font-size: 11.5px; color: var(--text-muted); }
+
   .sources {
     margin: 14px 22px 0;
     padding: 12px 14px;
@@ -277,4 +375,8 @@ const pointsClass = scored ? `p${scored.points}` : '';
     margin: 12px 0 0;
   }
   .sealed-note { font-size: 12.5px; color: var(--text-muted); margin: 10px 0 0; }
+
+  @media (max-width: 620px) {
+    .bet-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
 </style>

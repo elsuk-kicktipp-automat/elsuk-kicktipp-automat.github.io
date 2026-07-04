@@ -41,6 +41,11 @@ class Match:
     matchday: int
     stage_name: str
     finished: bool
+    # Ergebnis nach 90 Minuten (resultTypeID 2): Buchmacher-1X2-Wetten werden
+    # darauf abgerechnet, nicht auf das n.E.-Gesamtergebnis (Paper-Betting).
+    # Defaults, weil viele Test-Fixtures nur die Kernfelder konstruieren.
+    home_goals_90: int | None = None
+    away_goals_90: int | None = None
 
     @property
     def home_key(self) -> str:
@@ -64,30 +69,42 @@ class Match:
         )
 
 
-def _extract_final_score(match_json: dict) -> tuple[int | None, int | None]:
+def _extract_scores(match_json: dict) -> tuple[int | None, int | None, int | None, int | None]:
+    """(final_heim, final_gast, 90min_heim, 90min_gast) eines Spiels.
+
+    Final = höchste Ausbaustufe (Kicktipp-"n.E."-Wertung); 90 Minuten =
+    resultTypeID 2 (Basis der Buchmacher-1X2-Abrechnung beim Paper-Betting).
+    Ohne typeID-2-Eintrag (Alt-Daten) gilt der Fallback für beide.
+    """
     results = match_json.get("matchResults") or []
     by_type = {r.get("resultTypeID"): r for r in results}
-    final = next(
-        (by_type[t] for t in RESULT_TYPE_PRIORITY if t in by_type),
-        # Fallback für Alt-Daten ohne bekannte Typen: letzter Eintrag
-        # (= höchste resultOrderID, in der Praxis das Endergebnis)
-        results[-1] if results else None,
-    )
+    # Fallback für Alt-Daten ohne bekannte Typen: letzter Eintrag
+    # (= höchste resultOrderID, in der Praxis das Endergebnis)
+    fallback = results[-1] if results else None
+    final = next((by_type[t] for t in RESULT_TYPE_PRIORITY if t in by_type), fallback)
+    ninety = by_type.get(2, fallback)
     if final is None:
-        return None, None
-    return final.get("pointsTeam1"), final.get("pointsTeam2")
+        return None, None, None, None
+    return (
+        final.get("pointsTeam1"),
+        final.get("pointsTeam2"),
+        ninety.get("pointsTeam1") if ninety else None,
+        ninety.get("pointsTeam2") if ninety else None,
+    )
 
 
 def parse_matches(raw: list[dict]) -> list[Match]:
     matches = []
     for m in raw:
-        home_goals, away_goals = _extract_final_score(m)
+        home_goals, away_goals, home_goals_90, away_goals_90 = _extract_scores(m)
         matches.append(
             Match(
                 home_name=m["team1"]["teamName"],
                 away_name=m["team2"]["teamName"],
                 home_goals=home_goals,
                 away_goals=away_goals,
+                home_goals_90=home_goals_90,
+                away_goals_90=away_goals_90,
                 kickoff_utc=datetime.fromisoformat(
                     m["matchDateTimeUTC"].replace("Z", "+00:00")
                 ),

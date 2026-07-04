@@ -23,9 +23,13 @@ from .optimizer import (
     most_probable_score,
     penalty_shootout_favorite,
 )
+from .paper_betting import build_paper_bet
 from .sources import news as news_source
 from .sources.elo import make_elo_source
-from .sources.odds import load_probabilities as load_odds_probabilities
+from .sources.odds import (
+    load_betting_markets as load_odds_betting_markets,
+    load_probabilities as load_odds_probabilities,
+)
 from .sources.openligadb import Match, fetch_competition
 from .teams import is_knockout_stage
 
@@ -63,6 +67,26 @@ def load_odds(config: dict, on_date=None) -> dict[tuple[str, str], dict[str, flo
     cache_tag = (on_date or datetime.now(timezone.utc).date()).isoformat()
     return load_odds_probabilities(
         api_key, odds_cfg["sport_key"], odds_cfg.get("regions", "eu"), cache_tag=cache_tag
+    )
+
+
+def load_betting_markets(config: dict, on_date=None) -> dict[tuple[str, str], dict]:
+    betting_cfg = config.get("paper_betting", {})
+    odds_cfg = config.get("odds", {})
+    if not betting_cfg.get("enabled") or not odds_cfg.get("enabled"):
+        return {}
+    load_dotenv()
+    api_key = os.environ.get("ODDS_API_KEY")
+    if not api_key:
+        print("ODDS_API_KEY fehlt, Paper-Betting läuft ohne Quoten.")
+        return {}
+    cache_tag = (on_date or datetime.now(timezone.utc).date()).isoformat()
+    return load_odds_betting_markets(
+        api_key,
+        odds_cfg["sport_key"],
+        odds_cfg.get("regions", "eu"),
+        cache_tag=cache_tag,
+        preferred_bookmakers=betting_cfg.get("provider_preference", ["tipico_de"]),
     )
 
 
@@ -181,6 +205,7 @@ def predict_matches(
     neutral_venue: bool,
     team_type: str,
     odds: dict[tuple[str, str], dict[str, float]] | None = None,
+    betting_markets: dict[tuple[str, str], dict] | None = None,
     groq_api_key: str | None = None,
 ) -> list[dict]:
     """Tipps für die Zielspiele; Modell wird auf den Trainingsspielen gefittet."""
@@ -199,6 +224,7 @@ def predict_matches(
     predictions = []
     for m in sorted(targets, key=lambda t: (t.kickoff_utc, t.home_name)):
         matrix = model.score_matrix(m.home_key, m.away_key)
+        raw_probs = outcome_probabilities(matrix)
 
         market_probs = (odds or {}).get((m.home_key, m.away_key))
         if market_probs is not None and market_weight > 0:
@@ -210,6 +236,14 @@ def predict_matches(
         tip, ev = best_tip(matrix, scheme, max_tip, allow_draw=not is_knockout_stage(m.stage_name))
         lam, mu = marginal_expected_goals(matrix)
         probs = outcome_probabilities(matrix)
+        paper_bet = build_paper_bet(
+            cfg=config.get("paper_betting", {}),
+            home=m.home_name,
+            away=m.away_name,
+            tip=tip,
+            raw_probabilities=raw_probs,
+            market=(betting_markets or {}).get((m.home_key, m.away_key)),
+        )
 
         advance_tip = None
         if tip[0] == tip[1] and is_knockout_stage(m.stage_name):
@@ -294,6 +328,10 @@ def predict_matches(
                 "factors": {
                     "expected_goals": [round(lam, 2), round(mu, 2)],
                     "probabilities": {k: round(v, 3) for k, v in probs.items()},
+                    # Rohes Modell vor Markt-Blend: Grundlage für die
+                    # Paper-Betting-Edge, damit die Quote nicht gegen sich
+                    # selbst bewertet wird.
+                    "raw_probabilities": {k: round(v, 3) for k, v in raw_probs.items()},
                     "elo": {**elo_values, "beta": round(model.params.elo_beta, 4)},
                     # Marktquote (entvigt) und Blend-Gewicht, nur wenn eine
                     # Quote für genau diese Paarung vorlag (siehe engine/market.py)
@@ -311,6 +349,7 @@ def predict_matches(
                     "llm_adjustment": llm_adjustment,
                 },
                 "begruendung": begruendung,
+                "paper_bet": paper_bet,
                 # "llm" oder "template" - Transparenz, welche Quelle den Text
                 # geschrieben hat (LLM passt NICHT den Tipp an, siehe engine/llm.py)
                 "begruendung_source": source,
@@ -370,11 +409,20 @@ def run_predict(config: dict) -> dict | None:
             train += [m for m in fetch_competition(config["leagues"], s) if m.has_result]
 
     load_dotenv()
-    odds = load_odds(config, min(m.kickoff_utc for m in targets).date())
+    odds_date = min(m.kickoff_utc for m in targets).date()
+    odds = load_odds(config, odds_date)
+    betting_markets = load_betting_markets(config, odds_date)
     groq_api_key = os.environ.get("GROQ_API_KEY")
 
     predictions = predict_matches(
-        config, targets, train, config["neutral_venue"], config["team_type"], odds, groq_api_key
+        config,
+        targets,
+        train,
+        config["neutral_venue"],
+        config["team_type"],
+        odds,
+        betting_markets,
+        groq_api_key,
     )
     return {
         "competition": config["competition"],

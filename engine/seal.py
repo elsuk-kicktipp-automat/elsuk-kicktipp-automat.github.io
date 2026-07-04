@@ -32,10 +32,18 @@ REVEAL_DELAY = timedelta(minutes=5)
 
 # Diese Felder (plus Salt) gehen in den Hash. advance_tip (Elfmeterschießen-
 # Zusatzfrage bei K.o.-Remis-Tipps) muss wie der Tipp selbst vor Anstoß feststehen.
-HASHED_FIELDS = ("home", "away", "kickoff_utc", "tip", "advance_tip", "begruendung")
+HASHED_FIELDS = ("home", "away", "kickoff_utc", "tip", "advance_tip", "begruendung", "paper_bet")
 
 # Beim Entsiegeln werden zusätzlich diese Felder veröffentlicht.
-REVEALED_FIELDS = ("tip", "advance_tip", "expected_points", "factors", "begruendung", "shadow_tips")
+REVEALED_FIELDS = (
+    "tip",
+    "advance_tip",
+    "expected_points",
+    "factors",
+    "begruendung",
+    "shadow_tips",
+    "paper_bet",
+)
 
 
 def _fernet(secret: str) -> Fernet:
@@ -45,7 +53,7 @@ def _fernet(secret: str) -> Fernet:
 
 def canonical_payload(match: dict, salt: str) -> str:
     """Kanonische JSON-Payload, deren SHA-256 veröffentlicht wird."""
-    core = {field: match[field] for field in HASHED_FIELDS}
+    core = {field: match[field] for field in HASHED_FIELDS if field in match}
     core["salt"] = salt
     return json.dumps(core, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 
@@ -117,6 +125,7 @@ def seal_file(
                 "kickoff_utc": m["kickoff_utc"],
                 "status": "sealed",
                 "hash": h,
+                **({"paper_bet_status": "sealed"} if m.get("paper_bet") else {}),
             }
         )
         private_matches.append({**m, "salt": salt, "hash": h})

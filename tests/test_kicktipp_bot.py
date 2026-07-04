@@ -143,6 +143,7 @@ class TestMainFailsLoudly:
     def env(self, monkeypatch):
         for var in ("KICKTIPP_EMAIL", "KICKTIPP_PASSWORD", "KICKTIPP_RUNDE", "SEAL_SECRET"):
             monkeypatch.setenv(var, "x")
+        monkeypatch.setattr(bot, "load_dotenv", lambda: None)
         monkeypatch.setattr(bot, "load_pending_tips", lambda secret: {("a", "b"): (1, 2)})
 
     def _log(self, **overrides):

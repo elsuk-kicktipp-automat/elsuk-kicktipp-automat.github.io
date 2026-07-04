@@ -63,6 +63,23 @@ odds:
   # Gewicht der Marktquote beim Blend mit der Modellmeinung (1.0 = nur Markt)
   market_weight: 0.7
 
+# Paper-Betting: rein theoretische 1X2-Wetten, keine echte Wettabgabe.
+# Vorzug: Tipico DE. Falls nicht vorhanden, nutzt die Engine den Marktdurchschnitt
+# aller von The Odds API gelieferten Bookmaker und weist die Quelle transparent aus.
+paper_betting:
+  enabled: true
+  market: h2h_90min
+  provider_preference:
+    - tipico_de
+  fallback: average_market
+  staking:
+    mode: fractional_kelly
+    bankroll_eur: 1000
+    kelly_fraction: 0.25
+    max_stake_eur: 100
+    min_edge: 0.02
+    min_stake_eur: 0
+
 llm:
   enabled: true
   provider: groq
