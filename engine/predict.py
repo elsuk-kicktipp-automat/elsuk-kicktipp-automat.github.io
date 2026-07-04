@@ -335,10 +335,10 @@ def main(config: dict) -> None:
     out = PREDICTIONS_DIR / name
     PREDICTIONS_DIR.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"{len(report['matches'])} Tipps für {report['stage']} (Runde {report['matchday']}):")
-    for p in report["matches"]:
-        line = f"  {p['home']} - {p['away']}: {p['tip'][0]}:{p['tip'][1]} (EV {p['expected_points']})"
-        if p.get("advance_tip"):
-            line += f" | Elfmeterschießen: {p['advance_tip']['pick']}"
-        print(line)
+    # Absichtlich keine Tipp-Details hier: dieser Schritt läuft in GitHub
+    # Actions, dessen Logs bei einem öffentlichen Repo für jeden einsehbar
+    # sind - der Klartext-Tipp darf erst nach der Versiegelung (Hash) bzw.
+    # nach Anstoß (Enthüllung) sichtbar werden. Details stehen lokal in der
+    # (gitignorten) JSON-Datei.
+    print(f"{len(report['matches'])} Tipps für {report['stage']} (Runde {report['matchday']}) berechnet.")
     print(f"Gespeichert: {out.relative_to(PROJECT_ROOT)}")
