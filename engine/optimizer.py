@@ -43,12 +43,23 @@ def expected_points(tip: tuple[int, int], matrix: np.ndarray, scheme: dict = DEF
 
 
 def best_tip(
-    matrix: np.ndarray, scheme: dict = DEFAULT_SCHEME, max_tip_goals: int = 5
+    matrix: np.ndarray,
+    scheme: dict = DEFAULT_SCHEME,
+    max_tip_goals: int = 5,
+    allow_draw: bool = True,
 ) -> tuple[tuple[int, int], float]:
-    """Der Tipp mit maximalem Punkte-Erwartungswert: ((heim, gast), erwartungswert)."""
+    """Der Tipp mit maximalem Punkte-Erwartungswert: ((heim, gast), erwartungswert).
+
+    allow_draw=False schließt Unentschieden-Tipps aus (K.o.-Spiele unter der
+    Kicktipp-Regel "nach Elfmeterschießen": das gewertete Ergebnis geht nie
+    unentschieden aus, ein Remis-Tipp kann dort nie Punkte bringen - siehe
+    is_knockout_stage in teams.py).
+    """
     best, best_ev = (0, 0), -1.0
     for tip_h in range(max_tip_goals + 1):
         for tip_a in range(max_tip_goals + 1):
+            if not allow_draw and tip_h == tip_a:
+                continue
             ev = expected_points((tip_h, tip_a), matrix, scheme)
             if ev > best_ev:
                 best, best_ev = (tip_h, tip_a), ev

@@ -113,6 +113,21 @@ class TestBestTip:
         assert tip[0] <= 5 and tip[1] <= 5
         assert tip[0] == tip[1]  # Unentschieden bleibt die beste Wahl
 
+    def test_allow_draw_false_excludes_draws(self):
+        # K.o.-Spiele unter "nach Elfmeterschießen": ein Unentschieden-Tipp
+        # kann nie Punkte bringen, das gewertete Ergebnis geht nie remis aus.
+        matrix = np.zeros((7, 7))
+        matrix[1, 1] = 1.0  # Unentschieden ist hier sogar sicher
+        tip, ev = best_tip(matrix, allow_draw=False)
+        assert tip[0] != tip[1]
+        assert ev == pytest.approx(expected_points(tip, matrix))
+
+    def test_allow_draw_true_still_permits_draws(self):
+        matrix = np.zeros((7, 7))
+        matrix[1, 1] = 1.0
+        tip, _ = best_tip(matrix, allow_draw=True)
+        assert tip == (1, 1)
+
 
 class TestBaselines:
     def test_elo_favorite(self):

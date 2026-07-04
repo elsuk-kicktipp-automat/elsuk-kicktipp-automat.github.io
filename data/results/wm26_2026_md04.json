@@ -4,19 +4,19 @@
   "matchday": 4,
   "stage": "Sechzehntelfinale",
   "model_version": "dixon-coles-elo-1",
-  "points_total": 10,
+  "points_total": 8,
   "matches_scored": 4,
   "matches_open": 0,
   "hits": {
-    "exact": 2,
+    "exact": 1,
     "goal_diff": 0,
-    "tendency": 1,
+    "tendency": 2,
     "miss": 1
   },
   "shadow_points": {
     "most_probable": 0,
-    "elo_favorite": 5,
-    "always_draw": 8,
+    "elo_favorite": 8,
+    "always_draw": 0,
     "llm_adjusted": 0
   },
   "shadow_matches": {
@@ -25,7 +25,7 @@
     "always_draw": 4,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.646,
+  "brier_avg": 0.348,
   "advance_points_total": 6,
   "advance_scored": 4,
   "matches": [
@@ -65,15 +65,15 @@
         1
       ],
       "result": [
-        1,
-        1
+        3,
+        5
       ],
-      "points": 4,
+      "points": 0,
       "shadow_points": {
-        "always_draw": 4,
+        "always_draw": 0,
         "elo_favorite": 0
       },
-      "brier": 0.5967,
+      "brier": 0.7907,
       "advance": {
         "tip_side": "home",
         "actual_side": "away",
@@ -91,15 +91,15 @@
         0
       ],
       "result": [
-        1,
-        1
+        3,
+        2
       ],
-      "points": 0,
+      "points": 2,
       "shadow_points": {
-        "always_draw": 4,
-        "elo_favorite": 0
+        "always_draw": 0,
+        "elo_favorite": 3
       },
-      "brier": 1.4338,
+      "brier": 0.0478,
       "advance": {
         "tip_side": "home",
         "actual_side": "home",

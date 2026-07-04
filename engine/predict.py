@@ -156,7 +156,10 @@ def predict_matches(
         if market_probs is not None and market_weight > 0:
             matrix = blend_with_market(model, m.home_key, m.away_key, market_probs, market_weight)
 
-        tip, ev = best_tip(matrix, scheme, max_tip)
+        # Kicktipp-Regel dieser Runde: "nach Elfmeterschießen" - das gewertete
+        # Ergebnis geht bei K.o.-Spielen nie unentschieden aus (siehe
+        # is_knockout_stage), ein Remis-Tipp kann dort nie Punkte bringen.
+        tip, ev = best_tip(matrix, scheme, max_tip, allow_draw=not is_knockout_stage(m.stage_name))
         lam, mu = marginal_expected_goals(matrix)
         probs = outcome_probabilities(matrix)
 

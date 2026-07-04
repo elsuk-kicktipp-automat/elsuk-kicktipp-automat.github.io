@@ -21,6 +21,7 @@ from .config import PROJECT_ROOT
 from .optimizer import ALWAYS_DRAW_TIP, best_tip, elo_favorite_tip, match_points
 from .predict import build_model, load_elo
 from .sources.openligadb import Match, fetch_competition
+from .teams import is_knockout_stage
 
 BACKTESTS_DIR = PROJECT_ROOT / "data" / "backtests"
 
@@ -37,7 +38,7 @@ def _score_round(
     details = []
     for m in targets:
         matrix = model.score_matrix(m.home_key, m.away_key)
-        tip, ev = best_tip(matrix, scheme, max_tip)
+        tip, ev = best_tip(matrix, scheme, max_tip, allow_draw=not is_knockout_stage(m.stage_name))
         result = (m.home_goals, m.away_goals)
         home_elo = (elo or {}).get(m.home_key)
         away_elo = (elo or {}).get(m.away_key)
