@@ -24,3 +24,7 @@ site/.astro/
 
 # macOS
 .DS_Store
+
+# Interne Arbeitsdokumente der Agenten-Koordination (nicht Teil des Projekts)
+CLAUDE_HANDOFF.md
+CODE_REVIEW.md
