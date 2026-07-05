@@ -1,4 +1,9 @@
 ---
+import '@fontsource/anton/latin-400.css';
+import '@fontsource/archivo/latin-400.css';
+import '@fontsource/archivo/latin-500.css';
+import '@fontsource/archivo/latin-600.css';
+import '@fontsource/archivo/latin-700.css';
 import { SITE_VERSION } from '../lib/siteVersion.mjs';
 
 const { title = 'Der Automat' } = Astro.props;
@@ -26,12 +31,6 @@ const current = Astro.url.pathname;
     <meta
       name="description"
       content="Der Automat: ein statistischer KI-Tipper für die Kicktipp-Runde – transparent, versiegelt, nachrechenbar."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
     />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="b7788806-f762-4f1d-902e-fce55d0b8c04"></script>
     <script is:inline define:vars={{ base, currentVersion: SITE_VERSION }}>
@@ -87,6 +86,7 @@ const current = Astro.url.pathname;
           Maschinell getippt, menschlich verlierbar. Quellcode &amp; Daten:
           <a href="https://github.com/elsuk-kicktipp-automat/elsuk-kicktipp-automat.github.io">GitHub</a>
           · <a href={`${base}/impressum/`}>Impressum</a>
+          · <a href={`${base}/datenschutz/`}>Datenschutz</a>
         </footer>
       </div>
     </div>
