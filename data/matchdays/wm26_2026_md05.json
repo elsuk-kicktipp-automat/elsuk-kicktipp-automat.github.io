@@ -256,9 +256,81 @@
       "home": "Mexiko",
       "away": "England",
       "kickoff_utc": "2026-07-06T00:00:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "09203115de9be8a374e4292677a3a2362505107a7b88dd9dae6dbb17d5307bae",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.018,
+      "factors": {
+        "expected_goals": [
+          1.34,
+          1.5
+        ],
+        "probabilities": {
+          "home": 0.303,
+          "draw": 0.32,
+          "away": 0.377
+        },
+        "elo": {
+          "home": 1943.0,
+          "away": 2046.0,
+          "beta": 0.205
+        },
+        "market": {
+          "home": 0.308,
+          "draw": 0.299,
+          "away": 0.393,
+          "weight": 0.7
+        },
+        "home_advantage": 0.0,
+        "trained_on_matches": 88,
+        "llm_adjustment": null
+      },
+      "begruendung": "Der Tipp auf ein 1:2-Ergebnis maximiert den Punkte-Erwartungswert, obwohl ein Auswärtssieg mit 38% Wahrscheinlichkeit lediglich knapp vorne liegt. Dieser Tipp berücksichtigt die Punkteverteilung im Kicktipp-Schema, bei dem ein Treffer mit einem höheren Punktegewinn verbunden ist, wenn das Ergebnis weniger wahrscheinlich ist. Da ein 1:2-Ergebnis weniger wahrscheinlich ist als ein Remis oder ein Heimsieg, aber immer noch eine realistische Chance hat, bietet es ein gutes Verhältnis zwischen Wahrscheinlichkeit und Punktegewinn. Der Tipp auf ein 1:2-Ergebnis ist daher eine strategische Entscheidung, die den erwarteten Punktegewinn maximiert, anstatt einfach das wahrscheinlichste Ergebnis zu wählen.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          1,
+          2
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "England gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 25,
+        "odds_decimal": 2.35,
+        "model_probability": 0.377,
+        "implied_probability": 0.4255,
+        "edge": -0.114,
+        "expected_value_eur": -1.14,
+        "stake_eur": 10.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0,
+        "backfilled": true,
+        "backfilled_at_utc": "2026-07-04T11:28:14Z",
+        "probability_basis": "stored_probabilities",
+        "test_backfill": true,
+        "test_backfill_reason": "Explizite Test-Nachwette fuer bereits versiegelte Achtelfinal-Spiele."
+      },
+      "salt": "eeaaa43b32380cbc76d443302ee988e3"
     },
     {
       "home": "Portugal",
