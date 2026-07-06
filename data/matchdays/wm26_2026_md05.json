@@ -336,9 +336,81 @@
       "home": "Portugal",
       "away": "Spanien",
       "kickoff_utc": "2026-07-06T19:00:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "7aa9fdcd6297bbfd25b4cba6b5b04ee209591bfe6f04283fa01bd8f4a6ba20c9",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.268,
+      "factors": {
+        "expected_goals": [
+          1.2,
+          1.81
+        ],
+        "probabilities": {
+          "home": 0.219,
+          "draw": 0.294,
+          "away": 0.487
+        },
+        "elo": {
+          "home": 2013.0,
+          "away": 2159.0,
+          "beta": 0.205
+        },
+        "market": {
+          "home": 0.236,
+          "draw": 0.264,
+          "away": 0.501,
+          "weight": 0.7
+        },
+        "home_advantage": 0.0,
+        "trained_on_matches": 88,
+        "llm_adjustment": null
+      },
+      "begruendung": "Der optimale Tipp für das Achtelfinale zwischen Portugal und Spanien lautet 1:2, was nicht unbedingt das wahrscheinlichste Ergebnis ist. Dieser Tipp maximiert den Punkte-Erwartungswert, da er ein gutes Verhältnis zwischen der Wahrscheinlichkeit des Ergebnisses und der Anzahl der Punkte bietet, die für diesen Tipp vergeben werden. Im Kicktipp-Schema werden oft mehr Punkte für unerwartete Ergebnisse vergeben, was bedeutet, dass ein Tipp, der nicht das wahrscheinlichste Ergebnis ist, aber dennoch eine gewisse Wahrscheinlichkeit hat, einen höheren Punkte-Erwartungswert haben kann. Der Tipp 1:2 berücksichtigt die höhere Wahrscheinlichkeit eines Siegs von Spanien und die Möglichkeit, dass Portugal ein Tor erzielt.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          1,
+          2
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Spanien gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 25,
+        "odds_decimal": 1.87,
+        "model_probability": 0.487,
+        "implied_probability": 0.5348,
+        "edge": -0.0893,
+        "expected_value_eur": -0.89,
+        "stake_eur": 10.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0,
+        "backfilled": true,
+        "backfilled_at_utc": "2026-07-04T11:28:14Z",
+        "probability_basis": "stored_probabilities",
+        "test_backfill": true,
+        "test_backfill_reason": "Explizite Test-Nachwette fuer bereits versiegelte Achtelfinal-Spiele."
+      },
+      "salt": "c26dc80e5bfce2c6bb5954ba866747b2"
     },
     {
       "home": "USA",
