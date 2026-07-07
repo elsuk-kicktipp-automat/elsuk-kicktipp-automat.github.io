@@ -5,35 +5,35 @@
   "stage": "Achtelfinale",
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 14,
-  "matches_scored": 8,
-  "matches_open": 0,
+  "matches_scored": 7,
+  "matches_open": 1,
   "hits": {
     "exact": 0,
     "goal_diff": 2,
     "tendency": 4,
-    "miss": 2
+    "miss": 1
   },
   "shadow_points": {
-    "most_probable": 6,
+    "most_probable": 4,
     "elo_favorite": 16,
-    "always_draw": 2,
+    "always_draw": 0,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 8,
-    "elo_favorite": 8,
-    "always_draw": 8,
+    "most_probable": 7,
+    "elo_favorite": 7,
+    "always_draw": 7,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.4752,
+  "brier_avg": 0.4432,
   "advance_points_total": 12,
   "advance_scored": 7,
   "paper_betting": {
-    "stake_total_eur": 80.0,
+    "stake_total_eur": 70.0,
     "payout_total_eur": 111.5,
-    "profit_total_eur": 31.5,
-    "roi": 0.3937,
-    "bets_scored": 8,
+    "profit_total_eur": 41.5,
+    "roi": 0.5929,
+    "bets_scored": 7,
     "bets_won": 6
   },
   "matches": [
@@ -445,53 +445,7 @@
       "home": "Schweiz",
       "away": "Kolumbien",
       "kickoff_utc": "2026-07-07T20:00:00Z",
-      "status": "revealed",
-      "tip": [
-        1,
-        2
-      ],
-      "result": [
-        0,
-        0
-      ],
-      "points": 0,
-      "shadow_points": {
-        "most_probable": 2,
-        "elo_favorite": 0,
-        "always_draw": 2
-      },
-      "brier": 0.6989,
-      "paper_bet": {
-        "mode": "paper",
-        "market": "h2h_90min",
-        "selection": "away",
-        "selection_label": "Kolumbien gewinnt",
-        "status": "recommended",
-        "source": "tipico_de",
-        "source_label": "Tipico",
-        "bookmaker_count": 20,
-        "odds_decimal": 2.2,
-        "model_probability": 0.414,
-        "implied_probability": 0.4545,
-        "edge": -0.0892,
-        "expected_value_eur": -0.89,
-        "stake_eur": 10.0,
-        "max_stake_eur": 100.0,
-        "kelly_fraction": 0.0,
-        "applied_kelly_fraction": 0.25,
-        "bankroll_eur": 1000.0,
-        "backfilled": true,
-        "backfilled_at_utc": "2026-07-04T11:28:14Z",
-        "probability_basis": "stored_probabilities",
-        "test_backfill": true,
-        "test_backfill_reason": "Explizite Test-Nachwette fuer bereits versiegelte Achtelfinal-Spiele."
-      },
-      "paper_bet_result": {
-        "outcome": "lost",
-        "stake_eur": 10.0,
-        "payout_eur": 0.0,
-        "profit_eur": -10.0
-      }
+      "status": "revealed"
     }
   ]
 }
