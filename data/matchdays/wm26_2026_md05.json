@@ -416,9 +416,74 @@
       "home": "USA",
       "away": "Belgien",
       "kickoff_utc": "2026-07-07T00:00:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "0902fb917883a5609af9d7a49a946fe667d2e0456f45ee76f1c14e2d2a654697",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.026,
+      "factors": {
+        "expected_goals": [
+          1.33,
+          1.51
+        ],
+        "probabilities": {
+          "home": 0.3,
+          "draw": 0.32,
+          "away": 0.38
+        },
+        "elo": {
+          "home": 1798.0,
+          "away": 1910.0,
+          "beta": 0.205
+        },
+        "market": null,
+        "home_advantage": 0.0,
+        "trained_on_matches": 88,
+        "llm_adjustment": null
+      },
+      "begruendung": "Der Tipp auf ein 1:2 im Achtelfinale zwischen den USA und Belgien basiert auf einem statistischen Modell, das die Chancen beider Teams berücksichtigt. Dieses Modell geht von einer höheren Wahrscheinlichkeit für einen Auswärtssieg Belgiens aus, was durch die erwarteten Tore von 1,33 für die USA und 1,51 für Belgien unterstrichen wird. Der Tipp auf ein 1:2 maximiert den Punkte-Erwartungswert, da er ein gutes Verhältnis zwischen der Wahrscheinlichkeit des Ergebnisses und der Anzahl der Punkte bietet, die für dieses Ergebnis im Kicktipp-Schema vergeben werden, auch wenn es nicht das wahrscheinlichste Einzelergebnis ist. Durch diese Strategie wird die Gesamtpunktzahl über mehrere Spiele hinweg optimiert.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          1,
+          2
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Belgien gewinnt",
+        "status": "recommended",
+        "backfilled": true,
+        "backfilled_at_utc": "2026-07-04T11:35:36Z",
+        "probability_basis": "stored_probabilities",
+        "test_backfill": true,
+        "test_backfill_reason": "Explizite Test-Nachwette mit Tipico-Quote nach Mapping-Korrektur.",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 25,
+        "last_update": "2026-07-04T11:33:29Z",
+        "odds_decimal": 2.65,
+        "model_probability": 0.38,
+        "implied_probability": 0.3774,
+        "edge": 0.007,
+        "stake_eur": 10.0,
+        "max_stake_eur": 100.0,
+        "expected_value_eur": 0.07
+      },
+      "salt": "3d21eee5ee12f703fda1d39813c53bcc"
     },
     {
       "home": "Argentinien",
