@@ -569,9 +569,81 @@
       "home": "Schweiz",
       "away": "Kolumbien",
       "kickoff_utc": "2026-07-07T20:00:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "a0bd80fcb18dc44aaab3724bcce14cafe8be4b264d8e1b58244967785392c018",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.109,
+      "factors": {
+        "expected_goals": [
+          1.21,
+          1.54
+        ],
+        "probabilities": {
+          "home": 0.263,
+          "draw": 0.323,
+          "away": 0.414
+        },
+        "elo": {
+          "home": 1943.0,
+          "away": 2004.0,
+          "beta": 0.205
+        },
+        "market": {
+          "home": 0.276,
+          "draw": 0.297,
+          "away": 0.427,
+          "weight": 0.7
+        },
+        "home_advantage": 0.0,
+        "trained_on_matches": 88,
+        "llm_adjustment": null
+      },
+      "begruendung": "Der Tipp 1:2 maximiert den Punkte-Erwartungswert, obwohl das Remis statistisch gesehen das wahrscheinlichste Ergebnis ist. Dies liegt daran, dass im Kicktipp-Schema die Punkteverteilung oft so gestaltet ist, dass richtige Tippungen von Siegen höher bewertet werden als richtige Tippungen von Remis. Der Tipp 1:2 ist somit eine Strategie, die das Risiko mit dem möglichen Gewinn abwägt. Die statistischen Modelle deuten darauf hin, dass Kolumbien eine leichte Überlegenheit hat, was den Tipp auf einen Auswärtssieg stützt. Durch die Wahl des Tipps 1:2 wird der potenzielle Gewinn maximiert, auch wenn das Ergebnis nicht das wahrscheinlichste ist.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          1,
+          2
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Kolumbien gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 20,
+        "odds_decimal": 2.2,
+        "model_probability": 0.414,
+        "implied_probability": 0.4545,
+        "edge": -0.0892,
+        "expected_value_eur": -0.89,
+        "stake_eur": 10.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0,
+        "backfilled": true,
+        "backfilled_at_utc": "2026-07-04T11:28:14Z",
+        "probability_basis": "stored_probabilities",
+        "test_backfill": true,
+        "test_backfill_reason": "Explizite Test-Nachwette fuer bereits versiegelte Achtelfinal-Spiele."
+      },
+      "salt": "3ee3ad7d55577f89284a76cae127a80c"
     }
   ],
   "paper_betting_backfilled_at_utc": "2026-07-04T11:35:36Z",
