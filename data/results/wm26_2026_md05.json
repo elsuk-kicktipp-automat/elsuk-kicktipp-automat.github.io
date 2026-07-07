@@ -4,37 +4,37 @@
   "matchday": 5,
   "stage": "Achtelfinale",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 10,
-  "matches_scored": 5,
-  "matches_open": 3,
+  "points_total": 12,
+  "matches_scored": 6,
+  "matches_open": 2,
   "hits": {
     "exact": 0,
     "goal_diff": 2,
-    "tendency": 2,
+    "tendency": 3,
     "miss": 1
   },
   "shadow_points": {
     "most_probable": 2,
-    "elo_favorite": 11,
+    "elo_favorite": 13,
     "always_draw": 0,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 5,
-    "elo_favorite": 5,
-    "always_draw": 5,
+    "most_probable": 6,
+    "elo_favorite": 6,
+    "always_draw": 6,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.4795,
-  "advance_points_total": 8,
-  "advance_scored": 5,
+  "brier_avg": 0.4957,
+  "advance_points_total": 10,
+  "advance_scored": 6,
   "paper_betting": {
-    "stake_total_eur": 50.0,
-    "payout_total_eur": 71.8,
-    "profit_total_eur": 21.8,
-    "roi": 0.436,
-    "bets_scored": 5,
-    "bets_won": 4
+    "stake_total_eur": 60.0,
+    "payout_total_eur": 98.3,
+    "profit_total_eur": 38.3,
+    "roi": 0.6383,
+    "bets_scored": 6,
+    "bets_won": 5
   },
   "matches": [
     {
@@ -331,7 +331,57 @@
       "home": "USA",
       "away": "Belgien",
       "kickoff_utc": "2026-07-07T00:00:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        1,
+        4
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 2,
+        "always_draw": 0
+      },
+      "brier": 0.5768,
+      "advance": {
+        "tip_side": "away",
+        "actual_side": "away",
+        "correct": true,
+        "points": 2
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Belgien gewinnt",
+        "status": "recommended",
+        "backfilled": true,
+        "backfilled_at_utc": "2026-07-04T11:35:36Z",
+        "probability_basis": "stored_probabilities",
+        "test_backfill": true,
+        "test_backfill_reason": "Explizite Test-Nachwette mit Tipico-Quote nach Mapping-Korrektur.",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 25,
+        "last_update": "2026-07-04T11:33:29Z",
+        "odds_decimal": 2.65,
+        "model_probability": 0.38,
+        "implied_probability": 0.3774,
+        "edge": 0.007,
+        "stake_eur": 10.0,
+        "max_stake_eur": 100.0,
+        "expected_value_eur": 0.07
+      },
+      "paper_bet_result": {
+        "outcome": "won",
+        "stake_eur": 10.0,
+        "payout_eur": 26.5,
+        "profit_eur": 16.5
+      }
     },
     {
       "home": "Argentinien",
