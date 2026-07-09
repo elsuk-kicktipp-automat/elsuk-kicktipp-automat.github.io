@@ -1,0 +1,24 @@
+{
+  "competition": "wm26",
+  "season": 2026,
+  "matchday": 6,
+  "stage": "Viertelfinale",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-07-09T17:56:35Z",
+  "matches": [
+    {
+      "home": "Frankreich",
+      "away": "Marokko",
+      "kickoff_utc": "2026-07-09T20:00:00Z",
+      "status": "sealed",
+      "hash": "bcb8b90521da746e45d25aec549e791fe8a08fbab88150e6d90cb1e354e2a698",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}
