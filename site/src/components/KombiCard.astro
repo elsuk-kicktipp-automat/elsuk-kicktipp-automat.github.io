@@ -1,0 +1,251 @@
+---
+import { formatKickoff } from '../lib/data.mjs';
+
+// kombi: Eintrag aus data/kombi/*.json - versiegelt (nur Hash), enthüllt
+// (Beine + Einsatz sichtbar) oder abgerechnet (result gesetzt).
+const { kombi } = Astro.props;
+const sealed = kombi.status === 'sealed';
+const result = kombi.result;
+const legs = kombi.legs ?? [];
+const money = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
+const possibleProfit = !sealed ? kombi.potential_payout_eur - kombi.stake_eur : null;
+---
+
+<article class:list={['kombi-card', result?.outcome === 'won' ? 'is-win' : result?.outcome === 'lost' ? 'is-loss' : '']}>
+  <div class="kombi-head">
+    <span class="kombi-title">Kombiwette <span class="paper-tag">Paper</span></span>
+    {sealed ? (
+      <span class="badge badge-muted">🔒 versiegelt</span>
+    ) : result ? (
+      <span class:list={['badge', result.outcome === 'won' ? 'badge-lime' : 'badge-red']}>
+        {result.outcome === 'won' ? 'Gewonnen' : 'Verloren'} · netto {money.format(result.profit_eur)}
+      </span>
+    ) : (
+      <span class="badge badge-blue">läuft</span>
+    )}
+  </div>
+
+  {sealed ? (
+    <div class="kombi-body">
+      <p class="kombi-note">
+        Der Automat hat eine Kombiwette platziert. Auswahl, Quote und Einsatz sind
+        versiegelt und werden nach dem Anstoß des letzten Spiels enthüllt:
+        {' '}{formatKickoff(kombi.reveal_after_utc)} – der Hash beweist, dass alles jetzt schon feststeht.
+      </p>
+      <p class="hash" title="SHA-256 der versiegelten Kombi-Payload">{kombi.hash}</p>
+    </div>
+  ) : (
+    <div class="kombi-body">
+      <ul class="legs">
+        {legs.map((leg) => (
+          <li class="leg">
+            <span class="leg-match">
+              {leg.won === true && <i class="leg-ok" title="Bein gewonnen">✓</i>}
+              {leg.won === false && <i class="leg-fail" title="Bein verloren">✗</i>}
+              {leg.home} – {leg.away}
+              {leg.result && <span class="leg-result">{leg.result[0]}:{leg.result[1]}</span>}
+            </span>
+            <span class="leg-pick">
+              {leg.selection_label} <b class="leg-odds">{leg.odds_decimal.toFixed(2)}</b>
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <div class="kombi-grid">
+        <span>
+          <b>{kombi.total_odds.toFixed(2)}</b>
+          <small>Gesamtquote</small>
+        </span>
+        <span>
+          <b>{Math.round(kombi.combined_probability * 100)} %</b>
+          <small>Trefferchance</small>
+        </span>
+        <span>
+          <b>{money.format(kombi.stake_eur)}</b>
+          <small>Einsatz</small>
+        </span>
+        {result ? (
+          <span>
+            <b>{money.format(result.profit_eur)}</b>
+            <small>Ergebnis</small>
+          </span>
+        ) : (
+          <span>
+            <b>{money.format(possibleProfit)}</b>
+            <small>Gewinn wenn alles stimmt</small>
+          </span>
+        )}
+      </div>
+
+      <p class="kombi-note">
+        {result
+          ? result.outcome === 'won'
+            ? `Alle ${legs.length} Beine haben gehalten: ${money.format(result.payout_eur)} Auszahlung auf ${money.format(result.stake_eur)} Einsatz.`
+            : `Mindestens ein Bein hat nicht gehalten - bei einer Kombi ist damit der ganze Einsatz weg.`
+          : `Alle ${legs.length} Beine müssen gewinnen (90 Minuten). Jedes Bein hätte auch einzeln Value - nur dann kombiniert der Automat.`}
+      </p>
+
+      {kombi.salt && kombi.hash && (
+        <details class="reveal-proof">
+          <summary>Fairness-Beweis nachrechnen</summary>
+          <p>Salt: <code>{kombi.salt}</code></p>
+          <p>Hash: <code>{kombi.hash}</code></p>
+          <p>Anleitung: siehe „Wie ich denke".</p>
+        </details>
+      )}
+    </div>
+  )}
+</article>
+
+<style>
+  .kombi-card {
+    border-radius: var(--r-card);
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(63, 140, 255, 0.28);
+    box-shadow: var(--glass-highlight), var(--shadow-card);
+    overflow: hidden;
+    animation: riseIn 0.5s both;
+  }
+  .kombi-card.is-win { border-color: rgba(212, 255, 63, 0.32); }
+  .kombi-card.is-loss { border-color: rgba(255, 77, 94, 0.32); }
+
+  .kombi-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 14px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(63, 140, 255, 0.06);
+  }
+  .kombi-card.is-win .kombi-head { background: rgba(212, 255, 63, 0.07); }
+  .kombi-card.is-loss .kombi-head { background: rgba(255, 77, 94, 0.07); }
+  .kombi-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .paper-tag {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    vertical-align: middle;
+    color: var(--blue);
+    border: 1px solid rgba(63, 140, 255, 0.4);
+    border-radius: var(--r-badge);
+    padding: 2px 7px;
+    margin-left: 6px;
+  }
+
+  .badge {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--r-badge);
+  }
+  .badge-muted {
+    color: var(--text-muted);
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .badge-blue {
+    color: var(--blue);
+    border: 1px solid rgba(63, 140, 255, 0.4);
+    background: rgba(63, 140, 255, 0.08);
+  }
+  .badge-lime {
+    color: var(--lime);
+    border: 1px solid rgba(212, 255, 63, 0.35);
+    background: rgba(212, 255, 63, 0.07);
+  }
+  .badge-red {
+    color: var(--red);
+    border: 1px solid rgba(255, 77, 94, 0.4);
+    background: rgba(255, 77, 94, 0.08);
+  }
+
+  .kombi-body { padding: 14px 22px 18px; }
+
+  .legs { list-style: none; margin: 0; padding: 0; }
+  .leg {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 14px;
+    padding: 7px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+    font-size: 13.5px;
+  }
+  .leg:last-child { border-bottom: 0; }
+  .leg-match { color: var(--text); font-weight: 600; }
+  .leg-result { margin-left: 8px; color: var(--text-muted); }
+  .leg-pick { color: var(--text-body); }
+  .leg-odds {
+    margin-left: 6px;
+    font-family: var(--font-mono);
+    color: var(--blue);
+  }
+  .leg-ok { font-style: normal; color: var(--lime); margin-right: 6px; }
+  .leg-fail { font-style: normal; color: var(--red); margin-right: 6px; }
+
+  .kombi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: var(--r-panel);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+  }
+  .kombi-grid span { min-width: 0; }
+  .kombi-grid b {
+    display: block;
+    font-size: 15px;
+    color: var(--text);
+    overflow-wrap: anywhere;
+  }
+  .kombi-grid small {
+    display: block;
+    margin-top: 2px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .kombi-note { margin: 12px 0 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+
+  .hash {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    word-break: break-all;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin: 12px 0 0;
+  }
+
+  .reveal-proof {
+    margin: 12px 0 0;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+  .reveal-proof summary { cursor: pointer; color: var(--lime); font-weight: 600; }
+  .reveal-proof code { font-family: var(--font-mono); font-size: 11.5px; word-break: break-all; }
+
+  @media (max-width: 620px) {
+    .kombi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>

@@ -80,6 +80,26 @@ paper_betting:
     min_edge: 0.02
     min_stake_eur: 0
 
+# Paper-Kombiwette (engine/kombi.py): klassischer 2-3er-Akkumulator, rein
+# theoretisch. Ein Bein qualifiziert sich nur, wenn es auch als Einzelwette
+# Value hätte (rohe Modellwahrscheinlichkeit x Quote > 1) - sonst multipliziert
+# sich statt der eigenen Edge die Buchmachermarge. Eigenes Fenster statt des
+# 4h-Tipp-Fensters, weil in K.o.-Runden fast nie zwei Spiele gleichzeitig im
+# Tipp-Fenster liegen. Höchstens eine offene Kombi zur Zeit; komplett
+# versiegelt bis zum Anstoß des letzten Beins.
+kombi:
+  enabled: true
+  window_hours: 72
+  max_legs: 3
+  min_leg_probability: 0.55 # "sicher": Bein braucht >= 55% Modellwahrscheinlichkeit
+  min_leg_edge: 0.02
+  staking:
+    mode: fractional_kelly
+    bankroll_eur: 1000
+    kelly_fraction: 0.25
+    min_stake_eur: 10 # unter 10 EUR Kelly-Einsatz gilt: nicht sicher genug, keine Kombi
+    max_stake_eur: 100
+
 llm:
   enabled: true
   provider: groq

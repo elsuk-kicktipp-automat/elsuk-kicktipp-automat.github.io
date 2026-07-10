@@ -10,6 +10,8 @@ Datenfluss (Fairness-Mechanismus, siehe concept.md §5):
     data/results/      Punkteabrechnung der enthüllten Tipps
     data/manual_results/ manuelle Ergebnis-Overrides, falls die Quelle hängt
     data/backtests/    Backtest-Reports
+    data/kombi/        Paper-Kombiwetten: öffentliches JSON (erst Hash, nach
+                       letztem Anstoß Klartext) + verschlüsseltes .enc daneben
     data/cache/        API-Antworten (gitignored)
 """
 
@@ -30,6 +32,7 @@ RESULTS_DIR = DATA_DIR / "results"
 MANUAL_RESULTS_DIR = DATA_DIR / "manual_results"
 BACKTESTS_DIR = DATA_DIR / "backtests"
 MAPPINGS_DIR = DATA_DIR / "mappings"
+KOMBI_DIR = DATA_DIR / "kombi"
 
 
 def load_config(path: Path | str = DEFAULT_CONFIG_PATH) -> dict:

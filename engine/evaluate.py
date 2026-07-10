@@ -19,6 +19,7 @@ Zusätzlich (concept.md Schicht 4):
 import json
 import math
 
+from . import kombi
 from .config import MANUAL_RESULTS_DIR, MATCHDAYS_DIR, PROJECT_ROOT, RESULTS_DIR
 from .optimizer import ALWAYS_DRAW_TIP, elo_favorite_tip, match_category, match_points
 from .paper_betting import settle_paper_bet
@@ -254,3 +255,7 @@ def main(config: dict) -> None:
             f"{report['matches_scored']} gewerteten Spielen "
             f"({report['matches_open']} offen) -> {out.relative_to(PROJECT_ROOT)}"
         )
+
+    # Enthüllte Kombiwetten abrechnen (90-Minuten-Ergebnisse, wie Einzelwetten)
+    for path in kombi.settle_open(results90_by_pairing):
+        print(f"Kombi abgerechnet: {path.relative_to(PROJECT_ROOT)}")

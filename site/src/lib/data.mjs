@@ -44,6 +44,12 @@ export function scoredMatch(match, resultReport) {
   );
 }
 
+/** Paper-Kombiwetten (data/kombi/), älteste zuerst (die .enc-Dateien daneben
+ * sind kein JSON und tauchen hier nicht auf). */
+export function loadKombis() {
+  return readDirJson('kombi').sort((a, b) => a.id.localeCompare(b.id));
+}
+
 /** Selbstlern-Zustand (engine/learn.py) oder null. */
 export function loadLearning() {
   const path = join(DATA_DIR, 'learning', 'state.json');

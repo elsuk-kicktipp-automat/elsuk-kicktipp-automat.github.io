@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import KombiCard from '../components/KombiCard.astro';
 import MatchCard from '../components/MatchCard.astro';
-import { loadMatchdays, loadResults, resultsFor, scoredMatch } from '../lib/data.mjs';
+import { loadKombis, loadMatchdays, loadResults, resultsFor, scoredMatch } from '../lib/data.mjs';
 
 const matchdays = loadMatchdays();
 const results = loadResults();
 const current = matchdays.at(-1);
 const scored = current ? resultsFor(current, results) : undefined;
+const latestKombi = loadKombis().at(-1);
 
 const COMPETITION_LABELS = { wm26: 'WM 2026', wm2026: 'WM 2026', bl1: 'Bundesliga' };
 const competitionLabel = current
@@ -57,6 +59,12 @@ const stats = scored?.matches_scored > 0
         </section>
       )}
 
+      {latestKombi && (
+        <section class="kombi-section">
+          <KombiCard kombi={latestKombi} />
+        </section>
+      )}
+
       <section class="matches">
         {current.matches.map((m, i) => (
           <MatchCard match={m} scored={scoredMatch(m, scored)} delay={i * 60} />
@@ -96,6 +104,8 @@ const stats = scored?.matches_scored > 0
     margin-top: 26px;
     animation: riseIn 0.5s 0.1s both;
   }
+
+  .kombi-section { margin-top: 26px; animation: riseIn 0.5s 0.15s both; }
 
   .matches {
     display: grid;

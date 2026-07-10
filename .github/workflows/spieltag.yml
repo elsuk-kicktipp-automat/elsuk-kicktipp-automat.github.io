@@ -46,6 +46,14 @@ jobs:
         env:
           SEAL_SECRET: ${{ secrets.SEAL_SECRET }}
 
+      # Paper-Kombiwette: eigenes 72h-Fenster (config.yaml: kombi), wird
+      # direkt versiegelt - die Logs bleiben frei von Auswahl-Details.
+      - name: Kombiwette (Paper, Kombi-Fenster)
+        run: python -m engine.cli kombi
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          SEAL_SECRET: ${{ secrets.SEAL_SECRET }}
+
       - name: Punkteabrechnung
         run: python -m engine.cli evaluate
 

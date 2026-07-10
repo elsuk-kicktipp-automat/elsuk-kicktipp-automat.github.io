@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import LearningCurve from '../components/LearningCurve.astro';
-import { loadBacktest, loadLearning, loadResults } from '../lib/data.mjs';
+import { loadBacktest, loadKombis, loadLearning, loadResults } from '../lib/data.mjs';
 
 const learning = loadLearning();
 const club = loadBacktest('club');
@@ -25,6 +25,14 @@ const betProfit = betRows.reduce((s, r) => s + (r.paper_betting?.profit_total_eu
 const betScored = betRows.reduce((s, r) => s + (r.paper_betting?.bets_scored ?? 0), 0);
 const betWon = betRows.reduce((s, r) => s + (r.paper_betting?.bets_won ?? 0), 0);
 const betRoi = betStake ? betProfit / betStake : null;
+
+// Kombiwetten (data/kombi/): nur abgerechnete zählen in die Bilanz
+const settledKombis = loadKombis().filter((k) => k.result);
+const kombiStake = settledKombis.reduce((s, k) => s + k.result.stake_eur, 0);
+const kombiPayout = settledKombis.reduce((s, k) => s + k.result.payout_eur, 0);
+const kombiProfit = settledKombis.reduce((s, k) => s + k.result.profit_eur, 0);
+const kombiWon = settledKombis.filter((k) => k.result.outcome === 'won').length;
+const kombiRoi = kombiStake ? kombiProfit / kombiStake : null;
 
 // Lernkurve: Ø Punkte/Spiel und Ø Brier je Runde (nicht kumuliert - zeigt die
 // Entwicklung Runde für Runde, wie sie auch in der Tabelle oben steht).
@@ -245,6 +253,48 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
               <td class="num">{money.format(betPayout)}</td>
               <td class:list={['num', betProfit >= 0 ? 'positive' : 'negative']}>{money.format(betProfit)}</td>
               <td class="num">{betRoi != null ? pct.format(betRoi) : '–'}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  {settledKombis.length > 0 && (
+    <div>
+      <h2>Kombiwetten</h2>
+      <p class="muted">
+        Klassische 2-3er-Kombis (Paper): jedes Bein hätte auch einzeln Value, sonst kombiniert
+        der Automat nicht. Getrennt von den Einzelwetten abgerechnet.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Kombi</th><th class="num">Beine</th><th class="num">Quote</th><th class="num">Einsatz</th>
+              <th class="num">Auszahlung</th><th class="num">Netto</th>
+            </tr>
+          </thead>
+          <tbody>
+            {settledKombis.map((k) => (
+              <tr>
+                <td>{k.result.outcome === 'won' ? '✅' : '❌'} {k.id.split('_').at(-1)}</td>
+                <td class="num">{k.leg_count}</td>
+                <td class="num">{k.total_odds.toFixed(2)}</td>
+                <td class="num">{money.format(k.result.stake_eur)}</td>
+                <td class="num">{money.format(k.result.payout_eur)}</td>
+                <td class:list={['num', k.result.profit_eur >= 0 ? 'positive' : 'negative']}>{money.format(k.result.profit_eur)}</td>
+              </tr>
+            ))}
+            <tr>
+              <td>Gesamt ({kombiWon}/{settledKombis.length} gewonnen)</td>
+              <td class="num"></td>
+              <td class="num"></td>
+              <td class="num">{money.format(kombiStake)}</td>
+              <td class="num">{money.format(kombiPayout)}</td>
+              <td class:list={['num', kombiProfit >= 0 ? 'positive' : 'negative']}>
+                {money.format(kombiProfit)}{kombiRoi != null && ` (${pct.format(kombiRoi)} ROI)`}
+              </td>
             </tr>
           </tbody>
         </table>

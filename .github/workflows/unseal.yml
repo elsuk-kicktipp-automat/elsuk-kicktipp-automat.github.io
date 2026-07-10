@@ -45,6 +45,18 @@ jobs:
               fi
             fi
           done
+
+          # Kombiwette fällig? (versiegelt und letzter Anstoß erreicht)
+          if [ "$pending" = "false" ] && ls data/kombi/*.enc >/dev/null 2>&1; then
+            for k in data/kombi/*.json; do
+              if jq -e --argjson now "$now" \
+                'select(.status == "sealed") | (.reveal_after_utc | fromdateiso8601) <= $now' \
+                "$k" >/dev/null; then
+                pending=true
+                break
+              fi
+            done
+          fi
           echo "pending=$pending" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-python@v5
