@@ -318,6 +318,14 @@
         "bankroll_eur": 1000.0
       },
       "salt": "9f26b36cb2b71b05e1a822b025870dfd"
+    },
+    {
+      "home": "Norwegen",
+      "away": "England",
+      "kickoff_utc": "2026-07-11T21:00:00Z",
+      "status": "sealed",
+      "hash": "e5289888d7e74f3ea65dd3e96011440f73446a125bc0b1bdb0be0329e8cb21c6",
+      "paper_bet_status": "sealed"
     }
   ]
 }

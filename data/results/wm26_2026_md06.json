@@ -6,7 +6,7 @@
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 6,
   "matches_scored": 2,
-  "matches_open": 0,
+  "matches_open": 1,
   "hits": {
     "exact": 1,
     "goal_diff": 0,
@@ -143,6 +143,12 @@
         "payout_eur": 0.0,
         "profit_eur": 0.0
       }
+    },
+    {
+      "home": "Norwegen",
+      "away": "England",
+      "kickoff_utc": "2026-07-11T21:00:00Z",
+      "status": "sealed"
     }
   ]
 }
