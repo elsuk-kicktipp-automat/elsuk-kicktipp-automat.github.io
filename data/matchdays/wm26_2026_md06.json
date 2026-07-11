@@ -323,9 +323,148 @@
       "home": "Norwegen",
       "away": "England",
       "kickoff_utc": "2026-07-11T21:00:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "e5289888d7e74f3ea65dd3e96011440f73446a125bc0b1bdb0be0329e8cb21c6",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.258,
+      "factors": {
+        "expected_goals": [
+          1.47,
+          2.02
+        ],
+        "probabilities": {
+          "home": 0.255,
+          "draw": 0.258,
+          "away": 0.487
+        },
+        "raw_probabilities": {
+          "home": 0.261,
+          "draw": 0.263,
+          "away": 0.476
+        },
+        "elo": {
+          "home": 1972.0,
+          "away": 2076.0,
+          "beta": 0.1845
+        },
+        "market": {
+          "home": 0.253,
+          "draw": 0.256,
+          "away": 0.492,
+          "weight": 0.7
+        },
+        "home_advantage": 0.0,
+        "trained_on_matches": 98,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "WM 2026: Nur ein Lappen rudert nicht mit den Norwegern",
+              "description": "Fussball WM 2026, Fußball, Haaland Erling, Nationalmannschaft Norwegen, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-07-11T19:20:32+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/wm-2026-nur-ein-lappen-rudert-nicht-mit-den-norwegern-6a52211d67eabcf098949427"
+            },
+            {
+              "title": "Das Internet dreht durch: Haaland-Memes überollen das Netz",
+              "description": "Fussball WM, WM News Show, clipout, Haaland Erling, Nationalmannschaft Norwegen",
+              "published": "2026-07-11T18:15:25+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/das-internet-dreht-durch-haaland-memes-ueberollen-das-netz-6a51f9c99b72e0389c4bfb6d"
+            },
+            {
+              "title": "WM 2026: Bayern-Star verrät: Harry Kane spielte mit US-Präsident Donald Trump Golf",
+              "description": "Fussball WM 2026, Harry Kane, FC Bayern München, Nationalmannschaft England, Fußball, Trump Donald, Golf, Aufmacher-Bereich",
+              "published": "2026-07-11T17:44:19+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/wm-2026-bayern-star-verraet-harry-kane-spielte-mit-us-praesident-donald-trump-golf-6a51a7cf1aef3ee586481030"
+            },
+            {
+              "title": "WM 2026: Haaland und Kane - Tor-Phänomene mit menschlichem Antlitz",
+              "description": "Norwegen gegen England ist auch das Duell zwischen Erling Haaland und Harry Kane. Beide stehen für Tore am Fließband, sind tragende Säulen ihrer Teams - als Spieler sind sie aber sehr unterschiedlich.",
+              "published": "2026-07-11T16:48:15+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "WM 2026: Haaland und Kane - Tor-Phänomene mit menschlichem Antlitz",
+              "description": "Norwegen gegen England ist auch das Duell zwischen Erling Haaland und Harry Kane. Beide stehen für Tore am Fließband, sind tragende Säulen ihrer Teams - als Spieler sind sie aber sehr unterschiedlich.",
+              "published": "2026-07-11T16:48:15+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 21
+            }
+          ],
+          "total_matches": 24,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "England geht als klarer Favorit in dieses Viertelfinal-Duell, das liegt auf der Hand. Mein Tipp für Kicktipp ist deshalb eindeutig: 1:2 für die Engländer. Die Bilanz spricht eine deutliche Sprache, England hat einfach mehr Feuerpower als die Norweger. Es wird kein Torfestival, sondern ein Abnutzungskampf, bei dem die Engländer ihre Überlegenheit durchsetzen werden. Die Norweger werden sich zwar wehren, aber am Ende sollten die Engländer ihre Klasse zeigen und das Spiel für sich entscheiden.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          1,
+          2
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "England gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 25,
+        "odds_decimal": 1.93,
+        "model_probability": 0.4764,
+        "implied_probability": 0.5181,
+        "edge": -0.0805,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "salt": "6515b26d8b583df2116f1ebfb78abdb3"
     }
   ]
 }
