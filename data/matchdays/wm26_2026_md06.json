@@ -465,6 +465,14 @@
         "bankroll_eur": 1000.0
       },
       "salt": "6515b26d8b583df2116f1ebfb78abdb3"
+    },
+    {
+      "home": "Argentinien",
+      "away": "Schweiz",
+      "kickoff_utc": "2026-07-12T01:00:00Z",
+      "status": "sealed",
+      "hash": "4decc4d14247dba55f75392af2358219c7f95af3d57a54567b3b1c2d99a0853d",
+      "paper_bet_status": "sealed"
     }
   ]
 }
