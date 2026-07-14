@@ -1,0 +1,24 @@
+{
+  "competition": "wm26",
+  "season": 2026,
+  "matchday": 7,
+  "stage": "Halbfinale",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-07-14T15:20:26Z",
+  "matches": [
+    {
+      "home": "Frankreich",
+      "away": "Spanien",
+      "kickoff_utc": "2026-07-14T19:00:00Z",
+      "status": "sealed",
+      "hash": "d6b68a1cba18ce3b64d55d6878787d5f452bbd04979c705e51232371b24c3ab2",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}
