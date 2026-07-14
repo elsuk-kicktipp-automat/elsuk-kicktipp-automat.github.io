@@ -5,29 +5,29 @@
   "stage": "Halbfinale",
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 0,
-  "matches_scored": 0,
-  "matches_open": 1,
+  "matches_scored": 1,
+  "matches_open": 0,
   "hits": {
     "exact": 0,
     "goal_diff": 0,
     "tendency": 0,
-    "miss": 0
+    "miss": 1
   },
   "shadow_points": {
     "most_probable": 0,
-    "elo_favorite": 0,
+    "elo_favorite": 2,
     "always_draw": 0,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 0,
-    "elo_favorite": 0,
-    "always_draw": 0,
+    "most_probable": 1,
+    "elo_favorite": 1,
+    "always_draw": 1,
     "llm_adjusted": 0
   },
-  "brier_avg": null,
+  "brier_avg": 0.7361,
   "advance_points_total": 0,
-  "advance_scored": 0,
+  "advance_scored": 1,
   "paper_betting": {
     "stake_total_eur": 0.0,
     "payout_total_eur": 0.0,
@@ -41,7 +41,54 @@
       "home": "Frankreich",
       "away": "Spanien",
       "kickoff_utc": "2026-07-14T19:00:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        0,
+        2
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 2,
+        "always_draw": 0
+      },
+      "brier": 0.7361,
+      "advance": {
+        "tip_side": "home",
+        "actual_side": "away",
+        "correct": false,
+        "points": 0
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Frankreich gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.35,
+        "model_probability": 0.3102,
+        "implied_probability": 0.4255,
+        "edge": -0.271,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      }
     }
   ]
 }
