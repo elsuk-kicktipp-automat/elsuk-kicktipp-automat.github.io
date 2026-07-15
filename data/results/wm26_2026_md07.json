@@ -4,37 +4,37 @@
   "matchday": 7,
   "stage": "Halbfinale",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 0,
-  "matches_scored": 1,
-  "matches_open": 1,
+  "points_total": 4,
+  "matches_scored": 2,
+  "matches_open": 0,
   "hits": {
-    "exact": 0,
+    "exact": 1,
     "goal_diff": 0,
     "tendency": 0,
     "miss": 1
   },
   "shadow_points": {
     "most_probable": 0,
-    "elo_favorite": 2,
+    "elo_favorite": 6,
     "always_draw": 0,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 1,
-    "elo_favorite": 1,
-    "always_draw": 1,
+    "most_probable": 2,
+    "elo_favorite": 2,
+    "always_draw": 2,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.7361,
-  "advance_points_total": 0,
-  "advance_scored": 1,
+  "brier_avg": 0.6876,
+  "advance_points_total": 2,
+  "advance_scored": 2,
   "paper_betting": {
-    "stake_total_eur": 0.0,
-    "payout_total_eur": 0.0,
-    "profit_total_eur": 0.0,
-    "roi": null,
-    "bets_scored": 0,
-    "bets_won": 0
+    "stake_total_eur": 29.67,
+    "payout_total_eur": 86.04,
+    "profit_total_eur": 56.37,
+    "roi": 1.8999,
+    "bets_scored": 1,
+    "bets_won": 1
   },
   "matches": [
     {
@@ -94,7 +94,54 @@
       "home": "England",
       "away": "Argentinien",
       "kickoff_utc": "2026-07-15T19:00:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        1,
+        2
+      ],
+      "points": 4,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 4,
+        "always_draw": 0
+      },
+      "brier": 0.6391,
+      "advance": {
+        "tip_side": "away",
+        "actual_side": "away",
+        "correct": true,
+        "points": 2
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Argentinien gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 25,
+        "odds_decimal": 2.9,
+        "model_probability": 0.4226,
+        "implied_probability": 0.3448,
+        "edge": 0.2255,
+        "expected_value_eur": 6.69,
+        "stake_eur": 29.67,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.1187,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "won",
+        "stake_eur": 29.67,
+        "payout_eur": 86.04,
+        "profit_eur": 56.37
+      }
     }
   ]
 }
