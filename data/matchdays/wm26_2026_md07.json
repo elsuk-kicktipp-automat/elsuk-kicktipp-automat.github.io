@@ -162,9 +162,148 @@
       "home": "England",
       "away": "Argentinien",
       "kickoff_utc": "2026-07-15T19:00:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "7c3bffa03bf11bf29a1c1c277193b47599c455c2dbf738d210303e7147c970e5",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 0.955,
+      "factors": {
+        "expected_goals": [
+          1.32,
+          1.35
+        ],
+        "probabilities": {
+          "home": 0.334,
+          "draw": 0.318,
+          "away": 0.347
+        },
+        "raw_probabilities": {
+          "home": 0.282,
+          "draw": 0.296,
+          "away": 0.423
+        },
+        "elo": {
+          "home": 2097.0,
+          "away": 2177.0,
+          "beta": 0.1843
+        },
+        "market": {
+          "home": 0.357,
+          "draw": 0.328,
+          "away": 0.315,
+          "weight": 0.7
+        },
+        "home_advantage": 0.0,
+        "trained_on_matches": 101,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "FC Brentford: England-Klub mit ungewöhnlicher Maßnahme",
+              "description": "Trikot, Fußball, Premier League",
+              "published": "2026-07-15T17:22:33+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-brentford-england-klub-mit-ungewoehnlicher-massnahme-6a579d2bb471d7a3ad0a3327"
+            },
+            {
+              "title": "England-Star Dan Burn spielt bei der WM mit nur neun (!) Fingern",
+              "description": "Fußball, Premier League, Nationalmannschaft England, Tuchel Thomas, Fussball WM 2026, Newcastle United",
+              "published": "2026-07-15T16:51:43+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/england-star-burn-ist-heimlicher-wm-held-mit-nur-neun-fingern-6a55e93cbd016e39ef426998"
+            },
+            {
+              "title": "Neuer Lehrplan in England: Schüler lernen: Beim Sex bitte nicht würgen",
+              "description": "Team First, Schule, Bildung, Schule und Studium, Erziehung, KC Leben, Leben Beziehungen",
+              "published": "2026-07-15T16:33:37+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/leben-wissen/bildung-schule-studium/neuer-lehrplan-in-england-schueler-lernen-beim-sex-bitte-nicht-wuergen-6a57266f88b6b373594b2364"
+            },
+            {
+              "title": "Hummels: \"Ein Geniestreich wird das Spiel entscheiden\"",
+              "description": "Im Halbfinale kommt es zum Duell zwischen Argentinien, England und ihren jeweiligen Topstars. Mats Hummels ordnet ein was er von der Partie erwartet.",
+              "published": "2026-07-15T13:49:34+00:00",
+              "source": "kicker",
+              "source_label": "Kicker"
+            },
+            {
+              "title": "8,48 Millionen Euro: Die besondere Geschichte des teuersten Fußballtrikots der Welt",
+              "description": "Das Trikot, in dem Diego Maradona bei der WM 1986 gegen England per \"Hand Gottes\" und \"Tor des Jahrhunderts\" traf, wurde für 8,48 Millionen Euro versteigert. Aber auch ohne diese historische Bedeutung wäre es ein besonderes Leibchen gewesen.",
+              "published": "2026-07-15T13:24:33+00:00",
+              "source": "kicker",
+              "source_label": "Kicker"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 7
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 23
+            }
+          ],
+          "total_matches": 33,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "England und Argentinien liefern sich ein Duell auf Augenhöhe, bei dem die Südamerikaner slight Favoriten sind, die Buchmacher quotieren sie mit 32% Auswärtssieg, was nahelegt, dass hier nicht viel zwischen den beiden Teams liegt. Mein Tipp für Kicktipp lautet übrigens 1:2 für Argentinien. Es droht ein Abnutzungskampf, bei dem beide Teams ihre Kräfte schonen und abwarten, um dann zuzuschlagen. Die ELO-Bewertung zeigt auch, dass Argentinien mit 2177 Punkten einen klaren Vorteil hat, was auf ein knappes Spiel hindeutet, bei dem die Argentinier ihre Überlegenheit unter Beweis stellen müssen.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          1,
+          2
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Argentinien gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 25,
+        "odds_decimal": 2.9,
+        "model_probability": 0.4226,
+        "implied_probability": 0.3448,
+        "edge": 0.2255,
+        "expected_value_eur": 6.69,
+        "stake_eur": 29.67,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.1187,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "salt": "349395f731f2cf7cc6ab178d25de8f04"
     }
   ]
 }
