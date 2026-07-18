@@ -1,0 +1,24 @@
+{
+  "competition": "wm26",
+  "season": 2026,
+  "matchday": 8,
+  "stage": "Finale",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-07-18T17:52:28Z",
+  "matches": [
+    {
+      "home": "Frankreich",
+      "away": "England",
+      "kickoff_utc": "2026-07-18T21:00:00Z",
+      "status": "sealed",
+      "hash": "d03075864f42f14b6fd5cf4829c383fbbc9e3f732a15ef12a783cc1c5be490f6",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}
