@@ -4,30 +4,30 @@
   "matchday": 8,
   "stage": "Finale",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 0,
-  "matches_scored": 1,
-  "matches_open": 1,
+  "points_total": 3,
+  "matches_scored": 2,
+  "matches_open": 0,
   "hits": {
     "exact": 0,
-    "goal_diff": 0,
+    "goal_diff": 1,
     "tendency": 0,
     "miss": 1
   },
   "shadow_points": {
     "most_probable": 0,
-    "elo_favorite": 0,
+    "elo_favorite": 3,
     "always_draw": 0,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 1,
-    "elo_favorite": 1,
-    "always_draw": 1,
+    "most_probable": 2,
+    "elo_favorite": 2,
+    "always_draw": 2,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.8932,
-  "advance_points_total": 0,
-  "advance_scored": 1,
+  "brier_avg": 0.7018,
+  "advance_points_total": 2,
+  "advance_scored": 2,
   "paper_betting": {
     "stake_total_eur": 0.0,
     "payout_total_eur": 0.0,
@@ -94,7 +94,54 @@
       "home": "Spanien",
       "away": "Argentinien",
       "kickoff_utc": "2026-07-19T19:00:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        1,
+        0
+      ],
+      "points": 3,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 3,
+        "always_draw": 0
+      },
+      "brier": 0.5104,
+      "advance": {
+        "tip_side": "home",
+        "actual_side": "home",
+        "correct": true,
+        "points": 2
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Spanien gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 25,
+        "odds_decimal": 2.25,
+        "model_probability": 0.4238,
+        "implied_probability": 0.4444,
+        "edge": -0.0464,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      }
     }
   ]
 }
