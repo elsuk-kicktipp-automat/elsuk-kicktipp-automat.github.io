@@ -137,6 +137,55 @@ def fetch_season(
     return parse_matches(raw)
 
 
+def parse_goalscorers(raw: list[dict]) -> dict[tuple[str, str], int]:
+    """{(Spielername, Vereinsname) -> Tore} aus den Roh-Spieldaten.
+
+    Der Torjäger-Endpunkt von OpenLigaDB (/getgoalgetters) nennt zwar Tore,
+    aber keinen Verein (teamId ist dort durchgängig null). Die Zuordnung wird
+    deshalb aus dem Spielstand abgeleitet: Welche Seite hochgezählt hat, hat
+    getroffen. Gegenprobe an der Saison 2024/25: identische Top-Torjäger wie
+    im offiziellen Endpunkt.
+
+    Eigentore zählen nicht auf das Konto des Schützen - sie gehen an die
+    gegnerische Mannschaft und wären für die Torjägerkanone ohnehin irrelevant.
+    """
+    tore: dict[tuple[str, str], int] = {}
+    for m in raw:
+        heim, gast = m["team1"]["teamName"], m["team2"]["teamName"]
+        stand1 = stand2 = 0
+        for g in m.get("goals") or []:
+            neu1, neu2 = g.get("scoreTeam1") or 0, g.get("scoreTeam2") or 0
+            traf_heim = neu1 > stand1
+            stand1, stand2 = neu1, neu2
+            if g.get("isOwnGoal"):
+                continue
+            name = (g.get("goalGetterName") or "").strip()
+            if not name:
+                continue
+            verein = heim if traf_heim else gast
+            tore[(name, verein)] = tore.get((name, verein), 0) + 1
+    return tore
+
+
+def fetch_goalscorers(
+    league: str,
+    season: int,
+    cache_dir: Path = CACHE_DIR,
+    force_refresh: bool = False,
+) -> dict[tuple[str, str], int]:
+    """Torschützen einer Saison mit Verein; nutzt denselben Cache wie fetch_season."""
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    cache_file = cache_dir / f"{league}_{season}.json"
+    if cache_file.exists() and not force_refresh:
+        raw = json.loads(cache_file.read_text(encoding="utf-8"))
+    else:
+        resp = requests.get(f"{API_BASE}/getmatchdata/{league}/{season}", timeout=30)
+        resp.raise_for_status()
+        raw = resp.json()
+        cache_file.write_text(json.dumps(raw, ensure_ascii=False), encoding="utf-8")
+    return parse_goalscorers(raw)
+
+
 def fetch_competition(
     leagues: list[str],
     season: int,

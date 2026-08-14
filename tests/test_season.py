@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 
 import numpy as np
 
-from engine.season import simulate, table_from_results
+from engine.season import simulate, simulate_top_scorer_club, table_from_results
 from engine.sources.openligadb import Match
 
 
@@ -113,3 +113,37 @@ class TestSimulate:
         matches = self._round_robin(["A", "B", "C"])
         p = simulate(FakeModel(), matches, simulations=50)
         assert set(p.teams) == {"A", "B", "C"}
+
+
+class TestTopScorerClub:
+    """Wer stellt den Torschützenkönig? Torraten je Spieler, Restsaison als Poisson."""
+
+    TORE = {("Kane", "Bayern"): 20, ("Undav", "Stuttgart"): 8, ("Guirassy", "Dortmund"): 7}
+    GESPIELT = {"Bayern": 17, "Stuttgart": 17, "Dortmund": 17}
+    OFFEN = {"Bayern": 17, "Stuttgart": 17, "Dortmund": 17}
+
+    def test_clear_leader_dominates(self):
+        p = simulate_top_scorer_club(self.TORE, self.GESPIELT, self.OFFEN, simulations=2000)
+        assert p["Bayern"] > 0.9
+        assert round(sum(p.values()), 6) == 1.0
+
+    def test_empty_input_gives_nothing(self):
+        assert simulate_top_scorer_club({}, {}, {}, simulations=100) == {}
+
+    def test_decided_once_no_matches_remain(self):
+        p = simulate_top_scorer_club(self.TORE, self.GESPIELT, {}, simulations=500)
+        assert p == {"Bayern": 1.0}
+
+    def test_goals_of_one_club_are_pooled(self):
+        tore = {("A", "Bayern"): 10, ("B", "Bayern"): 10, ("C", "Dortmund"): 12}
+        p = simulate_top_scorer_club(tore, {"Bayern": 17, "Dortmund": 17},
+                                     {"Bayern": 17, "Dortmund": 17}, simulations=2000)
+        # Zwei Kandidaten desselben Vereins zaehlen zusammen auf dessen Konto
+        assert p["Bayern"] > 0.3
+
+    def test_stronger_prior_softens_an_early_lead(self):
+        tore = {("Fruehstarter", "Bayern"): 3, ("Anderer", "Dortmund"): 1}
+        gespielt, offen = {"Bayern": 1, "Dortmund": 1}, {"Bayern": 33, "Dortmund": 33}
+        schwach = simulate_top_scorer_club(tore, gespielt, offen, simulations=3000, prior_matches=2)
+        stark = simulate_top_scorer_club(tore, gespielt, offen, simulations=3000, prior_matches=30)
+        assert schwach["Bayern"] > stark["Bayern"]

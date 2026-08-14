@@ -301,6 +301,117 @@ def load_pending_answers(secret: str, bonus_dir: Path = BONUS_DIR) -> dict[str, 
     return {}
 
 
+def answer_probabilities(
+    probabilities, answers: dict[str, list[str]], top_scorer: dict[str, float] | None = None
+) -> dict[str, dict[str, float]]:
+    """Aktuelle Trefferwahrscheinlichkeit je gegebener Antwort.
+
+    Für den ersten Trainerwechsel gibt es weiterhin keine - dafür existiert
+    keine Datenquelle. Der Torschützenkönig-Verein bekommt eine, sobald in der
+    laufenden Saison Tore gefallen sind (engine/season.simulate_top_scorer_club).
+    """
+    quellen = {
+        "champion": probabilities.champion,
+        "autumn_champion": probabilities.autumn_champion,
+        "relegation": probabilities.bottom_three,
+    }
+    if top_scorer:
+        quellen["top_scorer_club"] = top_scorer
+    return {
+        kind: {team: round(quellen[kind].get(team, 0.0), 4) for team in teams}
+        for kind, teams in answers.items()
+        if kind in quellen
+    }
+
+
+def _top_scorer_standing(goals_by_scorer: dict[tuple[str, str], int], top: int = 3) -> list[dict]:
+    """Aktuelle Torjägerliste - Kontext zur Wahrscheinlichkeit auf der Website."""
+    beste = sorted(goals_by_scorer.items(), key=lambda kv: (-kv[1], kv[0][0]))[:top]
+    return [{"player": name, "club": club, "goals": tore} for (name, club), tore in beste]
+
+
+def update_live_probabilities(
+    config: dict, all_matches: list, bonus_dir: Path = BONUS_DIR, now: datetime | None = None
+) -> list[Path]:
+    """Rechnet die Trefferwahrscheinlichkeiten enthüllter Bonusantworten neu.
+
+    Nur nach einem neuen Ergebnis: Die Simulation selbst ist deterministisch
+    (fester Seed), der ELO-Stand ändert sich aber täglich. Ohne diese Bremse
+    würde die Datei auch an spielfreien Tagen neu geschrieben - und der
+    Spieltags-Workflow committet jede Änderung.
+
+    Läuft nur auf enthüllten Antworten. Vorher wäre eine Wahrscheinlichkeit je
+    Antwort ein Leck: Sie würde verraten, worauf der Automat getippt hat.
+    """
+    from .predict import build_model, load_elo
+    from .season import simulate, simulate_top_scorer_club
+    from .sources.openligadb import fetch_competition, fetch_goalscorers
+
+    cfg = config.get("bonus") or {}
+    if not cfg.get("enabled"):
+        return []
+
+    playable = [m for m in all_matches if not m.has_placeholder]
+    gespielt = sum(1 for m in playable if m.has_result)
+    faellig = []
+    for path in sorted(bonus_dir.glob("*.json")):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if data.get("status") != "revealed" or data.get("competition") != config["competition"]:
+            continue
+        if (data.get("live") or {}).get("after_matches") == gespielt:
+            continue  # kein neues Ergebnis seit der letzten Berechnung
+        faellig.append((path, data))
+    if not faellig:
+        return []
+
+    season = config["season"]
+    train = [m for m in playable if m.has_result]
+    if config["team_type"] == "club":
+        lookback = config.get("backtest", {}).get("club", {}).get("lookback_seasons", 2)
+        for s in range(season - lookback, season):
+            train += [m for m in fetch_competition(config["leagues"], s) if m.has_result]
+
+    ref = min(m.kickoff_utc for m in playable)
+    model = build_model(config, config["neutral_venue"], config["team_type"])
+    model.fit(train, ref, elo=load_elo(config, config["team_type"], ref.date()))
+    probabilities = simulate(
+        model,
+        playable,
+        simulations=int(cfg.get("simulations", 10000)),
+        autumn_matchday=int(cfg.get("autumn_matchday", 17)),
+    )
+
+    # Torschützenkönig: Verein je Schütze aus den Spieldaten ableiten und die
+    # Restsaison je Spieler fortschreiben. Ohne gefallene Tore gibt es nichts
+    # zu rechnen - dann bleibt die Frage vorerst ohne Zahl.
+    tore = fetch_goalscorers(config["leagues"][0], season, force_refresh=True)
+    einsaetze: dict[str, int] = {}
+    offen: dict[str, int] = {}
+    for m in playable:
+        for team in (m.home_name, m.away_name):
+            if m.has_result:
+                einsaetze[team] = einsaetze.get(team, 0) + 1
+            else:
+                offen[team] = offen.get(team, 0) + 1
+    top_scorer = simulate_top_scorer_club(
+        tore, einsaetze, offen, simulations=int(cfg.get("simulations", 10000))
+    )
+
+    stempel = (now or datetime.now(timezone.utc)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    changed = []
+    for path, data in faellig:
+        data["live"] = {
+            "after_matches": gespielt,
+            "updated_utc": stempel,
+            "simulations": probabilities.simulations,
+            "probabilities": answer_probabilities(probabilities, data["answers"], top_scorer),
+            "top_scorer": _top_scorer_standing(tore),
+        }
+        path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        changed.append(path)
+    return changed
+
+
 def score_answers(answers: dict[str, list[str]], table: list[str] | None,
                   autumn_table: list[str] | None, points_per_answer: int = 4) -> dict:
     """Rechnet die abrechenbaren Bonusfragen ab.

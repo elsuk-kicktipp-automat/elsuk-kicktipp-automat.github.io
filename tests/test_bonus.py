@@ -140,6 +140,35 @@ class TestAnswerQuestions:
         assert answers["top_scorer_club"] == ["FC Bayern München"]
 
 
+class TestAnswerProbabilities:
+    """Trefferchance je Antwort, nach jedem Ergebnis neu gerechnet."""
+
+    def test_picks_the_matching_source_per_question(self):
+        p = bonus.answer_probabilities(
+            _probabilities(),
+            {"champion": ["FC Bayern München"],
+             "autumn_champion": ["Borussia Dortmund"],
+             "relegation": ["FC Schalke 04", "SV Werder Bremen"]},
+        )
+        assert p["champion"]["FC Bayern München"] == 0.8
+        assert p["autumn_champion"]["Borussia Dortmund"] == 0.2
+        assert p["relegation"] == {"FC Schalke 04": 0.9, "SV Werder Bremen": 0.8}
+
+    def test_no_probability_without_a_model(self):
+        """Torschützenkönig und Trainerwechsel kommen vom LLM - dafür gibt es keine."""
+        p = bonus.answer_probabilities(
+            _probabilities(),
+            {"champion": ["FC Bayern München"],
+             "top_scorer_club": ["Borussia Dortmund"],
+             "first_coach_change": ["FC Schalke 04"]},
+        )
+        assert set(p) == {"champion"}
+
+    def test_unknown_team_counts_as_zero(self):
+        p = bonus.answer_probabilities(_probabilities(), {"champion": ["Hansa Rostock"]})
+        assert p["champion"]["Hansa Rostock"] == 0.0
+
+
 class TestScoreAnswers:
     ANSWERS = {
         "champion": ["FC Bayern München"],
@@ -217,6 +246,17 @@ class TestSealRoundTrip:
         bonus.seal_bonus(self._bonus(), "geheim", bonus_dir=tmp_path)
         answers = bonus.load_pending_answers("geheim", bonus_dir=tmp_path)
         assert answers["champion"] == ["FC Bayern München"]
+
+    def test_sealed_answers_get_no_probabilities(self, tmp_path):
+        """Vor der Frist wäre eine Wahrscheinlichkeit je Antwort ein Leck -
+        sie würde verraten, worauf getippt wurde."""
+        bonus.seal_bonus(self._bonus(), "geheim", bonus_dir=tmp_path)
+        config = {"competition": "bl1", "season": 2026, "leagues": ["bl1"],
+                  "team_type": "club", "neutral_venue": False,
+                  "bonus": {"enabled": True, "simulations": 50}}
+        assert bonus.update_live_probabilities(config, [], bonus_dir=tmp_path) == []
+        public = json.loads((tmp_path / "bl1_2026_bonus.json").read_text(encoding="utf-8"))
+        assert "live" not in public
 
     def test_no_pending_answers_after_reveal(self, tmp_path):
         bonus.seal_bonus(self._bonus(), "geheim", bonus_dir=tmp_path)

@@ -19,7 +19,7 @@ const LABELS = {
 // beantworten, das soll man auf der Seite sehen und nicht suchen müssen.
 const SOURCES = {
   simulation: { label: 'Saisonsimulation', title: '10.000-fach durchgerechnete Restsaison' },
-  llm: { label: 'Sprachmodell', title: 'Keine Datenquelle im Projekt – hier entscheidet das LLM' },
+  llm: { label: 'Sprachmodell', title: 'Die Antwort kam vom LLM – die Trefferchance daneben wird aus den Spieldaten gerechnet' },
   heuristic: { label: 'Faustregel', title: 'Sprachmodell nicht erreichbar, Ersatzregel hat entschieden' },
 };
 
@@ -28,10 +28,20 @@ const ORDER = ['champion', 'autumn_champion', 'relegation', 'top_scorer_club', '
 const kinds = sealed
   ? (bonus.questions ?? []).map((q) => q.kind)
   : Object.keys(bonus.answers ?? {});
+// Trefferwahrscheinlichkeit je Antwort, nach jedem Ergebnis neu gerechnet
+// (engine/bonus.py: update_live_probabilities). Für Torschützenkönig und
+// Trainerwechsel gibt es keine - dafür existiert kein Modell.
+const live = bonus.live?.probabilities ?? {};
+// Aktuelle Torjägerliste als Kontext zur Torschützenkönig-Frage
+const topScorer = bonus.live?.top_scorer?.[0];
+const pctFmt = new Intl.NumberFormat('de-DE', { style: 'percent', maximumFractionDigits: 0 });
 const rows = ORDER.filter((k) => kinds.includes(k)).map((kind) => ({
   kind,
   label: LABELS[kind] ?? kind,
-  answers: bonus.answers?.[kind] ?? [],
+  answers: (bonus.answers?.[kind] ?? []).map((team) => ({
+    team,
+    p: live[kind]?.[team] ?? null,
+  })),
   source: SOURCES[bonus.sources?.[kind]],
   scored: result?.questions?.[kind],
 }));
@@ -66,7 +76,18 @@ const rows = ORDER.filter((k) => kinds.includes(k)).map((kind) => ({
           <li>
             <span class="bonus-q">{row.label}</span>
             <span class="bonus-a">
-              {row.answers.join(', ')}
+              {row.answers.map((a, i) => (
+                <>
+                  {i > 0 && ', '}
+                  {a.team}
+                  {a.p != null && (
+                    <span
+                      class:list={['bonus-chance', a.p >= 0.5 ? 'is-likely' : a.p < 0.2 ? 'is-slim' : '']}
+                      title="Aktuelle Trefferwahrscheinlichkeit laut Saisonsimulation, nach jedem Ergebnis neu gerechnet"
+                    >{pctFmt.format(a.p)}</span>
+                  )}
+                </>
+              ))}
               {row.source && (
                 <span class="bonus-source" title={row.source.title}>{row.source.label}</span>
               )}
@@ -74,6 +95,11 @@ const rows = ORDER.filter((k) => kinds.includes(k)).map((kind) => ({
             {row.scored?.points != null && (
               <span class:list={['badge', row.scored.points > 0 ? 'badge-lime' : 'badge-red']}>
                 {row.scored.points} Pkt
+              </span>
+            )}
+            {row.kind === 'top_scorer_club' && topScorer && (
+              <span class="bonus-fact">
+                aktuell vorn: {topScorer.player} ({topScorer.club}), {topScorer.goals} Tore
               </span>
             )}
           </li>
@@ -165,6 +191,23 @@ const rows = ORDER.filter((k) => kinds.includes(k)).map((kind) => ({
   .bonus-list li:last-child { border-bottom: 0; }
   .bonus-q { color: var(--text-muted); }
   .bonus-a { color: var(--text); font-weight: 600; }
+  /* Trefferchance direkt hinter der Antwort, in Ziffernbreite gesetzt damit
+     die Spalte beim Neurechnen nicht springt. */
+  .bonus-chance {
+    margin-left: 6px;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--r-badge);
+    padding: 1px 6px;
+    cursor: help;
+  }
+  .bonus-chance.is-likely { color: var(--lime); border-color: rgba(212, 255, 63, 0.35); }
+  .bonus-chance.is-slim { color: var(--red); border-color: rgba(255, 77, 94, 0.32); }
+
   .bonus-source {
     margin-left: 8px;
     font-size: 10px;
@@ -176,6 +219,15 @@ const rows = ORDER.filter((k) => kinds.includes(k)).map((kind) => ({
     border-radius: var(--r-badge);
     padding: 2px 7px;
     cursor: help;
+  }
+
+  /* Sachstand unter der Antwort, volle Breite - bei "aktuell vorn: ..." wäre
+     eine dritte Spalte in der Zeile zu eng. */
+  .bonus-fact {
+    flex-basis: 100%;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    font-style: italic;
   }
 
   .bonus-note { margin: 12px 0 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }

@@ -338,3 +338,9 @@ def main(config: dict) -> None:
 
     for path in settle_bonus(config, all_matches):
         print(f"Bonusfragen abgerechnet: {path.relative_to(PROJECT_ROOT)}")
+
+    # Trefferwahrscheinlichkeit der Saisonfragen nach jedem neuen Ergebnis
+    from . import bonus as bonus_module
+
+    for path in bonus_module.update_live_probabilities(config, all_matches):
+        print(f"Bonus-Wahrscheinlichkeiten aktualisiert: {path.relative_to(PROJECT_ROOT)}")

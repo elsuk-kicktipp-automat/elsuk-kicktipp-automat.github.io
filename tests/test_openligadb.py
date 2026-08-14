@@ -1,7 +1,7 @@
 import json
 from datetime import datetime, timezone
 
-from engine.sources.openligadb import fetch_competition, fetch_season, parse_matches
+from engine.sources.openligadb import fetch_competition, fetch_season, parse_goalscorers, parse_matches
 from engine.teams import is_knockout_stage, is_placeholder, normalize
 
 SAMPLE_MATCH = {
@@ -178,3 +178,38 @@ class TestNinetyMinuteScore:
     def test_regular_match_tallies_are_identical(self):
         (m,) = parse_matches([SAMPLE_MATCH])
         assert (m.home_goals_90, m.away_goals_90) == (m.home_goals, m.away_goals) == (2, 1)
+
+
+class TestGoalscorers:
+    """Der Torjaeger-Endpunkt nennt keinen Verein - er wird aus dem Spielstand abgeleitet."""
+
+    def _spiel(self, heim, gast, tore):
+        return {"team1": {"teamName": heim}, "team2": {"teamName": gast}, "goals": tore}
+
+    def test_assigns_scorers_to_the_side_that_went_up(self):
+        roh = [self._spiel("Bayern", "Stuttgart", [
+            {"scoreTeam1": 1, "scoreTeam2": 0, "goalGetterName": "Kane", "isOwnGoal": False},
+            {"scoreTeam1": 1, "scoreTeam2": 1, "goalGetterName": "Undav", "isOwnGoal": False},
+            {"scoreTeam1": 2, "scoreTeam2": 1, "goalGetterName": "Kane", "isOwnGoal": False},
+        ])]
+        assert parse_goalscorers(roh) == {("Kane", "Bayern"): 2, ("Undav", "Stuttgart"): 1}
+
+    def test_own_goals_do_not_count_for_the_scorer(self):
+        roh = [self._spiel("Bayern", "Stuttgart", [
+            {"scoreTeam1": 1, "scoreTeam2": 0, "goalGetterName": "Pechvogel", "isOwnGoal": True},
+        ])]
+        assert parse_goalscorers(roh) == {}
+
+    def test_same_player_across_matches_is_summed(self):
+        roh = [
+            self._spiel("Bayern", "Stuttgart", [
+                {"scoreTeam1": 1, "scoreTeam2": 0, "goalGetterName": "Kane", "isOwnGoal": False}]),
+            self._spiel("Dortmund", "Bayern", [
+                {"scoreTeam1": 0, "scoreTeam2": 1, "goalGetterName": "Kane", "isOwnGoal": False}]),
+        ]
+        assert parse_goalscorers(roh) == {("Kane", "Bayern"): 2}
+
+    def test_nameless_goals_are_skipped(self):
+        roh = [self._spiel("A", "B", [
+            {"scoreTeam1": 1, "scoreTeam2": 0, "goalGetterName": "", "isOwnGoal": False}])]
+        assert parse_goalscorers(roh) == {}
