@@ -3,16 +3,33 @@ import Layout from '../layouts/Layout.astro';
 import BonusCard from '../components/BonusCard.astro';
 import KombiCard from '../components/KombiCard.astro';
 import MatchCard from '../components/MatchCard.astro';
-import { competitionLabel, loadBonus, loadKombis, loadMatchdays, loadResults, resultsFor, scoredMatch } from '../lib/data.mjs';
+import { competitionLabel, formatKickoff, lastKickoff, loadBonus, loadKombis, loadMatchdays, loadResults, resultsFor, scoredMatch } from '../lib/data.mjs';
 
 const matchdays = loadMatchdays();
 const results = loadResults();
 const current = matchdays.at(-1);
 const scored = current ? resultsFor(current, results) : undefined;
 const latestKombi = loadKombis().at(-1);
-const bonus = current ? loadBonus(current.competition) : null;
+const bonus = loadBonus();
 
 const label = current ? competitionLabel(current.competition) : '';
+
+// Pausen-Stempel: Solange die letzte getippte Runde länger als BREAK_DAYS her
+// ist, läuft gerade nichts - ohne Hinweis liest sich die Startseite so, als
+// wäre ein Spieltag von vor Wochen der aktuelle. Rein aus den Daten abgeleitet,
+// damit der Stempel von selbst verschwindet, sobald wieder getippt wird (und in
+// der Winterpause von selbst wiederkommt).
+const BREAK_DAYS = 3;
+const lastKick = current ? lastKickoff(current) : '';
+const daysSinceLast = lastKick ? (Date.now() - Date.parse(lastKick)) / 86_400_000 : 0;
+const inBreak = daysSinceLast >= BREAK_DAYS;
+// Der nächste Anstoß ist erst bekannt, sobald die Saison-Bonusfragen versiegelt
+// sind: deren Tippfrist IST der erste Anstoß der Saison. Vorher kennt die Site
+// den Spielplan nicht - sie liest nur data/, und dort steht bis dahin nichts.
+const nextKickoff =
+  bonus?.reveal_after_utc && Date.parse(bonus.reveal_after_utc) > Date.now()
+    ? bonus.reveal_after_utc
+    : null;
 
 // Zweifarbiger Hero-Titel: bei "…finale" wird der Suffix abgesetzt eingefärbt,
 // sonst das letzte Wort ("1. Runde" -> "1." / "Runde").
@@ -37,6 +54,19 @@ const stats = scored?.matches_scored > 0
 <Layout title="Aktueller Spieltag">
   {current ? (
     <>
+      {inBreak && (
+        <div class="stamp-row">
+          <div class="stamp">
+            <span class="stamp-main">Saisonpause</span>
+            <span class="stamp-note">
+              {nextKickoff
+                ? `Saisonstart ${formatKickoff(nextKickoff)}`
+                : `Zuletzt getippt: ${formatKickoff(lastKick)}`}
+            </span>
+          </div>
+        </div>
+      )}
+
       <section class="hero">
         <div class="kicker">
           <span class="kicker-bar"></span>
@@ -88,6 +118,59 @@ const stats = scored?.matches_scored > 0
 </Layout>
 
 <style>
+  /* Pausen-Stempel: bleibt im Textfluss statt über dem Hero zu schweben.
+     Ein absolut positionierter Stempel überdeckt auf schmalen Geräten
+     zwangsläufig die Überschrift - so überlappt er nur optisch (negativer
+     Rand) und verdeckt nie etwas. */
+  /* Die Einblend-Animation sitzt auf dem Wrapper, nicht auf dem Stempel:
+     riseIn endet auf `transform: none` und würde mit fill-mode `both` die
+     Drehung dauerhaft überschreiben. */
+  .stamp-row { padding: 34px 10px 0; max-width: 100%; animation: riseIn 0.5s both; }
+  .stamp {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 9px 24px 11px;
+    color: var(--red);
+    /* Tintenkontur statt gefüllter Fläche, plus zweite Linie mit Abstand -
+       die Doppelkontur ist das, was einen Gummistempel ausmacht. */
+    border: 3px solid var(--red);
+    border-radius: 8px;
+    outline: 2px solid rgba(255, 77, 94, 0.5);
+    outline-offset: 5px;
+    background: transparent;
+    transform: rotate(-8deg);
+    transform-origin: left center;
+    /* leicht durchscheinend wie aufgedrückte Tinte */
+    opacity: 0.82;
+  }
+  .stamp-main {
+    font-family: var(--font-display);
+    /* clamp statt Breakpoint-Sprüngen: skaliert stufenlos über alle
+       Zwischengrößen, nicht nur an den Extremen */
+    font-size: clamp(26px, 6.5vw, 44px);
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  .stamp-note {
+    font-size: clamp(9.5px, 2.1vw, 12px);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    text-align: center;
+  }
+  @media (max-width: 560px) {
+    /* flacher gedreht, sonst ragt die Ecke aus dem Viewport */
+    .stamp { transform: rotate(-4deg); padding: 8px 15px 10px; outline-offset: 4px; }
+    .stamp-row { padding-top: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .stamp-row { animation: none; }
+  }
+
   .hero { padding: 44px 4px 0; animation: riseIn 0.5s both; }
   .kicker { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
   .kicker-bar {

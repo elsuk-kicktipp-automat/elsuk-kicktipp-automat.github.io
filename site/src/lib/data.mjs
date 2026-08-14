@@ -33,6 +33,14 @@ export function loadMatchdays() {
   );
 }
 
+/** Letzter Anstoß einer Spieltags-Datei (ISO-String) oder ''. */
+export function lastKickoff(matchday) {
+  return (matchday?.matches ?? []).reduce(
+    (max, m) => (m.kickoff_utc > max ? m.kickoff_utc : max),
+    ''
+  );
+}
+
 /** Wettbewerb der zuletzt getippten Runde (bl1, wm26, ...) oder undefined. */
 export function activeCompetition(matchdays) {
   return matchdays.at(-1)?.competition;
@@ -71,9 +79,14 @@ export function loadKombis() {
   return readDirJson('kombi').sort((a, b) => a.id.localeCompare(b.id));
 }
 
-/** Saison-Bonusfragen (data/bonus/) des aktiven Wettbewerbs oder null. */
-export function loadBonus(competition) {
-  return readDirJson('bonus').find((b) => b.competition === competition) ?? null;
+/** Neueste Saison-Bonusfragen (data/bonus/) oder null.
+ *
+ * Bewusst NICHT nach dem angezeigten Wettbewerb gefiltert: Zwischen dem
+ * Versiegeln der Bonusfragen und dem ersten Spieltag zeigt die Startseite noch
+ * die letzte Runde des alten Wettbewerbs. Ein Filter auf diesen würde die
+ * Karte genau in dem Zeitraum verstecken, in dem sie am interessantesten ist. */
+export function loadBonus() {
+  return readDirJson('bonus').sort((a, b) => a.id.localeCompare(b.id)).at(-1) ?? null;
 }
 
 /** Selbstlern-Zustand (engine/learn.py) oder null. */
