@@ -100,6 +100,13 @@ kombi:
 # Wie Tipps und Kombi vollständig versiegelt bis zur Frist.
 bonus:
   enabled: true
+  # Erst ab diesem Zeitpunkt beantworten (UTC). Der Spielleiter stellt die
+  # Rundenkonfiguration erst in der Woche vor Saisonstart fertig; eine zu früh
+  # abgegebene Antwort müsste in Kicktipp von Hand zurückgesetzt werden, weil
+  # der Bot bestehende Antworten nicht überschreibt. Frist ist der erste
+  # Anstoß am 28.08. - drei Tage Puffer für Fehlschläge. Leer/entfernt =
+  # sofort beim nächsten Lauf.
+  answer_after: '2026-08-25T00:00:00Z'
   simulations: 10000 # Monte-Carlo-Durchläufe der Restsaison
   autumn_matchday: 17 # Herbstmeister = Tabellenführer nach diesem Spieltag
   points_per_answer: 4 # Punkteregel der Runde ("4 Punkte je richtiger Antwort")

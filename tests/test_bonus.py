@@ -54,6 +54,28 @@ class TestQuestionKind:
         assert bonus.question_kind("28.08.26 20:30 Wer wird Herbstmeister? --") == "autumn_champion"
 
 
+class TestAnswerWindow:
+    """`answer_after` schiebt die Beantwortung nach hinten, bis der Spielleiter
+    die Rundenkonfiguration fertig hat."""
+
+    CFG = {"answer_after": "2026-08-25T00:00:00Z"}
+
+    def test_closed_before_the_date(self):
+        assert not bonus.answer_window_open(
+            self.CFG, datetime(2026, 8, 24, 23, 59, tzinfo=timezone.utc)
+        )
+
+    def test_open_from_the_date_on(self):
+        assert bonus.answer_window_open(
+            self.CFG, datetime(2026, 8, 25, 0, 0, tzinfo=timezone.utc)
+        )
+
+    def test_open_without_the_setting(self):
+        assert bonus.answer_window_open({}, datetime(2026, 1, 1, tzinfo=timezone.utc))
+        assert bonus.answer_window_open({"answer_after": None},
+                                        datetime(2026, 1, 1, tzinfo=timezone.utc))
+
+
 class TestParseTeam:
     def test_finds_plain_answer(self):
         assert bonus.parse_team("Borussia Dortmund", TEAMS) == "Borussia Dortmund"

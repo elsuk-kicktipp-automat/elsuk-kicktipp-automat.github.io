@@ -210,6 +210,24 @@ def answer_questions(
     return answers, sources
 
 
+def answer_window_open(cfg: dict, now: datetime) -> bool:
+    """Darf jetzt schon geantwortet werden?
+
+    `answer_after` verschiebt die Beantwortung nach hinten. Grund: Der
+    Spielleiter kann die Bonusfragen bis kurz vor Saisonstart noch ändern, und
+    einmal abgegebene Antworten überschreibt der Bot nicht - sie müssten in
+    Kicktipp von Hand zurückgesetzt werden. Ohne den Wert wird beim nächsten
+    Lauf geantwortet.
+    """
+    answer_after = cfg.get("answer_after")
+    if not answer_after:
+        return True
+    not_before = datetime.strptime(str(answer_after), "%Y-%m-%dT%H:%M:%SZ").replace(
+        tzinfo=timezone.utc
+    )
+    return now >= not_before
+
+
 def bonus_id(competition: str, season: int) -> str:
     return f"{competition}_{season}_bonus"
 
@@ -338,6 +356,12 @@ def main(config: dict) -> None:
         print("Bonusantworten für diese Saison stehen bereits, nichts zu tun.")
         return
 
+    now = datetime.now(timezone.utc)
+    if not answer_window_open(cfg, now):
+        # Vor dem Spielplan-Abruf prüfen: spart den API-Aufruf im Leerlauf.
+        print(f"Bonusfragen werden erst ab {cfg['answer_after']} beantwortet.")
+        return
+
     matches = fetch_competition(config["leagues"], season, force_refresh=True)
     playable = [m for m in matches if not m.has_placeholder]
     if not playable:
@@ -345,7 +369,6 @@ def main(config: dict) -> None:
         return
 
     first_kickoff = min(m.kickoff_utc for m in playable)
-    now = datetime.now(timezone.utc)
     if now >= first_kickoff:
         # Fairness-Guard wie beim Versiegeln der Tipps: nach der Frist wäre die
         # Antwort wertlos - und der Beweis "stand vorher fest" gelogen.
