@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-14T06:36:00Z",
+  "updated_utc": "2026-08-14T10:53:38Z",
   "competition": "bl1",
   "season": 2026,
   "scored_matches": 0,
@@ -7,6 +7,8 @@
     "samples": 0,
     "min_samples": 10,
     "points_delta": 0,
+    "min_points_per_adjustment": 1.0,
+    "points_needed": 0.0,
     "trusted": false
   },
   "market_weight": {
