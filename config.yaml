@@ -1,22 +1,15 @@
 # Konfiguration für "Der Automat"
 #
-# Aktiver Wettbewerb: WM 2026 (Test-/Härtungsbetrieb bis 19.07.2026).
-# Für den Bundesliga-Betrieb ab August 2026 umstellen auf:
-#   competition: bl1
-#   leagues: [bl1]
-#   season: 2026
-#   team_type: club
-#   neutral_venue: false
-competition: wm26
-# 'wm26' ist eine einzelne, durchgehend gepflegte OpenLigaDB-Liga für das
-# gesamte Turnier (Gruppenphase bis Finale, stabile Team-IDs, korrekt und
-# zeitnah aktualisiert) - abgelöst wurde die frühere Kombination aus
-# 'wm2026' (Gruppenphase) + 'mb' (K.o.-Runde), die teils unterschiedliche
-# Team-IDs/Schreibweisen hatte und bei einzelnen Spielen hinterherhinkte.
-leagues: [wm26]
+# Aktiver Wettbewerb: Bundesliga 2026/27 (Regelbetrieb, 34 Spieltage,
+# erster Anstoß 28.08.2026). Der vorherige WM-2026-Testbetrieb lief bis
+# 19.07.2026; seine Daten bleiben unter data/ liegen (Beweiskette) und
+# tauchen auf der Site nur noch im Archiv auf.
+competition: bl1
+# OpenLigaDB-Liga 'bl1', Saison-Schlüssel 2026 = Spielzeit 2026/27.
+leagues: [bl1]
 season: 2026
-team_type: national # wählt den ELO-Adapter: club (clubelo.com) | national (eloratings.net)
-neutral_venue: true # WM: kein Heimvorteil
+team_type: club # wählt den ELO-Adapter: club (clubelo.com) | national (eloratings.net)
+neutral_venue: false # Liga: normaler Heimvorteil
 
 kicktipp:
   # Punkteschema der Runde (Standard 4/3/2). Bei Unentschieden gibt es keine
@@ -58,7 +51,7 @@ odds:
   enabled: true
   # Sport-Key von The Odds API - bei Wettbewerbswechsel prüfen/anpassen:
   # https://the-odds-api.com/liveapi/guides/v4/#sports
-  sport_key: soccer_fifa_world_cup # Bundesliga: soccer_germany_bundesliga
+  sport_key: soccer_germany_bundesliga # WM: soccer_fifa_world_cup
   regions: eu
   # Gewicht der Marktquote beim Blend mit der Modellmeinung (1.0 = nur Markt)
   market_weight: 0.7
@@ -130,10 +123,12 @@ timing:
 # Runde bleibt damit auch bei einem öffentlichen Repo nicht direkt auffindbar.
 kicktipp_submission:
   enabled: true
-  # Scharf geschaltet nach erfolgreichem Dry-Run-Test (Login, Rundennavigation
-  # und alle 8 Achtelfinale-Paarungen korrekt zugeordnet/befüllt, 04.07.2026).
+  # Zurück auf Dry-Run für den Wettbewerbswechsel: die Bundesliga-Tipprunde
+  # existiert noch nicht, und ob Kicktipp die Vereine dort genauso schreibt wie
+  # OpenLigaDB (Namensabgleich in kicktipp_bot.py) ist ungeprüft. Erst nach
+  # einem grünen Dry-Run gegen die echte Runde wieder auf false.
   # Solange true: Formular wird nur ausgefüllt/screenshottet, nicht abgeschickt.
-  dry_run: false
+  dry_run: true
 
 # Selbstlernen (concept.md Schicht 4 / Phase 5, engine/learn.py): bewusst
 # konservative Mindest-Stichproben - bei der kleinen WM-Datenlage bleibt

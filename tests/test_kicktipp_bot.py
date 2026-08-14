@@ -11,6 +11,7 @@ from engine.kicktipp_bot import (
     login,
     verification_mismatches,
 )
+from engine.teams import normalize
 
 
 class FakeCountLocator:
@@ -116,6 +117,42 @@ class TestLoadPendingTips:
 
     def test_empty_dir_returns_empty(self, tmp_path):
         assert load_pending_tips("test-geheimnis", sealed_dir=tmp_path) == {}
+
+
+class TestTeamKey:
+    """OpenLigaDB-Schreibweise -> Kicktipp-Schreibweise (data/mappings/kicktipp_teams.json)."""
+
+    def test_maps_divergent_spelling(self):
+        # Kicktipp: "Bor. Mönchengladbach", OpenLigaDB: "Borussia Mönchengladbach"
+        assert bot.team_key("Borussia Mönchengladbach") == normalize("Bor. Mönchengladbach")
+        assert bot.team_key("TSG Hoffenheim") == normalize("1899 Hoffenheim")
+
+    def test_passes_matching_names_through(self):
+        assert bot.team_key("FC Bayern München") == normalize("FC Bayern München")
+
+    def test_falls_back_to_normalize_without_mapping_file(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(bot, "TEAM_MAPPING_FILE", tmp_path / "fehlt.json")
+        assert bot.team_key("SV Werder Bremen") == normalize("SV Werder Bremen")
+
+    def test_every_bundesliga_club_is_covered(self):
+        """Alle 18 Vereine der laufenden Saison müssen auf die Kicktipp-Namen zeigen."""
+        kicktipp_names = {
+            "FC Bayern München", "VfB Stuttgart", "1. FC Köln", "1899 Hoffenheim",
+            "SV Elversberg", "Bayer 04 Leverkusen", "FSV Mainz 05", "SC Paderborn 07",
+            "1. FC Union Berlin", "Eintracht Frankfurt", "RB Leipzig",
+            "Bor. Mönchengladbach", "Borussia Dortmund", "Hamburger SV", "SC Freiburg",
+            "Werder Bremen", "FC Augsburg", "FC Schalke 04",
+        }
+        openligadb_names = {
+            "FC Bayern München", "VfB Stuttgart", "1. FC Köln", "TSG Hoffenheim",
+            "SV 07 Elversberg", "Bayer 04 Leverkusen", "1. FSV Mainz 05", "SC Paderborn 07",
+            "1. FC Union Berlin", "Eintracht Frankfurt", "RB Leipzig",
+            "Borussia Mönchengladbach", "Borussia Dortmund", "Hamburger SV", "SC Freiburg",
+            "SV Werder Bremen", "FC Augsburg", "FC Schalke 04",
+        }
+        assert {bot.team_key(n) for n in openligadb_names} == {
+            normalize(n) for n in kicktipp_names
+        }
 
 
 class TestVerificationMismatches:

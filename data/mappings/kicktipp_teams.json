@@ -1,0 +1,8 @@
+{
+  "_kommentar": "OpenLigaDB-Teamname -> Schreibweise auf der Kicktipp-Tippabgabe. Nur Vereine eintragen, die sich nach engine.teams.normalize UNTERSCHEIDEN - alle anderen passen ohne Eintrag. Bei Auf-/Abstieg gegen die echte Runde nachprüfen.",
+  "1. FSV Mainz 05": "FSV Mainz 05",
+  "Borussia Mönchengladbach": "Bor. Mönchengladbach",
+  "SV 07 Elversberg": "SV Elversberg",
+  "SV Werder Bremen": "Werder Bremen",
+  "TSG Hoffenheim": "1899 Hoffenheim"
+}

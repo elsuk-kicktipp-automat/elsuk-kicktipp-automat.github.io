@@ -1,14 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import LearningCurve from '../components/LearningCurve.astro';
-import { loadBacktest, loadKombis, loadLearning, loadResults } from '../lib/data.mjs';
+import { activeCompetition, competitionLabel, loadBacktest, loadKombis, loadLearning, loadMatchdays, loadResults } from '../lib/data.mjs';
 
 const learning = loadLearning();
 const club = loadBacktest('club');
 const national = loadBacktest('national');
 
-// Live-Bilanz des laufenden Betriebs aus den Abrechnungen
-const live = [...loadResults().values()].sort((a, b) => a.matchday - b.matchday);
+// Live-Bilanz des laufenden Betriebs aus den Abrechnungen. Nur der aktive
+// Wettbewerb: Punkte aus WM und Bundesliga wären als eine Summe sinnlos
+// (anderes Feld, andere Rundenzahl) - die alten Runden stehen im Archiv.
+const competition = activeCompetition(loadMatchdays());
+const live = [...loadResults().values()]
+  .filter((r) => r.competition === competition)
+  .sort((a, b) => a.matchday - b.matchday);
 const liveRows = live.filter((r) => r.matches_scored > 0);
 const liveTotal = live.reduce((s, r) => s + r.points_total, 0);
 const liveScored = live.reduce((s, r) => s + r.matches_scored, 0);
@@ -110,7 +115,7 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
 <Layout title="Bilanz">
   <h1>Bilanz</h1>
 
-  <h2>Laufender Betrieb (WM 2026)</h2>
+  <h2>Laufender Betrieb ({competitionLabel(competition)})</h2>
   {liveScored === 0 ? (
     <p class="muted">Noch keine gewerteten Spiele – die Abrechnung folgt nach den Anstößen.</p>
   ) : (

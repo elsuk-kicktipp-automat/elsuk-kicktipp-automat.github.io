@@ -32,12 +32,28 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .config import PROJECT_ROOT, SEALED_DIR, load_dotenv
+from .config import MAPPINGS_DIR, PROJECT_ROOT, SEALED_DIR, load_dotenv
 from .teams import normalize
 
 LOGIN_URL = "https://www.kicktipp.de/info/profil/login/"
 STATE_FILE = PROJECT_ROOT / "data" / "cache" / "kicktipp_state.json"
 SCREENSHOT_DIR = PROJECT_ROOT / "data" / "kicktipp_dryrun"
+TEAM_MAPPING_FILE = MAPPINGS_DIR / "kicktipp_teams.json"
+
+
+def team_key(name: str) -> str:
+    """OpenLigaDB-Name -> normalisierter Kicktipp-Name.
+
+    Kicktipp schreibt einen Teil der Vereine anders als OpenLigaDB ("Bor.
+    Mönchengladbach", "1899 Hoffenheim", "Werder Bremen"); ohne Übersetzung
+    findet der Zeilenabgleich diese Paarungen nicht und der Lauf schlägt fehl.
+    Nur die abweichenden Namen stehen in der Mapping-Datei, der Rest fällt
+    unverändert durch.
+    """
+    if not TEAM_MAPPING_FILE.exists():
+        return normalize(name)
+    mapping = json.loads(TEAM_MAPPING_FILE.read_text(encoding="utf-8"))
+    return normalize(mapping.get(name, name))
 
 
 def _accept_consent(page) -> None:
@@ -101,7 +117,7 @@ def load_pending_tips(
                 tzinfo=timezone.utc
             )
             if kickoff > now:
-                tips[(normalize(m["home"]), normalize(m["away"]))] = tuple(m["tip"])
+                tips[(team_key(m["home"]), team_key(m["away"]))] = tuple(m["tip"])
     return tips
 
 

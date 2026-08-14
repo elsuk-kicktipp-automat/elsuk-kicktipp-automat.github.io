@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import KombiCard from '../components/KombiCard.astro';
 import MatchCard from '../components/MatchCard.astro';
-import { loadKombis, loadMatchdays, loadResults, resultsFor, scoredMatch } from '../lib/data.mjs';
+import { competitionLabel, loadKombis, loadMatchdays, loadResults, resultsFor, scoredMatch } from '../lib/data.mjs';
 
 const matchdays = loadMatchdays();
 const results = loadResults();
@@ -10,10 +10,7 @@ const current = matchdays.at(-1);
 const scored = current ? resultsFor(current, results) : undefined;
 const latestKombi = loadKombis().at(-1);
 
-const COMPETITION_LABELS = { wm26: 'WM 2026', wm2026: 'WM 2026', bl1: 'Bundesliga' };
-const competitionLabel = current
-  ? COMPETITION_LABELS[current.competition] ?? current.competition
-  : '';
+const label = current ? competitionLabel(current.competition) : '';
 
 // Zweifarbiger Hero-Titel: bei "…finale" wird der Suffix abgesetzt eingefärbt,
 // sonst das letzte Wort ("1. Runde" -> "1." / "Runde").
@@ -41,7 +38,7 @@ const stats = scored?.matches_scored > 0
       <section class="hero">
         <div class="kicker">
           <span class="kicker-bar"></span>
-          <span class="kicker-text">{competitionLabel} · Runde {current.matchday}</span>
+          <span class="kicker-text">{label} · Runde {current.matchday}</span>
         </div>
         <h1>{titlePrefix}<span class="accent">{titleSuffix}</span></h1>
       </section>

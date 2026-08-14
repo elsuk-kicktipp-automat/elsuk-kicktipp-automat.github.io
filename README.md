@@ -7,8 +7,9 @@ Website: **<https://elsuk-kicktipp-automat.github.io/>**
 ELO + Quoten, Dixon-Coles-Modell, Kicktipp-Punkteoptimierung, Backtesting),
 LLM-Begründungsschicht (Groq), Paper-Betting, Astro-Website, Hash-Versiegelung,
 GitHub-Actions-Automatisierung und verifizierte Kicktipp-Abgabe per Playwright.
-Die Pipeline läuft mit der **WM 2026** (bis 19.07.2026), danach wird per
-`config.yaml` auf die Bundesliga 2026/27 umgestellt.
+Der WM-2026-Testbetrieb lief bis 19.07.2026; seit dem 14.08.2026 läuft die
+Pipeline auf der **Bundesliga 2026/27** (erster Anstoß 28.08.2026). Die
+WM-Daten bleiben unter `data/` liegen und sind im Site-Archiv nachprüfbar.
 
 ## Wie es funktioniert
 
@@ -175,15 +176,22 @@ Befunde:
 
 ## Konfiguration (`config.yaml`)
 
-- `competition` / `leagues` / `season` – aktiver Wettbewerb (WM 2026: zwei Ligen)
+- `competition` / `leagues` / `season` – aktiver Wettbewerb (Bundesliga: `bl1`,
+  Saison-Schlüssel 2026 = Spielzeit 2026/27)
 - `team_type` – `club` (clubelo.com) oder `national` (eloratings.net)
-- `neutral_venue` – Heimvorteil abschalten (WM)
+- `neutral_venue` – Heimvorteil abschalten (Turnier auf neutralem Platz)
+- `odds.sport_key` – Wettbewerb bei The Odds API; bei jedem Wechsel mitziehen
 - `kicktipp.points` – Punkteschema der Runde; `advance` = Zusatzfrage
   „Wer kommt weiter?" bei K.o.-Spielen (separat ausgewiesen, 0 = deaktiviert)
 - `model.*` – Zeitgewichtung, Regularisierung, Tor-Raster, ELO-Prior
 - `backtest.*` – Parameter der beiden Backtest-Modi
 
-Umstieg auf Bundesliga 2026/27: Kommentarblock am Kopf der config.yaml.
+Bei einem Wettbewerbswechsel zusätzlich prüfen: die drei Namens-Mappings unter
+`data/mappings/` (`clubs.json` für ClubElo, `odds_teams.json` für The Odds API,
+`kicktipp_teams.json` für die Tippabgabe-Seite) – jede Quelle schreibt Vereine
+anders, und ein fehlender Eintrag fällt still aus (Quoten) oder lässt den Lauf
+fehlschlagen (Kicktipp). Die Tipprunde selbst steht im Secret `KICKTIPP_RUNDE`,
+nicht in der config.
 
 ## Projektstruktur
 
