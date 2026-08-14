@@ -1,5 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { activeCompetition, hasKnockoutStages, loadMatchdays } from '../lib/data.mjs';
+
+// K.o.-Sonderregeln (Elfmeterschießen-Zusatztipp, Remis-Ausschluss, 90-Minuten-
+// Wertung bei Verlängerung) nur erklären, wenn der laufende Wettbewerb sie
+// überhaupt kennt. In einer Liga-Saison wäre das eine Seite voller Regeln, die
+// bis Mai nie greifen.
+const matchdays = loadMatchdays();
+const knockout = hasKnockoutStages(matchdays, activeCompetition(matchdays));
 ---
 
 <Layout title="Wie ich denke">
@@ -70,10 +78,15 @@ import Layout from '../layouts/Layout.astro';
   <p>
     Beispiel: Ein 1:1 mag das wahrscheinlichste Einzelergebnis sein – wenn aber 45 %
     der Wahrscheinlichkeitsmasse auf Heimsiegen liegt, bringt ein Heimsieg-Tipp im
-    Schnitt mehr Punkte. Bei K.o.-Spielen gilt zusätzlich: Läuft die Kicktipp-Runde
-    unter „nach Elfmeterschießen", geht das gewertete Ergebnis nie unentschieden aus
-    (Tore aus Verlängerung und Elfmeterschießen zählen mit dazu) – ein Remis-Tipp
-    kommt für K.o.-Spiele deshalb gar nicht erst infrage.
+    Schnitt mehr Punkte.
+    {knockout && (
+      <>
+        {' '}Bei K.o.-Spielen gilt zusätzlich: Läuft die Kicktipp-Runde
+        unter „nach Elfmeterschießen", geht das gewertete Ergebnis nie unentschieden aus
+        (Tore aus Verlängerung und Elfmeterschießen zählen mit dazu) – ein Remis-Tipp
+        kommt für K.o.-Spiele deshalb gar nicht erst infrage.
+      </>
+    )}
   </p>
 
   <h2>4. Fairness-Beweis: versiegelte Tipps</h2>
@@ -82,18 +95,38 @@ import Layout from '../layouts/Layout.astro';
     (der Klartext liegt verschlüsselt im Repo). Nach Anstoß werden Tipp, Begründung
     und Salt enthüllt – jeder kann nachrechnen, dass der Tipp vorher feststand:
   </p>
-  <pre>python3 -c "
-import hashlib, json
-payload = json.dumps({'{'}
-  'home': 'Kanada', 'away': 'Marokko',
-  'kickoff_utc': '2026-07-04T17:00:00Z',
-  'tip': [1, 1], 'advance_tip': None,
-  'begruendung': '…', 'salt': '…'
-{'}'}, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
-print(hashlib.sha256(payload.encode()).hexdigest())"</pre>
+  <pre>{`# Alle Felder aus der enthüllten Spieltags-Datei übernehmen,
+# genau so, wie sie dort stehen (auch die Wett-Objekte).
+python3 - <<'EOF'
+import hashlib, json, urllib.request
+
+URL = "https://raw.githubusercontent.com/elsuk-kicktipp-automat/" \\
+      "elsuk-kicktipp-automat.github.io/main/data/matchdays/DATEI.json"
+FELDER = ("home", "away", "kickoff_utc", "tip", "advance_tip",
+          "begruendung", "paper_bet", "shadow_bets")
+
+spieltag = json.load(urllib.request.urlopen(URL))
+for spiel in spieltag["matches"]:
+    if spiel["status"] != "revealed":
+        continue
+    kern = {f: spiel[f] for f in FELDER if f in spiel}
+    kern["salt"] = spiel["salt"]
+    payload = json.dumps(kern, ensure_ascii=False, sort_keys=True,
+                         separators=(",", ":"))
+    eigen = hashlib.sha256(payload.encode("utf-8")).hexdigest()
+    print(f"{spiel['home']} - {spiel['away']}: "
+          f"{'OK' if eigen == spiel['hash'] else 'ABWEICHUNG'}")
+EOF`}</pre>
   <p class="muted" style="font-size:0.85rem">
-    <code>advance_tip</code> ist der Elfmeterschießen-Zusatztipp bei
-    K.o.-Remis-Prognosen (sonst <code>null</code>) – er wird mit versiegelt.
+    Wichtig: <em>alle</em> aufgeführten Felder müssen rein, auch die
+    Wett-Objekte <code>paper_bet</code> und <code>shadow_bets</code> – sonst
+    kommt ein anderer Hash heraus.
+    {knockout && (
+      <>
+        {' '}<code>advance_tip</code> ist der Elfmeterschießen-Zusatztipp bei
+        K.o.-Remis-Prognosen (sonst <code>null</code>).
+      </>
+    )}
   </p>
   <p>
     Zusätzlich beweist der Commit-Zeitstempel im
@@ -165,13 +198,54 @@ print(hashlib.sha256(payload.encode()).hexdigest())"</pre>
     bevor die Buchmacherquote in die Prognose eingerechnet wurde – sonst würde die
     Quote gegen sich selbst verglichen.
   </p>
+
+  <h3>Zwei Strategien im Wettstreit</h3>
   <p>
-    Zwei Feinheiten: Erstens gelten 1X2-Wetten beim Buchmacher immer für die
-    <strong>regulären 90 Minuten</strong> – endet ein K.o.-Spiel nach 90 Minuten
-    unentschieden und wird erst in der Verlängerung entschieden, hat eine Wette
-    auf den späteren Sieger trotzdem <em>verloren</em>. Die Abrechnung hier folgt
-    genau dieser Regel (anders als der Kicktipp-Tipp, der nach Elfmeterschießen
-    gewertet wird). Zweitens werden die Papier-Wetten wie die Tipps
+    Diese strenge Regel hat einen Haken: Sie wettet selten. Am 1. Bundesliga-Spieltag
+    kämen zwei von neun Partien infrage – und aus so wenigen Wetten lässt sich über
+    eine Saison kaum ablesen, ob die Rechnung wirklich etwas taugt oder ob die
+    Treffer Zufall waren. Genau deshalb läuft eine <strong>zweite Strategie</strong>
+    parallel mit, mit eigenem Spielgeld-Konto:
+  </p>
+  <ul>
+    <li>
+      <strong>Automat:</strong> setzt nur, wenn die Rechnung einen Vorsprung von
+      mindestens +2&nbsp;% sieht. Einsatz nach Bruchteil-Kelly, gedeckelt bei
+      100&nbsp;€.
+    </li>
+    <li>
+      <strong>Locker:</strong> setzt auf <em>jede</em> Partie, immer auf den
+      Modell-Favoriten – ganz gleich, was die Quote sagt. Der Einsatz steigt mit
+      der Zuversicht: 5&nbsp;€ bei einer Wahrscheinlichkeit um 35&nbsp;%, 25&nbsp;€
+      ab 70&nbsp;%, dazwischen gleitend.
+    </li>
+  </ul>
+  <p>
+    Beide Wetten stehen vor Anstoß fest und werden <strong>mitversiegelt</strong> –
+    die lockere Variante lässt sich also nicht nachträglich schönrechnen. Auf der
+    Bilanz-Seite stehen die zwei Konten nebeneinander. Wächst am Saisonende das
+    strenge Konto stärker, hat die Value-Regel ihren Zweck erfüllt; wächst das
+    lockere, war das ganze Rechnen für die Wetten wenig wert. Beides wäre ein
+    Ergebnis – und ohne den Vergleich gäbe es keins.
+  </p>
+  <p>
+    {knockout ? (
+      <>
+        Zwei Feinheiten: Erstens gelten 1X2-Wetten beim Buchmacher immer für die
+        <strong>regulären 90 Minuten</strong> – endet ein K.o.-Spiel nach 90 Minuten
+        unentschieden und wird erst in der Verlängerung entschieden, hat eine Wette
+        auf den späteren Sieger trotzdem <em>verloren</em>. Die Abrechnung hier folgt
+        genau dieser Regel (anders als der Kicktipp-Tipp, der nach Elfmeterschießen
+        gewertet wird). Zweitens werden
+      </>
+    ) : (
+      <>
+        Eine Feinheit noch: 1X2-Wetten beim Buchmacher gelten immer für die
+        <strong>regulären 90 Minuten</strong>, und genau darauf rechnet der Automat
+        auch ab. Außerdem werden
+      </>
+    )}
+    {' '}die Papier-Wetten wie die Tipps
     <strong>mitversiegelt</strong> und erst nach Anstoß enthüllt. Die Bilanz
     (Einsatz, Gewinn/Verlust, ROI) steht auf der Bilanz-Seite.
   </p>

@@ -111,6 +111,10 @@ def evaluate_matchday(
     advance_total, advance_scored = 0, 0
     bet_stake, bet_payout, bet_profit = 0.0, 0.0, 0.0
     bets_scored, bets_won = 0, 0
+    shadow_bets: dict[str, dict] = {}
+    # Start-Bankroll je Strategie mitführen: Die Website zeigt daraus den
+    # Kontostand-Verlauf, ohne die config.yaml lesen zu müssen.
+    bet_bankroll = None
 
     for m in matchday["matches"]:
         entry = {k: m[k] for k in ("home", "away", "kickoff_utc", "status")}
@@ -159,6 +163,7 @@ def evaluate_matchday(
                 # gegen das Endergebnis gerechnet wäre die Bilanz geschönt.
                 pairing = (normalize(m["home"]), normalize(m["away"]))
                 result_90 = (results90_by_pairing or {}).get(pairing, result)
+                bet_bankroll = m["paper_bet"].get("bankroll_eur", bet_bankroll)
                 settled = settle_paper_bet(m["paper_bet"], result_90)
                 if settled is not None:
                     entry["paper_bet_result"] = settled
@@ -169,6 +174,27 @@ def evaluate_matchday(
                         bets_scored += 1
                     if settled["outcome"] == "won":
                         bets_won += 1
+
+            # Lockere Vergleichsvariante(n): identische Abrechnung, getrennte
+            # Summen - sonst ließe sich nicht sagen, welche Strategie gewinnt.
+            for name, bet in (m.get("shadow_bets") or {}).items():
+                pairing = (normalize(m["home"]), normalize(m["away"]))
+                result_90 = (results90_by_pairing or {}).get(pairing, result)
+                settled = settle_paper_bet(bet, result_90)
+                if settled is None:
+                    continue
+                entry.setdefault("shadow_bet_results", {})[name] = settled
+                agg = shadow_bets.setdefault(
+                    name,
+                    {"stake": 0.0, "payout": 0.0, "profit": 0.0, "scored": 0, "won": 0,
+                     "bankroll": None},
+                )
+                agg["bankroll"] = bet.get("bankroll_eur", agg["bankroll"])
+                agg["stake"] += settled["stake_eur"]
+                agg["payout"] += settled["payout_eur"]
+                agg["profit"] += settled["profit_eur"]
+                agg["scored"] += settled["outcome"] in ("won", "lost")
+                agg["won"] += settled["outcome"] == "won"
         matches.append(entry)
 
     bet_roi = bet_profit / bet_stake if bet_stake else None
@@ -195,6 +221,19 @@ def evaluate_matchday(
             "roi": round(bet_roi, 4) if bet_roi is not None else None,
             "bets_scored": bets_scored,
             "bets_won": bets_won,
+            "bankroll_start_eur": bet_bankroll,
+        },
+        "shadow_betting": {
+            name: {
+                "stake_total_eur": round(a["stake"], 2),
+                "payout_total_eur": round(a["payout"], 2),
+                "profit_total_eur": round(a["profit"], 2),
+                "roi": round(a["profit"] / a["stake"], 4) if a["stake"] else None,
+                "bets_scored": a["scored"],
+                "bets_won": a["won"],
+                "bankroll_start_eur": a["bankroll"],
+            }
+            for name, a in sorted(shadow_bets.items())
         },
         "matches": matches,
     }

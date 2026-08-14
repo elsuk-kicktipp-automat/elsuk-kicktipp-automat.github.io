@@ -46,6 +46,23 @@ export function activeCompetition(matchdays) {
   return matchdays.at(-1)?.competition;
 }
 
+// Spiegel von engine/teams.py: KNOCKOUT_STAGES. Dort ist die Wahrheit - hier
+// steht die Liste nur, damit die Seite entscheiden kann, ob sie K.o.-Regeln
+// überhaupt erklärt.
+const KNOCKOUT_STAGES = new Set([
+  'Sechzehntelfinale', 'Achtelfinale', 'Viertelfinale',
+  'Halbfinale', 'Spiel um Platz 3', 'Finale',
+]);
+
+/** Hat der Wettbewerb K.o.-Runden? In einer Liga laufen Elfmeterschießen-
+ *  Zusatztipp und Remis-Sonderregel eine ganze Saison lang leer - die
+ *  Erklärungen dazu werden dann gar nicht erst gezeigt. */
+export function hasKnockoutStages(matchdays, competition) {
+  return matchdays.some(
+    (md) => md.competition === competition && KNOCKOUT_STAGES.has(md.stage)
+  );
+}
+
 const COMPETITION_LABELS = { wm26: 'WM 2026', wm2026: 'WM 2026', bl1: 'Bundesliga' };
 
 /** Anzeigename eines Wettbewerbs; unbekannte Schlüssel bleiben unverändert. */

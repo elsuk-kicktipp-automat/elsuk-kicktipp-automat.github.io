@@ -102,6 +102,82 @@ def build_paper_bet(
     }
 
 
+def confidence_stake(probability: float, staking: dict) -> float:
+    """Einsatz nach Zuversicht: linear zwischen Mindest- und Höchsteinsatz.
+
+    Unterhalb von `confidence_from` (Default 35% - kaum mehr als Zufall bei drei
+    möglichen Ausgängen) immer der Mindesteinsatz, ab `confidence_to` immer der
+    Höchsteinsatz, dazwischen linear. Bewusst keine Kelly-Formel: Kelly braucht
+    einen Vorsprung gegenüber der Quote, und genau den fragt diese Variante
+    nicht ab.
+    """
+    lo = float(staking.get("confidence_from", 0.35))
+    hi = float(staking.get("confidence_to", 0.70))
+    smin = float(staking.get("min_stake_eur", 5.0))
+    smax = float(staking.get("max_stake_eur", 25.0))
+    if hi <= lo:
+        return round(smin, 2)
+    share = min(1.0, max(0.0, (probability - lo) / (hi - lo)))
+    return round(smin + (smax - smin) * share, 2)
+
+
+def build_shadow_bet(
+    *,
+    cfg: dict,
+    home: str,
+    away: str,
+    tip: tuple[int, int] | list[int],
+    raw_probabilities: dict[str, float],
+    market: dict | None,
+) -> dict | None:
+    """Lockere Vergleichsvariante: setzt auf JEDE Partie, ohne Value-Prüfung.
+
+    Gegenstück zur strengen Variante (build_paper_bet), die nur bei rechnerischem
+    Vorsprung setzt und deshalb selten zum Zug kommt. Hier wird immer auf den
+    Modell-Favoriten gesetzt, der Einsatz steigt mit der Zuversicht. Sinn ist der
+    Vergleich über eine ganze Saison: Bringt die Value-Regel mehr, als einfach
+    mitzuspielen? Ohne die lockere Variante bliebe das unbeantwortbar, weil die
+    strenge Variante zu selten wettet, um eine Aussage zu tragen.
+    """
+    if not cfg.get("enabled"):
+        return None
+
+    selection = outcome_from_tip(tip)
+    base = {
+        "mode": "paper",
+        "variant": cfg.get("label", "locker"),
+        "market": cfg.get("market", "h2h_90min"),
+        "selection": selection,
+        "selection_label": selection_label(selection, home, away),
+        "status": "missing_odds",
+    }
+    if market is None:
+        return base
+
+    odds = market["odds"][selection]
+    probability = raw_probabilities[selection]
+    staking = cfg.get("staking", {})
+    stake = min(confidence_stake(probability, staking), float(staking.get("max_stake_eur", 25.0)))
+    edge = probability * odds - 1.0
+
+    return {
+        **base,
+        "status": "recommended" if stake > 0 else "skipped_no_odds",
+        "source": market["source"],
+        "source_label": market["source_label"],
+        "bookmaker_count": market.get("bookmaker_count"),
+        "odds_decimal": round(odds, 3),
+        "model_probability": round(probability, 4),
+        "implied_probability": round(1.0 / odds, 4) if odds > 0 else 0.0,
+        # Edge nur zur Information - er entscheidet hier bewusst nichts
+        "edge": round(edge, 4),
+        "expected_value_eur": round(stake * edge, 2),
+        "stake_eur": stake,
+        "staking_mode": "confidence",
+        "bankroll_eur": round(float(staking.get("bankroll_eur", 1000.0)), 2),
+    }
+
+
 def settle_paper_bet(bet: dict | None, result: tuple[int, int]) -> dict | None:
     if not bet:
         return None

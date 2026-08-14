@@ -25,7 +25,7 @@ from .optimizer import (
     most_probable_score,
     penalty_shootout_favorite,
 )
-from .paper_betting import build_paper_bet
+from .paper_betting import build_paper_bet, build_shadow_bet
 from .sources import news as news_source
 from .sources.elo import make_elo_source
 from .sources.odds import (
@@ -317,14 +317,29 @@ def predict_matches(
 
         lam, mu = marginal_expected_goals(matrix)
         probs = outcome_probabilities(matrix)
+        betting_cfg = config.get("paper_betting", {})
+        market = (betting_markets or {}).get((m.home_key, m.away_key))
         paper_bet = build_paper_bet(
-            cfg=config.get("paper_betting", {}),
+            cfg=betting_cfg,
             home=m.home_name,
             away=m.away_name,
             tip=tip,
             raw_probabilities=raw_probs,
-            market=(betting_markets or {}).get((m.home_key, m.away_key)),
+            market=market,
         )
+        # Lockere Vergleichsvariante (config: paper_betting.shadow): setzt auf
+        # jede Partie, damit über eine Saison messbar wird, ob die Value-Regel
+        # der strengen Variante überhaupt etwas bringt.
+        shadow_cfg = betting_cfg.get("shadow") or {}
+        shadow_bet = build_shadow_bet(
+            cfg={"market": betting_cfg.get("market"), **shadow_cfg},
+            home=m.home_name,
+            away=m.away_name,
+            tip=tip,
+            raw_probabilities=raw_probs,
+            market=market,
+        ) if betting_cfg.get("enabled") else None
+        shadow_bets = {shadow_cfg.get("label", "locker"): shadow_bet} if shadow_bet else None
 
         advance_tip = None
         if tip[0] == tip[1] and is_knockout_stage(m.stage_name):
@@ -413,6 +428,7 @@ def predict_matches(
                 },
                 "begruendung": begruendung,
                 "paper_bet": paper_bet,
+                **({"shadow_bets": shadow_bets} if shadow_bets else {}),
                 # "llm" oder "template" - Transparenz, welche Quelle den Text
                 # geschrieben hat (LLM passt NICHT den Tipp an, siehe engine/llm.py)
                 "begruendung_source": source,

@@ -73,6 +73,24 @@ paper_betting:
     min_edge: 0.02
     min_stake_eur: 0
 
+  # Zweite, bewusst lockere Variante, die nur mitgeschrieben und bewertet wird
+  # (wie die Schattentipper): Sie setzt auf JEDE Partie auf den Modell-Favoriten,
+  # ohne Value-Prüfung, der Einsatz steigt mit der Zuversicht. Eigene Bankroll,
+  # getrennte Bilanz. Zweck ist die Antwort auf eine Frage, die die strenge
+  # Variante allein nicht beantworten kann: Bringt die Value-Regel über eine
+  # Saison mehr, als einfach mitzuspielen? Die strenge Variante wettet dafür zu
+  # selten (am 1. Spieltag 2 von 9 Partien), die lockere liefert ~306 Wetten.
+  shadow:
+    enabled: true
+    label: locker
+    staking:
+      mode: confidence
+      bankroll_eur: 1000
+      min_stake_eur: 5 # bei <= confidence_from
+      max_stake_eur: 25 # ab confidence_to
+      confidence_from: 0.35 # bei drei Ausgängen kaum mehr als Zufall
+      confidence_to: 0.70
+
 # Paper-Kombiwette (engine/kombi.py): klassischer 2-3er-Akkumulator, rein
 # theoretisch. Ein Bein qualifiziert sich nur, wenn es auch als Einzelwette
 # Value hätte (rohe Modellwahrscheinlichkeit x Quote > 1) - sonst multipliziert

@@ -35,6 +35,41 @@ const betScored = betRows.reduce((s, r) => s + (r.paper_betting?.bets_scored ?? 
 const betWon = betRows.reduce((s, r) => s + (r.paper_betting?.bets_won ?? 0), 0);
 const betRoi = betStake ? betProfit / betStake : null;
 
+// Zwei Wettstrategien nebeneinander, jede mit eigener Bankroll: die strenge
+// setzt nur bei rechnerischem Vorsprung (und deshalb selten), die lockere auf
+// jede Partie. Erst der Vergleich über eine Saison zeigt, ob die Value-Regel
+// etwas bringt - die strenge Variante allein wettet zu selten für eine Aussage.
+const STRATEGY_LABELS = {
+  locker: { name: 'Locker', note: 'jede Partie, Einsatz nach Zuversicht' },
+};
+function summe(rows, pick) {
+  const s = rows.reduce(
+    (a, r) => {
+      const b = pick(r) ?? {};
+      a.stake += b.stake_total_eur ?? 0;
+      a.profit += b.profit_total_eur ?? 0;
+      a.scored += b.bets_scored ?? 0;
+      a.won += b.bets_won ?? 0;
+      a.start = b.bankroll_start_eur ?? a.start;
+      return a;
+    },
+    { stake: 0, profit: 0, scored: 0, won: 0, start: null }
+  );
+  return { ...s, roi: s.stake ? s.profit / s.stake : null, konto: (s.start ?? 0) + s.profit };
+}
+const shadowNames = [...new Set(liveRows.flatMap((r) => Object.keys(r.shadow_betting ?? {})))];
+const strategien = [
+  { key: 'automat', name: 'Automat', note: 'nur bei rechnerischem Vorsprung',
+    ...summe(liveRows, (r) => r.paper_betting) },
+  ...shadowNames.map((n) => ({
+    key: n,
+    name: STRATEGY_LABELS[n]?.name ?? n,
+    note: STRATEGY_LABELS[n]?.note ?? '',
+    ...summe(liveRows, (r) => r.shadow_betting?.[n]),
+  })),
+].filter((s) => s.scored > 0 || s.stake > 0);
+const zeigeVergleich = strategien.length > 1;
+
 // Kombiwetten (data/kombi/): nur abgerechnete zählen in die Bilanz
 const settledKombis = loadKombis().filter((k) => k.result);
 const kombiStake = settledKombis.reduce((s, k) => s + k.result.stake_eur, 0);
@@ -208,6 +243,34 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
   )}
 
   <h2>Paper-Betting</h2>
+  {zeigeVergleich && (
+    <div class="strategy-compare">
+      <p class="muted">
+        Zwei Strategien laufen parallel, jede mit eigenem Spielgeld-Konto von
+        {' '}{money.format(strategien[0].start ?? 0)}. Die Frage dahinter: Bringt es etwas,
+        nur dann zu wetten, wenn die Rechnung einen Vorsprung sieht – oder hätte
+        einfaches Mitspielen dasselbe gebracht?
+      </p>
+      <div class="strategy-grid">
+        {strategien.map((s) => (
+          <div class:list={['strategy-card', s.profit >= 0 ? 'is-up' : 'is-down']}>
+            <span class="strategy-name">{s.name}</span>
+            <span class="strategy-note">{s.note}</span>
+            <span class:list={['strategy-konto', s.profit >= 0 ? 'positive' : 'negative']}>
+              {money.format(s.konto)}
+            </span>
+            <span class="strategy-delta">
+              {s.profit >= 0 ? '▲' : '▼'} {money.format(Math.abs(s.profit))} ·
+              {' '}{s.roi != null ? pct.format(s.roi) : '–'} ROI
+            </span>
+            <span class="strategy-meta">
+              {s.won}/{s.scored} Wetten getroffen · {money.format(s.stake)} gesetzt
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
   {betRows.length === 0 ? (
     <p class="muted">Noch keine theoretischen Wetten abgerechnet.</p>
   ) : (
@@ -436,4 +499,46 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
     gap: 16px;
     margin: 18px 0 24px;
   }
+
+  /* Strategie-Vergleich: zwei Konten nebeneinander. auto-fit statt fester
+     Spaltenzahl - bei zwei Karten stehen sie ab ~600px nebeneinander, darunter
+     untereinander, ohne eigenen Breakpoint. */
+  .strategy-compare { margin: 4px 0 26px; }
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .strategy-card {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 18px 20px;
+    border-radius: var(--r-card);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-highlight), var(--shadow-card);
+  }
+  .strategy-card.is-up { border-color: rgba(212, 255, 63, 0.28); }
+  .strategy-card.is-down { border-color: rgba(255, 77, 94, 0.28); }
+  .strategy-name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .strategy-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+  .strategy-konto {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 5vw, 40px);
+    line-height: 1.1;
+    margin-top: 8px;
+  }
+  .strategy-delta { font-size: 13.5px; font-weight: 700; color: var(--text-body); }
+  .strategy-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
 </style>

@@ -32,7 +32,13 @@ REVEAL_DELAY = timedelta(minutes=0)
 
 # Diese Felder (plus Salt) gehen in den Hash. advance_tip (Elfmeterschießen-
 # Zusatzfrage bei K.o.-Remis-Tipps) muss wie der Tipp selbst vor Anstoß feststehen.
-HASHED_FIELDS = ("home", "away", "kickoff_utc", "tip", "advance_tip", "begruendung", "paper_bet")
+HASHED_FIELDS = (
+    "home", "away", "kickoff_utc", "tip", "advance_tip", "begruendung",
+    # Beide Wettvarianten gehören in den Beweis - eine Wette, die erst nach
+    # Anstoß feststeht, wäre wertlos. Ältere Spiele ohne diese Felder bleiben
+    # nachrechenbar, weil canonical_payload nur Vorhandenes aufnimmt.
+    "paper_bet", "shadow_bets",
+)
 
 # Beim Entsiegeln werden zusätzlich diese Felder veröffentlicht.
 REVEALED_FIELDS = (
@@ -43,6 +49,7 @@ REVEALED_FIELDS = (
     "begruendung",
     "shadow_tips",
     "paper_bet",
+    "shadow_bets",
 )
 
 

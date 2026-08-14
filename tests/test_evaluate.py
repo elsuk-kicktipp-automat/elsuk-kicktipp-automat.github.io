@@ -108,6 +108,9 @@ class TestPaperBettingScoring:
             "roi": pytest.approx(1.1333),
             "bets_scored": 2,
             "bets_won": 1,
+            # Start-Bankroll für den Kontostand-Verlauf; die Fixtures führen
+            # kein bankroll_eur, deshalb None
+            "bankroll_start_eur": None,
         }
 
 
