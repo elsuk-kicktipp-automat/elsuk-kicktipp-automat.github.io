@@ -70,6 +70,14 @@ const strategien = [
 ].filter((s) => s.scored > 0 || s.stake > 0);
 const zeigeVergleich = strategien.length > 1;
 
+/** Eine Tabellenzeile je Strategie für eine Runde. */
+function rundenZeilen(r) {
+  return strategien.map((s) => ({
+    name: s.name,
+    b: (s.key === 'automat' ? r.paper_betting : r.shadow_betting?.[s.key]) ?? {},
+  }));
+}
+
 // Kombiwetten (data/kombi/): nur abgerechnete zählen in die Bilanz
 const settledKombis = loadKombis().filter((k) => k.result);
 const kombiStake = settledKombis.reduce((s, k) => s + k.result.stake_eur, 0);
@@ -303,32 +311,39 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
         <table>
           <thead>
             <tr>
-              <th>Runde</th><th class="num">Wetten</th><th class="num">Einsatz</th>
+              <th>Runde</th>
+              {zeigeVergleich && <th>Strategie</th>}
+              <th class="num">Wetten</th><th class="num">Einsatz</th>
               <th class="num">Auszahlung</th><th class="num">Netto</th><th class="num">ROI</th>
             </tr>
           </thead>
           <tbody>
-            {betRows.map((r) => {
-              const b = r.paper_betting;
-              return (
-                <tr>
-                  <td>{r.stage}</td>
-                  <td class="num">{b.bets_won}/{b.bets_scored}</td>
-                  <td class="num">{money.format(b.stake_total_eur)}</td>
-                  <td class="num">{money.format(b.payout_total_eur)}</td>
-                  <td class:list={['num', b.profit_total_eur >= 0 ? 'positive' : 'negative']}>{money.format(b.profit_total_eur)}</td>
-                  <td class="num">{b.roi != null ? pct.format(b.roi) : '–'}</td>
-                </tr>
-              );
-            })}
-            <tr>
-              <td>Gesamt</td>
-              <td class="num">{betWon}/{betScored}</td>
-              <td class="num">{money.format(betStake)}</td>
-              <td class="num">{money.format(betPayout)}</td>
-              <td class:list={['num', betProfit >= 0 ? 'positive' : 'negative']}>{money.format(betProfit)}</td>
-              <td class="num">{betRoi != null ? pct.format(betRoi) : '–'}</td>
-            </tr>
+            {/* Je Runde eine Zeile pro Strategie, direkt untereinander - so sieht
+                man Spieltag für Spieltag, welche vorne lag. */}
+            {betRows.map((r) => rundenZeilen(r).map((z, i) => (
+              <tr class:list={[i > 0 ? 'sub-row' : '']}>
+                {i === 0 && <td rowspan={zeigeVergleich ? rundenZeilen(r).length : 1}>{r.stage}</td>}
+                {zeigeVergleich && <td class="strat-cell">{z.name}</td>}
+                <td class="num">{z.b.bets_won ?? 0}/{z.b.bets_scored ?? 0}</td>
+                <td class="num">{money.format(z.b.stake_total_eur ?? 0)}</td>
+                <td class="num">{money.format(z.b.payout_total_eur ?? 0)}</td>
+                <td class:list={['num', (z.b.profit_total_eur ?? 0) >= 0 ? 'positive' : 'negative']}>
+                  {money.format(z.b.profit_total_eur ?? 0)}
+                </td>
+                <td class="num">{z.b.roi != null ? pct.format(z.b.roi) : '–'}</td>
+              </tr>
+            )))}
+            {strategien.map((s, i) => (
+              <tr class:list={['total-row', i > 0 ? 'sub-row' : '']}>
+                {i === 0 && <td rowspan={zeigeVergleich ? strategien.length : 1}>Gesamt</td>}
+                {zeigeVergleich && <td class="strat-cell">{s.name}</td>}
+                <td class="num">{s.won}/{s.scored}</td>
+                <td class="num">{money.format(s.stake)}</td>
+                <td class="num">{money.format(s.stake + s.profit)}</td>
+                <td class:list={['num', s.profit >= 0 ? 'positive' : 'negative']}>{money.format(s.profit)}</td>
+                <td class="num">{s.roi != null ? pct.format(s.roi) : '–'}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -541,4 +556,9 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
   }
   .strategy-delta { font-size: 13.5px; font-weight: 700; color: var(--text-body); }
   .strategy-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  /* Zweite Strategiezeile einer Runde: gehört optisch zur Zeile darüber,
+     deshalb keine Trennlinie dazwischen. */
+  .sub-row td { border-top: 0 !important; }
+  .strat-cell { font-size: 12.5px; color: var(--text-muted); white-space: nowrap; }
 </style>

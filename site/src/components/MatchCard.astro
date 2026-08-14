@@ -29,6 +29,33 @@ const money = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR
 const stake = paperBet?.stake_eur ?? 0;
 const possibleProfit = paperBet?.odds_decimal ? stake * (paperBet.odds_decimal - 1) : null;
 const possibleLoss = stake > 0 ? -stake : null;
+
+// Beide Wettstrategien untereinander. Auswahl und Quote sind für beide
+// identisch (dieselbe Partie, derselbe Tipp, dieselbe Quote) - deshalb stehen
+// sie einmal oben, und die Zeilen zeigen nur, was sich unterscheidet: ob und
+// wie viel gesetzt wurde und was dabei herauskam.
+const STRATEGY_NOTES = { locker: 'jede Partie' };
+const wettZeilen = paperBet
+  ? [
+      { key: 'automat', name: 'Automat', note: 'nur mit Vorsprung',
+        bet: paperBet, result: paperBetResult },
+      ...Object.entries(match.shadow_bets ?? {}).map(([name, bet]) => ({
+        key: name,
+        name: name.charAt(0).toUpperCase() + name.slice(1),
+        note: STRATEGY_NOTES[name] ?? '',
+        bet,
+        result: scored?.shadow_bet_results?.[name],
+      })),
+    ].map((z) => {
+      const einsatz = z.bet?.stake_eur ?? 0;
+      return {
+        ...z,
+        einsatz,
+        moeglich: z.bet?.odds_decimal ? einsatz * (z.bet.odds_decimal - 1) : null,
+      };
+    })
+  : [];
+const mehrereStrategien = wettZeilen.length > 1;
 ---
 
 <article class="match-card" style={`animation-delay:${delay}ms`}>
@@ -96,7 +123,7 @@ const possibleLoss = stake > 0 ? -stake : null;
             <span class="bet-title">Paper-Wette</span>
             <span class="bet-source">{paperBet.source_label ?? 'keine Quote'}</span>
           </div>
-          <div class="bet-grid">
+          <div class:list={['bet-grid', mehrereStrategien ? 'is-compact' : '']}>
             <span>
               <b>{paperBet.selection_label}</b>
               <small>Auswahl</small>
@@ -105,23 +132,62 @@ const possibleLoss = stake > 0 ? -stake : null;
               <b>{paperBet.odds_decimal ? paperBet.odds_decimal.toFixed(2) : '–'}</b>
               <small>Quote</small>
             </span>
-            <span>
-              <b>{money.format(paperBet.stake_eur ?? 0)}</b>
-              <small>Einsatz</small>
-            </span>
-            {paperBetResult ? (
-              <span>
-                <b>{money.format(paperBetResult.profit_eur)}</b>
-                <small>Ergebnis</small>
-              </span>
-            ) : (
-              <span>
-                <b>{possibleProfit != null ? money.format(possibleProfit) : '–'}</b>
-                <small>Gewinn wenn richtig</small>
-              </span>
+            {!mehrereStrategien && (
+              <>
+                <span>
+                  <b>{money.format(paperBet.stake_eur ?? 0)}</b>
+                  <small>Einsatz</small>
+                </span>
+                {paperBetResult ? (
+                  <span>
+                    <b>{money.format(paperBetResult.profit_eur)}</b>
+                    <small>Ergebnis</small>
+                  </span>
+                ) : (
+                  <span>
+                    <b>{possibleProfit != null ? money.format(possibleProfit) : '–'}</b>
+                    <small>Gewinn wenn richtig</small>
+                  </span>
+                )}
+              </>
             )}
           </div>
-          {paperBetResult ? (
+
+          {mehrereStrategien && (
+            <div class="bet-strategies">
+              {wettZeilen.map((z) => (
+                <div class:list={['bet-strategy-row',
+                  z.result?.profit_eur > 0 ? 'is-win'
+                    : z.result?.profit_eur < 0 ? 'is-loss'
+                    : z.einsatz === 0 ? 'is-idle' : '']}>
+                  <span class="bs-name">
+                    {z.name}
+                    <small>{z.note}</small>
+                  </span>
+                  <span class="bs-stake">
+                    {z.einsatz > 0 ? money.format(z.einsatz) : 'nicht gesetzt'}
+                    <small>Einsatz</small>
+                  </span>
+                  <span class="bs-out">
+                    {z.result
+                      ? money.format(z.result.profit_eur)
+                      : z.einsatz > 0 && z.moeglich != null
+                        ? `+${money.format(z.moeglich)}`
+                        : '–'}
+                    <small>{z.result ? 'Ergebnis' : 'wenn richtig'}</small>
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+          {mehrereStrategien ? (
+            <p class="bet-note">
+              Zwei Strategien mit getrenntem Spielgeld-Konto: Der <b>Automat</b> setzt
+              nur, wenn die Rechnung einen Vorsprung sieht – <b>Locker</b> setzt immer,
+              mit einem Einsatz nach Zuversicht. Beide standen vor Anstoß fest und sind
+              mitversiegelt.
+            </p>
+          ) : paperBetResult ? (
             <p class="bet-note">
               {paperBetResult.outcome === 'won'
                 ? <>Die Paper-Wette hat gewonnen: netto {money.format(paperBetResult.profit_eur)}.</>
@@ -341,6 +407,9 @@ const possibleLoss = stake > 0 ? -stake : null;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 10px;
   }
+  /* Mit Strategie-Zeilen darunter stehen oben nur noch Auswahl und Quote -
+     dann bekommt die Auswahl den Platz, statt auf drei Zeilen zu brechen. */
+  .bet-grid.is-compact { grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); }
   .bet-grid span { min-width: 0; }
   .bet-grid b {
     display: block;
@@ -357,6 +426,43 @@ const possibleLoss = stake > 0 ? -stake : null;
     text-transform: uppercase;
     color: var(--text-muted);
   }
+  /* Strategie-Zeilen untereinander: Auswahl und Quote stehen oben im Raster,
+     hier unterscheidet sich nur noch Einsatz und Ausgang. */
+  .bet-strategies { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+  .bet-strategy-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px;
+    align-items: baseline;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.035);
+    border-left: 3px solid var(--glass-border);
+  }
+  .bet-strategy-row.is-win { border-left-color: var(--lime); }
+  .bet-strategy-row.is-loss { border-left-color: var(--red); }
+  .bet-strategy-row.is-idle { opacity: 0.62; }
+  .bet-strategy-row span { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+  .bet-strategy-row small {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .bs-name { font-weight: 700; font-size: 13px; }
+  /* nowrap: "nicht gesetzt" brach auf schmalen Geräten mitten im Wort um */
+  .bs-stake, .bs-out { font-family: var(--font-mono); font-size: 13px; white-space: nowrap; }
+  @media (max-width: 430px) {
+    /* Drei Spalten sind hier zu eng ("nicht gesetzt" kollidierte mit dem
+       Betrag): Name über die volle Breite, Einsatz und Ergebnis darunter. */
+    .bet-strategy-row { grid-template-columns: 1fr 1fr; gap: 4px 8px; padding: 8px 10px; }
+    .bs-name { grid-column: 1 / -1; }
+    .bs-stake, .bs-out { font-size: 12.5px; }
+  }
+  .bet-strategy-row.is-win .bs-out { color: var(--lime); }
+  .bet-strategy-row.is-loss .bs-out { color: var(--red); }
+
   .bet-note { margin: 10px 0 0; font-size: 11.5px; color: var(--text-muted); }
 
   .sources {
