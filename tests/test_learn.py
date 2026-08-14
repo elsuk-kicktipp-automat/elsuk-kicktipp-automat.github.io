@@ -30,6 +30,27 @@ class TestLlmTrust:
         report = llm_trust_report(samples, min_samples=10)
         assert report["trusted"] is True
 
+    def test_not_trusted_on_a_thin_lead(self):
+        """+1 Punkt aus zehn Anpassungen ist Rauschen, kein Nachweis."""
+        samples = [_sample(points=2, llm=2)] * 9 + [_sample(points=2, llm=3)]
+        report = llm_trust_report(samples, min_samples=10)
+        assert report["samples"] == 10
+        assert report["points_delta"] == 1
+        assert report["points_needed"] == 10
+        assert report["trusted"] is False
+
+    def test_trusted_when_the_lead_is_clear(self):
+        # Im Schnitt genau ein Punkt je Anpassung -> gerade ausreichend
+        samples = [_sample(points=2, llm=3)] * 10
+        report = llm_trust_report(samples, min_samples=10)
+        assert report["points_delta"] == 10
+        assert report["trusted"] is True
+
+    def test_threshold_is_configurable(self):
+        samples = [_sample(points=2, llm=3)] * 10
+        assert llm_trust_report(samples, 10, min_points_per_adjustment=2.0)["trusted"] is False
+        assert llm_trust_report(samples, 10, min_points_per_adjustment=0.5)["trusted"] is True
+
     def test_not_trusted_when_costing_points(self):
         samples = [_sample(points=4, llm=0)] * 12
         report = llm_trust_report(samples, min_samples=10)

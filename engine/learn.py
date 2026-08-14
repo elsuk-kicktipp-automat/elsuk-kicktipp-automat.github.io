@@ -87,15 +87,28 @@ def collect_samples(competition: str, season: int) -> list[dict]:
     return samples
 
 
-def llm_trust_report(samples: list[dict], min_samples: int) -> dict:
-    """Saldo der LLM-Schatten-Anpassungen gegen den Haupttipp derselben Spiele."""
+def llm_trust_report(
+    samples: list[dict], min_samples: int, min_points_per_adjustment: float = 1.0
+) -> dict:
+    """Saldo der LLM-Schatten-Anpassungen gegen den Haupttipp derselben Spiele.
+
+    Scharf geschaltet wird erst, wenn die Anpassungen im Schnitt mindestens
+    `min_points_per_adjustment` Punkte je Anpassung einbringen - nicht schon bei
+    einem Gesamtsaldo über null. Bei der Mindeststichprobe von 10 wäre ein
+    Vorsprung von einem einzigen Punkt sonst genug, um ein Sprachmodell über
+    echte, versiegelte Tipps entscheiden zu lassen; das ist bei zehn Spielen
+    statistisch nicht von Rauschen zu unterscheiden.
+    """
     adjusted = [s for s in samples if s["llm_shadow_points"] is not None]
     delta = sum(s["llm_shadow_points"] - s["points"] for s in adjusted)
-    trusted = len(adjusted) >= min_samples and delta > 0
+    schwelle = len(adjusted) * min_points_per_adjustment
+    trusted = len(adjusted) >= min_samples and delta >= schwelle
     return {
         "samples": len(adjusted),
         "min_samples": min_samples,
         "points_delta": delta,
+        "min_points_per_adjustment": min_points_per_adjustment,
+        "points_needed": round(schwelle, 2),
         "trusted": trusted,
     }
 
@@ -163,7 +176,9 @@ def main(config: dict) -> None:
         "season": config["season"],
         "scored_matches": len(samples),
         "llm_trust": llm_trust_report(
-            samples, learning_cfg.get("llm_trust", {}).get("min_samples", 10)
+            samples,
+            learning_cfg.get("llm_trust", {}).get("min_samples", 10),
+            learning_cfg.get("llm_trust", {}).get("min_points_per_adjustment", 1.0),
         ),
         "market_weight": market_weight_report(
             samples,

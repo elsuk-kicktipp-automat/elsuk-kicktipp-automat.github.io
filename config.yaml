@@ -178,6 +178,11 @@ learning:
   enabled: true
   llm_trust:
     min_samples: 10 # abgerechnete Schatten-Anpassungen, bevor scharf geschaltet wird
+    # Zusätzlich muss der Vorsprung im Schnitt so groß sein. Ohne diese Hürde
+    # würde ein Gesamtsaldo von +1 Punkt aus zehn Anpassungen reichen, damit
+    # das Sprachmodell echte, versiegelte Tipps überschreibt - bei zehn Spielen
+    # ist das nicht von Zufall zu unterscheiden.
+    min_points_per_adjustment: 1.0
   market_weight:
     min_samples: 20    # Spiele mit Quote+Rohmodell+Ergebnis, bevor gelernt wird
     pseudo_samples: 20 # Regularisierung Richtung odds.market_weight

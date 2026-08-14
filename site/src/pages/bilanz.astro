@@ -411,8 +411,12 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
               <td>{learning.llm_trust.trusted ? 'scharf' : 'Schatten-Modus'}</td>
               <td>
                 {learning.llm_trust.samples}/{learning.llm_trust.min_samples} Anpassungen abgerechnet,
-                Punktesaldo {learning.llm_trust.points_delta >= 0 ? '+' : ''}{learning.llm_trust.points_delta} -
-                scharf geschaltet wird erst bei ausreichender, positiver Bilanz
+                Punktesaldo {learning.llm_trust.points_delta >= 0 ? '+' : ''}{learning.llm_trust.points_delta}
+                {learning.llm_trust.points_needed != null
+                  ? <> von {learning.llm_trust.points_needed} nötigen – scharf geschaltet wird erst,
+                      wenn die Anpassungen im Schnitt mindestens
+                      {' '}{learning.llm_trust.min_points_per_adjustment} Punkt je Anpassung bringen</>
+                  : <> – scharf geschaltet wird erst bei ausreichender, positiver Bilanz</>}
               </td>
             </tr>
             <tr>
