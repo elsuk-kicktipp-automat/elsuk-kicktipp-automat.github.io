@@ -18,9 +18,13 @@ const liveRows = live.filter((r) => r.matches_scored > 0);
 const liveTotal = live.reduce((s, r) => s + r.points_total, 0);
 const liveScored = live.reduce((s, r) => s + r.matches_scored, 0);
 
-// Zusatzfrage K.o.-Spiele: "Wer kommt weiter?" (separat, nicht in points_total)
+// Zusatzfrage K.o.-Spiele: "Wer kommt weiter?" (separat, nicht in points_total).
+// In einer Liga gibt es keine K.o.-Spiele - die Spalte bliebe eine Saison lang
+// leer. Sie wird deshalb nur gezeigt, wenn wirklich etwas drinsteht, und taucht
+// in einem Turnier von selbst auf, sobald die erste K.o.-Runde gewertet ist.
 const advanceTotal = liveRows.reduce((s, r) => s + (r.advance_points_total ?? 0), 0);
 const advanceScored = liveRows.reduce((s, r) => s + (r.advance_scored ?? 0), 0);
+const showAdvance = advanceScored > 0;
 const money = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
 const pct = new Intl.NumberFormat('de-DE', { style: 'percent', maximumFractionDigits: 1 });
 const betRows = liveRows.filter((r) => r.paper_betting?.bets_scored > 0 || r.paper_betting?.stake_total_eur > 0);
@@ -168,7 +172,8 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
                 <th>Runde</th><th class="num">Spiele</th>
                 <th class="num">Automat</th><th class="num">wahrsch. Ergebnis</th>
                 <th class="num">ELO-Favorit 2:1</th><th class="num">immer 1:1</th>
-                <th class="num">Weiterkommen</th><th class="num">Ø Brier</th>
+                {showAdvance && <th class="num">Weiterkommen</th>}
+                <th class="num">Ø Brier</th>
               </tr>
             </thead>
             <tbody>
@@ -180,7 +185,9 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
                   <td class="num">{r.shadow_points?.most_probable ?? '–'}</td>
                   <td class="num">{r.shadow_points?.elo_favorite ?? '–'}</td>
                   <td class="num">{r.shadow_points?.always_draw ?? '–'}</td>
-                  <td class="num">{r.advance_scored ? r.advance_points_total : '–'}</td>
+                  {showAdvance && (
+                    <td class="num">{r.advance_scored ? r.advance_points_total : '–'}</td>
+                  )}
                   <td class="num">{r.brier_avg?.toFixed(3) ?? '–'}</td>
                 </tr>
               ))}
@@ -191,7 +198,7 @@ const backtestBarsHtml = barHtml(backtestBars, backtestMax);
                 <td class="num">{sumShadow('most_probable') ?? '–'}</td>
                 <td class="num">{sumShadow('elo_favorite') ?? '–'}</td>
                 <td class="num">{sumShadow('always_draw') ?? '–'}</td>
-                <td class="num">{advanceScored ? advanceTotal : '–'}</td>
+                {showAdvance && <td class="num">{advanceTotal}</td>}
                 <td class="num"></td>
               </tr>
             </tbody>

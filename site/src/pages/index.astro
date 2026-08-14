@@ -14,6 +14,15 @@ const bonus = loadBonus();
 
 const label = current ? competitionLabel(current.competition) : '';
 
+// Kicker nennt Wettbewerb und Saison, die Überschrift darunter die Runde.
+// Vorher stand die Nummer zweimal da ("Bundesliga · Runde 1" über "1. Spieltag");
+// die Saison dagegen stand nirgends - im Archiv, wo Runden mehrerer Spielzeiten
+// untereinander stehen, fehlte sie spürbar. Turnier-Labels tragen ihr Jahr schon
+// im Namen ("WM 2026"), dort wird nichts angehängt.
+const seasonLabel = !current || /\d{4}/.test(label)
+  ? label
+  : `${label} ${current.season}/${String(current.season + 1).slice(-2)}`;
+
 // Pausen-Stempel: Solange die letzte getippte Runde länger als BREAK_DAYS her
 // ist, läuft gerade nichts - ohne Hinweis liest sich die Startseite so, als
 // wäre ein Spieltag von vor Wochen der aktuelle. Rein aus den Daten abgeleitet,
@@ -70,7 +79,7 @@ const stats = scored?.matches_scored > 0
       <section class="hero">
         <div class="kicker">
           <span class="kicker-bar"></span>
-          <span class="kicker-text">{label} · Runde {current.matchday}</span>
+          <span class="kicker-text">{seasonLabel}</span>
         </div>
         <h1>{titlePrefix}<span class="accent">{titleSuffix}</span></h1>
       </section>

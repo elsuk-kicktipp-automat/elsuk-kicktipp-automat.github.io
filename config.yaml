@@ -82,7 +82,13 @@ paper_betting:
 # versiegelt bis zum Anstoß des letzten Beins.
 kombi:
   enabled: true
-  window_hours: 72
+  # 24h statt der früheren 72h: Die 72 Stunden waren für K.o.-Runden gedacht, wo
+  # selten zwei Spiele dicht beieinander liegen. Ein Bundesliga-Spieltag ist
+  # ohnehin geballt - gemessen am echten Spielplan bleibt der Kandidatenpool im
+  # Median bei 9 Spielen, während die Quoten-Abrufe von ~291 auf ~104 pro Monat
+  # fallen (The Odds API Free Tier: 500/Monat). Ohne Kontingent liefe der
+  # Automat still ohne Markt-Prior weiter - das stärkste Einzelsignal.
+  window_hours: 24
   max_legs: 3
   min_leg_probability: 0.55 # "sicher": Bein braucht >= 55% Modellwahrscheinlichkeit
   min_leg_edge: 0.02
