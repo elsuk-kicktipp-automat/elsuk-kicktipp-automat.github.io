@@ -134,12 +134,11 @@ timing:
 # Runde bleibt damit auch bei einem öffentlichen Repo nicht direkt auffindbar.
 kicktipp_submission:
   enabled: true
-  # Zurück auf Dry-Run für den Wettbewerbswechsel: die Bundesliga-Tipprunde
-  # existiert noch nicht, und ob Kicktipp die Vereine dort genauso schreibt wie
-  # OpenLigaDB (Namensabgleich in kicktipp_bot.py) ist ungeprüft. Erst nach
-  # einem grünen Dry-Run gegen die echte Runde wieder auf false.
+  # Scharf geschaltet nach grünem Dry-Run gegen die Bundesliga-Runde am
+  # 14.08.2026: Login, Rundennavigation, alle 9 Paarungen des 1. Spieltags
+  # korrekt zugeordnet und alle 7 Bonus-Dropdowns richtig gesetzt.
   # Solange true: Formular wird nur ausgefüllt/screenshottet, nicht abgeschickt.
-  dry_run: true
+  dry_run: false
 
 # Selbstlernen (concept.md Schicht 4 / Phase 5, engine/learn.py): bewusst
 # konservative Mindest-Stichproben - bei der kleinen WM-Datenlage bleibt
