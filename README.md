@@ -83,7 +83,10 @@ python -m engine.cli predict
 # Tipps versiegeln: Hash öffentlich, Klartext verschlüsselt (braucht SEAL_SECRET)
 python -m engine.cli seal
 
-# Tipps nach Anstoß enthüllen
+# Saison-Bonusfragen beantworten und versiegeln (einmal pro Saison)
+python -m engine.cli bonus
+
+# Tipps nach Anstoß enthüllen (Spieltipps, Kombi und Bonusfragen)
 python -m engine.cli unseal
 
 # Abrechnung der enthüllten Tipps gegen die realen Ergebnisse -> data/results/
@@ -125,6 +128,48 @@ triggern bei geänderten Daten anschließend den Site-Deploy.
 K.o.-Pläne mit Platzhaltern („Sieger SF 12") werden unterstützt: Sobald
 Nachzügler-Paarungen feststehen, versiegelt der nächste Lauf sie als weiteren
 Batch derselben Runde.
+
+## Saison-Bonusfragen
+
+Kicktipp-Runden stellen neben den Spieltipps Saisonfragen (4 Punkte je richtiger
+Antwort), die alle vor dem ersten Anstoß beantwortet sein müssen. Der Automat
+beantwortet sie in `engine/bonus.py` und versiegelt sie wie jeden anderen Tipp –
+bis zur Frist ist nur der Hash öffentlich.
+
+Die Antworten kommen aus **zwei klar getrennten Quellen**, die auch auf der
+Website ausgewiesen werden:
+
+| Frage | Quelle |
+| --- | --- |
+| Deutscher Meister | Saisonsimulation |
+| Herbstmeister | Saisonsimulation (Tabelle nach Spieltag 17) |
+| Plätze 16–18 | Saisonsimulation |
+| Verein des Torschützenkönigs | LLM |
+| Erster Trainerwechsel | LLM |
+
+`engine/season.py` würfelt dafür die Restsaison 10.000 Mal komplett aus – je
+Simulation ein Ergebnis pro offenem Spiel aus der Dixon-Coles-Matrix, daraus
+eine Abschlusstabelle – und zählt aus, wie oft ein Verein oben oder unten
+landet. Bereits gespielte Partien gehen mit ihrem echten Ergebnis in jede
+Simulation ein, die Prognose wird also im Saisonverlauf schärfer. Fester Seed:
+dieselbe Datenlage muss dieselbe Antwort ergeben, sonst wäre eine versiegelte
+Antwort nicht nachvollziehbar.
+
+Für die letzten beiden Fragen hat das Projekt **keine Datenquelle** – es gibt
+weder Spieler- noch Trainerdaten. Dort entscheidet Groq mit seinem Weltwissen
+und bekommt die Modellprognose als Kontext. Das ist die einzige Stelle, an der
+die LLM-Schicht eine echte Abgabe bestimmt statt nur im Schatten mitzulaufen;
+ist Groq nicht erreichbar, greift eine dokumentierte Heuristik (stärkste
+Offensive bzw. größte Abstiegsgefahr unter den etablierten Vereinen).
+
+Abgerechnet wird automatisch, sobald die nötige Tabelle steht (Herbstmeister
+nach Spieltag 17, Meister und Abstieg am Saisonende). Torschützenkönig und
+Trainerwechsel bleiben dauerhaft offen – dafür liefert OpenLigaDB nichts.
+
+Die Fragetexte der eigenen Runde stehen in `data/mappings/bonus_questions.json`.
+Eine Frage ohne Eintrag lässt die Abgabe **laut fehlschlagen** statt sie still
+zu überspringen: Ein stiller Fehler würde erst am Saisonende auffallen, wenn
+nichts mehr zu retten ist.
 
 ## Website
 
@@ -197,11 +242,13 @@ nicht in der config.
 
 ```text
 engine/                Python-Engine
-  cli.py               Einstiegspunkt: predict / seal / unseal / evaluate / backtest
+  cli.py               Einstiegspunkt: predict / bonus / seal / unseal / evaluate / backtest
   predict.py           Prognose der nächsten Runde -> data/predictions/ (gitignored)
   seal.py              Hash-Versiegelung + Entsiegelung nach Anstoß
   evaluate.py          Punkteabrechnung -> data/results/
   backtest.py          Backtests (club + national) -> data/backtests/
+  season.py            Monte-Carlo-Saisonsimulation (Tabellenprognose)
+  bonus.py             Saison-Bonusfragen der Runde -> data/bonus/
   model.py             Dixon-Coles-Poisson mit ELO-Term
   market.py            Quoten-Blending der Wahrscheinlichkeitsmatrix (Vorhersagezeit)
   paper_betting.py     theoretische Wetten, Einsatzlogik, Abrechnung
@@ -217,7 +264,9 @@ tests/                 pytest-Suite (ohne Netzwerkzugriff lauffähig)
 data/                  JSON-„Datenbank" (cache/ ist gitignored)
   matchdays/           öffentliche Spieltags-Dateien (Hashes bzw. Enthülltes)
   sealed/              verschlüsselte Klartext-Tipps bis zum Anstoß
-  mappings/            Namens-Zuordnung OpenLigaDB -> ELO-/Quoten-Quellen
+  bonus/               Saison-Bonusfragen (Hash bis zur Frist, dann Antworten)
+  mappings/            Namens-Zuordnung OpenLigaDB -> ELO-/Quoten-/Kicktipp-Namen
+                       und Bonus-Fragetexte
 site/                  Astro-Website (GitHub Pages)
 .github/workflows/     GitHub Actions (Spieltag, Entsiegeln, Site-Deploy)
 config.yaml            Wettbewerb, Punkteschema, Modell- und Backtest-Parameter

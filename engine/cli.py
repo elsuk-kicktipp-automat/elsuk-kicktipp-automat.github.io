@@ -1,6 +1,7 @@
 """Kommandozeile des Automaten.
 
     python -m engine.cli predict    Tipps für die nächste anstehende Runde
+    python -m engine.cli bonus      Saison-Bonusfragen beantworten und versiegeln
     python -m engine.cli kicktipp   Tipps bei Kicktipp eintragen (Dry-Run per config.yaml)
     python -m engine.cli seal       neue Tipps versiegeln (Hash öffentlich)
     python -m engine.cli unseal     Tipps nach Anstoß entsiegeln
@@ -10,7 +11,7 @@
 
 import argparse
 
-from . import backtest, evaluate, kicktipp_bot, kombi, learn, predict, seal
+from . import backtest, bonus, evaluate, kicktipp_bot, kombi, learn, predict, seal
 from .config import load_config
 
 
@@ -19,6 +20,7 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("predict", help="Tipps für die nächste anstehende Runde berechnen")
     sub.add_parser("kombi", help="Paper-Kombiwette im Kombi-Fenster bilden und versiegeln")
+    sub.add_parser("bonus", help="Saison-Bonusfragen beantworten und versiegeln (einmal pro Saison)")
     sub.add_parser("kicktipp", help="Tipps bei Kicktipp eintragen (Dry-Run per config.yaml)")
     sub.add_parser("seal", help="neue Tipps versiegeln (nur Hash wird öffentlich)")
     sub.add_parser("unseal", help="Tipps nach Anstoß entsiegeln")
@@ -34,6 +36,8 @@ def main():
         predict.main(config)
     elif args.command == "kombi":
         kombi.main(config)
+    elif args.command == "bonus":
+        bonus.main(config)
     elif args.command == "kicktipp":
         kicktipp_bot.main(config)
     elif args.command == "seal":
@@ -41,6 +45,7 @@ def main():
     elif args.command == "unseal":
         seal.main_unseal()
         kombi.main_unseal()
+        bonus.main_unseal()
     elif args.command == "evaluate":
         evaluate.main(config)
     elif args.command == "learn":

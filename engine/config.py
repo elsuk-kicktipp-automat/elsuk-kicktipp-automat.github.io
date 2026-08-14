@@ -12,6 +12,8 @@ Datenfluss (Fairness-Mechanismus, siehe concept.md §5):
     data/backtests/    Backtest-Reports
     data/kombi/        Paper-Kombiwetten: öffentliches JSON (erst Hash, nach
                        letztem Anstoß Klartext) + verschlüsseltes .enc daneben
+    data/bonus/        Saison-Bonusfragen der Kicktipp-Runde, gleiche Mechanik
+                       wie kombi/ (Enthüllung nach dem ersten Anstoß)
     data/cache/        API-Antworten (gitignored)
 """
 
@@ -33,6 +35,7 @@ MANUAL_RESULTS_DIR = DATA_DIR / "manual_results"
 BACKTESTS_DIR = DATA_DIR / "backtests"
 MAPPINGS_DIR = DATA_DIR / "mappings"
 KOMBI_DIR = DATA_DIR / "kombi"
+BONUS_DIR = DATA_DIR / "bonus"
 
 
 def load_config(path: Path | str = DEFAULT_CONFIG_PATH) -> dict:

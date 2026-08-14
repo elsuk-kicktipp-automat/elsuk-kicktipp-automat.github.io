@@ -1,0 +1,200 @@
+---
+import { formatKickoff } from '../lib/data.mjs';
+
+// bonus: Eintrag aus data/bonus/*.json - versiegelt (nur Hash + Fragetypen),
+// enthüllt (Antworten sichtbar) oder abgerechnet (result gesetzt).
+const { bonus } = Astro.props;
+const sealed = bonus.status === 'sealed';
+const result = bonus.result;
+
+const LABELS = {
+  champion: 'Deutscher Meister',
+  autumn_champion: 'Herbstmeister',
+  relegation: 'Plätze 16–18',
+  top_scorer_club: 'Verein des Torschützenkönigs',
+  first_coach_change: 'Erster Trainerwechsel',
+};
+
+// Quelle der Antwort offenlegen: zwei der Fragen kann das Modell nicht
+// beantworten, das soll man auf der Seite sehen und nicht suchen müssen.
+const SOURCES = {
+  simulation: { label: 'Saisonsimulation', title: '10.000-fach durchgerechnete Restsaison' },
+  llm: { label: 'Sprachmodell', title: 'Keine Datenquelle im Projekt – hier entscheidet das LLM' },
+  heuristic: { label: 'Faustregel', title: 'Sprachmodell nicht erreichbar, Ersatzregel hat entschieden' },
+};
+
+// Reihenfolge der Fragen: erst die Modellaussagen, dann die geratenen
+const ORDER = ['champion', 'autumn_champion', 'relegation', 'top_scorer_club', 'first_coach_change'];
+const kinds = sealed
+  ? (bonus.questions ?? []).map((q) => q.kind)
+  : Object.keys(bonus.answers ?? {});
+const rows = ORDER.filter((k) => kinds.includes(k)).map((kind) => ({
+  kind,
+  label: LABELS[kind] ?? kind,
+  answers: bonus.answers?.[kind] ?? [],
+  source: SOURCES[bonus.sources?.[kind]],
+  scored: result?.questions?.[kind],
+}));
+---
+
+<article class="bonus-card">
+  <div class="bonus-head">
+    <span class="bonus-title">Saisonfragen</span>
+    {sealed ? (
+      <span class="badge badge-muted">🔒 versiegelt</span>
+    ) : result?.points_total > 0 ? (
+      <span class="badge badge-lime">{result.points_total} Punkte</span>
+    ) : (
+      <span class="badge badge-blue">offen</span>
+    )}
+  </div>
+
+  {sealed ? (
+    <div class="bonus-body">
+      <p class="bonus-note">
+        Neben den Spieltipps beantwortet der Automat einmal pro Saison die Bonusfragen
+        der Runde – wer Meister wird, wer absteigt und mehr. Die Antworten sind versiegelt
+        und werden mit dem ersten Anstoß enthüllt:
+        {' '}{formatKickoff(bonus.reveal_after_utc)}. Der Hash beweist, dass sie jetzt schon feststehen.
+      </p>
+      <p class="hash" title="SHA-256 der versiegelten Bonus-Antworten">{bonus.hash}</p>
+    </div>
+  ) : (
+    <div class="bonus-body">
+      <ul class="bonus-list">
+        {rows.map((row) => (
+          <li>
+            <span class="bonus-q">{row.label}</span>
+            <span class="bonus-a">
+              {row.answers.join(', ')}
+              {row.source && (
+                <span class="bonus-source" title={row.source.title}>{row.source.label}</span>
+              )}
+            </span>
+            {row.scored?.points != null && (
+              <span class:list={['badge', row.scored.points > 0 ? 'badge-lime' : 'badge-red']}>
+                {row.scored.points} Pkt
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+      {result?.answers_open > 0 && (
+        <p class="bonus-note">
+          {result.answers_open} Antwort(en) lassen sich nicht automatisch abrechnen –
+          für Torschützenkönig und Trainerwechsel liefert die Spieldaten-API nichts.
+        </p>
+      )}
+    </div>
+  )}
+</article>
+
+<style>
+  /* Bewusst dieselbe Sprache wie die KombiCard: gleiche Karte, gleiche Badges -
+     die Saisonfragen sind für den Leser dasselbe Format wie die Kombiwette. */
+  .bonus-card {
+    border-radius: var(--r-card);
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(63, 140, 255, 0.28);
+    box-shadow: var(--glass-highlight), var(--shadow-card);
+    overflow: hidden;
+    animation: riseIn 0.5s both;
+  }
+
+  .bonus-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 14px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(63, 140, 255, 0.06);
+  }
+  .bonus-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .badge {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--r-badge);
+  }
+  .badge-muted {
+    color: var(--text-muted);
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .badge-blue {
+    color: var(--blue);
+    border: 1px solid rgba(63, 140, 255, 0.4);
+    background: rgba(63, 140, 255, 0.07);
+  }
+  .badge-lime {
+    color: var(--lime);
+    border: 1px solid rgba(212, 255, 63, 0.35);
+    background: rgba(212, 255, 63, 0.07);
+  }
+  .badge-red {
+    color: var(--red);
+    border: 1px solid rgba(255, 77, 94, 0.4);
+    background: rgba(255, 77, 94, 0.08);
+  }
+
+  .bonus-body { padding: 14px 22px 18px; }
+
+  .bonus-list { list-style: none; margin: 0; padding: 0; }
+  .bonus-list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 14px;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+    font-size: 13.5px;
+  }
+  .bonus-list li:last-child { border-bottom: 0; }
+  .bonus-q { color: var(--text-muted); }
+  .bonus-a { color: var(--text); font-weight: 600; }
+  .bonus-source {
+    margin-left: 8px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--r-badge);
+    padding: 2px 7px;
+    cursor: help;
+  }
+
+  .bonus-note { margin: 12px 0 0; font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+
+  .hash {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    word-break: break-all;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin: 12px 0 0;
+  }
+
+  /* Schmale Viewports: Frage und Antwort untereinander statt gequetscht */
+  @media (max-width: 560px) {
+    .bonus-list li { flex-direction: column; gap: 2px; }
+    .bonus-head, .bonus-body { padding-left: 16px; padding-right: 16px; }
+  }
+</style>

@@ -19,8 +19,10 @@ Zusätzlich (concept.md Schicht 4):
 import json
 import math
 
+from pathlib import Path
+
 from . import kombi
-from .config import MANUAL_RESULTS_DIR, MATCHDAYS_DIR, PROJECT_ROOT, RESULTS_DIR
+from .config import BONUS_DIR, MANUAL_RESULTS_DIR, MATCHDAYS_DIR, PROJECT_ROOT, RESULTS_DIR
 from .optimizer import ALWAYS_DRAW_TIP, elo_favorite_tip, match_category, match_points
 from .paper_betting import settle_paper_bet
 from .sources.openligadb import fetch_competition
@@ -198,6 +200,41 @@ def evaluate_matchday(
     }
 
 
+def settle_bonus(config: dict, all_matches: list) -> list[Path]:
+    """Rechnet enthüllte Bonusantworten ab, sobald die nötige Tabelle steht.
+
+    Meister und Abstieg brauchen die komplette Saison, Herbstmeister nur die
+    Hinrunde - die Datei wird deshalb mehrfach angefasst, solange noch etwas
+    offen ist. Torschützenkönig und Trainerwechsel bleiben dauerhaft offen:
+    dafür liefert OpenLigaDB keine Daten, das muss ein Mensch nachtragen.
+    """
+    from . import bonus as bonus_module
+    from .season import table_from_results
+
+    cfg = config.get("bonus") or {}
+    if not cfg.get("enabled"):
+        return []
+
+    playable = [m for m in all_matches if not m.has_placeholder]
+    table = table_from_results(playable)
+    autumn = table_from_results(playable, upto_matchday=int(cfg.get("autumn_matchday", 17)))
+    changed = []
+
+    for path in sorted(BONUS_DIR.glob("*.json")):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if data.get("status") != "revealed":
+            continue  # versiegelt: die Antworten kennen wir hier gar nicht
+        report = bonus_module.score_answers(
+            data["answers"], table, autumn, int(cfg.get("points_per_answer", 4))
+        )
+        if data.get("result") == report:
+            continue  # nichts Neues abzurechnen
+        data["result"] = report
+        path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        changed.append(path)
+    return changed
+
+
 def main(config: dict) -> None:
     prefix = f"{config['competition']}_{config['season']}_"
     matchday_files = sorted(MATCHDAYS_DIR.glob(f"{prefix}*.json"))
@@ -259,3 +296,6 @@ def main(config: dict) -> None:
     # Enthüllte Kombiwetten abrechnen (90-Minuten-Ergebnisse, wie Einzelwetten)
     for path in kombi.settle_open(results90_by_pairing):
         print(f"Kombi abgerechnet: {path.relative_to(PROJECT_ROOT)}")
+
+    for path in settle_bonus(config, all_matches):
+        print(f"Bonusfragen abgerechnet: {path.relative_to(PROJECT_ROOT)}")

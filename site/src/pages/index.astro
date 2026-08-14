@@ -1,14 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BonusCard from '../components/BonusCard.astro';
 import KombiCard from '../components/KombiCard.astro';
 import MatchCard from '../components/MatchCard.astro';
-import { competitionLabel, loadKombis, loadMatchdays, loadResults, resultsFor, scoredMatch } from '../lib/data.mjs';
+import { competitionLabel, loadBonus, loadKombis, loadMatchdays, loadResults, resultsFor, scoredMatch } from '../lib/data.mjs';
 
 const matchdays = loadMatchdays();
 const results = loadResults();
 const current = matchdays.at(-1);
 const scored = current ? resultsFor(current, results) : undefined;
 const latestKombi = loadKombis().at(-1);
+const bonus = current ? loadBonus(current.competition) : null;
 
 const label = current ? competitionLabel(current.competition) : '';
 
@@ -59,6 +61,12 @@ const stats = scored?.matches_scored > 0
       {latestKombi && (
         <section class="kombi-section">
           <KombiCard kombi={latestKombi} />
+        </section>
+      )}
+
+      {bonus && (
+        <section class="kombi-section">
+          <BonusCard bonus={bonus} />
         </section>
       )}
 

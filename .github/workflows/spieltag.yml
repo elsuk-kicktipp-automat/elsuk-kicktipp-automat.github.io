@@ -54,6 +54,14 @@ jobs:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
           SEAL_SECRET: ${{ secrets.SEAL_SECRET }}
 
+      # Saison-Bonusfragen: einmal pro Saison, Frist ist der erste Anstoß.
+      # Läuft nach dem ersten Mal sofort wieder raus (Datei existiert schon).
+      - name: Bonusfragen (Saisonwetten)
+        run: python -m engine.cli bonus
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          SEAL_SECRET: ${{ secrets.SEAL_SECRET }}
+
       - name: Punkteabrechnung
         run: python -m engine.cli evaluate
 

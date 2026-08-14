@@ -1,0 +1,8 @@
+{
+  "_kommentar": "Fragetext auf der Kicktipp-Tippabgabe -> Fragetyp, den engine/bonus.py beantworten kann. Die Feldnamen der Seite (fragetippForms[...]) tragen rundenspezifische IDs und taugen nicht als Schlüssel, der Fragetext ist das einzig Stabile. Abgleich läuft über engine.teams.normalize, Groß-/Kleinschreibung und Satzzeichen sind also egal. Eine Frage ohne Eintrag lässt die Abgabe fehlschlagen, statt sie still zu überspringen.",
+  "Wer wird Deutscher Meister?": "champion",
+  "Wer wird Herbstmeister?": "autumn_champion",
+  "Welche Mannschaften belegen die Plätze 16-18?": "relegation",
+  "Welche Mannschaft stellt den Spieler mit den meisten Toren?": "top_scorer_club",
+  "Wo findet der erste Trainerwechsel statt?": "first_coach_change"
+}

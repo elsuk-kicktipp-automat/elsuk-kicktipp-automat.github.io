@@ -71,6 +71,11 @@ export function loadKombis() {
   return readDirJson('kombi').sort((a, b) => a.id.localeCompare(b.id));
 }
 
+/** Saison-Bonusfragen (data/bonus/) des aktiven Wettbewerbs oder null. */
+export function loadBonus(competition) {
+  return readDirJson('bonus').find((b) => b.competition === competition) ?? null;
+}
+
 /** Selbstlern-Zustand (engine/learn.py) oder null. */
 export function loadLearning() {
   const path = join(DATA_DIR, 'learning', 'state.json');

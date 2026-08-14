@@ -182,11 +182,15 @@ class TestMainFailsLoudly:
             monkeypatch.setenv(var, "x")
         monkeypatch.setattr(bot, "load_dotenv", lambda: None)
         monkeypatch.setattr(bot, "load_pending_tips", lambda secret: {("a", "b"): (1, 2)})
+        # Nicht die echte data/bonus/*.enc anfassen - die gehört einem anderen Secret
+        monkeypatch.setattr(bot, "load_pending_answers", lambda secret: {})
 
-    def _log(self, **overrides):
+    def _log(self, bonus=None, **overrides):
         log = {
             "filled": [("a", "b")], "skipped_already_tipped": [], "skipped_no_input": [],
             "unmatched": [], "screenshot": None, "submitted": True, "mismatches": [],
+            "bonus": {"filled": [], "skipped_already_answered": [],
+                      "unknown_question": [], "unknown_team": [], **(bonus or {})},
         }
         return {**log, **overrides}
 
@@ -203,6 +207,36 @@ class TestMainFailsLoudly:
         monkeypatch.setattr(bot, "submit_tips", lambda *a, **kw: self._log(mismatches=[("a", "b")]))
         with pytest.raises(SystemExit):
             bot.main(self.CONFIG)
+
+    def test_unknown_bonus_question_raises(self, env, monkeypatch):
+        # Stille Übergehung würde 4 Punkte je Antwort kosten, ohne dass es auffällt
+        monkeypatch.setattr(
+            bot, "submit_tips",
+            lambda *a, **kw: self._log(bonus={"unknown_question": ["Wer wird Torschützenkönig?"]}),
+        )
+        with pytest.raises(SystemExit):
+            bot.main(self.CONFIG)
+
+    def test_bonus_team_not_in_dropdown_raises(self, env, monkeypatch):
+        monkeypatch.setattr(
+            bot, "submit_tips",
+            lambda *a, **kw: self._log(bonus={"unknown_team": [("champion", "Hansa Rostock")]}),
+        )
+        with pytest.raises(SystemExit):
+            bot.main(self.CONFIG)
+
+    def test_runs_for_bonus_answers_without_match_tips(self, env, monkeypatch):
+        monkeypatch.setattr(bot, "load_pending_tips", lambda secret: {})
+        monkeypatch.setattr(
+            bot, "load_pending_answers", lambda secret: {"champion": ["FC Bayern München"]}
+        )
+        calls = []
+        monkeypatch.setattr(
+            bot, "submit_tips",
+            lambda *a, **kw: calls.append(kw) or self._log(filled=[], bonus={"filled": ["champion"]}),
+        )
+        bot.main(self.CONFIG)
+        assert calls and calls[0]["bonus_answers"] == {"champion": ["FC Bayern München"]}
 
     def test_missing_seal_secret_raises(self, env, monkeypatch):
         monkeypatch.delenv("SEAL_SECRET")

@@ -93,6 +93,17 @@ kombi:
     min_stake_eur: 10 # unter 10 EUR Kelly-Einsatz gilt: nicht sicher genug, keine Kombi
     max_stake_eur: 100
 
+# Saison-Bonusfragen der Kicktipp-Runde (engine/bonus.py): einmal pro Saison,
+# Frist ist der erste Anstoß. Meister/Herbstmeister/Abstieg kommen aus einer
+# Monte-Carlo-Saisonsimulation (engine/season.py), Torschützenkönig-Verein und
+# erster Trainerwechsel vom LLM - dafür hat das Projekt keine Datenquelle.
+# Wie Tipps und Kombi vollständig versiegelt bis zur Frist.
+bonus:
+  enabled: true
+  simulations: 10000 # Monte-Carlo-Durchläufe der Restsaison
+  autumn_matchday: 17 # Herbstmeister = Tabellenführer nach diesem Spieltag
+  points_per_answer: 4 # Punkteregel der Runde ("4 Punkte je richtiger Antwort")
+
 llm:
   enabled: true
   provider: groq

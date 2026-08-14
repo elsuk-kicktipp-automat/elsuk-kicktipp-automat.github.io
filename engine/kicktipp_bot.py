@@ -32,6 +32,7 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 
+from .bonus import load_pending_answers, question_kind
 from .config import MAPPINGS_DIR, PROJECT_ROOT, SEALED_DIR, load_dotenv
 from .teams import normalize
 
@@ -121,6 +122,82 @@ def load_pending_tips(
     return tips
 
 
+def kicktipp_name(name: str) -> str:
+    """OpenLigaDB-Name -> Schreibweise auf der Kicktipp-Seite (unnormalisiert).
+
+    Für Dropdowns nötig: dort wird eine Option ausgewählt, nicht ein Feld
+    gefüllt - der Anzeigetext muss also wirklich getroffen werden.
+    """
+    if not TEAM_MAPPING_FILE.exists():
+        return name
+    mapping = json.loads(TEAM_MAPPING_FILE.read_text(encoding="utf-8"))
+    return mapping.get(name, name)
+
+
+def _select_team(select, team: str) -> bool:
+    """Wählt einen Verein im Dropdown aus; False, wenn er dort nicht vorkommt.
+
+    Abgleich über normalisierte Optionstexte statt über den Anzeigetext: die
+    Option-Values sind rundenspezifische IDs und der Text kann sich in
+    Kleinigkeiten (Leerzeichen, Punkte) unterscheiden.
+    """
+    target = normalize(kicktipp_name(team))
+    for option in select.locator("option").all():
+        if normalize(option.inner_text()) == target:
+            select.select_option(option.get_attribute("value"))
+            return True
+    return False
+
+
+def _bonus_rows(page) -> list[tuple[str, list]]:
+    """(Fragetext, Dropdowns) je Bonusfrage auf der Tippabgabe.
+
+    Die Bonusfragen stehen unter den Spielen, jede in einer eigenen Zeile;
+    "Plätze 16-18" hat drei Dropdowns in derselben Zeile.
+    """
+    rows = []
+    for row in page.locator("tr").all():
+        selects = row.locator("select").all()
+        if not selects:
+            continue
+        text = " ".join((row.inner_text() or "").split())
+        rows.append((text, selects))
+    return rows
+
+
+def fill_bonus_questions(page, answers: dict[str, list[str]], overwrite: bool = False) -> dict:
+    """Beantwortet die Bonusfragen auf der Seite; gibt ein Log-Dict zurück.
+
+    answers: {Fragetyp -> [Vereinsnamen in OpenLigaDB-Schreibweise]}.
+    Fragen ohne bekannten Typ oder mit unbekanntem Verein werden gemeldet und
+    lassen den Lauf später scheitern - stilles Überspringen würde bedeuten,
+    dass Punkte verloren gehen, ohne dass es jemand merkt.
+    """
+    log = {"filled": [], "skipped_already_answered": [], "unknown_question": [], "unknown_team": []}
+    if not answers:
+        return log
+
+    for text, selects in _bonus_rows(page):
+        kind = question_kind(text)
+        if kind is None:
+            log["unknown_question"].append(text[:80])
+            continue
+        teams = answers.get(kind)
+        if not teams:
+            continue
+
+        if not overwrite and any(s.input_value() not in ("", "-1") for s in selects):
+            log["skipped_already_answered"].append(kind)
+            continue
+
+        for select, team in zip(selects, teams):
+            if _select_team(select, team):
+                log["filled"].append(kind)
+            else:
+                log["unknown_team"].append((kind, team))
+    return log
+
+
 def _read_saved_values(page) -> dict[tuple[str, str], tuple[str, str]]:
     """Liest die aktuell gespeicherten Tipp-Werte von der Tippabgabe-Seite."""
     saved = {}
@@ -158,6 +235,7 @@ def submit_tips(
     dry_run: bool = True,
     headless: bool = True,
     overwrite: bool = False,
+    bonus_answers: dict[str, list[str]] | None = None,
 ) -> dict:
     """Trägt Tipps bei Kicktipp ein und verifiziert das Ergebnis serverseitig.
 
@@ -177,6 +255,7 @@ def submit_tips(
         "screenshot": None,
         "submitted": False,
         "mismatches": [],
+        "bonus": {"filled": [], "skipped_already_answered": [], "unknown_question": [], "unknown_team": []},
     }
 
     with sync_playwright() as p:
@@ -227,6 +306,7 @@ def submit_tips(
             log["filled"].append(pairing)
 
         log["unmatched"] = list(remaining.keys())
+        log["bonus"] = fill_bonus_questions(page, bonus_answers or {}, overwrite=overwrite)
 
         SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
         stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
@@ -234,7 +314,7 @@ def submit_tips(
         page.screenshot(path=str(screenshot_path), full_page=True)
         log["screenshot"] = str(screenshot_path)
 
-        if not dry_run and log["filled"]:
+        if not dry_run and (log["filled"] or log["bonus"]["filled"]):
             page.get_by_role("button", name="Tipps speichern").click()
             # Best-effort: manche Seiten werden wegen Hintergrund-Verbindungen
             # (Tracking/Ads) nie vollständig "idle" - das POST ist mit dem
@@ -275,18 +355,27 @@ def main(config: dict) -> None:
         raise SystemExit("SEAL_SECRET fehlt (nötig zum Entschlüsseln der versiegelten Tipps).")
 
     predictions = load_pending_tips(secret)
-    if not predictions:
-        print("Keine versiegelten Tipps mit bevorstehendem Anstoß, nichts einzutragen.")
+    bonus_answers = load_pending_answers(secret)
+    if not predictions and not bonus_answers:
+        print("Keine versiegelten Tipps und keine offenen Bonusfragen, nichts einzutragen.")
         return
 
     dry_run = cfg.get("dry_run", True)
-    log = submit_tips(email, password, runde, predictions, dry_run=dry_run)
+    log = submit_tips(
+        email, password, runde, predictions, dry_run=dry_run, bonus_answers=bonus_answers
+    )
 
+    bonus_log = log["bonus"]
     print(
         f"{len(log['filled'])} Tipps ausgefüllt, "
         f"{len(log['skipped_already_tipped'])} bereits vorhandene übersprungen, "
         f"{len(log['skipped_no_input'])} noch nicht tippbar/schon beendet."
     )
+    if bonus_answers:
+        print(
+            f"Bonusfragen: {len(bonus_log['filled'])} Antworten gesetzt, "
+            f"{len(bonus_log['skipped_already_answered'])} Frage(n) schon beantwortet."
+        )
     if dry_run:
         print("Dry-Run: NICHT abgeschickt. Screenshot liegt lokal (nicht committen/hochladen).")
     elif log["submitted"]:
@@ -303,6 +392,18 @@ def main(config: dict) -> None:
     if log["mismatches"]:
         problems.append(
             f"{len(log['mismatches'])} Tipp(s) nach dem Speichern nicht korrekt hinterlegt"
+        )
+    # Bonusfragen laut scheitern lassen statt still überspringen: eine nicht
+    # zugeordnete Frage kostet 4 Punkte pro Antwort, und das fällt sonst erst
+    # am Saisonende auf, wenn nichts mehr zu retten ist.
+    if bonus_log["unknown_question"]:
+        problems.append(
+            f"{len(bonus_log['unknown_question'])} unbekannte Bonusfrage(n) "
+            "(data/mappings/bonus_questions.json ergänzen)"
+        )
+    if bonus_log["unknown_team"]:
+        problems.append(
+            f"{len(bonus_log['unknown_team'])} Bonusantwort(en) nicht im Dropdown gefunden"
         )
     if problems:
         raise SystemExit("Kicktipp-Abgabe unvollständig: " + "; ".join(problems))
