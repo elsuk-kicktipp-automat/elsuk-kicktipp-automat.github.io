@@ -94,10 +94,13 @@ jobs:
 
       # Kicktipp-Abgabe NACH dem Fairness-Commit; Browser-Arbeit nur, wenn
       # überhaupt versiegelte Tipps vorliegen (sonst endet der Lauf hier).
+      # Auch die Bonusfragen zählen: sie werden über dieselbe Browser-Sitzung
+      # eingetragen. Ohne sie hier würde der Schritt übersprungen, wenn gerade
+      # keine Spieltipps offen sind - die Bonusantworten kämen nie an.
       - name: Prüfen, ob versiegelte Tipps vorliegen
         id: pending
         run: |
-          if ls data/sealed/*.enc >/dev/null 2>&1; then
+          if ls data/sealed/*.enc >/dev/null 2>&1 || ls data/bonus/*.enc >/dev/null 2>&1; then
             echo "pending=true" >> "$GITHUB_OUTPUT"
           else
             echo "pending=false" >> "$GITHUB_OUTPUT"
