@@ -1,5 +1,8 @@
+import json
+
 import pytest
 
+from engine import learn
 from engine.learn import llm_trust_report, market_weight_report
 from engine.predict import apply_llm_adjustment
 
@@ -68,6 +71,27 @@ class TestMarketWeight:
         report = market_weight_report(samples, 0.7, min_samples=20, pseudo_samples=20)
         assert report["samples"] == 0
         assert report["applied"] == 0.7
+
+
+class TestContentChanged:
+    STATE = {"updated_utc": "2026-08-14T04:02:13Z", "competition": "bl1", "scored_matches": 3}
+
+    def _write(self, tmp_path, monkeypatch, state):
+        path = tmp_path / "state.json"
+        path.write_text(json.dumps(state), encoding="utf-8")
+        monkeypatch.setattr(learn, "STATE_FILE", path)
+
+    def test_changed_when_no_state_file_yet(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(learn, "STATE_FILE", tmp_path / "fehlt.json")
+        assert learn.content_changed(self.STATE)
+
+    def test_new_timestamp_alone_is_no_change(self, tmp_path, monkeypatch):
+        self._write(tmp_path, monkeypatch, self.STATE)
+        assert not learn.content_changed({**self.STATE, "updated_utc": "2026-08-14T09:99:99Z"})
+
+    def test_changed_content_is_detected(self, tmp_path, monkeypatch):
+        self._write(tmp_path, monkeypatch, self.STATE)
+        assert learn.content_changed({**self.STATE, "scored_matches": 4})
 
 
 class TestApplyLlmAdjustment:

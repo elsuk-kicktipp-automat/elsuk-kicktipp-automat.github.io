@@ -34,6 +34,21 @@ STATE_FILE = LEARNING_DIR / "state.json"
 GRID = [round(w * 0.05, 2) for w in range(0, 21)]  # 0.00 .. 1.00
 
 
+def content_changed(state: dict) -> bool:
+    """Hat sich am Lernzustand inhaltlich etwas geändert?
+
+    updated_utc allein zählt nicht: sonst schreibt jeder stündliche Leerlauf-Lauf
+    eine neue Datei und der Spieltags-Workflow committet sie (in der WM-Testphase
+    so mehrere hundert Commits ohne jeden Inhalt).
+    """
+    if not STATE_FILE.exists():
+        return True
+    old = json.loads(STATE_FILE.read_text(encoding="utf-8"))
+    return {k: v for k, v in old.items() if k != "updated_utc"} != {
+        k: v for k, v in state.items() if k != "updated_utc"
+    }
+
+
 def load_state() -> dict:
     """Gelernter Zustand für predict.py; {} solange noch nichts gelernt wurde."""
     if not STATE_FILE.exists():
@@ -158,8 +173,9 @@ def main(config: dict) -> None:
         ),
     }
 
-    LEARNING_DIR.mkdir(parents=True, exist_ok=True)
-    STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+    if content_changed(state):
+        LEARNING_DIR.mkdir(parents=True, exist_ok=True)
+        STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
 
     trust = state["llm_trust"]
     weight = state["market_weight"]
