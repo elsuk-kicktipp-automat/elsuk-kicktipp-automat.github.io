@@ -7,6 +7,7 @@ Modellversion und Eingangsfaktoren nach data/predictions/.
 
 import json
 import os
+import time
 from datetime import datetime, timedelta, timezone
 
 import numpy as np
@@ -36,6 +37,10 @@ from .sources.openligadb import Match, fetch_competition
 from .teams import is_knockout_stage
 
 MODEL_VERSION = "dixon-coles-elo-3-market-llm-news"
+
+# Pause zwischen zwei Partien, damit die LLM-Calls nicht in Groqs
+# Tokens-pro-Minute-Limit laufen (siehe predict_matches)
+LLM_PAUSE_SECONDS = 15
 
 
 def outcome_probabilities(matrix: np.ndarray) -> dict[str, float]:
@@ -265,7 +270,14 @@ def predict_matches(
     llm_model = llm_cfg.get("model", llm.DEFAULT_MODEL)
 
     predictions = []
-    for m in sorted(targets, key=lambda t: (t.kickoff_utc, t.home_name)):
+    for i, m in enumerate(sorted(targets, key=lambda t: (t.kickoff_utc, t.home_name))):
+        # Groqs Free Tier begrenzt Tokens pro MINUTE (gpt-oss-120b: 8.000). Ein
+        # Samstag bringt bis zu 5 Partien in einen Lauf, jede kostet zwei Calls
+        # - ohne Pause reißt das Limit und die Begründung fiele auf das Template
+        # zurück. Die Wartezeit ist unkritisch: der Lauf ist stündlich getaktet.
+        if i and groq_api_key:
+            time.sleep(LLM_PAUSE_SECONDS)
+
         matrix = model.score_matrix(m.home_key, m.away_key)
         raw_probs = outcome_probabilities(matrix)
 

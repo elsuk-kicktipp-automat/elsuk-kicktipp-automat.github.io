@@ -138,7 +138,9 @@ bonus:
 llm:
   enabled: true
   provider: groq
-  model: llama-3.3-70b-versatile
+  # Llama 3.3 70B wurde von Groq zum 16.08.2026 abgeschaltet. gpt-oss ist ein
+  # Reasoning-Modell: sein Nachdenken zählt gegen max_tokens (siehe llm.py).
+  model: openai/gpt-oss-120b
   # Schatten-Anpassungsvorschlag (concept.md Schicht 3, Teil 1): läuft NUR
   # geloggt/bewertet mit (siehe evaluate.py "llm_adjusted"), ändert NIE den
   # echten Tipp. Ob er irgendwann scharf geschaltet wird, entscheidet der

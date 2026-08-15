@@ -197,7 +197,7 @@ def answer_questions(
                     api_key,
                     llm_model,
                     temperature=0.3,
-                    max_tokens=40,
+                    max_tokens=150,
                 )
                 team = parse_team(text, probabilities.teams)
             if team is None:
@@ -516,7 +516,7 @@ def main(config: dict) -> None:
         probabilities,
         promoted,
         os.environ.get("GROQ_API_KEY") if llm_cfg.get("enabled") else None,
-        llm_cfg.get("model", "llama-3.3-70b-versatile"),
+        llm_cfg.get("model", "openai/gpt-oss-120b"),
     )
 
     bonus = {

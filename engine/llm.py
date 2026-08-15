@@ -23,7 +23,7 @@ import re
 import requests
 
 GROQ_API_BASE = "https://api.groq.com/openai/v1"
-DEFAULT_MODEL = "llama-3.3-70b-versatile"
+DEFAULT_MODEL = "openai/gpt-oss-120b"
 
 
 def build_prompt(match_context: dict) -> str:
@@ -100,9 +100,19 @@ def build_prompt(match_context: dict) -> str:
 
 
 def call_groq(
-    prompt: str, api_key: str, model: str = DEFAULT_MODEL, temperature: float = 0.4, max_tokens: int = 300
+    prompt: str,
+    api_key: str,
+    model: str = DEFAULT_MODEL,
+    temperature: float = 0.4,
+    max_tokens: int = 300,
+    reasoning_effort: str = "low",
 ) -> str | None:
-    """Best-effort Chat-Completion; None bei jedem Fehler (Fallback greift dann)."""
+    """Best-effort Chat-Completion; None bei jedem Fehler (Fallback greift dann).
+
+    reasoning_effort steuert, wie lange das Modell vor der Antwort nachdenkt.
+    Das Denken zählt gegen max_tokens - ist der Deckel zu niedrig, kommt eine
+    leere Antwort zurück. Deshalb nur dort "medium", wo die Sprachqualität
+    zählt (Begründung); für JSON/Einwort-Antworten reicht "low"."""
     try:
         resp = requests.post(
             f"{GROQ_API_BASE}/chat/completions",
@@ -112,6 +122,7 @@ def call_groq(
                 "messages": [{"role": "user", "content": prompt}],
                 "temperature": temperature,
                 "max_tokens": max_tokens,
+                "reasoning_effort": reasoning_effort,
             },
             timeout=20,
         )
@@ -131,8 +142,12 @@ def generate_begruendung(
     if not api_key:
         return None, "template"
     # Höhere Temperature als beim Anpassungs-Prompt: hier zählt lebendige,
-    # abwechslungsreiche Sprache, die Fakten stehen ohnehin im Dossier
-    text = call_groq(build_prompt(match_context), api_key, model, temperature=0.8, max_tokens=450)
+    # abwechslungsreiche Sprache, die Fakten stehen ohnehin im Dossier. Nicht
+    # höher als 0.5 - darüber erfindet gpt-oss schiefe deutsche Wortschöpfungen.
+    text = call_groq(
+        build_prompt(match_context), api_key, model,
+        temperature=0.5, max_tokens=800, reasoning_effort="medium",
+    )
     return (text, "llm") if text else (None, "template")
 
 
@@ -197,7 +212,10 @@ def propose_adjustment(
     News vorliegen, das LLM ausfällt oder kein harter Grund gefunden wurde."""
     if not api_key or not news:
         return None
-    text = call_groq(build_adjustment_prompt(match_context, news), api_key, model, temperature=0.2, max_tokens=200)
+    text = call_groq(
+        build_adjustment_prompt(match_context, news), api_key, model,
+        temperature=0.2, max_tokens=400,
+    )
     if not text:
         return None
     return parse_adjustment_response(text)
