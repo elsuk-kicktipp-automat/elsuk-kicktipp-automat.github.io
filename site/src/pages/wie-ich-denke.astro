@@ -38,7 +38,7 @@ const knockout = hasKnockoutStages(matchdays, activeCompetition(matchdays));
       Einzelquelle kaum zu schlagen.
     </li>
     <li>
-      <strong>Groq (Llama 3.3 70B)</strong> – formuliert die Begründungstexte in
+      <strong>Groq (GPT-OSS 120B)</strong> – formuliert die Begründungstexte in
       flüssigerer Sprache und prüft Nachrichten auf einen möglichen Grund für eine
       Tipp-Anpassung (siehe Abschnitt 5).
     </li>
@@ -136,7 +136,7 @@ EOF`}</pre>
 
   <h2>5. Begründungstexte &amp; News-Check</h2>
   <p>
-    Die Fließtexte zu jedem Spiel formuliert ein LLM (Llama 3.3 70B über Groq) aus
+    Die Fließtexte zu jedem Spiel formuliert ein LLM (GPT-OSS 120B über Groq) aus
     genau den Zahlen, die auch in der „Quellen &amp; Faktoren"-Box stehen –
     Modellwahrscheinlichkeiten, ELO-Werte, Quote, News-Check-Ergebnis, der gewählte
     Tipp. Ein 🤖-Hinweis unter dem Text markiert, wenn das LLM geschrieben hat; ohne

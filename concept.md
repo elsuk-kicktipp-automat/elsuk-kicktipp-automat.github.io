@@ -99,7 +99,7 @@ Ein LLM (siehe Optionen unten) bekommt pro Spiel ein Dossier: Modell-Output, Quo
 **LLM-Optionen (kostenlos bzw. quasi-kostenlos):**
 
 - **Google Gemini API** – Free Tier reicht locker für 9 Spiele/Spieltag
-- **Groq** – Free Tier mit offenen Modellen (Llama), sehr schnell
+- **Groq** – Free Tier mit offenen Modellen (GPT-OSS, Qwen), sehr schnell
 - **Claude API** – qualitativ top, aber kostenpflichtig (bei 9 Spielen/Woche wenige Cent pro Spieltag)
 - Fallback: läuft das LLM nicht, greift das rein statistische Modell mit templatebasierter Begründung – das System bleibt immer funktionsfähig.
 

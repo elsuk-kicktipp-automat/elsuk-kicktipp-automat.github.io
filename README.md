@@ -51,7 +51,7 @@ WM-Daten bleiben unter `data/` liegen und sind im Site-Archiv nachprüfbar.
    Fractional-Kelly aus der rohen Modellwahrscheinlichkeit vor Markt-Blend
    berechnet und bei 100 EUR gedeckelt (`paper_betting` in `config.yaml`).
 8. **LLM-Begründung:** [Groq](https://console.groq.com) (Free Tier,
-   `llama-3.3-70b-versatile`) formuliert den Begründungstext aus denselben
+   `openai/gpt-oss-120b`) formuliert den Begründungstext aus denselben
    Modellzahlen in natürlicher Sprache; ohne Key/Netzwerk springt automatisch
    die Template-Begründung ein. Zusätzlich prüft der News-Check Kicker,
    Sportschau und die BILD-News-Sitemap auf aktuelle Schlagzeilen zu den Teams.
