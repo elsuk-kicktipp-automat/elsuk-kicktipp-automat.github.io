@@ -1,0 +1,32 @@
+{
+  "id": "bl1_2026_bonus",
+  "competition": "bl1",
+  "season": 2026,
+  "type": "bonus",
+  "status": "sealed",
+  "hash": "bbf27ae8b8fa793f676da5238c23e56ab37b4e62a4459c0aa8040bf5d49e271b",
+  "sealed_at_utc": "2026-08-25T00:56:57Z",
+  "reveal_after_utc": "2026-08-28T18:30:00Z",
+  "questions": [
+    {
+      "kind": "autumn_champion",
+      "answer_count": 1
+    },
+    {
+      "kind": "champion",
+      "answer_count": 1
+    },
+    {
+      "kind": "first_coach_change",
+      "answer_count": 1
+    },
+    {
+      "kind": "relegation",
+      "answer_count": 3
+    },
+    {
+      "kind": "top_scorer_club",
+      "answer_count": 1
+    }
+  ]
+}
