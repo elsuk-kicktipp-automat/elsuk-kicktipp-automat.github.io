@@ -27,7 +27,16 @@ const advanceScored = liveRows.reduce((s, r) => s + (r.advance_scored ?? 0), 0);
 const showAdvance = advanceScored > 0;
 const money = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
 const pct = new Intl.NumberFormat('de-DE', { style: 'percent', maximumFractionDigits: 1 });
-const betRows = liveRows.filter((r) => r.paper_betting?.bets_scored > 0 || r.paper_betting?.stake_total_eur > 0);
+// Eine Runde gehört in die Tabelle, sobald IRGENDEINE Strategie dort gewettet
+// hat - die Summenzeilen unten rechnen ebenfalls über alle Strategien. Vorher
+// entschied allein paper_betting: Runden, in denen nur eine Schattenstrategie
+// gewettet hat, fehlten in der Tabelle, obwohl ihre Zahlen in den Karten
+// darüber steckten. Und solange die strenge Variante gar nicht wettet, stand
+// unter den Vergleichskarten "Noch keine theoretischen Wetten abgerechnet".
+const hatWetten = (b) => (b?.bets_scored ?? 0) > 0 || (b?.stake_total_eur ?? 0) > 0;
+const betRows = liveRows.filter(
+  (r) => hatWetten(r.paper_betting) || Object.values(r.shadow_betting ?? {}).some(hatWetten)
+);
 const betStake = betRows.reduce((s, r) => s + (r.paper_betting?.stake_total_eur ?? 0), 0);
 const betPayout = betRows.reduce((s, r) => s + (r.paper_betting?.payout_total_eur ?? 0), 0);
 const betProfit = betRows.reduce((s, r) => s + (r.paper_betting?.profit_total_eur ?? 0), 0);

@@ -123,7 +123,25 @@ kombi:
 # erster Trainerwechsel vom LLM - dafür hat das Projekt keine Datenquelle.
 # Wie Tipps und Kombi vollständig versiegelt bis zur Frist.
 bonus:
-  enabled: true
+  # Aus: Der Spielleiter hat die Saisonfragen in dieser Runde deaktiviert. Der
+  # Bot fand deshalb ab dem 25.08.2026 kein einziges Dropdown auf der Tippabgabe
+  # und meldete Lauf für Lauf "0 Antworten gesetzt" - und zwar grün, weil die
+  # Abgabe nur unbekannte Fragen und unbekannte Vereine als Problem kennt, nicht
+  # den Fall "Antworten dabei, nichts untergebracht".
+  #
+  # Vor dem Wiedereinschalten (neue Saison, andere Runde) zu reparieren:
+  #   - kicktipp_bot.submit_tips: Bonusantworten serverseitig zurücklesen wie die
+  #     Spieltipps; verification_mismatches deckt bisher nur die Tipps ab
+  #   - kicktipp_bot.fill_bonus_questions: "schon beantwortet" per all() statt
+  #     any() prüfen, sonst bleibt "Plätze 16-18" mit einem gefüllten von drei
+  #     Dropdowns für immer halb beantwortet
+  #   - kicktipp_bot._bonus_rows: hält jede Zeile mit <select> für eine
+  #     Bonusfrage - ein fremdes Dropdown macht jeden Lauf rot
+  #   - evaluate.settle_bonus und bonus.update_live_probabilities filtern nicht
+  #     auf die Saison; bl1_2026 und bl1_2027 kämen sich ins Gehege
+  #   - bonus.parse_team verlangt den vollen Vereinsnamen als Teilstring
+  #     ("Bayern München" trifft "FC Bayern München" nicht)
+  enabled: false
   # Erst ab diesem Zeitpunkt beantworten (UTC). Der Spielleiter stellt die
   # Rundenkonfiguration erst in der Woche vor Saisonstart fertig; eine zu früh
   # abgegebene Antwort müsste in Kicktipp von Hand zurückgesetzt werden, weil
