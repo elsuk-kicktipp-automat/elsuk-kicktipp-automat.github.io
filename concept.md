@@ -20,7 +20,7 @@ Ein vollständig autonomes System, das ohne laufende Kosten betrieben wird und p
 │  /data          → JSON-„Datenbank" (Spiele, Tipps, Ergebnisse, Gewichte) │
 │  /engine        → Python: Datensammler + Prognosemodell + LLM-Aufruf     │
 │  /site          → Astro-Website                                          │
-│  /.github       → GitHub Actions (Cron-Jobs = der „Server")              │
+│  /.github       → GitHub Actions (extern per workflow_dispatch getaktet) │
 │                                                                          │
 └──────────┬──────────────────────┬──────────────────────┬────────────────┘
            │                      │                      │
@@ -32,7 +32,7 @@ Ein vollständig autonomes System, das ohne laufende Kosten betrieben wird und p
            └─→ LLM-API (Gemini/Groq Free Tier oder Claude API)
 ```
 
-**Kernidee:** Es gibt keinen dauerhaft laufenden Server. GitHub Actions übernimmt per Cron-Trigger alle zeitgesteuerten Aufgaben. Das Repository selbst ist die Datenbank (versionierte JSON-Dateien – dadurch ist jede Prognose und jede Modelländerung transparent nachvollziehbar, was für das „Beweis-System" ein Feature ist). Die Astro-Site wird bei jedem Datenupdate neu gebaut und deployed.
+**Kernidee:** Es gibt keinen dauerhaft laufenden Server. cron-job.org löst die GitHub Actions per `workflow_dispatch` aus; GitHubs eigene Cron-Events werden wegen beobachteter Ausfälle nicht verwendet. Das Repository selbst ist die Datenbank (versionierte JSON-Dateien – dadurch ist jede Prognose und jede Modelländerung transparent nachvollziehbar, was für das „Beweis-System" ein Feature ist). Die Astro-Site wird bei jedem Datenupdate neu gebaut und deployed.
 
 ### Hosting-Optionen für die Website
 

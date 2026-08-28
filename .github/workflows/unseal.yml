@@ -17,8 +17,11 @@ concurrency:
 jobs:
   unseal:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Prüfen, ob etwas fällig ist
         id: check
@@ -93,7 +96,12 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Tipps entsiegelt $(date -u '+%F %H:%M') UTC"
-            git push
+            for attempt in 1 2 3; do
+              if git push; then break; fi
+              if [ "$attempt" -eq 3 ]; then exit 1; fi
+              sleep $((attempt * 5))
+              git pull --rebase origin main
+            done
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 

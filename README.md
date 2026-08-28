@@ -114,16 +114,24 @@ Klartext-Tipps liegen **nie** vor Anstoß im öffentlichen Repo
    Veröffentlichungsverzögerung klein. Jeder kann den Hash nachrechnen
    (Anleitung auf der Website unter „Wie ich denke").
 
-GitHub Actions übernimmt den Betrieb (`.github/workflows/`):
+GitHub Actions führt die Jobs aus (`.github/workflows/`); der Zeitgeber ist
+bewusst **cron-job.org per `workflow_dispatch`**. GitHubs eigene Schedule-Events
+waren im produktiven Betrieb nicht zuverlässig genug und sind deaktiviert.
 
 | Workflow | Zeitplan | Aufgabe |
 | --- | --- | --- |
-| `spieltag.yml` | stündlich | predict (Spiele im 4h-Fenster vor Anstoß) → seal → evaluate → learn → Commit → Kicktipp-Abgabe (verifiziert, aus den versiegelten .enc) |
-| `unseal.yml` | alle 5 min | fällige Tipps ab Anstoß enthüllen + abrechnen (früher Abbruch ohne fällige Spiele) |
+| `spieltag.yml` | extern stündlich | predict (Spiele im 4h-Fenster vor Anstoß) → seal → Fairness-Commit → Kicktipp-Abgabe → Abgabe-Quittung → Deadline-Audit |
+| `unseal.yml` | extern alle 5 min | fällige Tipps ab Anstoß enthüllen + abrechnen (früher Abbruch ohne fällige Spiele) |
 | `deploy-site.yml` | bei Daten-/Site-Änderungen | Astro-Build → GitHub Pages |
 
 Deploys laufen über `main`. Manuelle Spieltags-/Unseal-Läufe auf `main`
 triggern bei geänderten Daten anschließend den Site-Deploy.
+
+Der Abgabe-Audit prüft am Ende jedes Spieltag-Laufs den aktuellen OpenLigaDB-
+Spielplan gegen die versiegelten Paarungen und `data/submissions/`. Ein nach
+einer Trigger-Lücke bereits begonnenes Spiel ohne bestätigte Abgabe macht den
+Lauf dadurch ausdrücklich rot. Die Quittungen enthalten nur Paarung und
+Prüfzeitpunkt, niemals den noch versiegelten Tippwert.
 
 K.o.-Pläne mit Platzhaltern („Sieger SF 12") werden unterstützt: Sobald
 Nachzügler-Paarungen feststehen, versiegelt der nächste Lauf sie als weiteren
@@ -264,6 +272,7 @@ tests/                 pytest-Suite (ohne Netzwerkzugriff lauffähig)
 data/                  JSON-„Datenbank" (cache/ ist gitignored)
   matchdays/           öffentliche Spieltags-Dateien (Hashes bzw. Enthülltes)
   sealed/              verschlüsselte Klartext-Tipps bis zum Anstoß
+  submissions/         tippwertfreie Quittungen serverseitig bestätigter Abgaben
   bonus/               Saison-Bonusfragen (Hash bis zur Frist, dann Antworten)
   mappings/            Namens-Zuordnung OpenLigaDB -> ELO-/Quoten-/Kicktipp-Namen
                        und Bonus-Fragetexte

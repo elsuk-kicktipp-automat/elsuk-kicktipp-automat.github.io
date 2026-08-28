@@ -36,6 +36,7 @@ BACKTESTS_DIR = DATA_DIR / "backtests"
 MAPPINGS_DIR = DATA_DIR / "mappings"
 KOMBI_DIR = DATA_DIR / "kombi"
 BONUS_DIR = DATA_DIR / "bonus"
+SUBMISSIONS_DIR = DATA_DIR / "submissions"
 
 
 def load_config(path: Path | str = DEFAULT_CONFIG_PATH) -> dict:

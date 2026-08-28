@@ -11,7 +11,7 @@
 
 import argparse
 
-from . import backtest, bonus, evaluate, kicktipp_bot, kombi, learn, predict, seal
+from . import backtest, bonus, delivery_audit, evaluate, kicktipp_bot, kombi, learn, predict, seal
 from .config import load_config
 
 
@@ -26,6 +26,7 @@ def main():
     sub.add_parser("unseal", help="Tipps nach Anstoß entsiegeln")
     sub.add_parser("evaluate", help="enthüllte Tipps gegen reale Ergebnisse abrechnen")
     sub.add_parser("learn", help="Lernzustand aktualisieren (Vertrauensregler, Quotengewicht)")
+    sub.add_parser("audit", help="fällige Spiele gegen Versiegelung und Kicktipp-Quittung prüfen")
     bt = sub.add_parser("backtest", help="Backtests ausführen")
     bt.add_argument("--mode", choices=["club", "national", "all"], default="all")
 
@@ -50,6 +51,8 @@ def main():
         evaluate.main(config)
     elif args.command == "learn":
         learn.main(config)
+    elif args.command == "audit":
+        delivery_audit.main(config)
     else:
         backtest.main(config, args.mode)
 

@@ -27,8 +27,11 @@ concurrency:
 jobs:
   spieltag:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -82,7 +85,15 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Spieltags-Update $(date -u '+%F %H:%M') UTC"
-            git push
+            push_with_retry() {
+              for attempt in 1 2 3; do
+                if git push; then return 0; fi
+                if [ "$attempt" -eq 3 ]; then return 1; fi
+                sleep $((attempt * 5))
+                git pull --rebase origin main
+              done
+            }
+            push_with_retry
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
@@ -120,3 +131,27 @@ jobs:
           KICKTIPP_PASSWORD: ${{ secrets.KICKTIPP_PASSWORD }}
           KICKTIPP_RUNDE: ${{ secrets.KICKTIPP_RUNDE }}
           SEAL_SECRET: ${{ secrets.SEAL_SECRET }}
+
+      # Der Bot schreibt nach vollständigem Server-Rücklesen eine tippwertfreie
+      # Quittung. Zweiter Commit bewusst nach der Abgabe: Der erste Commit oben
+      # bleibt der zeitlich vorgelagerte Fairness-Beweis.
+      - name: Bestätigte Kicktipp-Abgabe committen
+        if: steps.pending.outputs.pending == 'true'
+        run: |
+          if [ ! -d data/submissions ]; then exit 0; fi
+          git add data/submissions/
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "der-automat[bot]"
+          git config user.email "noreply@github.com"
+          git commit -m "Kicktipp-Abgabe bestätigt $(date -u '+%F %H:%M') UTC"
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            if [ "$attempt" -eq 3 ]; then exit 1; fi
+            sleep $((attempt * 5))
+            git pull --rebase origin main
+          done
+
+      # Macht insbesondere einen verspäteten externen Trigger rot, wenn während
+      # der Lücke ein Spiel ohne Versiegelung oder bestätigte Abgabe begann.
+      - name: Abgabe- und Deadline-Audit
+        run: python -m engine.cli audit

@@ -9,6 +9,7 @@ from engine.kicktipp_bot import (
     _is_logged_in,
     load_pending_tips,
     login,
+    record_verified_submissions,
     verification_mismatches,
 )
 from engine.teams import normalize
@@ -171,10 +172,46 @@ class TestVerificationMismatches:
         assert verification_mismatches(filled, {}) == [("a", "b")]
 
 
+class TestSubmissionReceipts:
+    def test_records_only_pairings_and_timestamp(self, tmp_path):
+        path = record_verified_submissions(
+            {"competition": "bl1", "season": 2026},
+            {("fc bayern munchen", "vfb stuttgart")},
+            submissions_dir=tmp_path,
+            now=datetime(2026, 8, 28, 14, 31, tzinfo=timezone.utc),
+        )
+
+        data = json.loads(path.read_text(encoding="utf-8"))
+        assert data["submissions"] == [{
+            "home_key": "fc bayern munchen",
+            "away_key": "vfb stuttgart",
+            "verified_at_utc": "2026-08-28T14:31:00Z",
+        }]
+        assert "tip" not in path.read_text(encoding="utf-8")
+
+    def test_keeps_first_verification_without_duplicates(self, tmp_path):
+        config = {"competition": "bl1", "season": 2026}
+        record_verified_submissions(
+            config, [("a", "b")], tmp_path,
+            datetime(2026, 8, 28, 12, 0, tzinfo=timezone.utc),
+        )
+        path = record_verified_submissions(
+            config, [("a", "b")], tmp_path,
+            datetime(2026, 8, 28, 13, 0, tzinfo=timezone.utc),
+        )
+        data = json.loads(path.read_text(encoding="utf-8"))
+        assert len(data["submissions"]) == 1
+        assert data["submissions"][0]["verified_at_utc"] == "2026-08-28T12:00:00Z"
+
+
 class TestMainFailsLoudly:
     """Anomalien müssen den Lauf non-zero beenden -> GitHub-Fehlermail (concept.md §6)."""
 
-    CONFIG = {"kicktipp_submission": {"enabled": True, "dry_run": False}}
+    CONFIG = {
+        "competition": "bl1",
+        "season": 2026,
+        "kicktipp_submission": {"enabled": True, "dry_run": False},
+    }
 
     @pytest.fixture
     def env(self, monkeypatch):
@@ -184,11 +221,13 @@ class TestMainFailsLoudly:
         monkeypatch.setattr(bot, "load_pending_tips", lambda secret: {("a", "b"): (1, 2)})
         # Nicht die echte data/bonus/*.enc anfassen - die gehört einem anderen Secret
         monkeypatch.setattr(bot, "load_pending_answers", lambda secret: {})
+        monkeypatch.setattr(bot, "record_verified_submissions", lambda *args, **kwargs: None)
 
     def _log(self, bonus=None, **overrides):
         log = {
             "filled": [("a", "b")], "skipped_already_tipped": [], "skipped_no_input": [],
             "unmatched": [], "screenshot": None, "submitted": True, "mismatches": [],
+            "verified": [("a", "b")],
             "bonus": {"filled": [], "skipped_already_answered": [],
                       "unknown_question": [], "unknown_team": [], **(bonus or {})},
         }
@@ -205,6 +244,14 @@ class TestMainFailsLoudly:
 
     def test_verification_mismatch_raises(self, env, monkeypatch):
         monkeypatch.setattr(bot, "submit_tips", lambda *a, **kw: self._log(mismatches=[("a", "b")]))
+        with pytest.raises(SystemExit):
+            bot.main(self.CONFIG)
+
+    def test_missing_input_fields_raise(self, env, monkeypatch):
+        monkeypatch.setattr(
+            bot, "submit_tips",
+            lambda *a, **kw: self._log(skipped_no_input=[("a", "b")]),
+        )
         with pytest.raises(SystemExit):
             bot.main(self.CONFIG)
 

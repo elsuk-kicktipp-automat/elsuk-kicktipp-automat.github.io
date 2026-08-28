@@ -33,7 +33,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .bonus import load_pending_answers, question_kind
-from .config import MAPPINGS_DIR, PROJECT_ROOT, SEALED_DIR, load_dotenv
+from .config import MAPPINGS_DIR, PROJECT_ROOT, SEALED_DIR, SUBMISSIONS_DIR, load_dotenv
 from .teams import normalize
 
 LOGIN_URL = "https://www.kicktipp.de/info/profil/login/"
@@ -227,6 +227,56 @@ def verification_mismatches(
     ]
 
 
+def record_verified_submissions(
+    config: dict,
+    pairings: list[tuple[str, str]] | set[tuple[str, str]],
+    submissions_dir: Path = SUBMISSIONS_DIR,
+    now: datetime | None = None,
+) -> Path | None:
+    """Persistiert eine tippwertfreie Quittung für serverseitig bestätigte Tipps.
+
+    Die Datei enthält absichtlich nur normalisierte Paarungen und Zeitstempel,
+    niemals die versiegelten Tippwerte. So kann ein späterer Deadline-Audit
+    unterscheiden, ob ein Tipp nur versiegelt oder auch von Kicktipp bestätigt
+    wurde, ohne vor Anstoß etwas zu verraten.
+    """
+    if not pairings:
+        return None
+
+    competition, season = config["competition"], int(config["season"])
+    path = submissions_dir / f"{competition}_{season}.json"
+    if path.exists():
+        data = json.loads(path.read_text(encoding="utf-8"))
+    else:
+        data = {
+            "competition": competition,
+            "season": season,
+            "submissions": [],
+        }
+
+    verified_at = (now or datetime.now(timezone.utc)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    existing = {
+        (entry["home_key"], entry["away_key"]): entry
+        for entry in data.get("submissions", [])
+    }
+    for home_key, away_key in pairings:
+        existing.setdefault(
+            (home_key, away_key),
+            {
+                "home_key": home_key,
+                "away_key": away_key,
+                "verified_at_utc": verified_at,
+            },
+        )
+
+    data["submissions"] = sorted(
+        existing.values(), key=lambda entry: (entry["home_key"], entry["away_key"])
+    )
+    submissions_dir.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    return path
+
+
 def submit_tips(
     email: str,
     password: str,
@@ -255,6 +305,7 @@ def submit_tips(
         "screenshot": None,
         "submitted": False,
         "mismatches": [],
+        "verified": [],
         "bonus": {"filled": [], "skipped_already_answered": [], "unknown_question": [], "unknown_team": []},
     }
 
@@ -277,7 +328,6 @@ def submit_tips(
         _accept_consent(page)
 
         remaining = dict(predictions)
-        filled_values: dict[tuple[str, str], tuple[int, int]] = {}
         for row in page.locator("#tippabgabeSpiele tbody tr.datarow").all():
             home_el = row.locator(".col1").first
             away_el = row.locator(".col2").first
@@ -302,7 +352,6 @@ def submit_tips(
             tip_h, tip_a = remaining.pop(pairing)
             home_input.fill(str(tip_h))
             away_input.fill(str(tip_a))
-            filled_values[pairing] = (tip_h, tip_a)
             log["filled"].append(pairing)
 
         log["unmatched"] = list(remaining.keys())
@@ -326,11 +375,16 @@ def submit_tips(
                 pass
             log["submitted"] = True
 
-            # Serverseitige Verifikation: Seite neu laden, gespeicherte Werte
-            # gegen die abgeschickten Tipps prüfen - der Klick allein beweist
-            # nichts (Validierungsfehler, still verworfene Felder).
+        # Serverseitige Verifikation gilt für ALLE erwarteten Tipps, nicht nur
+        # für die in diesem Lauf neu gefüllten. So werden falsche, halb gefüllte
+        # oder aus einem früheren Fehlversuch stammende Werte nicht als
+        # "bereits getippt" grün übersprungen.
+        if not dry_run and predictions:
             page.goto(tippabgabe_url)
-            log["mismatches"] = verification_mismatches(filled_values, _read_saved_values(page))
+            saved = _read_saved_values(page)
+            log["mismatches"] = verification_mismatches(predictions, saved)
+            mismatches = set(log["mismatches"])
+            log["verified"] = [pairing for pairing in predictions if pairing not in mismatches]
 
         context.close()
         browser.close()
@@ -381,6 +435,8 @@ def main(config: dict) -> None:
     elif log["submitted"]:
         print("Tipps abgeschickt und serverseitig verifiziert." if not log["mismatches"]
               else "Tipps abgeschickt, aber Verifikation fand Abweichungen!")
+    elif predictions and not log["mismatches"]:
+        print("Bereits vorhandene Tipps serverseitig gegen die versiegelten Sollwerte verifiziert.")
 
     # Anomalien lassen den Lauf laut fehlschlagen -> GitHub-Fehlermail
     # (concept.md §6: Benachrichtigung, damit ein Mensch manuell eintragen kann).
@@ -392,6 +448,10 @@ def main(config: dict) -> None:
     if log["mismatches"]:
         problems.append(
             f"{len(log['mismatches'])} Tipp(s) nach dem Speichern nicht korrekt hinterlegt"
+        )
+    if log["skipped_no_input"]:
+        problems.append(
+            f"{len(log['skipped_no_input'])} Paarung(en) nicht mehr editierbar/ohne Eingabefelder"
         )
     # Bonusfragen laut scheitern lassen statt still überspringen: eine nicht
     # zugeordnete Frage kostet 4 Punkte pro Antwort, und das fällt sonst erst
@@ -407,3 +467,8 @@ def main(config: dict) -> None:
         )
     if problems:
         raise SystemExit("Kicktipp-Abgabe unvollständig: " + "; ".join(problems))
+
+    if not dry_run and predictions:
+        receipt = record_verified_submissions(config, log["verified"])
+        if receipt is not None:
+            print(f"Abgabe-Quittung gespeichert: {receipt.relative_to(PROJECT_ROOT)}")

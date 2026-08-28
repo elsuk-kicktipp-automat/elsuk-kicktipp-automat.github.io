@@ -179,6 +179,19 @@ timing:
   tip_window_hours: 4
   safety_margin_minutes: 20
 
+# Betriebs-Gegenprobe am Ende jedes Spieltag-Laufs. Der Takt kommt ausschließlich
+# extern per workflow_dispatch; wenn dieser Takt aussetzt, macht der nächste Lauf
+# einen kürzlich verpassten Tipp ausdrücklich rot statt "nichts zu tun" zu melden.
+delivery_audit:
+  enabled: true
+  lookback_hours: 6
+  # Verhindert einen Fehlalarm, wenn ein Spiel erst während des laufenden Jobs
+  # gerade eben in das 4h-Fenster gerutscht ist; der nächste externe Lauf greift.
+  boundary_grace_minutes: 10
+  # Bundesliga mit 18 Vereinen: 34 Spieltage à 9 Spiele. Eine leere oder
+  # unvollständige HTTP-200-Antwort von OpenLigaDB darf nicht als Leerlauf gelten.
+  expected_schedule_matches: 306
+
 # Kicktipp-Abgabe (concept.md Phase 4): trägt die Tipps automatisch bei
 # kicktipp.de ein. Zugangsdaten und Rundenname kommen ausschließlich aus
 # GitHub Actions Secrets (KICKTIPP_EMAIL/PASSWORD/RUNDE), nie hier - die
