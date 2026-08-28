@@ -3,7 +3,7 @@
   "competition": "bl1",
   "season": 2026,
   "type": "bonus",
-  "status": "sealed",
+  "status": "revealed",
   "hash": "bbf27ae8b8fa793f676da5238c23e56ab37b4e62a4459c0aa8040bf5d49e271b",
   "sealed_at_utc": "2026-08-25T00:56:57Z",
   "reveal_after_utc": "2026-08-28T18:30:00Z",
@@ -28,5 +28,179 @@
       "kind": "top_scorer_club",
       "answer_count": 1
     }
-  ]
+  ],
+  "answers": {
+    "champion": [
+      "FC Bayern München"
+    ],
+    "autumn_champion": [
+      "FC Bayern München"
+    ],
+    "relegation": [
+      "SV Werder Bremen",
+      "FC Augsburg",
+      "1. FC Union Berlin"
+    ],
+    "top_scorer_club": [
+      "FC Bayern München"
+    ],
+    "first_coach_change": [
+      "1. FC Köln"
+    ]
+  },
+  "sources": {
+    "champion": "simulation",
+    "autumn_champion": "simulation",
+    "relegation": "simulation",
+    "top_scorer_club": "llm",
+    "first_coach_change": "llm"
+  },
+  "forecast": [
+    {
+      "team": "FC Bayern München",
+      "expected_points": 82.4,
+      "expected_goals_for": 102.2,
+      "champion": 0.9608,
+      "autumn_champion": 0.8487,
+      "bottom_three": 0.0
+    },
+    {
+      "team": "Borussia Dortmund",
+      "expected_points": 64.4,
+      "expected_goals_for": 68.0,
+      "champion": 0.0267,
+      "autumn_champion": 0.0802,
+      "bottom_three": 0.0001
+    },
+    {
+      "team": "Bayer 04 Leverkusen",
+      "expected_points": 59.1,
+      "expected_goals_for": 65.7,
+      "champion": 0.007,
+      "autumn_champion": 0.0294,
+      "bottom_three": 0.0005
+    },
+    {
+      "team": "VfB Stuttgart",
+      "expected_points": 56.9,
+      "expected_goals_for": 66.9,
+      "champion": 0.0034,
+      "autumn_champion": 0.02,
+      "bottom_three": 0.0014
+    },
+    {
+      "team": "RB Leipzig",
+      "expected_points": 53.3,
+      "expected_goals_for": 59.5,
+      "champion": 0.002,
+      "autumn_champion": 0.0102,
+      "bottom_three": 0.0063
+    },
+    {
+      "team": "Eintracht Frankfurt",
+      "expected_points": 47.8,
+      "expected_goals_for": 59.2,
+      "champion": 0.0,
+      "autumn_champion": 0.0041,
+      "bottom_three": 0.0423
+    },
+    {
+      "team": "TSG Hoffenheim",
+      "expected_points": 45.8,
+      "expected_goals_for": 56.2,
+      "champion": 0.0001,
+      "autumn_champion": 0.0021,
+      "bottom_three": 0.0683
+    },
+    {
+      "team": "1. FSV Mainz 05",
+      "expected_points": 44.5,
+      "expected_goals_for": 46.7,
+      "champion": 0.0,
+      "autumn_champion": 0.0011,
+      "bottom_three": 0.0925
+    },
+    {
+      "team": "FC Schalke 04",
+      "expected_points": 42.9,
+      "expected_goals_for": 49.2,
+      "champion": 0.0,
+      "autumn_champion": 0.0006,
+      "bottom_three": 0.1344
+    },
+    {
+      "team": "SV 07 Elversberg",
+      "expected_points": 42.9,
+      "expected_goals_for": 49.1,
+      "champion": 0.0,
+      "autumn_champion": 0.0007,
+      "bottom_three": 0.1281
+    },
+    {
+      "team": "SC Paderborn 07",
+      "expected_points": 42.8,
+      "expected_goals_for": 49.2,
+      "champion": 0.0,
+      "autumn_champion": 0.0011,
+      "bottom_three": 0.132
+    },
+    {
+      "team": "SC Freiburg",
+      "expected_points": 42.2,
+      "expected_goals_for": 49.0,
+      "champion": 0.0,
+      "autumn_champion": 0.0005,
+      "bottom_three": 0.1483
+    },
+    {
+      "team": "Borussia Mönchengladbach",
+      "expected_points": 41.0,
+      "expected_goals_for": 45.5,
+      "champion": 0.0,
+      "autumn_champion": 0.0003,
+      "bottom_three": 0.1865
+    },
+    {
+      "team": "Hamburger SV",
+      "expected_points": 37.1,
+      "expected_goals_for": 40.3,
+      "champion": 0.0,
+      "autumn_champion": 0.0002,
+      "bottom_three": 0.3676
+    },
+    {
+      "team": "1. FC Köln",
+      "expected_points": 37.0,
+      "expected_goals_for": 47.3,
+      "champion": 0.0,
+      "autumn_champion": 0.0003,
+      "bottom_three": 0.3805
+    },
+    {
+      "team": "1. FC Union Berlin",
+      "expected_points": 36.2,
+      "expected_goals_for": 40.5,
+      "champion": 0.0,
+      "autumn_champion": 0.0002,
+      "bottom_three": 0.4178
+    },
+    {
+      "team": "FC Augsburg",
+      "expected_points": 36.1,
+      "expected_goals_for": 40.6,
+      "champion": 0.0,
+      "autumn_champion": 0.0002,
+      "bottom_three": 0.4266
+    },
+    {
+      "team": "SV Werder Bremen",
+      "expected_points": 35.4,
+      "expected_goals_for": 40.6,
+      "champion": 0.0,
+      "autumn_champion": 0.0001,
+      "bottom_three": 0.4668
+    }
+  ],
+  "created_utc": "2026-08-25T00:56:19Z",
+  "salt": "88a0aa6cb7c01d2f6e56fede9c56ead5"
 }
