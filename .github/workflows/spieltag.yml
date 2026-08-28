@@ -1,4 +1,4 @@
-# Stündlicher Spieltags-Lauf: prognostiziert/versiegelt Spiele, deren Anstoß
+# Spieltags-Lauf: prognostiziert/versiegelt Spiele, deren Anstoß
 # ins Tipp-Fenster fällt (config.yaml: timing), rechnet Enthülltes ab und
 # trägt versiegelte Tipps bei Kicktipp ein.
 #
@@ -10,9 +10,11 @@
 name: Spieltag
 
 on:
-  schedule:
-    - cron: '0 * * * *' # stündlich: Tipp-Fenster (4h) braucht mehrere Versuche,
-                        # GitHub-Crons feuern erfahrungsgemäß bis zu ~2,5h verspätet
+  # Bewusst KEIN GitHub-schedule: getaktet wird ausschließlich extern
+  # (cron-job.org) per workflow_dispatch. GitHubs eigener Cron wird bei
+  # Last stillschweigend verworfen - am 28.08.2026 feuerte er zwischen
+  # 08:34 und 20:xx UTC gar nicht, wodurch das 4h-Tipp-Fenster für
+  # Bayern-Stuttgart (Anstoß 18:30 UTC) ungenutzt verstrich.
   workflow_dispatch:
 
 permissions:

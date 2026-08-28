@@ -1,10 +1,10 @@
 # Entsiegelt Tipps ab Anstoß und rechnet direkt ab.
-# Läuft alle 5 Minuten; ohne fällige Spiele endet der Job nach Sekunden.
+# Wird extern (cron-job.org) alle 5 Minuten per workflow_dispatch getaktet -
+# kein GitHub-schedule, siehe spieltag.yml. Ohne fällige Spiele endet der
+# Job nach Sekunden.
 name: Entsiegeln
 
 on:
-  schedule:
-    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
