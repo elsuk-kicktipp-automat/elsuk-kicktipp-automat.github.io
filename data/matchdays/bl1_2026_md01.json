@@ -1,0 +1,56 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "matchday": 1,
+  "stage": "1. Spieltag",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-08-29T09:32:24Z",
+  "matches": [
+    {
+      "home": "1. FC Köln",
+      "away": "TSG Hoffenheim",
+      "kickoff_utc": "2026-08-29T13:30:00Z",
+      "status": "sealed",
+      "hash": "ee7a1a5ac040949e776dd83ef5e655080d7d70ccaf5a991fee1ce4e39160fedf",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "1. FC Union Berlin",
+      "away": "Eintracht Frankfurt",
+      "kickoff_utc": "2026-08-29T13:30:00Z",
+      "status": "sealed",
+      "hash": "9b52f8d523ec5e8e237e4de5067ca8deb15e6195f93841ad32612db4a2aec524",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "1. FSV Mainz 05",
+      "away": "SC Paderborn 07",
+      "kickoff_utc": "2026-08-29T13:30:00Z",
+      "status": "sealed",
+      "hash": "32de25e059873c2ae452a08dcb7cb43880593d740342badbf5b66f3be1433dca",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "RB Leipzig",
+      "away": "Borussia Mönchengladbach",
+      "kickoff_utc": "2026-08-29T13:30:00Z",
+      "status": "sealed",
+      "hash": "6181a3226249f005ef953d07b250bf78f1eb9cb06c1549c03a0a4b391b41ee6a",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "SV 07 Elversberg",
+      "away": "Bayer 04 Leverkusen",
+      "kickoff_utc": "2026-08-29T13:30:00Z",
+      "status": "sealed",
+      "hash": "66c193bbba34cd9e23f89276c0364c316a6e7e4f248e05bdf5b8f1a4365bd5fc",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}
