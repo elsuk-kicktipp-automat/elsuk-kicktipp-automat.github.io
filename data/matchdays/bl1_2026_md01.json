@@ -16,41 +16,803 @@
       "home": "1. FC Köln",
       "away": "TSG Hoffenheim",
       "kickoff_utc": "2026-08-29T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "ee7a1a5ac040949e776dd83ef5e655080d7d70ccaf5a991fee1ce4e39160fedf",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.135,
+      "factors": {
+        "expected_goals": [
+          1.42,
+          1.63
+        ],
+        "probabilities": {
+          "home": 0.328,
+          "draw": 0.251,
+          "away": 0.421
+        },
+        "raw_probabilities": {
+          "home": 0.352,
+          "draw": 0.232,
+          "away": 0.416
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.318,
+          "draw": 0.259,
+          "away": 0.423,
+          "weight": 0.7
+        },
+        "home_advantage": 0.164,
+        "trained_on_matches": 613,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: 1. FC Köln gegen 1899 Hoffenheim - Bundesliga",
+              "description": "1. Spieltag: Anpfiff des Spiels ist am 29.08.2026 um 15:30 Uhr. 1899 Hoffenheim spielt in Köln.",
+              "published": "2026-08-29T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Kurioses Sterner-Tor sorgt für Kölns ersten Sieg",
+              "description": "Die Fußballerinnen des 1. FC Köln haben gegen die TSG Hoffenheim ihren ersten Saisonsieg eingefahren.",
+              "published": "2026-08-28T23:55:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Kurioses Sterner-Tor sorgt für Kölns ersten Sieg",
+              "description": "Die Fußballerinnen des 1. FC Köln haben gegen die TSG Hoffenheim ihren ersten Saisonsieg eingefahren.",
+              "published": "2026-08-28T23:55:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Transfer-Ticker: Europameister geht in die 2. Liga",
+              "description": "erste Bundesliga, spielertransfer, Premier League, FC Bayern München, Fußball, Primera División - La Liga, Ligue 1, Serie A, Borussia Dortmund, Werder Bremen, Handball Club Hamburg (ehem. HSV Hamburg), VfB Stuttgart, RB Leipzig, Bayer Leverkusen, 1. FC Köln, FC Schalke, SC Freiburg, 1. FC Union Berlin, 1899 Hoffenheim, Eintracht Frankfurt, Borussia Mönchengladbach, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-08-28T18:41:50+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/transfer-ticker-barca-sticht-real-bei-weltmeister-aus-6a670d43dc2b0bab191a7b9c"
+            },
+            {
+              "title": "TSG Hoffenheim: Fisnik Asllani sagt Galatasaray Istanbul ab!",
+              "description": "erste Bundesliga, Fußball, spielertransfer, Borussia Dortmund, Guirassy Sehrou, Sport – Leuchtturm Essen, Sport - Leuchtturm Zentral",
+              "published": "2026-08-28T14:40:49+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/tsg-hoffenheim-fisnik-asllani-sagt-galatasaray-istanbul-ab-6a917b86518a586e1855b6d7"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 4
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 8
+            }
+          ],
+          "total_matches": 12,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1 : 2 – das lege ich gleich zu Beginn auf den Tisch. Hoffenheim geht mit 42 % leicht als klarer Favorit ins Spiel, Köln muss erst noch die Heimatstimmung aufbauen. Trotzdem erwartet uns ein enges Duell, beide Teams haben rund ein bis zweieinhalb Tore pro Spiel im Visier – ein echtes Torfestival könnte entstehen. Am Ende entscheidet wohl, wer im Abnutzungskampf die Nerven behält und die Chance zum Sieg nutzt.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "TSG Hoffenheim gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.2,
+        "model_probability": 0.4164,
+        "implied_probability": 0.4545,
+        "edge": -0.0838,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "TSG Hoffenheim gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 2.2,
+          "model_probability": 0.4164,
+          "implied_probability": 0.4545,
+          "edge": -0.0838,
+          "expected_value_eur": -0.74,
+          "stake_eur": 8.8,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "9e84db82df9bdf271cb50926e892a890"
     },
     {
       "home": "1. FC Union Berlin",
       "away": "Eintracht Frankfurt",
       "kickoff_utc": "2026-08-29T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "9b52f8d523ec5e8e237e4de5067ca8deb15e6195f93841ad32612db4a2aec524",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.059,
+      "factors": {
+        "expected_goals": [
+          1.4,
+          1.47
+        ],
+        "probabilities": {
+          "home": 0.352,
+          "draw": 0.261,
+          "away": 0.387
+        },
+        "raw_probabilities": {
+          "home": 0.318,
+          "draw": 0.246,
+          "away": 0.436
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.366,
+          "draw": 0.268,
+          "away": 0.366,
+          "weight": 0.7
+        },
+        "home_advantage": 0.164,
+        "trained_on_matches": 613,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: 1. FC Union Berlin gegen Eintracht Frankfurt - Bundesliga",
+              "description": "1. Spieltag: Anpfiff des Spiels ist am 29.08.2026 um 15:30 Uhr. Eintracht Frankfurt spielt in Berlin.",
+              "published": "2026-08-29T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Nach Atubolu-Wechsel: Rästel um Frankfurts Torwart-Chaos!",
+              "description": "Hochkant BILD-Video intern, Stammplatz, Stammplatz Video, clipout, Eintracht Frankfurt, Bundesliga, erste Bundesliga, Torwart, Transferperiode, Atubolu Noah",
+              "published": "2026-08-29T09:53:57+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/nach-atubolu-wechsel-raestel-um-frankfurts-torwart-chaos-6a91fcd3518a586e1855bf3a"
+            },
+            {
+              "title": "Eintracht Frankfurt: Verlässt Krösche Eintracht schon im September?",
+              "description": "Krösche Markus, Eintracht Frankfurt, erste Bundesliga, Bundesliga, Toppmöller Dino, Sport - Leuchtturm Zentral, Hellmann Axel",
+              "published": "2026-08-29T01:00:54+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-verlaesst-kroesche-eintracht-schon-im-september-6a91b5ec2ed18bbd042e7854"
+            },
+            {
+              "title": "Eintracht Frankfurt: Krösche holt DIESEN Abwehr-Star!",
+              "description": "Eintracht Frankfurt, erste Bundesliga, Krösche Markus, spielertransfer, Hütter Adi, Sport - Leuchtturm Zentral",
+              "published": "2026-08-28T18:55:21+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-kroesche-holt-diesen-abwehr-star-6a91b59db3df30a615529554"
+            },
+            {
+              "title": "Transfer-Ticker: Europameister geht in die 2. Liga",
+              "description": "erste Bundesliga, spielertransfer, Premier League, FC Bayern München, Fußball, Primera División - La Liga, Ligue 1, Serie A, Borussia Dortmund, Werder Bremen, Handball Club Hamburg (ehem. HSV Hamburg), VfB Stuttgart, RB Leipzig, Bayer Leverkusen, 1. FC Köln, FC Schalke, SC Freiburg, 1. FC Union Berlin, 1899 Hoffenheim, Eintracht Frankfurt, Borussia Mönchengladbach, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-08-28T18:41:50+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/transfer-ticker-barca-sticht-real-bei-weltmeister-aus-6a670d43dc2b0bab191a7b9c"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 29
+            }
+          ],
+          "total_matches": 30,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1:2 – das dürfte das Ergebnis sein, wenn Frankfurt in Berlin das Netz zum Glühen bringt. Die Zahlen lauten: Heimsieg 35 %, Auswärtssieg 39 % – ein leichtes Plus für die Gäste, aber kein Freifahrtschein, eher ein enges Duell auf Augenhöhe. Beide Teams kommen mit ähnlichen Torerwartungen, also wird es ein harter Abnutzungskampf, bei dem die Frankfurter das letzte Quäntchen durchsetzen. Wer jetzt auf ein Remis setzt, verpasst das wahre Duell um die drei Punkte.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Eintracht Frankfurt gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.5,
+        "model_probability": 0.4361,
+        "implied_probability": 0.4,
+        "edge": 0.0902,
+        "expected_value_eur": 1.36,
+        "stake_eur": 15.04,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0601,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "Eintracht Frankfurt gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 2.5,
+          "model_probability": 0.4361,
+          "implied_probability": 0.4,
+          "edge": 0.0902,
+          "expected_value_eur": 0.89,
+          "stake_eur": 9.92,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "353956b29d29735e52f3add7273a114e"
     },
     {
       "home": "1. FSV Mainz 05",
       "away": "SC Paderborn 07",
       "kickoff_utc": "2026-08-29T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "32de25e059873c2ae452a08dcb7cb43880593d740342badbf5b66f3be1433dca",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.453,
+      "factors": {
+        "expected_goals": [
+          1.97,
+          1.14
+        ],
+        "probabilities": {
+          "home": 0.564,
+          "draw": 0.227,
+          "away": 0.209
+        },
+        "raw_probabilities": {
+          "home": 0.437,
+          "draw": 0.263,
+          "away": 0.299
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.618,
+          "draw": 0.212,
+          "away": 0.17,
+          "weight": 0.7
+        },
+        "home_advantage": 0.164,
+        "trained_on_matches": 613,
+        "news_checked": 4,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: 1. FSV Mainz 05 gegen SC Paderborn 07 - Bundesliga",
+              "description": "1. Spieltag: Anpfiff des Spiels ist am 29.08.2026 um 15:30 Uhr. SC Paderborn 07 spielt in Mainz.",
+              "published": "2026-08-29T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Hansa Rostock: Ausfälle und Bätzner-Poker vor Spiel in Saarbrücken",
+              "description": "dritte Liga, Fußball, FC Hansa Rostock, 1. FC Saarbrücken, Sport-Tag im Ticker, 3. Liga, Transferperiode, SC Paderborn 07, Sport - Leuchtturm Leipzig, Verletzungen, sportverletzungen, muskelanriss, Rückenschmerzen, Mittelstürmer, Saarland, Ludwigsparkstadion, Torwart, Finnland",
+              "published": "2026-08-29T07:06:24+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hansa-rostock-ausfaelle-und-baetzner-poker-vor-spiel-in-saarbruecken-6a918c232ed18bbd042e74d2"
+            },
+            {
+              "title": "Mainz 05 gegen Paderborn: Fischer will den Aufsteiger-Fluch besiegen!",
+              "description": "Mainz 05, erste Bundesliga, Heidel Christian, Fischer Urs, Fußball, Bungert Niko, SC Paderborn 07, Sport - Leuchtturm Zentral",
+              "published": "2026-08-28T16:41:18+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/mainz-05-gegen-paderborn-fischer-will-den-aufsteiger-fluch-besiegen-6a917f0d518a586e1855b726"
+            },
+            {
+              "title": "Bundesliga: So bereit sind die Vereine für den Saisonauftakt",
+              "description": "erste Bundesliga, FC Bayern München, Borussia Dortmund, 1899 Hoffenheim, FC Schalke, Hamburger SV, SC Freiburg, FC Augsburg 1907, SC Paderborn 07, SV Elversberg, VfB Stuttgart, Bayer Leverkusen, Eintracht Frankfurt, Mainz 05, 1. FC Union Berlin, Werder Bremen, Borussia Mönchengladbach, 1. FC Köln, RB Leipzig, Aufmacher-Bereich, super-a-teaser, quad-teaser, Mühlenbeck Marcus",
+              "published": "2026-08-27T14:59:56+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-so-bereit-sind-die-vereine-fuer-den-saisonauftakt-6a8fddd58a7786c19f3358a4"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 3
+            }
+          ],
+          "total_matches": 4,
+          "returned": 4,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1 – Mainz geht mit einem klaren Torvorsprung ins Spiel. Die Zahlen sprechen für sich: „Heimsieg 56 %“, das macht den Roten eindeutig zum Favoriten, aber Paderborn lässt sich nicht gleich einschüchtern. Man rechnet mit fast zwei Treffern für die Gastgeber und einem soliden Gegentreffer für die Gäste – ein leichtes Torfestival für Mainz, doch die Kiste bleibt eng genug, um den Abnutzungskampf spannend zu halten. Wer das Heimrecht ausnutzt, kann sich das Ergebnis sichern.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "1. FSV Mainz 05 gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.52,
+        "model_probability": 0.4374,
+        "implied_probability": 0.6579,
+        "edge": -0.3352,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "1. FSV Mainz 05 gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.52,
+          "model_probability": 0.4374,
+          "implied_probability": 0.6579,
+          "edge": -0.3352,
+          "expected_value_eur": -3.35,
+          "stake_eur": 9.99,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "d1b5b9a11c6800d376a98a2eb5849134"
     },
     {
       "home": "RB Leipzig",
       "away": "Borussia Mönchengladbach",
       "kickoff_utc": "2026-08-29T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "6181a3226249f005ef953d07b250bf78f1eb9cb06c1549c03a0a4b391b41ee6a",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.513,
+      "factors": {
+        "expected_goals": [
+          2.07,
+          1.11
+        ],
+        "probabilities": {
+          "home": 0.593,
+          "draw": 0.217,
+          "away": 0.19
+        },
+        "raw_probabilities": {
+          "home": 0.549,
+          "draw": 0.233,
+          "away": 0.218
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.612,
+          "draw": 0.21,
+          "away": 0.177,
+          "weight": 0.7
+        },
+        "home_advantage": 0.164,
+        "trained_on_matches": 613,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: RB Leipzig gegen Borussia Mönchengladbach - Bundesliga",
+              "description": "1. Spieltag: Anpfiff des Spiels ist am 29.08.2026 um 15:30 Uhr. Borussia Mönchengladbach spielt in Leipzig.",
+              "published": "2026-08-29T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Bundesliga: RB Leipzig vor Transfer von Chelsea-Stürmer Marc Guiu",
+              "description": "RB Leipzig, erste Bundesliga, spielertransfer, Schäfer Marcel, Sport-Tag im Ticker, Sport - Leuchtturm Leipzig, Stürmer, Demichelis Martin",
+              "published": "2026-08-29T10:05:44+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-rb-leipzig-vor-transfer-von-chelsea-stuermer-marc-guiu-6a91dea1518a586e1855bdfd"
+            },
+            {
+              "title": "Borussia Mönchengladbach: DAS ist der Geheimplan von Eugen Polanski",
+              "description": "Borussia Mönchengladbach, erste Bundesliga, Polanski Eugen, Kleindienst Tim, Schröder Rouven, Sport – Leuchtturm Essen",
+              "published": "2026-08-29T09:47:01+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/borussia-moenchengladbach-das-ist-der-geheimplan-von-eugen-polanski-6a911404518a586e1855acb6"
+            },
+            {
+              "title": "Bundesliga: Fünf Thesen von Marcel Reif zur neuen Saison",
+              "description": "erste Bundesliga, RB Leipzig, FC Bayern München, Bayer Leverkusen, Borussia Dortmund, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-08-29T09:28:16+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-fuenf-thesen-von-marcel-reif-zur-neuen-saison-6a91541ab3df30a615528b88"
+            },
+            {
+              "title": "Wer überträgt RB Leipzig gegen Borussia Mönchengladbach heute live im Free-TV & Stream?",
+              "description": "Zu Beginn der Bundesliga-Saison 2026/27 trifft RB Leipzig auf Borussia Mönchengladbach - für Rocco Reitz ist es ein brisantes Wiedersehen. Wo ihr die Partie live verfolgen könnt, erfahrt ihr hier.",
+              "published": "2026-08-29T05:30:00+00:00",
+              "source": "kicker",
+              "source_label": "Kicker"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 18
+            }
+          ],
+          "total_matches": 21,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1 – Leipzig wird das Duell mit einem knappen Torvorsprung entscheiden. Mit einem „Heimsieg 59%“ im Rücken ist Leipzig klarer Favorit, doch die Gäste haben mit 19 % noch genug Biss für eine enge Kiste. Es wird ein Torfestival, Leipzig schießt rund zwei Treffer, Gladbach kommt auf knapp einen – ein Abnutzungskampf, bei dem die Roten das Zünglein an der Waage halten.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "RB Leipzig gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.55,
+        "model_probability": 0.5494,
+        "implied_probability": 0.6452,
+        "edge": -0.1484,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "RB Leipzig gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.55,
+          "model_probability": 0.5494,
+          "implied_probability": 0.6452,
+          "edge": -0.1484,
+          "expected_value_eur": -2.43,
+          "stake_eur": 16.4,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "d672358a71a00132fe467df759676d54"
     },
     {
       "home": "SV 07 Elversberg",
       "away": "Bayer 04 Leverkusen",
       "kickoff_utc": "2026-08-29T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "66c193bbba34cd9e23f89276c0364c316a6e7e4f248e05bdf5b8f1a4365bd5fc",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.448,
+      "factors": {
+        "expected_goals": [
+          1.2,
+          2.04
+        ],
+        "probabilities": {
+          "home": 0.214,
+          "draw": 0.222,
+          "away": 0.564
+        },
+        "raw_probabilities": {
+          "home": 0.281,
+          "draw": 0.238,
+          "away": 0.481
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.185,
+          "draw": 0.215,
+          "away": 0.599,
+          "weight": 0.7
+        },
+        "home_advantage": 0.164,
+        "trained_on_matches": 613,
+        "news_checked": 1,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: SV 07 Elversberg gegen Bayer Leverkusen - Bundesliga",
+              "description": "1. Spieltag: Anpfiff des Spiels ist am 29.08.2026 um 15:30 Uhr. Bayer Leverkusen spielt in Elversberg.",
+              "published": "2026-08-29T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 0
+            }
+          ],
+          "total_matches": 1,
+          "returned": 1,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1:2 – Bayer Leverkusen sollte in Elversberg ein klares Ding machen. Mit einem Auswärtssieg von 56 % ist die Chance eindeutig auf der Seite der Gäste, die laut Prognose rund ein Tor mehr erzielen als die Gastgeber. Die Elversberg muss also mit einem harten Abnutzungskampf rechnen, während Leverkusen das Tempo vorgibt. Wer die frühe Führung verpasst, riskiert, im Nachhinein nur noch das Nachspiel zu sein.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.55,
+        "model_probability": 0.481,
+        "implied_probability": 0.6452,
+        "edge": -0.2544,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "Bayer 04 Leverkusen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.55,
+          "model_probability": 0.481,
+          "implied_probability": 0.6452,
+          "edge": -0.2544,
+          "expected_value_eur": -3.18,
+          "stake_eur": 12.49,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "a61c96dc3bb2e00b459b33b34ae166dd"
     },
     {
       "home": "Borussia Dortmund",
