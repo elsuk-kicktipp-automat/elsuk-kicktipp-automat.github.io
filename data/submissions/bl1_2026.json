@@ -1,0 +1,31 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "submissions": [
+    {
+      "home_key": "1fckoln",
+      "away_key": "1899hoffenheim",
+      "verified_at_utc": "2026-08-29T09:33:41Z"
+    },
+    {
+      "home_key": "1fcunionberlin",
+      "away_key": "eintrachtfrankfurt",
+      "verified_at_utc": "2026-08-29T09:33:41Z"
+    },
+    {
+      "home_key": "fsvmainz05",
+      "away_key": "scpaderborn07",
+      "verified_at_utc": "2026-08-29T09:33:41Z"
+    },
+    {
+      "home_key": "rbleipzig",
+      "away_key": "bormonchengladbach",
+      "verified_at_utc": "2026-08-29T09:33:41Z"
+    },
+    {
+      "home_key": "svelversberg",
+      "away_key": "bayer04leverkusen",
+      "verified_at_utc": "2026-08-29T09:33:41Z"
+    }
+  ]
+}
