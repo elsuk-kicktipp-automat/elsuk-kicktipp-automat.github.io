@@ -51,6 +51,14 @@
       "status": "sealed",
       "hash": "66c193bbba34cd9e23f89276c0364c316a6e7e4f248e05bdf5b8f1a4365bd5fc",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "Borussia Dortmund",
+      "away": "Hamburger SV",
+      "kickoff_utc": "2026-08-29T16:30:00Z",
+      "status": "sealed",
+      "hash": "c20bfb0ae539cb27417cc839dabc5e805dff0e1dad074adaf7d2b527da09ff59",
+      "paper_bet_status": "sealed"
     }
   ]
 }
