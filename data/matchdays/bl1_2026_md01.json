@@ -818,9 +818,168 @@
       "home": "Borussia Dortmund",
       "away": "Hamburger SV",
       "kickoff_utc": "2026-08-29T16:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "c20bfb0ae539cb27417cc839dabc5e805dff0e1dad074adaf7d2b527da09ff59",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.704,
+      "factors": {
+        "expected_goals": [
+          2.31,
+          0.9
+        ],
+        "probabilities": {
+          "home": 0.691,
+          "draw": 0.186,
+          "away": 0.124
+        },
+        "raw_probabilities": {
+          "home": 0.678,
+          "draw": 0.198,
+          "away": 0.124
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.696,
+          "draw": 0.181,
+          "away": 0.124,
+          "weight": 0.7
+        },
+        "home_advantage": 0.164,
+        "trained_on_matches": 613,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Borussia Dortmund gegen Hamburger SV - Bundesliga",
+              "description": "1. Spieltag: Anpfiff des Spiels ist am 29.08.2026 um 18:30 Uhr. Hamburger SV spielt in Dortmund.",
+              "published": "2026-08-29T18:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Spieltage in der Champions League terminiert",
+              "description": "Die UEFA hat den kompletten Spielplan der Vorrunde veröffentlicht. Aus deutscher Sicht ist zunächst Borussia Dortmund im Einsatz.",
+              "published": "2026-08-29T14:19:50+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Spieltage angesetzt: Ungewöhnlicher Bayern-Start in der Champions League",
+              "description": "Champions League, FC Bayern München, Borussia Dortmund, RB Leipzig, Fußball, VfB Stuttgart, Aufmacher-Bereich",
+              "published": "2026-08-29T13:49:18+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/spieltage-angesetzt-ungewoehnlicher-bayern-start-in-der-champions-league-6a92bf38518a586e1855c619"
+            },
+            {
+              "title": "HSV: Zweigleisiger Plan für die rechte Schiene",
+              "description": "Am Samstagabend startet der Hamburger SV in Dortmund in die Saison - mit Bakery Jatta auf der rechten Schienenposition. Für die Rolle des Gambiers aber plant Sportdirektor Claus Costa gerade zweigleisig.",
+              "published": "2026-08-29T10:59:54+00:00",
+              "source": "kicker",
+              "source_label": "Kicker"
+            },
+            {
+              "title": "Transfercoup: Hansa Rostock holt David Kopacz vom VfL Osnabrück",
+              "description": "FC Hansa Rostock, Fußball, Sport-Tag im Ticker, zweite Bundesliga, dritte Liga, transfercoup, Transferperiode, Mittelfeldspieler, spielertransfer, VfL Osnabrück, 3. Liga, Sport - Leuchtturm Leipzig, Trainer, Sportdirektor, Borussia Dortmund, 2. Bundesliga",
+              "published": "2026-08-29T09:56:04+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/transfercoup-hansa-rostock-holt-david-kopacz-vom-vfl-osnabrueck-6a91f6e3518a586e1855bf01"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 28
+            }
+          ],
+          "total_matches": 32,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1 – Dortmund geht als klarer Favorit ins Duell. Die Buchmacher sehen mit 69 % Heimsieg kaum ein Wagnis, und mit fast drei Toren pro Spiel im Visier wird das ein echtes Torfestival für die Dortmunder. Der HSV muss sich auf einen harten Abnutzungskampf einstellen, denn die Dortmunder lassen kaum Raum für Gegenwehr.",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          0
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.35,
+        "model_probability": 0.6784,
+        "implied_probability": 0.7407,
+        "edge": -0.0842,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Borussia Dortmund gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.35,
+          "model_probability": 0.6784,
+          "implied_probability": 0.7407,
+          "edge": -0.0842,
+          "expected_value_eur": -2.0,
+          "stake_eur": 23.76,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "6ed9f8b59c59953132cfee497c87a3ad"
     }
   ]
 }
