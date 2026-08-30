@@ -988,6 +988,14 @@
       "status": "sealed",
       "hash": "9eddb17b0c8bfd32fbee0990fa57a39612148baa1795c5ad6a1c7cb1f2cf6879",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "FC Augsburg",
+      "away": "FC Schalke 04",
+      "kickoff_utc": "2026-08-30T15:30:00Z",
+      "status": "sealed",
+      "hash": "e2e93d4be4fdf82e42aa85c8e984212d3010421dce441e9013f96a178538e58b",
+      "paper_bet_status": "sealed"
     }
   ]
 }
