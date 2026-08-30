@@ -985,9 +985,169 @@
       "home": "SC Freiburg",
       "away": "SV Werder Bremen",
       "kickoff_utc": "2026-08-30T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "9eddb17b0c8bfd32fbee0990fa57a39612148baa1795c5ad6a1c7cb1f2cf6879",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        0
+      ],
+      "advance_tip": null,
+      "expected_points": 1.359,
+      "factors": {
+        "expected_goals": [
+          1.65,
+          1.05
+        ],
+        "probabilities": {
+          "home": 0.51,
+          "draw": 0.257,
+          "away": 0.233
+        },
+        "raw_probabilities": {
+          "home": 0.496,
+          "draw": 0.252,
+          "away": 0.252
+        },
+        "elo": {
+          "home": 1724.91345215,
+          "away": 1606.01928711,
+          "beta": 0.147
+        },
+        "market": {
+          "home": 0.516,
+          "draw": 0.259,
+          "away": 0.225,
+          "weight": 0.7
+        },
+        "home_advantage": 0.173,
+        "trained_on_matches": 619,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Transfer-Ticker: Europameister geht in die 2. Liga",
+              "description": "erste Bundesliga, spielertransfer, Premier League, FC Bayern München, Fußball, Primera División - La Liga, Ligue 1, Serie A, Borussia Dortmund, Werder Bremen, Handball Club Hamburg (ehem. HSV Hamburg), VfB Stuttgart, RB Leipzig, Bayer Leverkusen, 1. FC Köln, FC Schalke, SC Freiburg, 1. FC Union Berlin, 1899 Hoffenheim, Eintracht Frankfurt, Borussia Mönchengladbach, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-08-29T23:01:43+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/transfer-ticker-barca-sticht-real-bei-weltmeister-aus-6a670d43dc2b0bab191a7b9c"
+            },
+            {
+              "title": "Lisa Karl schießt SC Freiburg zum Sieg gegen Union Berlin",
+              "description": "Der SC Freiburg hat den ersten Sieg in der neuen Saison der Frauen-Bundesliga eingefahren. Gegen Union Berlin schoss Lisa Karl das Tor des Tages.",
+              "published": "2026-08-29T14:50:18+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "SC Freiburg: DER Grund für die Scherhant-Explosion",
+              "description": "erste Bundesliga, SC Freiburg, Fußball, Europa Conference League, Sport - Leuchtturm Zentral, Schuster Julian",
+              "published": "2026-08-28T17:17:31+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/sc-freiburg-der-grund-fuer-die-scherhant-explosion-6a919630b3df30a6155292ee"
+            },
+            {
+              "title": "SC Freiburg gegen Monaco - und Mo Salah",
+              "description": "Auf den SC Freiburg warten in der Conference League einige namhafte Gegner - unter anderem Mo Salah.",
+              "published": "2026-08-28T14:31:16+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "SC Freiburg: Warum der Backhaus-Bock dem Sportclub guttut",
+              "description": "erste Bundesliga, SC Freiburg, Schuster Julian, Bundesliga, Europa Conference League, Sport - Leuchtturm Zentral",
+              "published": "2026-08-28T12:26:17+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/sc-freiburg-warum-der-backhaus-bock-dem-sportclub-guttut-6a91484d518a586e1855b141"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 3
+            }
+          ],
+          "total_matches": 6,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1:0 – Freiburg lässt die Bremer kaum eine Chance. Mit über 50 % Siegchance im Kopf und einer soliden Offensivkraft von rund 1,6 Toren pro Spiel gehen die Freiburger als klarer Favorit ins Duell, doch Werder hat mit knapp einem Tor pro Partie genug Biss für ein enges Kopf‑an‑Kopf‑Duell. Die Partie verspricht einen Abnutzungskampf auf heimischem Rasen, bei dem die Bremer erst nach der Pause noch gefährlich werden könnten. Wer die frühe Führung hält, fährt mit einem knappen Kopfstand ins Wochenende.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SC Freiburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.83,
+        "model_probability": 0.4961,
+        "implied_probability": 0.5464,
+        "edge": -0.0921,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "SC Freiburg gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.83,
+          "model_probability": 0.4961,
+          "implied_probability": 0.5464,
+          "edge": -0.0921,
+          "expected_value_eur": -1.23,
+          "stake_eur": 13.35,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "fa40e557a91351530f9b7643d8e299fc"
     },
     {
       "home": "FC Augsburg",
