@@ -1153,9 +1153,155 @@
       "home": "FC Augsburg",
       "away": "FC Schalke 04",
       "kickoff_utc": "2026-08-30T15:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "e2e93d4be4fdf82e42aa85c8e984212d3010421dce441e9013f96a178538e58b",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        0
+      ],
+      "advance_tip": null,
+      "expected_points": 1.2,
+      "factors": {
+        "expected_goals": [
+          1.49,
+          1.16
+        ],
+        "probabilities": {
+          "home": 0.441,
+          "draw": 0.27,
+          "away": 0.289
+        },
+        "raw_probabilities": {
+          "home": 0.465,
+          "draw": 0.265,
+          "away": 0.271
+        },
+        "elo": {
+          "home": 1636.44641113,
+          "away": 1519.74230957,
+          "beta": 0.1469
+        },
+        "market": {
+          "home": 0.431,
+          "draw": 0.272,
+          "away": 0.297,
+          "weight": 0.7
+        },
+        "home_advantage": 0.173,
+        "trained_on_matches": 619,
+        "news_checked": 3,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "FC Augsburg: BILD kennt Details – Bundesligist heiß auf Verpflichtung von City-Talent",
+              "description": "spielertransfer, erste Bundesliga, Premier League, Manchester City, Sport - Leuchtturm München",
+              "published": "2026-08-29T16:01:07+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-augsburg-bild-kennt-details-bundesligist-heiss-auf-verpflichtung-von-city-talent-6a92d87027cdbc5135d06e54"
+            },
+            {
+              "title": "FC Augsburg: Bundesliga-Trainer freut sich über Klopp-Besuch",
+              "description": "FC Augsburg 1907, erste Bundesliga, DFB, Fußball, Sport - Leuchtturm München, Klopp Jürgen",
+              "published": "2026-08-28T18:41:48+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-augsburg-bundesliga-trainer-freut-sich-ueber-klopp-besuch-6a9184d72ed18bbd042e742b"
+            },
+            {
+              "title": "Schalke 04: Nach 1191 Quäl-Tagen endet endlich der königsblaue Horror!",
+              "description": "FC Schalke, FC Augsburg 1907, Sport – Leuchtturm Essen, Kitsch Christian, Backhaus Max, Muslic Miron, Baumann Frank, Karaman-Kenan, aufstieg, aufstiegsfeier, comeback, comeback, zweite Bundesliga, 2. Bundesliga, 2. Liga Spielbegegnung, SpoBi 2. Liga, Bundesliga, Bundesliga bei BILD, erste Bundesliga, DFB, Fussball Bundesliga, Sportarten, Sport, Sport",
+              "published": "2026-08-28T18:05:50+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/schalke-04-nach-1191-quael-tagen-endet-endlich-der-koenigsblaue-horror-6a919b39d88567044d8484c5"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 3
+            }
+          ],
+          "total_matches": 3,
+          "returned": 3,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1:0 – Augsburg lässt die Schalke‑Fans gleich zu Beginn das Herz aussetzen. Mit 44 % Siegchance und einem klaren ELO‑Vorsprung von über 100 Punkten geht die Fuggerstadt als leichter Favorit ins Spiel, doch die Königsblauen haben mit 30 % fast genauso viel Glaube an den Auswärtssieg. Es wird ein enges Duell auf Augenhöhe, bei dem die Defensive beider Teams stark beansprucht wird. Wer das erste Tor zieht, hat die Nase vorn im Abnutzungskampf um die drei Punkte.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "FC Augsburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.15,
+        "model_probability": 0.4645,
+        "implied_probability": 0.4651,
+        "edge": -0.0012,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "FC Augsburg gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 2.15,
+          "model_probability": 0.4645,
+          "implied_probability": 0.4651,
+          "edge": -0.0012,
+          "expected_value_eur": -0.01,
+          "stake_eur": 11.54,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "bdf6a88ec133895ece68772b6e94c5e9"
     }
   ]
 }
