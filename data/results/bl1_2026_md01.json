@@ -6,7 +6,7 @@
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 4,
   "matches_scored": 6,
-  "matches_open": 0,
+  "matches_open": 1,
   "hits": {
     "exact": 0,
     "goal_diff": 0,
@@ -378,6 +378,12 @@
           "profit_eur": 8.32
         }
       }
+    },
+    {
+      "home": "SC Freiburg",
+      "away": "SV Werder Bremen",
+      "kickoff_utc": "2026-08-30T13:30:00Z",
+      "status": "sealed"
     }
   ]
 }

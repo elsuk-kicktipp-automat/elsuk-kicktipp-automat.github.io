@@ -980,6 +980,14 @@
         }
       },
       "salt": "6ed9f8b59c59953132cfee497c87a3ad"
+    },
+    {
+      "home": "SC Freiburg",
+      "away": "SV Werder Bremen",
+      "kickoff_utc": "2026-08-30T13:30:00Z",
+      "status": "sealed",
+      "hash": "9eddb17b0c8bfd32fbee0990fa57a39612148baa1795c5ad6a1c7cb1f2cf6879",
+      "paper_bet_status": "sealed"
     }
   ]
 }
