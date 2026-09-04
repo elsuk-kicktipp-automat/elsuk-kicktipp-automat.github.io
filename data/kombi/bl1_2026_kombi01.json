@@ -1,0 +1,12 @@
+{
+  "id": "bl1_2026_kombi01",
+  "competition": "bl1",
+  "season": 2026,
+  "type": "kombi",
+  "mode": "paper",
+  "market": "h2h_90min",
+  "status": "sealed",
+  "hash": "e2ea4681aa5787495d4ce4ac58aa271d2b9067fa65bd56cc05dc4f21926cb19d",
+  "sealed_at_utc": "2026-09-04T16:31:10Z",
+  "reveal_after_utc": "2026-09-05T16:30:00Z"
+}
