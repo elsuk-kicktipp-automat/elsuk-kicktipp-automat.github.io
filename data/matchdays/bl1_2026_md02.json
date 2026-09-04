@@ -1,0 +1,24 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "matchday": 2,
+  "stage": "2. Spieltag",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-09-04T14:31:01Z",
+  "matches": [
+    {
+      "home": "VfB Stuttgart",
+      "away": "1. FC Köln",
+      "kickoff_utc": "2026-09-04T18:30:00Z",
+      "status": "sealed",
+      "hash": "00b32b4b51a187e773a99b24ecb30303bf8d4c065e430ca30a3dc6f4dbb24e2b",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "matchday": 2,
+  "stage": "2. Spieltag",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "points_total": 0,
+  "matches_scored": 0,
+  "matches_open": 1,
+  "hits": {
+    "exact": 0,
+    "goal_diff": 0,
+    "tendency": 0,
+    "miss": 0
+  },
+  "shadow_points": {
+    "most_probable": 0,
+    "elo_favorite": 0,
+    "always_draw": 0,
+    "llm_adjusted": 0
+  },
+  "shadow_matches": {
+    "most_probable": 0,
+    "elo_favorite": 0,
+    "always_draw": 0,
+    "llm_adjusted": 0
+  },
+  "brier_avg": null,
+  "advance_points_total": 0,
+  "advance_scored": 0,
+  "paper_betting": {
+    "stake_total_eur": 0.0,
+    "payout_total_eur": 0.0,
+    "profit_total_eur": 0.0,
+    "roi": null,
+    "bets_scored": 0,
+    "bets_won": 0,
+    "bankroll_start_eur": null
+  },
+  "shadow_betting": {},
+  "matches": [
+    {
+      "home": "VfB Stuttgart",
+      "away": "1. FC Köln",
+      "kickoff_utc": "2026-09-04T18:30:00Z",
+      "status": "sealed"
+    }
+  ]
+}
