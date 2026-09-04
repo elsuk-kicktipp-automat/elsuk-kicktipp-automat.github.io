@@ -16,9 +16,169 @@
       "home": "VfB Stuttgart",
       "away": "1. FC Köln",
       "kickoff_utc": "2026-09-04T18:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "00b32b4b51a187e773a99b24ecb30303bf8d4c065e430ca30a3dc6f4dbb24e2b",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.609,
+      "factors": {
+        "expected_goals": [
+          2.43,
+          1.19
+        ],
+        "probabilities": {
+          "home": 0.651,
+          "draw": 0.187,
+          "away": 0.162
+        },
+        "raw_probabilities": {
+          "home": 0.639,
+          "draw": 0.185,
+          "away": 0.176
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.656,
+          "draw": 0.188,
+          "away": 0.156,
+          "weight": 0.7
+        },
+        "home_advantage": 0.179,
+        "trained_on_matches": 621,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: VfB Stuttgart gegen 1. FC Köln - Bundesliga",
+              "description": "2. Spieltag: Anpfiff des Spiels ist am 04.09.2026 um 20:30 Uhr. 1. FC Köln spielt in Stuttgart.",
+              "published": "2026-09-04T20:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "VfB Stuttgart: Zugänge, Abgänge, Finanzen! Die XXL-Transferbilanz des VfB",
+              "description": "VfB Stuttgart, Fußball, Hoeneß Sebastian, Wohlgemuth Fabian, Wehrle Alexander, Sport - Leuchtturm München, Bundesliga, Champions League, Pejcinovic Dzenan",
+              "published": "2026-09-04T16:26:32+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-zugaenge-abgaenge-finanzen-die-xxl-transferbilanz-des-vfb-6a9a8068240b302c8a838d49"
+            },
+            {
+              "title": "Ab 20.30 Uhr live - Stuttgart empfängt Köln",
+              "description": "Nach der Niederlage am ersten Spieltag gegen die Bayern trifft der VfB Stuttgart zu Hause auf den 1. FC Köln.",
+              "published": "2026-09-04T11:29:43+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "1. FC Köln: 6 Wochen Einzeltraining in Köln: Die verrückteste Kader-Nominierung der Liga",
+              "description": "1. FC Köln, erste Bundesliga, Fußball, El Mala Said, Kessler Thomas, Sport – Leuchtturm Essen, Aufmacher-Bereich",
+              "published": "2026-09-03T17:54:42+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/1-fc-koeln-6-wochen-einzeltraining-in-koeln-die-verrueckteste-kader-nominierung-der-liga-6a9984737cdc6e46442b649a"
+            },
+            {
+              "title": "VfB Stuttgart: Jetzt spricht der Trainer! Hoeneß über Chema: „Werden ihn vermissen“",
+              "description": "",
+              "published": "2026-09-03T16:12:00+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-jetzt-spricht-der-trainer-hoeness-ueber-chema-werden-ihn-vermissen-6a995cb57cdc6e46442b5ef6"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 7
+            }
+          ],
+          "total_matches": 9,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp 2:1 – Stuttgart geht mit klarer Favoritenrolle ins Spiel, das Torfestival verspricht mindestens drei Treffer. Mit rund 65 % Siegchance und über zwei Toren im Schnitt im eigenen Stadion lässt sich der VfB kaum aufhalten, während Köln nur ein Tor pro Spiel erwirtschaftet – ein klassischer Abnutzungskampf, bei dem die Gäste wohl eher in die Defensive rücken. Wer die Abwehr von Köln nicht im Griff hat, wird schnell das Gegentor einziehen sehen.",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "VfB Stuttgart gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.45,
+        "model_probability": 0.6389,
+        "implied_probability": 0.6897,
+        "edge": -0.0735,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "VfB Stuttgart gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.45,
+          "model_probability": 0.6389,
+          "implied_probability": 0.6897,
+          "edge": -0.0735,
+          "expected_value_eur": -1.58,
+          "stake_eur": 21.51,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "b2348f36fdcde3966cc91030e7ab0ac3"
     }
   ]
 }
