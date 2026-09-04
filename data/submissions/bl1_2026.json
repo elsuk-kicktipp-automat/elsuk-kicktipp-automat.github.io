@@ -41,6 +41,11 @@
       "home_key": "svelversberg",
       "away_key": "bayer04leverkusen",
       "verified_at_utc": "2026-08-29T09:33:41Z"
+    },
+    {
+      "home_key": "vfbstuttgart",
+      "away_key": "1fckoln",
+      "verified_at_utc": "2026-09-04T14:32:13Z"
     }
   ]
 }
