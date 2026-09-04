@@ -4,28 +4,28 @@
   "matchday": 2,
   "stage": "2. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 0,
-  "matches_scored": 0,
-  "matches_open": 1,
+  "points_total": 2,
+  "matches_scored": 1,
+  "matches_open": 0,
   "hits": {
     "exact": 0,
     "goal_diff": 0,
-    "tendency": 0,
+    "tendency": 1,
     "miss": 0
   },
   "shadow_points": {
-    "most_probable": 0,
-    "elo_favorite": 0,
+    "most_probable": 2,
+    "elo_favorite": 2,
     "always_draw": 0,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 0,
-    "elo_favorite": 0,
-    "always_draw": 0,
+    "most_probable": 1,
+    "elo_favorite": 1,
+    "always_draw": 1,
     "llm_adjusted": 0
   },
-  "brier_avg": null,
+  "brier_avg": 0.183,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -35,15 +35,74 @@
     "roi": null,
     "bets_scored": 0,
     "bets_won": 0,
-    "bankroll_start_eur": null
+    "bankroll_start_eur": 1000.0
   },
-  "shadow_betting": {},
+  "shadow_betting": {
+    "locker": {
+      "stake_total_eur": 21.51,
+      "payout_total_eur": 31.19,
+      "profit_total_eur": 9.68,
+      "roi": 0.45,
+      "bets_scored": 1,
+      "bets_won": 1,
+      "bankroll_start_eur": 1000.0
+    }
+  },
   "matches": [
     {
       "home": "VfB Stuttgart",
       "away": "1. FC Köln",
       "kickoff_utc": "2026-09-04T18:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        4,
+        1
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 2,
+        "always_draw": 0
+      },
+      "brier": 0.183,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "VfB Stuttgart gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.45,
+        "model_probability": 0.6389,
+        "implied_probability": 0.6897,
+        "edge": -0.0735,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 21.51,
+          "payout_eur": 31.19,
+          "profit_eur": 9.68
+        }
+      }
     }
   ]
 }
