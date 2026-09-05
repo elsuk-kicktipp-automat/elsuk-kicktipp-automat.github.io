@@ -1029,9 +1029,171 @@
       "home": "FC Schalke 04",
       "away": "FC Bayern München",
       "kickoff_utc": "2026-09-05T16:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "fa2a2a39c23a8d908f530b8df33cf56b2962d3f95a9580cc4f880e2038f98903",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        4
+      ],
+      "advance_tip": null,
+      "expected_points": 2.032,
+      "factors": {
+        "expected_goals": [
+          1.07,
+          3.73
+        ],
+        "probabilities": {
+          "home": 0.047,
+          "draw": 0.08,
+          "away": 0.873
+        },
+        "raw_probabilities": {
+          "home": 0.003,
+          "draw": 0.014,
+          "away": 0.984
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.067,
+          "draw": 0.108,
+          "away": 0.825,
+          "weight": 0.7
+        },
+        "home_advantage": 0.182,
+        "trained_on_matches": 622,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "FC Bayern: Vincent Kompany überrascht vor Schalke-Knaller mit England-Vergleich",
+              "description": "Premier League, FC Bayern München, spielertransfer, Fußball, Kompany Vincent, Sport - Leuchtturm München, erste Bundesliga, Aufmacher-Bereich",
+              "published": "2026-09-05T13:16:08+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-vincent-kompany-ueberrascht-vor-schalke-knaller-mit-england-vergleich-6a9bbfa5fd8102779ee49b5e"
+            },
+            {
+              "title": "Seit Jahren tor- und sieglos: Schalke kämpft gegen die Horror-Bayern-Serien!",
+              "description": "FC Schalke, erste Bundesliga, FC Bayern München, Fußball, Klemm Constantin, Sport – Leuchtturm Essen, Ruhrgebiet, Ruhrgebiet regional, Ruhrgebiet regional Sport, Muslic Miron, Dzeko Edin, Neuer Manuel, Gelsenkirchen, München, Sport-Tag im Ticker",
+              "published": "2026-09-05T11:15:13+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/seit-jahren-tor-und-sieglos-schalke-kaempft-gegen-die-horror-bayern-serien-6a9ac1e0dde98c9236181ca2"
+            },
+            {
+              "title": "Kommt er als neuer Sportboss?: Das sagt Brazzo zu den Eintracht-Gerüchten",
+              "description": "Hochkant BILD-Video intern, Bayern-Insider, clipout, Bundesliga, FC Bayern München",
+              "published": "2026-09-05T10:59:29+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/kommt-er-als-neuer-sportboss-das-sagt-brazzo-zu-den-eintracht-geruechten-6a9b0a7bb3e0470a1975c162"
+            },
+            {
+              "title": "Arijon Ibrahimovic: So plant der FC Augsburg mit dem Leihstar des FC Bayern",
+              "description": "erste Bundesliga, FC Augsburg 1907, Manuel Baum, FC Bayern München, Sport - Leuchtturm München",
+              "published": "2026-09-05T09:12:36+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/arijon-ibrahimovic-so-plant-der-fc-augsburg-mit-dem-leihstar-des-fc-bayern-6a9ab42408c763dcf81f41e1"
+            },
+            {
+              "title": "Bundesliga: Alle Infos und Aufstellungen zum 2. Spieltag",
+              "description": "Borussia Dortmund, FC Bayern München, 1899 Hoffenheim, Bayer Leverkusen, VfL Wolfsburg",
+              "published": "2026-09-05T09:06:25+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-alle-infos-und-aufstellungen-zum-2-spieltag-6a9a89b6b3e0470a1975b5c5"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 33
+            }
+          ],
+          "total_matches": 34,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp 1:4 – das ist das klare Ergebnis, das man hier ins Glas schüttet. In Gelsenkirchen wartet ein echter Auftritt der Bayern, die mit fast vier Toren im Visier stehen, während Schalke kaum die eine Marke knacken dürfte. Die Buchmacher geben dem Auswärtsteam über 80 % Siegchance – ein klarer Favorit, den man nicht kleinreden kann. Alles andere bleibt ein kurzer Abnutzungskampf, bei dem die Bayern das Feld dominieren.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          4
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "FC Bayern München gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.16,
+        "model_probability": 0.9837,
+        "implied_probability": 0.8621,
+        "edge": 0.1411,
+        "expected_value_eur": 14.11,
+        "stake_eur": 100.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.8822,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "FC Bayern München gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.16,
+          "model_probability": 0.9837,
+          "implied_probability": 0.8621,
+          "edge": 0.1411,
+          "expected_value_eur": 3.53,
+          "stake_eur": 25.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "8c735f1f1aa0685a971a53202fa9e348"
     }
   ]
 }
