@@ -4,47 +4,47 @@
   "matchday": 2,
   "stage": "2. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 8,
-  "matches_scored": 4,
-  "matches_open": 3,
+  "points_total": 11,
+  "matches_scored": 6,
+  "matches_open": 1,
   "hits": {
     "exact": 1,
-    "goal_diff": 0,
+    "goal_diff": 1,
     "tendency": 2,
-    "miss": 1
+    "miss": 2
   },
   "shadow_points": {
     "most_probable": 8,
-    "elo_favorite": 4,
+    "elo_favorite": 6,
     "always_draw": 0,
     "llm_adjusted": 2
   },
   "shadow_matches": {
-    "most_probable": 4,
-    "elo_favorite": 4,
-    "always_draw": 4,
+    "most_probable": 6,
+    "elo_favorite": 6,
+    "always_draw": 6,
     "llm_adjusted": 1
   },
-  "brier_avg": 0.3847,
+  "brier_avg": 0.4927,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
-    "stake_total_eur": 0.0,
-    "payout_total_eur": 0.0,
-    "profit_total_eur": 0.0,
-    "roi": null,
-    "bets_scored": 0,
-    "bets_won": 0,
+    "stake_total_eur": 46.42,
+    "payout_total_eur": 111.41,
+    "profit_total_eur": 64.99,
+    "roi": 1.4,
+    "bets_scored": 1,
+    "bets_won": 1,
     "bankroll_start_eur": 1000.0
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 54.02,
-      "payout_total_eur": 72.45,
-      "profit_total_eur": 18.43,
-      "roi": 0.3412,
-      "bets_scored": 4,
-      "bets_won": 3,
+      "stake_total_eur": 83.48,
+      "payout_total_eur": 108.45,
+      "profit_total_eur": 24.97,
+      "roi": 0.2991,
+      "bets_scored": 6,
+      "bets_won": 4,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -274,13 +274,111 @@
       "home": "SV Werder Bremen",
       "away": "RB Leipzig",
       "kickoff_utc": "2026-09-05T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        3,
+        1
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 2,
+        "always_draw": 0
+      },
+      "brier": 0.9283,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "RB Leipzig gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.7,
+        "model_probability": 0.5155,
+        "implied_probability": 0.5882,
+        "edge": -0.1237,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 14.46,
+          "payout_eur": 0.0,
+          "profit_eur": -14.46
+        }
+      }
     },
     {
       "home": "TSG Hoffenheim",
       "away": "Borussia Dortmund",
       "kickoff_utc": "2026-09-05T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        2,
+        3
+      ],
+      "points": 3,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.4891,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.4,
+        "model_probability": 0.525,
+        "implied_probability": 0.4167,
+        "edge": 0.2599,
+        "expected_value_eur": 12.07,
+        "stake_eur": 46.42,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.1857,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "won",
+        "stake_eur": 46.42,
+        "payout_eur": 111.41,
+        "profit_eur": 64.99
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 15.0,
+          "payout_eur": 36.0,
+          "profit_eur": 21.0
+        }
+      }
     },
     {
       "home": "FC Schalke 04",
