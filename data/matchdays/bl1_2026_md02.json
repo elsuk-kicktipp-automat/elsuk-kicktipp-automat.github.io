@@ -219,6 +219,14 @@
       "status": "sealed",
       "hash": "09ccd853fac25731d5390d2dc42c6a35fe5585372a17b4fba99f66a297673d9c",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "FC Schalke 04",
+      "away": "FC Bayern München",
+      "kickoff_utc": "2026-09-05T16:30:00Z",
+      "status": "sealed",
+      "hash": "fa2a2a39c23a8d908f530b8df33cf56b2962d3f95a9580cc4f880e2038f98903",
+      "paper_bet_status": "sealed"
     }
   ]
 }
