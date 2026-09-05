@@ -184,41 +184,846 @@
       "home": "Bayer 04 Leverkusen",
       "away": "1. FC Union Berlin",
       "kickoff_utc": "2026-09-05T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "790a36372f01d35943b4b0a1041f256d32310d97123d694e153f4928856f1a28",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.644,
+      "factors": {
+        "expected_goals": [
+          2.3,
+          1.02
+        ],
+        "probabilities": {
+          "home": 0.662,
+          "draw": 0.192,
+          "away": 0.146
+        },
+        "raw_probabilities": {
+          "home": 0.656,
+          "draw": 0.197,
+          "away": 0.147
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.664,
+          "draw": 0.19,
+          "away": 0.146,
+          "weight": 0.7
+        },
+        "home_advantage": 0.182,
+        "trained_on_matches": 622,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Union Berlin in Leverkusen: Imeri pausiert noch",
+              "description": "1. FC Union Berlin, Fußball, Sport - Leuchtturm Berlin, Regio Sport Berlin, Bundesliga, Rönnow Frederik",
+              "published": "2026-09-04T20:45:26+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/union-berlin-in-leverkusen-imeri-pausiert-noch-6a9adadedde98c9236181fab"
+            },
+            {
+              "title": "Bayer 04 Leverkusen: Carles Martínez mit Liebeserklärung an Victor Boniface",
+              "description": "erste Bundesliga, Bayer Leverkusen, Boniface Victor, Europa League, Sport – Leuchtturm Essen",
+              "published": "2026-09-04T19:27:54+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bayer-04-leverkusen-carles-martinez-mit-liebeserklaerung-an-victor-boniface-6a9ad979dde98c9236181f90"
+            },
+            {
+              "title": "AFD-Wirbel um Chefin von Bundesligist Union Berlin",
+              "description": "Mitgliederversammlung, 1. FC Union Berlin, Fußball, Sport - Leuchtturm Berlin, Goldapp Alina, Koch Matthias, Bundesliga, Sport-Tag im Ticker, TorAlarm Top-News, Aufmacher-Bereich",
+              "published": "2026-09-04T18:24:53+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/afd-wirbel-um-chefin-von-bundesligist-union-berlin-6a9a87e4dde98c92361814c7"
+            },
+            {
+              "title": "Union Berlin: Boss Dirk Zingler plant Transfererlöse schon für 2027",
+              "description": "1. FC Union Berlin, Zingler Dirk, Fußball, transfercoup, Bundesliga, Sport - Leuchtturm Berlin, Sport-Tag im Ticker, Mitgliederversammlung",
+              "published": "2026-09-04T10:34:02+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/union-berlin-boss-dirk-zingler-plant-transfererloese-schon-fuer-2027-6a9a7e42dde98c9236181358"
+            },
+            {
+              "title": "Union Berlin: Zinlger: „Die Alte Försterei wird einmalig sein“",
+              "description": "1. FC Union Berlin, Zingler Dirk, Stadion An der Alten Försterei, Fußball, erste Bundesliga, Sport-Tag im Ticker, Sport - Leuchtturm Berlin, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-09-04T08:31:24+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/union-berlin-zinlger-die-alte-foersterei-wird-einmalig-sein-6a9960957cdc6e46442b5f77"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 7
+            }
+          ],
+          "total_matches": 7,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": {
+          "tip": [
+            2,
+            0
+          ],
+          "grund": "Union‑Spieler Imeri fehlt wegen Pause",
+          "news_count": 5,
+          "applied": false
+        }
+      },
+      "begruendung": "Tipp: 2 : 1. Bayer hat mit 2,30 Toren pro Spiel fast doppelt so viel Feuer wie Union, das macht ihn klaren Favoriten, doch die 19 % Chance auf ein Unentschieden zeigen, dass es keine reine Leichtmatte wird. Auf dem Platz wird’s ein Abnutzungskampf, bei dem Leverkusen das Tempo vorgibt und am Ende das Netz zum Glühen bringt. Union muss hoffen, dass sie die wenigen Chancen nutzen, sonst bleibt das Ergebnis ein eindeutiger Sieg für die Kölner.",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ],
+        "llm_adjusted": [
+          2,
+          0
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.4,
+        "model_probability": 0.6564,
+        "implied_probability": 0.7143,
+        "edge": -0.0811,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Bayer 04 Leverkusen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.4,
+          "model_probability": 0.6564,
+          "implied_probability": 0.7143,
+          "edge": -0.0811,
+          "expected_value_eur": -1.83,
+          "stake_eur": 22.51,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "d1bf5e352ce2d5092b15a401dad14e0e"
     },
     {
       "home": "Borussia Mönchengladbach",
       "away": "SV 07 Elversberg",
       "kickoff_utc": "2026-09-05T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "834175106d5ac3ae1776c6664f99be40d04b5eea469b5bf42662508818ffb371",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.114,
+      "factors": {
+        "expected_goals": [
+          1.9,
+          1.74
+        ],
+        "probabilities": {
+          "home": 0.421,
+          "draw": 0.227,
+          "away": 0.352
+        },
+        "raw_probabilities": {
+          "home": 0.22,
+          "draw": 0.189,
+          "away": 0.591
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.507,
+          "draw": 0.243,
+          "away": 0.25,
+          "weight": 0.7
+        },
+        "home_advantage": 0.182,
+        "trained_on_matches": 622,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Borussia Mönchengladbach: Elversberg ist Gladbach-Gegner Nr. 55",
+              "description": "Borussia Mönchengladbach, erste Bundesliga, Wolf Hannes, Sport – Leuchtturm Essen, SV Elversberg, Stadion im Borussia-Park",
+              "published": "2026-09-05T06:01:09+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/borussia-moenchengladbach-elversberg-ist-gladbach-gegner-nr-55-6a9afa5cb3e0470a1975c0a5"
+            },
+            {
+              "title": "„Trainer auf den Sack gehen“: Polanski-Ansage an Gladbach-Youngster",
+              "description": "Hochkant BILD-Video intern, Bundesliga, Pressekonferenz, Borussia Mönchengladbach, Polanski Eugen, erste Bundesliga",
+              "published": "2026-09-04T16:28:10+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/trainer-auf-den-sack-gehen-polanski-ansage-an-gladbach-youngster-6a9ad35db3e0470a1975bde5"
+            },
+            {
+              "title": "T Polanski-Befehl: Jungs, geht mir auf den Sack!",
+              "description": "Borussia Mönchengladbach, erste Bundesliga, Polanski Eugen, Schröder Rouven, Mohya Wael, Sport – Leuchtturm Essen",
+              "published": "2026-09-04T15:04:51+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/t-polanski-befehl-jungs-geht-mir-auf-den-sack-6a9abe92b3e0470a1975bb6c"
+            },
+            {
+              "title": "Zu Gast im Sportstudio: Was Elversbergs Wagner zu seiner Premiere sagt",
+              "description": "SV Elversberg, zweite Bundesliga, Fußball, Saarland, Steffen Horst, Sport - Leuchtturm Zentral, Borussia Mönchengladbach, Polanski Eugen, Bundesliga, Bundesliga bei BILD",
+              "published": "2026-09-04T13:35:48+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/zu-gast-im-sportstudio-was-elversbergs-wagner-zu-seiner-premiere-sagt-6a9a98af08c763dcf81f3e85"
+            },
+            {
+              "title": "SV Elversberg: Wagner mit breiter Brust nach Gladbach",
+              "description": "SV Elversberg, Fußball, Saarland, zweite Bundesliga, Steffen Horst, Sport - Leuchtturm Zentral, erste Bundesliga, Borussia Mönchengladbach",
+              "published": "2026-09-04T12:22:48+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/sv-elversberg-wagner-mit-breiter-brust-nach-gladbach-6a9a63fab3e0470a1975b29d"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 9
+            }
+          ],
+          "total_matches": 9,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1 – das ist mein Tipp für das Duell. Die Böhmermanns gehen mit fast 2 : 1 erwarteten Toren als klarer Favorit ins Spiel, die Buchmacherquote von 51 % für den Heimsieg unterstreicht das leichtes Plus. Trotzdem bleibt es ein enges Kopf‑an‑Kopf‑Duell, das eher ein Torfestival als ein Abnutzungskampf verspricht. Wer die heimische Offensive rechtzeitig zum Glühen bringt, geht mit 2 : 1 als Sieger vom Tisch.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Borussia Mönchengladbach gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.87,
+        "model_probability": 0.2197,
+        "implied_probability": 0.5348,
+        "edge": -0.5892,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Borussia Mönchengladbach gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.87,
+          "model_probability": 0.2197,
+          "implied_probability": 0.5348,
+          "edge": -0.5892,
+          "expected_value_eur": -2.95,
+          "stake_eur": 5.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "9d5b12a268dfd40eb60df12536215283"
     },
     {
       "home": "SC Paderborn 07",
       "away": "SC Freiburg",
       "kickoff_utc": "2026-09-05T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "34356977567962a70ef5a4cf25984e55e780c62615ee8def519a7999458cf463",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        0,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.188,
+      "factors": {
+        "expected_goals": [
+          0.87,
+          1.11
+        ],
+        "probabilities": {
+          "home": 0.275,
+          "draw": 0.322,
+          "away": 0.404
+        },
+        "raw_probabilities": {
+          "home": 0.308,
+          "draw": 0.47,
+          "away": 0.222
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.26,
+          "draw": 0.258,
+          "away": 0.482,
+          "weight": 0.7
+        },
+        "home_advantage": 0.182,
+        "trained_on_matches": 622,
+        "news_checked": 3,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Dynamo Dresden: Vorbild, Laufbahn, Freundin! So tickt Neuzugang Okpala",
+              "description": "Sport - Leuchtturm Leipzig, Dynamo Dresden, Fußball, 2. Bundesliga, spielertransfer, SC Paderborn 07, SV Waldhof Mannheim, Kylian Mbappé",
+              "published": "2026-09-03T18:46:17+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/dynamo-dresden-vorbild-laufbahn-freundin-so-tickt-neuzugang-okpala-6a990884f4aff45fc7b341e8"
+            },
+            {
+              "title": "Eintracht Frankfurt: Plötzlich schwärmt Atubolu von Ex-Klub Freiburg",
+              "description": "erste Bundesliga, SC Freiburg, Atubolu Noah, Eintracht Frankfurt, Bundesliga, Fussball Bundesliga, Sport - Leuchtturm Zentral",
+              "published": "2026-09-03T12:45:19+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-ploetzlich-schwaermt-atubolu-von-ex-klub-freiburg-6a992d1c3295667f74f09fcc"
+            },
+            {
+              "title": "SC Freiburg: Dieses Duo macht der Liga Angst",
+              "description": "erste Bundesliga, SC Freiburg, Schuster Julian, Bundesliga, Fußball, Sport - Leuchtturm Zentral",
+              "published": "2026-09-03T12:42:48+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/sc-freiburg-dieses-duo-macht-der-liga-angst-6a9936bbdde98c923617fd9a"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 3
+            }
+          ],
+          "total_matches": 3,
+          "returned": 3,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 0 : 1 für Freiburg. Mit 40 % Siegchance und den Buchmachern, die sogar 48 % auf den Auswärtssieg setzen, ist Freiburg klarer Favorit. Paderborn muss sich mit kaum mehr als einem Tor zufriedengeben – das wird eher ein Abnutzungskampf als ein Torfestival. Wer die knappe Kiste nicht unterschätzt, darf nicht vergessen, dass die Heimmannschaft nur 27 % Chance auf den Sieg hat.",
+      "shadow_tips": {
+        "most_probable": [
+          0,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "SC Freiburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.95,
+        "model_probability": 0.2221,
+        "implied_probability": 0.5128,
+        "edge": -0.5668,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "SC Freiburg gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.95,
+          "model_probability": 0.2221,
+          "implied_probability": 0.5128,
+          "edge": -0.5668,
+          "expected_value_eur": -2.83,
+          "stake_eur": 5.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "5e7e2f6656cdeed96d9e8c4595d7e578"
     },
     {
       "home": "SV Werder Bremen",
       "away": "RB Leipzig",
       "kickoff_utc": "2026-09-05T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "9691bfd6e4f07cff4812013467be196f90c3e5e0aee4159cad3a1b0213c1c9a7",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.391,
+      "factors": {
+        "expected_goals": [
+          1.22,
+          1.92
+        ],
+        "probabilities": {
+          "home": 0.233,
+          "draw": 0.232,
+          "away": 0.535
+        },
+        "raw_probabilities": {
+          "home": 0.242,
+          "draw": 0.243,
+          "away": 0.515
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.229,
+          "draw": 0.227,
+          "away": 0.544,
+          "weight": 0.7
+        },
+        "home_advantage": 0.182,
+        "trained_on_matches": 622,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Ab 12 Uhr live - Hamburg gegen Leipzig im Duell der Sieglosen",
+              "description": "Am 3. Spieltag der Frauen-Bundesliga treffen die HSV-Frauen auf RB Leipzig. Beide Mannschaften sind bsiher sieglos - wem gelingt der erste Saisonsieg?",
+              "published": "2026-09-05T11:08:52+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "RB Leipzig: Sportchef Schäfer verrät Details! So lief der Nkunku-Transfer wirklich",
+              "description": "RB Leipzig, erste Bundesliga, spielertransfer, Schäfer Marcel, Demichelis Martin, Sport - Leuchtturm Leipzig, Manchester United, Newcastle United, Werder Bremen, AC Mailand",
+              "published": "2026-09-05T10:00:01+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/rb-leipzig-sportchef-schaefer-verraet-details-so-lief-der-nkunku-transfer-wirklich-6a9a875e08c763dcf81f3bff"
+            },
+            {
+              "title": "Jürgen Klopp: Vertraute müssen bei Red Bull gehen",
+              "description": "Klopp Jürgen, RB Leipzig, erste Bundesliga, Red Bull, FC Liverpool, Sport - Leuchtturm Leipzig, Schmidt Roger, Salzburg, München, Gomez Mario, Löw Zsolt, Kramny Jürgen, TorAlarm Top-News, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-09-05T04:32:25+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/juergen-klopp-vertraute-muessen-bei-red-bull-gehen-6a99a1f57cdc6e46442b66d9"
+            },
+            {
+              "title": "RB Leipzig: UEFA greift durch! Champions-League-Strafe für den Bundesligisten",
+              "description": "RB Leipzig, erste Bundesliga, Fußball, Champions League, spielertransfer, Sport - Leuchtturm Leipzig, Como, Manchester United, Real Madrid, Manchester City, Feyenoord Rotterdam, RC Lens",
+              "published": "2026-09-04T13:31:35+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/rb-leipzig-uefa-greift-durch-champions-league-strafe-fuer-den-bundesligisten-6a9a7de1b3e0470a1975b459"
+            },
+            {
+              "title": "RB Leipzig: Neuzugang Koné fehlt im Kader für die Champions League",
+              "description": "RB Leipzig, Champions League, erste Bundesliga, Champions League, Schäfer Marcel, Demichelis Martin, Como, Sport - Leuchtturm Leipzig",
+              "published": "2026-09-03T17:56:40+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/rb-leipzig-neuzugang-kone-fehlt-im-kader-fuer-die-champions-league-6a999422dde98c92361808b6"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 5
+            }
+          ],
+          "total_matches": 6,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1:2 – Leipzig geht klar als klarer Favorit ins Spiel, die Quote von 54 % für den Auswärtssieg und fast zwei Tore pro Partie sprechen dafür, während Bremen kaum über ein Tor kommt. Auf dem Weserstadion wird’s ein Abnutzungskampf, doch die Gäste haben das bessere Gespür für die Offensive. Werder muss sich auf ein enges Kopf‑an‑Kopf‑Duell einstellen, aber die Leipziger werden wohl das entscheidende Tor ziehen.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "RB Leipzig gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.7,
+        "model_probability": 0.5155,
+        "implied_probability": 0.5882,
+        "edge": -0.1237,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "RB Leipzig gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.7,
+          "model_probability": 0.5155,
+          "implied_probability": 0.5882,
+          "edge": -0.1237,
+          "expected_value_eur": -1.79,
+          "stake_eur": 14.46,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "c925ce9d127bab1cf71f0b4e6a73e4d7"
     },
     {
       "home": "TSG Hoffenheim",
       "away": "Borussia Dortmund",
       "kickoff_utc": "2026-09-05T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "09ccd853fac25731d5390d2dc42c6a35fe5585372a17b4fba99f66a297673d9c",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.153,
+      "factors": {
+        "expected_goals": [
+          1.48,
+          1.73
+        ],
+        "probabilities": {
+          "home": 0.326,
+          "draw": 0.243,
+          "away": 0.431
+        },
+        "raw_probabilities": {
+          "home": 0.249,
+          "draw": 0.226,
+          "away": 0.525
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.359,
+          "draw": 0.25,
+          "away": 0.391,
+          "weight": 0.7
+        },
+        "home_advantage": 0.182,
+        "trained_on_matches": 622,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Arsenal-Leihgabe: Diese Rolle übernimmt der neue BVB Star",
+              "description": "Stammplatz Video, clipout, Borussia Dortmund, Hochkant BILD-Video intern, Bundesliga",
+              "published": "2026-09-05T10:00:01+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/arsenal-leihgabe-diese-rolle-uebernimmt-der-neue-bvb-star-6a9b3bd8181cb962d4884213"
+            },
+            {
+              "title": "Bundesliga: Alle Infos und Aufstellungen zum 2. Spieltag",
+              "description": "Borussia Dortmund, FC Bayern München, 1899 Hoffenheim, Bayer Leverkusen, VfL Wolfsburg",
+              "published": "2026-09-05T09:06:25+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-alle-infos-und-aufstellungen-zum-2-spieltag-6a9a89b6b3e0470a1975b5c5"
+            },
+            {
+              "title": "TSG Hoffenheim: Trainer Ilzer vergleicht Mega-Auftakt mit Windkanal!",
+              "description": "1899 Hoffenheim, erste Bundesliga, Fußball, spielertransfer, Kramaric Andrej, Baumann Oliver, Borussia Dortmund, Sport - Leuchtturm Zentral",
+              "published": "2026-09-04T16:24:35+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/tsg-hoffenheim-trainer-ilzer-vergleicht-mega-auftakt-mit-windkanal-6a9ac594240b302c8a8394d5"
+            },
+            {
+              "title": "TSG Hoffenheim: Wann Boss Schicker am Ende trotzdem jubelt",
+              "description": "erste Bundesliga, 1899 Hoffenheim, Fußball, spielertransfer, Baumann Oliver, Sport - Leuchtturm Zentral",
+              "published": "2026-09-04T10:55:32+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/tsg-hoffenheim-wann-boss-schicker-am-ende-trotzdem-jubelt-6a9a7f30240b302c8a838d2f"
+            },
+            {
+              "title": "Dortmund kassiert noch 120 Mio. Ablösen! Kohle-Hammer beim BVB",
+              "description": "Borussia Dortmund, erste Bundesliga, spielertransfer, Ricken Lars, Transferperiode, Nmecha Felix, Woltemade Nick, Bellingham Jude, Real Madrid, AS Rom, FC Chelsea, Sport – Leuchtturm Essen",
+              "published": "2026-09-04T10:05:52+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/dortmund-kassiert-noch-120-mio-abloesen-kohle-hammer-beim-bvb-6a96a116d32756d4be19b389"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 9
+            }
+          ],
+          "total_matches": 9,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1 : 2. Dortmund geht als klarer Favorit ins Spiel – „Auswärtssieg 43 %“ und ein leichtes Torplus von „1,48 : 1,73“ lassen keinen Zweifel. Hoffenheim muss sich auf ein enges Duell einstellen, denn das Unentschieden liegt bei knapp einem Viertel, das ist eine echte Kiste. Wer auf ein Torfestival hofft, darf sich nicht wundern, wenn das Nachspiel die Gäste zum Sieg führt.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.4,
+        "model_probability": 0.525,
+        "implied_probability": 0.4167,
+        "edge": 0.2599,
+        "expected_value_eur": 12.07,
+        "stake_eur": 46.42,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.1857,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "Borussia Dortmund gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 2.4,
+          "model_probability": 0.525,
+          "implied_probability": 0.4167,
+          "edge": 0.2599,
+          "expected_value_eur": 3.9,
+          "stake_eur": 15.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "87d2d6630506d1ce74ca1f05ba9c7cb9"
     },
     {
       "home": "FC Schalke 04",
