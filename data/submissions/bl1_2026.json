@@ -3,6 +3,11 @@
   "season": 2026,
   "submissions": [
     {
+      "home_key": "1899hoffenheim",
+      "away_key": "borussiadortmund",
+      "verified_at_utc": "2026-09-05T09:32:59Z"
+    },
+    {
       "home_key": "1fckoln",
       "away_key": "1899hoffenheim",
       "verified_at_utc": "2026-08-29T09:33:41Z"
@@ -11,6 +16,16 @@
       "home_key": "1fcunionberlin",
       "away_key": "eintrachtfrankfurt",
       "verified_at_utc": "2026-08-29T09:33:41Z"
+    },
+    {
+      "home_key": "bayer04leverkusen",
+      "away_key": "1fcunionberlin",
+      "verified_at_utc": "2026-09-05T09:32:59Z"
+    },
+    {
+      "home_key": "bormonchengladbach",
+      "away_key": "svelversberg",
+      "verified_at_utc": "2026-09-05T09:32:59Z"
     },
     {
       "home_key": "borussiadortmund",
@@ -38,6 +53,11 @@
       "verified_at_utc": "2026-08-30T09:31:47Z"
     },
     {
+      "home_key": "scpaderborn07",
+      "away_key": "scfreiburg",
+      "verified_at_utc": "2026-09-05T09:32:59Z"
+    },
+    {
       "home_key": "svelversberg",
       "away_key": "bayer04leverkusen",
       "verified_at_utc": "2026-08-29T09:33:41Z"
@@ -46,6 +66,11 @@
       "home_key": "vfbstuttgart",
       "away_key": "1fckoln",
       "verified_at_utc": "2026-09-04T14:32:13Z"
+    },
+    {
+      "home_key": "werderbremen",
+      "away_key": "rbleipzig",
+      "verified_at_utc": "2026-09-05T09:32:59Z"
     }
   ]
 }
