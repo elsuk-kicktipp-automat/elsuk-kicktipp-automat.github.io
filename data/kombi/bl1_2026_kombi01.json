@@ -21,7 +21,12 @@
       "implied_probability": 0.8696,
       "edge": 0.1315,
       "source": "tipico_de",
-      "source_label": "Tipico"
+      "source_label": "Tipico",
+      "result": [
+        0,
+        0
+      ],
+      "won": false
     },
     {
       "home": "Borussia Mönchengladbach",
@@ -34,7 +39,12 @@
       "implied_probability": 0.2632,
       "edge": 1.258,
       "source": "tipico_de",
-      "source_label": "Tipico"
+      "source_label": "Tipico",
+      "result": [
+        3,
+        4
+      ],
+      "won": true
     }
   ],
   "leg_count": 2,
@@ -52,5 +62,12 @@
     "max_stake_eur": 100.0
   },
   "created_utc": "2026-09-04T16:30:50Z",
-  "salt": "65f47216766ce54ce540423f023fc380"
+  "salt": "65f47216766ce54ce540423f023fc380",
+  "result": {
+    "outcome": "lost",
+    "stake_eur": 100.0,
+    "payout_eur": 0.0,
+    "profit_eur": -100.0,
+    "settled_at_utc": "2026-09-05T18:25:44Z"
+  }
 }

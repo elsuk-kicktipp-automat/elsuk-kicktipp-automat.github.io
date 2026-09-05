@@ -5,45 +5,45 @@
   "stage": "2. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 11,
-  "matches_scored": 6,
-  "matches_open": 1,
+  "matches_scored": 7,
+  "matches_open": 0,
   "hits": {
     "exact": 1,
     "goal_diff": 1,
     "tendency": 2,
-    "miss": 2
+    "miss": 3
   },
   "shadow_points": {
     "most_probable": 8,
     "elo_favorite": 6,
-    "always_draw": 0,
+    "always_draw": 2,
     "llm_adjusted": 2
   },
   "shadow_matches": {
-    "most_probable": 6,
-    "elo_favorite": 6,
-    "always_draw": 6,
+    "most_probable": 7,
+    "elo_favorite": 7,
+    "always_draw": 7,
     "llm_adjusted": 1
   },
-  "brier_avg": 0.4927,
+  "brier_avg": 0.6524,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
-    "stake_total_eur": 46.42,
+    "stake_total_eur": 146.42,
     "payout_total_eur": 111.41,
-    "profit_total_eur": 64.99,
-    "roi": 1.4,
-    "bets_scored": 1,
+    "profit_total_eur": -35.01,
+    "roi": -0.2391,
+    "bets_scored": 2,
     "bets_won": 1,
     "bankroll_start_eur": 1000.0
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 83.48,
+      "stake_total_eur": 108.48,
       "payout_total_eur": 108.45,
-      "profit_total_eur": 24.97,
-      "roi": 0.2991,
-      "bets_scored": 6,
+      "profit_total_eur": -0.03,
+      "roi": -0.0003,
+      "bets_scored": 7,
       "bets_won": 4,
       "bankroll_start_eur": 1000.0
     }
@@ -384,7 +384,56 @@
       "home": "FC Schalke 04",
       "away": "FC Bayern München",
       "kickoff_utc": "2026-09-05T16:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        4
+      ],
+      "result": [
+        0,
+        0
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 0,
+        "always_draw": 2
+      },
+      "brier": 1.6107,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "FC Bayern München gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.16,
+        "model_probability": 0.9837,
+        "implied_probability": 0.8621,
+        "edge": 0.1411,
+        "expected_value_eur": 14.11,
+        "stake_eur": 100.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.8822,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "lost",
+        "stake_eur": 100.0,
+        "payout_eur": 0.0,
+        "profit_eur": -100.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 25.0,
+          "payout_eur": 0.0,
+          "profit_eur": -25.0
+        }
+      }
     }
   ]
 }
