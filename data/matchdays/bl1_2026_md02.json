@@ -1366,9 +1366,169 @@
       "home": "Eintracht Frankfurt",
       "away": "FC Augsburg",
       "kickoff_utc": "2026-09-06T15:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "ce7176a1d1aab1c458bf10095cf844c0ab980da09a3920e1fc2915d69d89f189",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.359,
+      "factors": {
+        "expected_goals": [
+          1.94,
+          1.29
+        ],
+        "probabilities": {
+          "home": 0.522,
+          "draw": 0.231,
+          "away": 0.247
+        },
+        "raw_probabilities": {
+          "home": 0.551,
+          "draw": 0.222,
+          "away": 0.227
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.51,
+          "draw": 0.235,
+          "away": 0.255,
+          "weight": 0.7
+        },
+        "home_advantage": 0.198,
+        "trained_on_matches": 628,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Eintracht Frankfurt gegen FC Augsburg - Bundesliga",
+              "description": "2. Spieltag: Anpfiff des Spiels ist am 06.09.2026 um 17:30 Uhr. FC Augsburg spielt in Frankfurt am Main.",
+              "published": "2026-09-06T17:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Eintracht Frankfurt: U16-Basketballerinnen im WM-Fieber",
+              "description": "Basketball, Eintracht Frankfurt, WNBA, DBB, BBL, Sport - Leuchtturm Zentral",
+              "published": "2026-09-06T12:29:35+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-u16-basketballerinnen-im-wm-fieber-6a9d3b6c6067248f60a52906"
+            },
+            {
+              "title": "Ab 17.30 Uhr - Die Eintracht hat den FCA zu Gast",
+              "description": "Zum Abschluss des 2. Spieltags trifft Eintracht Frankfurt auf den FC Augsburg. Beide Clubs starteten mit einem Sieg in die Saison.",
+              "published": "2026-09-06T10:24:03+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Eintracht Frankfurt: Diese zwei Stars sind für Adi Hütter unersetzbar",
+              "description": "Eintracht Frankfurt, erste Bundesliga, Krösche Markus, Bundesliga, Sport - Leuchtturm Zentral, Hütter Adi, Götze Mario, Chandler Timothy",
+              "published": "2026-09-06T06:51:18+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-diese-zwei-stars-sind-fuer-adi-huetter-unersetzbar-6a9ae6d5dde98c92361820cf"
+            },
+            {
+              "title": "Kauã Santos macht Eintracht Frankfurt eine Liebeserklärung",
+              "description": "Eintracht Frankfurt, erste Bundesliga, Krösche Markus, Bundesliga, Sport - Leuchtturm Zentral, Hütter Adi",
+              "published": "2026-09-05T15:27:25+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/kaua-santos-macht-eintracht-frankfurt-eine-liebeserklaerung-6a9c1452240b302c8a83a321"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 9
+            }
+          ],
+          "total_matches": 11,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1 – Frankfurt lässt die Kiste nicht mehr los. Mit „Heimsieg 52 %“ im Rücken und fast zwei Toren pro Spiel im Schnitt ist die Eintracht klarer Favorit, während Augsburg kaum ein Tor erwirtschaftet. Es wird ein offenes Duell, bei dem die Frankfurter Offensive das Zünglein in der Hand hat und Augsburg nur im Abnutzungskampf mithalten kann. Wer die Abwehr nicht dicht hält, bekommt ein kleines Torfestival serviert.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Eintracht Frankfurt gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.8,
+        "model_probability": 0.5506,
+        "implied_probability": 0.5556,
+        "edge": -0.0089,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Eintracht Frankfurt gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.8,
+          "model_probability": 0.5506,
+          "implied_probability": 0.5556,
+          "edge": -0.0089,
+          "expected_value_eur": -0.15,
+          "stake_eur": 16.46,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "05e0dd5b743947f3a6a9d0615c99c101"
     }
   ]
 }
