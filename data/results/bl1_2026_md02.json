@@ -5,13 +5,13 @@
   "stage": "2. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 13,
-  "matches_scored": 8,
-  "matches_open": 1,
+  "matches_scored": 9,
+  "matches_open": 0,
   "hits": {
     "exact": 1,
     "goal_diff": 1,
     "tendency": 3,
-    "miss": 3
+    "miss": 4
   },
   "shadow_points": {
     "most_probable": 8,
@@ -20,12 +20,12 @@
     "llm_adjusted": 2
   },
   "shadow_matches": {
-    "most_probable": 8,
-    "elo_favorite": 8,
-    "always_draw": 8,
+    "most_probable": 9,
+    "elo_favorite": 9,
+    "always_draw": 9,
     "llm_adjusted": 1
   },
-  "brier_avg": 0.6422,
+  "brier_avg": 0.67,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,11 +39,11 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 114.48,
+      "stake_total_eur": 130.94,
       "payout_total_eur": 123.45,
-      "profit_total_eur": 8.97,
-      "roi": 0.0784,
-      "bets_scored": 8,
+      "profit_total_eur": -7.49,
+      "roi": -0.0572,
+      "bets_scored": 9,
       "bets_won": 5,
       "bankroll_start_eur": 1000.0
     }
@@ -494,7 +494,56 @@
       "home": "Eintracht Frankfurt",
       "away": "FC Augsburg",
       "kickoff_utc": "2026-09-06T15:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        1,
+        4
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.8929,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Eintracht Frankfurt gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.8,
+        "model_probability": 0.5506,
+        "implied_probability": 0.5556,
+        "edge": -0.0089,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 16.46,
+          "payout_eur": 0.0,
+          "profit_eur": -16.46
+        }
+      }
     }
   ]
 }
