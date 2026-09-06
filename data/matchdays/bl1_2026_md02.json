@@ -1194,6 +1194,14 @@
         }
       },
       "salt": "8c735f1f1aa0685a971a53202fa9e348"
+    },
+    {
+      "home": "Hamburger SV",
+      "away": "1. FSV Mainz 05",
+      "kickoff_utc": "2026-09-06T13:30:00Z",
+      "status": "sealed",
+      "hash": "62c8845b05a1fc4c0ca56fffd76f6f1fa14629a3658a2ef2f9e76e00aba97a24",
+      "paper_bet_status": "sealed"
     }
   ]
 }
