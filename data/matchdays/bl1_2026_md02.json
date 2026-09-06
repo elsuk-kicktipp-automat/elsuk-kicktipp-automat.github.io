@@ -1202,6 +1202,14 @@
       "status": "sealed",
       "hash": "62c8845b05a1fc4c0ca56fffd76f6f1fa14629a3658a2ef2f9e76e00aba97a24",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "Eintracht Frankfurt",
+      "away": "FC Augsburg",
+      "kickoff_utc": "2026-09-06T15:30:00Z",
+      "status": "sealed",
+      "hash": "ce7176a1d1aab1c458bf10095cf844c0ab980da09a3920e1fc2915d69d89f189",
+      "paper_bet_status": "sealed"
     }
   ]
 }
