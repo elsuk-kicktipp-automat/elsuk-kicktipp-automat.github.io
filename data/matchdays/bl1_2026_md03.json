@@ -1,0 +1,24 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "matchday": 3,
+  "stage": "3. Spieltag",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-09-11T14:30:56Z",
+  "matches": [
+    {
+      "home": "1. FC Union Berlin",
+      "away": "FC Schalke 04",
+      "kickoff_utc": "2026-09-11T18:30:00Z",
+      "status": "sealed",
+      "hash": "550cb95a4246377fa7c683bd4f2568d9892ca7a0413e620c91a25647289e5d05",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}
