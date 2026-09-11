@@ -16,9 +16,171 @@
       "home": "1. FC Union Berlin",
       "away": "FC Schalke 04",
       "kickoff_utc": "2026-09-11T18:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "550cb95a4246377fa7c683bd4f2568d9892ca7a0413e620c91a25647289e5d05",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        0
+      ],
+      "advance_tip": null,
+      "expected_points": 1.217,
+      "factors": {
+        "expected_goals": [
+          1.25,
+          0.94
+        ],
+        "probabilities": {
+          "home": 0.426,
+          "draw": 0.302,
+          "away": 0.272
+        },
+        "raw_probabilities": {
+          "home": 0.497,
+          "draw": 0.379,
+          "away": 0.124
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.396,
+          "draw": 0.269,
+          "away": 0.335,
+          "weight": 0.7
+        },
+        "home_advantage": 0.179,
+        "trained_on_matches": 630,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Union Berlin: Rani Khedira tritt in Tunesien zurück",
+              "description": "1. FC Union Berlin, Khedira Rani, Nationalmannschaft Tunesien, Fußball, Rücktritt, Sport - Leuchtturm Berlin, Bundesliga, Fussball WM 2026, WM",
+              "published": "2026-09-11T11:57:51+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/union-berlin-rani-khedira-tritt-in-tunesien-zurueck-6aa3c874240b302c8a8411c6"
+            },
+            {
+              "title": "Augsburg- oder Bayernform: Heute sehen wir das WAHRE Schalke 04!",
+              "description": "FC Schalke, 1. FC Union Berlin, Sport – Leuchtturm Essen, Kitsch Christian, Fußball, Bundesliga, Bundesliga bei BILD, DFB, Fussball Bundesliga, Sportarten, Sport, Sport, Muslic Miron, Karaman-Kenan, aufstieg, Abstiegskampf, erste Bundesliga",
+              "published": "2026-09-11T05:04:34+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/augsburg-oder-bayernform-heute-sehen-wir-das-wahre-schalke-04-6aa180d17864931663e7246c"
+            },
+            {
+              "title": "Union Berlin: Kehrt der Abwerhchef gegen Schalke zurück?",
+              "description": "1. FC Union Berlin, Fußball, erste Bundesliga, Sport-Tag im Ticker, Sport - Leuchtturm Berlin, Uduokhai-Felix-Ohis, FC Schalke, Stadion An der Alten Försterei",
+              "published": "2026-09-10T18:05:24+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/union-berlin-kehrt-der-abwerhchef-gegen-schalke-zurueck-6aa26be1240b302c8a83fc48"
+            },
+            {
+              "title": "Bundesliga: Die Baupläne der Klubs! 6 Vereine wollen größere Stadien ++ Wie Bayern plant",
+              "description": "Aufmacher-Bereich, super-a-teaser, erste Bundesliga, Fußball, 1. FC Union Berlin, Stadion An der Alten Försterei, Zingler Dirk, FC Bayern München, Hamburger SV",
+              "published": "2026-09-10T17:55:26+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-die-bauplaene-der-klubs-6-vereine-wollen-groessere-stadien-wie-bayern-plant-6aa28f55181cb962d488a9cc"
+            },
+            {
+              "title": "Warum Miron Muslic es gut findet: Star-Stau bei Schalke 04!",
+              "description": "FC Schalke, Sport – Leuchtturm Essen, 1. FC Union Berlin, Kitsch Christian, Muslic Miron, Dzeko Edin, Sportarten, Sport, Sport, Fußball, DFB, Fussball Bundesliga, erste Bundesliga, aufstieg, Abstiegskampf",
+              "published": "2026-09-10T15:04:21+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/warum-miron-muslic-es-gut-findet-star-stau-bei-schalke-04-6aa188af639d45f0a23cff06"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 6
+            }
+          ],
+          "total_matches": 6,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1:0 – die Union geht mit leichtem Vorsprung ins Spiel. Die Berliner haben mit rund 1,25 Tor pro Partie die Nase vorn, während Schalke kaum die 1‑Tor‑Marke knackt. Es wird ein enges Duell, bei dem die Union als klarer Favorit die Abnutzung des Gegners ausnutzt. Wer das Tor früh rausholt, kann das Spiel quasi im Alleingang entscheiden.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "1. FC Union Berlin gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.35,
+        "model_probability": 0.4968,
+        "implied_probability": 0.4255,
+        "edge": 0.1675,
+        "expected_value_eur": 5.2,
+        "stake_eur": 31.02,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.1241,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "1. FC Union Berlin gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 2.35,
+          "model_probability": 0.4968,
+          "implied_probability": 0.4255,
+          "edge": 0.1675,
+          "expected_value_eur": 2.24,
+          "stake_eur": 13.39,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "709fde60f78e66cfe8ef838c381bbb8e"
     }
   ]
 }
