@@ -4,28 +4,28 @@
   "matchday": 3,
   "stage": "3. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 0,
-  "matches_scored": 1,
-  "matches_open": 6,
+  "points_total": 4,
+  "matches_scored": 5,
+  "matches_open": 2,
   "hits": {
     "exact": 0,
     "goal_diff": 0,
-    "tendency": 0,
-    "miss": 1
+    "tendency": 2,
+    "miss": 3
   },
   "shadow_points": {
-    "most_probable": 0,
-    "elo_favorite": 0,
-    "always_draw": 0,
+    "most_probable": 4,
+    "elo_favorite": 4,
+    "always_draw": 2,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 1,
-    "elo_favorite": 1,
-    "always_draw": 1,
+    "most_probable": 5,
+    "elo_favorite": 5,
+    "always_draw": 5,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.8027,
+  "brier_avg": 0.6089,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 13.39,
-      "payout_total_eur": 0.0,
-      "profit_total_eur": -13.39,
-      "roi": -1.0,
-      "bets_scored": 1,
-      "bets_won": 0,
+      "stake_total_eur": 67.32,
+      "payout_total_eur": 40.37,
+      "profit_total_eur": -26.95,
+      "roi": -0.4003,
+      "bets_scored": 5,
+      "bets_won": 2,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -108,25 +108,221 @@
       "home": "1. FSV Mainz 05",
       "away": "Eintracht Frankfurt",
       "kickoff_utc": "2026-09-12T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        1,
+        3
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.8723,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "1. FSV Mainz 05 gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.75,
+        "model_probability": 0.4643,
+        "implied_probability": 0.5714,
+        "edge": -0.1875,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 11.53,
+          "payout_eur": 0.0,
+          "profit_eur": -11.53
+        }
+      }
     },
     {
       "home": "Borussia Dortmund",
       "away": "SC Paderborn 07",
       "kickoff_utc": "2026-09-12T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        0
+      ],
+      "result": [
+        3,
+        0
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 2,
+        "always_draw": 0
+      },
+      "brier": 0.1466,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.25,
+        "model_probability": 0.5496,
+        "implied_probability": 0.8,
+        "edge": -0.313,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 16.4,
+          "payout_eur": 20.5,
+          "profit_eur": 4.1
+        }
+      }
     },
     {
       "home": "FC Augsburg",
       "away": "Bayer 04 Leverkusen",
       "kickoff_utc": "2026-09-12T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        2,
+        2
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 0,
+        "always_draw": 2
+      },
+      "brier": 0.9042,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.85,
+        "model_probability": 0.5068,
+        "implied_probability": 0.5405,
+        "edge": -0.0624,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 13.96,
+          "payout_eur": 0.0,
+          "profit_eur": -13.96
+        }
+      }
     },
     {
       "home": "SC Freiburg",
       "away": "Borussia Mönchengladbach",
       "kickoff_utc": "2026-09-12T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        5,
+        0
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 2,
+        "always_draw": 0
+      },
+      "brier": 0.3184,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SC Freiburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.65,
+        "model_probability": 0.4733,
+        "implied_probability": 0.6061,
+        "edge": -0.2191,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 12.04,
+          "payout_eur": 19.87,
+          "profit_eur": 7.83
+        }
+      }
     },
     {
       "home": "TSG Hoffenheim",
