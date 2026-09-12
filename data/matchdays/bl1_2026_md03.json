@@ -221,6 +221,14 @@
       "status": "sealed",
       "hash": "b2938cd6fb4f63b3f4fd7e3b4ab635a84e966721d50128807e8244db138967c7",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "1. FC Köln",
+      "away": "SV Werder Bremen",
+      "kickoff_utc": "2026-09-12T16:30:00Z",
+      "status": "sealed",
+      "hash": "bf6676ffedb540ea334bbd2405067fc7836aced87aebebfa7099117a2afaa672",
+      "paper_bet_status": "sealed"
     }
   ]
 }
