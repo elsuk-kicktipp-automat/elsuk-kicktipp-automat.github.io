@@ -5,27 +5,27 @@
   "stage": "3. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 8,
-  "matches_scored": 6,
-  "matches_open": 1,
+  "matches_scored": 7,
+  "matches_open": 0,
   "hits": {
     "exact": 1,
     "goal_diff": 0,
     "tendency": 2,
-    "miss": 3
+    "miss": 4
   },
   "shadow_points": {
-    "most_probable": 4,
+    "most_probable": 8,
     "elo_favorite": 8,
-    "always_draw": 2,
-    "llm_adjusted": 0
-  },
-  "shadow_matches": {
-    "most_probable": 6,
-    "elo_favorite": 6,
     "always_draw": 6,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.6003,
+  "shadow_matches": {
+    "most_probable": 7,
+    "elo_favorite": 7,
+    "always_draw": 7,
+    "llm_adjusted": 0
+  },
+  "brier_avg": 0.6364,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,11 +39,11 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 72.32,
+      "stake_total_eur": 82.84,
       "payout_total_eur": 51.87,
-      "profit_total_eur": -20.45,
-      "roi": -0.2828,
-      "bets_scored": 6,
+      "profit_total_eur": -30.97,
+      "roi": -0.3739,
+      "bets_scored": 7,
       "bets_won": 3,
       "bankroll_start_eur": 1000.0
     }
@@ -383,7 +383,56 @@
       "home": "1. FC Köln",
       "away": "SV Werder Bremen",
       "kickoff_utc": "2026-09-12T16:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        1,
+        1
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 4,
+        "elo_favorite": 0,
+        "always_draw": 4
+      },
+      "brier": 0.8534,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "1. FC Köln gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.0,
+        "model_probability": 0.4465,
+        "implied_probability": 0.5,
+        "edge": -0.1069,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 10.52,
+          "payout_eur": 0.0,
+          "profit_eur": -10.52
+        }
+      }
     }
   ]
 }
