@@ -186,41 +186,842 @@
       "home": "1. FSV Mainz 05",
       "away": "Eintracht Frankfurt",
       "kickoff_utc": "2026-09-12T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "164534dd2d8cdb33a0c0364dd357258bcc5f1a98ea1a1d06f5139634bb39d3c4",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.332,
+      "factors": {
+        "expected_goals": [
+          1.89,
+          1.3
+        ],
+        "probabilities": {
+          "home": 0.51,
+          "draw": 0.236,
+          "away": 0.254
+        },
+        "raw_probabilities": {
+          "home": 0.464,
+          "draw": 0.238,
+          "away": 0.297
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.529,
+          "draw": 0.235,
+          "away": 0.236,
+          "weight": 0.7
+        },
+        "home_advantage": 0.176,
+        "trained_on_matches": 631,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: 1. FSV Mainz 05 gegen Eintracht Frankfurt - Bundesliga",
+              "description": "3. Spieltag: Anpfiff des Spiels ist am 12.09.2026 um 15:30 Uhr. Eintracht Frankfurt spielt in Mainz.",
+              "published": "2026-09-12T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Keine Nervosität: Wie Virsinger mit Hoffenheims Fehlstart umgeht",
+              "description": "Die TSG Hoffenheim befindet sich nach drei Niederlagen weiter in der Findungsphase. Nun warten ausgerechnet die schweren Aufgaben bei Eintracht Frankfurt und gegen den VfL Wolfsburg.",
+              "published": "2026-09-12T08:04:35+00:00",
+              "source": "kicker",
+              "source_label": "Kicker"
+            },
+            {
+              "title": "Eintracht Frankfurt: Nach Hütters Rüge: ER spricht wie ein Kapitän",
+              "description": "Eintracht Frankfurt, erste Bundesliga, Krösche Markus, Bundesliga, Sport - Leuchtturm Zentral, Hütter Adi, Burkardt Jonathan",
+              "published": "2026-09-12T04:00:55+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-nach-huetters-ruege-er-spricht-wie-ein-kapitaen-6aa3dfdf181cb962d488bdb4"
+            },
+            {
+              "title": "Bundesliga: BVB mit Sturm-Revolution! Bayern-Star zurück! Infos und Aufstellungen",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, TorAlarm Top-News, Bundesliga, 1. FC Köln, 1. FC Union Berlin, RB Leipzig, Werder Bremen, FC Augsburg 1907, Eintracht Frankfurt, VfB Stuttgart, Hamburger SV, Mainz 05, Borussia Mönchengladbach, SC Freiburg, Kompany Vincent, Spieltag 3, SC Paderborn 07, SV Elversberg, FC Schalke, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-09-12T02:36:09+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-bvb-mit-sturm-revolution-bayern-star-zurueck-infos-und-aufstellungen-6aa3bd6f56f343d9f4dd1765"
+            },
+            {
+              "title": "Eintracht Frankfurt: So blickt Sebastian Rode auf die neue Eintracht",
+              "description": "Eintracht Frankfurt, erste Bundesliga, Krösche Markus, Bundesliga, Sport - Leuchtturm Zentral, Hütter Adi, Rode Sebastian",
+              "published": "2026-09-11T22:19:57+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-so-blickt-sebastian-rode-auf-die-neue-eintracht-6aa42412240b302c8a841ad7"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 9
+            }
+          ],
+          "total_matches": 11,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1 – Mainz geht als klarer Favorit ins Duell, die Chance auf einen Heimsieg liegt bei rund 51 %. Die Mainzer dürfen mit fast zwei Treffern rechnen, während die Frankfurter nur um die eine Marke herum schießen. Trotzdem bleibt das Aufeinandertreffen eine enge Kiste, in der jedes Zuspiel zählen kann. Wer die Abnutzung im Mittelfeld besser übersteht, hat am Ende das letzte Lächeln.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "1. FSV Mainz 05 gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.75,
+        "model_probability": 0.4643,
+        "implied_probability": 0.5714,
+        "edge": -0.1875,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "1. FSV Mainz 05 gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.75,
+          "model_probability": 0.4643,
+          "implied_probability": 0.5714,
+          "edge": -0.1875,
+          "expected_value_eur": -2.16,
+          "stake_eur": 11.53,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "fff0f695d64a2262147de5bd1af0d382"
     },
     {
       "home": "Borussia Dortmund",
       "away": "SC Paderborn 07",
       "kickoff_utc": "2026-09-12T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "9b91629b295f42b55dafde305f4c3604dcd09774ce52ee5bc3ba883670022576",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        0
+      ],
+      "advance_tip": null,
+      "expected_points": 1.828,
+      "factors": {
+        "expected_goals": [
+          1.85,
+          0.51
+        ],
+        "probabilities": {
+          "home": 0.696,
+          "draw": 0.216,
+          "away": 0.087
+        },
+        "raw_probabilities": {
+          "home": 0.55,
+          "draw": 0.376,
+          "away": 0.075
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.759,
+          "draw": 0.148,
+          "away": 0.093,
+          "weight": 0.7
+        },
+        "home_advantage": 0.176,
+        "trained_on_matches": 631,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Borussia Dortmund gegen SC Paderborn 07 - Bundesliga",
+              "description": "3. Spieltag: Anpfiff des Spiels ist am 12.09.2026 um 15:30 Uhr. SC Paderborn 07 spielt in Dortmund.",
+              "published": "2026-09-12T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Bundesliga: BVB mit Sturm-Revolution! Bayern-Star zurück! Infos und Aufstellungen",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, TorAlarm Top-News, Bundesliga, 1. FC Köln, 1. FC Union Berlin, RB Leipzig, Werder Bremen, FC Augsburg 1907, Eintracht Frankfurt, VfB Stuttgart, Hamburger SV, Mainz 05, Borussia Mönchengladbach, SC Freiburg, Kompany Vincent, Spieltag 3, SC Paderborn 07, SV Elversberg, FC Schalke, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-09-12T02:36:09+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-bvb-mit-sturm-revolution-bayern-star-zurueck-infos-und-aufstellungen-6aa3bd6f56f343d9f4dd1765"
+            },
+            {
+              "title": "„Stammplatz“ vom 10. September: Schalke feiert ersten Bundesliga-Sieg",
+              "description": "Bundesliga, erste Bundesliga, zweite Bundesliga, Stammplatz Video, FC Schalke, 1. FC Union Berlin, 1.FC Nürnberg, Klopp Jürgen, Hannover 96, Karius Loris, Olise Michael, FC Bayern München, Borussia Dortmund",
+              "published": "2026-09-12T01:39:06+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/stammplatz-vom-10-september-schalke-feiert-ersten-bundesliga-sieg-6aa48581240b302c8a841f0b"
+            },
+            {
+              "title": "„Ist ein anderer Fußballspieler“: Reif schwärmt von Guirassy",
+              "description": "Reif ist live, clipout, Bundesliga, erste Bundesliga, Borussia Dortmund, Guirassy Sehrou, Champions League",
+              "published": "2026-09-11T20:23:30+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/es-geht-um-bestimmten-zeitpunkt-spannende-beobachtung-bei-guirassy-6aa3a856181cb962d488b75f"
+            },
+            {
+              "title": "„Wieder einer, der mit 16 Jahren angefangen hat“: Spannende Reif-Aussagen zum BVB-Griechen",
+              "description": "Hochkant BILD-Video intern, Bundesliga, erste Bundesliga, Karetsas Konstantinos, Borussia Dortmund, Musiala Jamal, Reif ist live, clipout",
+              "published": "2026-09-11T14:00:52+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/wieder-einer-der-mit-16-jahren-angefangen-hat-spannende-reif-aussagen-zum-bvb-griechen-6aa3c058181cb962d488b9a7"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 16
+            }
+          ],
+          "total_matches": 17,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1 : 0 – Dortmund geht als klarer Favorit ins Duell, die heimische Power lässt Paderborn kaum eine Chance. Mit fast zwei Toren im Visier und einer 70 %‑Siegquote fühlen sich die Dortmunder wie im eigenen Garten, während die Paderborner im Abnutzungskampf eher die Rolle des Unterlegenen übernehmen. Ein knapper Sieg ist zu erwarten, aber das Heimteam hat das Ruder fest in der Hand.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          0
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.25,
+        "model_probability": 0.5496,
+        "implied_probability": 0.8,
+        "edge": -0.313,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Borussia Dortmund gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.25,
+          "model_probability": 0.5496,
+          "implied_probability": 0.8,
+          "edge": -0.313,
+          "expected_value_eur": -5.13,
+          "stake_eur": 16.4,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "ed75b55033fdd1dc34135da0d6174eb3"
     },
     {
       "home": "FC Augsburg",
       "away": "Bayer 04 Leverkusen",
       "kickoff_utc": "2026-09-12T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "f32173d185435089a4f75cc2911c73c6e8c23d1650bc0ff73184814d55a4b340",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.334,
+      "factors": {
+        "expected_goals": [
+          1.27,
+          1.87
+        ],
+        "probabilities": {
+          "home": 0.252,
+          "draw": 0.238,
+          "away": 0.51
+        },
+        "raw_probabilities": {
+          "home": 0.25,
+          "draw": 0.244,
+          "away": 0.507
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.253,
+          "draw": 0.235,
+          "away": 0.511,
+          "weight": 0.7
+        },
+        "home_advantage": 0.176,
+        "trained_on_matches": 631,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: FC Augsburg gegen Bayer Leverkusen - Bundesliga",
+              "description": "3. Spieltag: Anpfiff des Spiels ist am 12.09.2026 um 15:30 Uhr. Bayer Leverkusen spielt in Augsburg.",
+              "published": "2026-09-12T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Bundesliga: BVB mit Sturm-Revolution! Bayern-Star zurück! Infos und Aufstellungen",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, TorAlarm Top-News, Bundesliga, 1. FC Köln, 1. FC Union Berlin, RB Leipzig, Werder Bremen, FC Augsburg 1907, Eintracht Frankfurt, VfB Stuttgart, Hamburger SV, Mainz 05, Borussia Mönchengladbach, SC Freiburg, Kompany Vincent, Spieltag 3, SC Paderborn 07, SV Elversberg, FC Schalke, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-09-12T02:36:09+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-bvb-mit-sturm-revolution-bayern-star-zurueck-infos-und-aufstellungen-6aa3bd6f56f343d9f4dd1765"
+            },
+            {
+              "title": "Anton Kade: Manuel Baum gibt Verletzungs-Update",
+              "description": "FC Augsburg 1907, Bundesliga bei BiLD, Fußball, Manuel Baum, Bundesliga, Hochkant BILD-Video intern, Pressekonferenz",
+              "published": "2026-09-11T12:00:51+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/anton-kade-manuel-baum-gibt-verletzungs-update-6aa3b5c5181cb962d488b8ba"
+            },
+            {
+              "title": "Bundesliga: Fällt der Shooting-Star erneut aus – Sorgen um dieses Klopp-Juwel",
+              "description": "FC Augsburg 1907, erste Bundesliga, Manuel Baum, DFB, Klopp Jürgen, Sport - Leuchtturm München",
+              "published": "2026-09-10T14:34:57+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-faellt-der-shooting-star-erneut-aus-sorgen-um-dieses-klopp-juwel-6aa26543181cb962d488a492"
+            },
+            {
+              "title": "Bayer 04 Leverkusen: 32-Millionen-Mann wieder voll im Bayer-Training",
+              "description": "Bayer Leverkusen, Hjulmand Kasper, Rolfes Simon, spielertransfer, Sport – Leuchtturm Essen, FC Augsburg 1907, Bundesliga, Hofmann, Jonas",
+              "published": "2026-09-10T12:53:43+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bayer-04-leverkusen-32-millionen-mann-wieder-voll-im-bayer-training-6aa25af1994a2b48a93c19c1"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 4
+            }
+          ],
+          "total_matches": 5,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1:2 – Leverkusen fährt im Auswärtspaket klar die Nase vorn. Die Gäste kommen mit fast doppelt so vielen Treffern wie die Augsburger ins Spiel, also klarer Favorit, doch Augsburg hat zu Hause noch ein bisschen Biss. Es wird ein offenes Duell, bei dem die Bayernen das Torfestival anführen, während die Augsburger hoffen, die Abnutzung des Platzes zu ihrem Vorteil zu nutzen. Wer das Ergebnis richtig tippt, darf sich schon jetzt ein gutes Stück vom Kicktipp‑Pool sichern.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.85,
+        "model_probability": 0.5068,
+        "implied_probability": 0.5405,
+        "edge": -0.0624,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "Bayer 04 Leverkusen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.85,
+          "model_probability": 0.5068,
+          "implied_probability": 0.5405,
+          "edge": -0.0624,
+          "expected_value_eur": -0.87,
+          "stake_eur": 13.96,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "df30eb5a947fcdc43f3785474d936eb3"
     },
     {
       "home": "SC Freiburg",
       "away": "Borussia Mönchengladbach",
       "kickoff_utc": "2026-09-12T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "40f2528e343d0aa6fefaf913544ab2e2c94751fa491905e6fbb9fe751ae38f61",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.402,
+      "factors": {
+        "expected_goals": [
+          1.88,
+          1.16
+        ],
+        "probabilities": {
+          "home": 0.539,
+          "draw": 0.236,
+          "away": 0.224
+        },
+        "raw_probabilities": {
+          "home": 0.473,
+          "draw": 0.252,
+          "away": 0.275
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.568,
+          "draw": 0.23,
+          "away": 0.203,
+          "weight": 0.7
+        },
+        "home_advantage": 0.176,
+        "trained_on_matches": 631,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: SC Freiburg gegen Borussia Mönchengladbach - Bundesliga",
+              "description": "3. Spieltag: Anpfiff des Spiels ist am 12.09.2026 um 15:30 Uhr. Borussia Mönchengladbach spielt in Freiburg.",
+              "published": "2026-09-12T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "10 geholt, 5 verletzt: Schröder verzweifelt an seinen Neuzugängen",
+              "description": "erste Bundesliga, Borussia Mönchengladbach, Polanski Eugen, Schröder Rouven, Virkus Roland, Sport – Leuchtturm Essen",
+              "published": "2026-09-12T11:06:53+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/10-geholt-5-verletzt-schroeder-verzweifelt-an-seinen-neuzugaengen-6aa3a919181cb962d488b778"
+            },
+            {
+              "title": "Borussia Mönchengladbach: Nächstes Ex-Fohlen will Gladbach ärgern",
+              "description": "Borussia Mönchengladbach, erste Bundesliga, Sport – Leuchtturm Essen, Engelhardt Yannik, SC Freiburg, Kleindienst Tim",
+              "published": "2026-09-12T06:01:56+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/borussia-moenchengladbach-naechstes-ex-fohlen-will-gladbach-aergern-6aa40172181cb962d488c0aa"
+            },
+            {
+              "title": "Bundesliga: BVB mit Sturm-Revolution! Bayern-Star zurück! Infos und Aufstellungen",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, TorAlarm Top-News, Bundesliga, 1. FC Köln, 1. FC Union Berlin, RB Leipzig, Werder Bremen, FC Augsburg 1907, Eintracht Frankfurt, VfB Stuttgart, Hamburger SV, Mainz 05, Borussia Mönchengladbach, SC Freiburg, Kompany Vincent, Spieltag 3, SC Paderborn 07, SV Elversberg, FC Schalke, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-09-12T02:36:09+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-bvb-mit-sturm-revolution-bayern-star-zurueck-infos-und-aufstellungen-6aa3bd6f56f343d9f4dd1765"
+            },
+            {
+              "title": "Gegen den Angstgegner und die Angst vorm Abstiegskampf",
+              "description": "Für Borussia Mönchengladbach läuft es bisher in der Bundesliga nicht - und jetzt kommt es zum Duell, in dem der Klub für gewöhnlich nichts holt.",
+              "published": "2026-09-11T18:45:21+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 12
+            }
+          ],
+          "total_matches": 14,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1 – Freiburg geht als klarer Favorit ins Spiel, das Torfestival verspricht mindestens drei Treffer. Mit fast zwei Toren pro Spiel im Visier und Gladbach nur knapp über einem Treffer wird das Duell eher ein Abnutzungskampf als ein offenes Torfest, und die Buchmacher geben dem Breisgau‑Club sogar 57 % auf den Heimsieg. Wer am Ende die Nerven behält, darf sich über das 2‑1‑Ergebnis freuen, sonst wird’s schnell zur engen Kiste.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SC Freiburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.65,
+        "model_probability": 0.4733,
+        "implied_probability": 0.6061,
+        "edge": -0.2191,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "SC Freiburg gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.65,
+          "model_probability": 0.4733,
+          "implied_probability": 0.6061,
+          "edge": -0.2191,
+          "expected_value_eur": -2.64,
+          "stake_eur": 12.04,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "7f55a35bb1c7fb149924e233fedea14b"
     },
     {
       "home": "TSG Hoffenheim",
       "away": "VfB Stuttgart",
       "kickoff_utc": "2026-09-12T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "b2938cd6fb4f63b3f4fd7e3b4ab635a84e966721d50128807e8244db138967c7",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.057,
+      "factors": {
+        "expected_goals": [
+          1.81,
+          1.76
+        ],
+        "probabilities": {
+          "home": 0.396,
+          "draw": 0.231,
+          "away": 0.373
+        },
+        "raw_probabilities": {
+          "home": 0.337,
+          "draw": 0.219,
+          "away": 0.444
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.421,
+          "draw": 0.236,
+          "away": 0.343,
+          "weight": 0.7
+        },
+        "home_advantage": 0.176,
+        "trained_on_matches": 631,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: TSG Hoffenheim gegen VfB Stuttgart - Bundesliga",
+              "description": "3. Spieltag: Anpfiff des Spiels ist am 12.09.2026 um 15:30 Uhr. VfB Stuttgart spielt in Sinsheim.",
+              "published": "2026-09-12T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Keine Nervosität: Wie Virsinger mit Hoffenheims Fehlstart umgeht",
+              "description": "Die TSG Hoffenheim befindet sich nach drei Niederlagen weiter in der Findungsphase. Nun warten ausgerechnet die schweren Aufgaben bei Eintracht Frankfurt und gegen den VfL Wolfsburg.",
+              "published": "2026-09-12T08:04:35+00:00",
+              "source": "kicker",
+              "source_label": "Kicker"
+            },
+            {
+              "title": "Ilzer: \"Prömel soll eine eklige TSG spüren\"",
+              "description": "Hoffenheims Trainer Christian Ilzer ist mit seiner nach zwei unnötigen Niederlagen verunsicherten Mannschaft gegen den VfB Stuttgart gefordert. Wie der Coach einen kompletten Fehlstart in die Bundesligasaison verhindern will.",
+              "published": "2026-09-12T05:20:22+00:00",
+              "source": "kicker",
+              "source_label": "Kicker"
+            },
+            {
+              "title": "Bundesliga: BVB mit Sturm-Revolution! Bayern-Star zurück! Infos und Aufstellungen",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, TorAlarm Top-News, Bundesliga, 1. FC Köln, 1. FC Union Berlin, RB Leipzig, Werder Bremen, FC Augsburg 1907, Eintracht Frankfurt, VfB Stuttgart, Hamburger SV, Mainz 05, Borussia Mönchengladbach, SC Freiburg, Kompany Vincent, Spieltag 3, SC Paderborn 07, SV Elversberg, FC Schalke, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-09-12T02:36:09+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-bvb-mit-sturm-revolution-bayern-star-zurueck-infos-und-aufstellungen-6aa3bd6f56f343d9f4dd1765"
+            },
+            {
+              "title": "VfB Stuttgart: Vorne hui, hinten pfui? Abwehralarm beim VfB!",
+              "description": "VfB Stuttgart, Fußball, Hoeneß Sebastian, Wohlgemuth Fabian, erste Bundesliga, Wehrle Alexander, Sport - Leuchtturm München, Champions League, Bundesliga",
+              "published": "2026-09-11T15:08:50+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-vorne-hui-hinten-pfui-abwehralarm-beim-vfb-6aa3d8630f417ae59102e92b"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 12
+            }
+          ],
+          "total_matches": 17,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1 für die Hoffenheim. Die Heimmannschaft geht mit leichtem Vorteil ins Spiel, doch Stuttgart lässt sich nicht so leicht einschüchtern – ein Duell auf Augenhöhe. Die Buchmacher sehen die Heimmannschaft mit 42 % Siegchance, Stuttgart liegt bei 34 %. Es wird ein offenes Torfestival, bei dem die Abnutzung im Mittelfeld das Zünglein der Waage sein könnte.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "TSG Hoffenheim gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.3,
+        "model_probability": 0.3371,
+        "implied_probability": 0.4348,
+        "edge": -0.2247,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "TSG Hoffenheim gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 2.3,
+          "model_probability": 0.3371,
+          "implied_probability": 0.4348,
+          "edge": -0.2247,
+          "expected_value_eur": -1.12,
+          "stake_eur": 5.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "8338401665bc52dd9a927e6447c63f5a"
     },
     {
       "home": "1. FC Köln",
