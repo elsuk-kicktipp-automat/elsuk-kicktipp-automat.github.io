@@ -4,28 +4,28 @@
   "matchday": 3,
   "stage": "3. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 4,
-  "matches_scored": 5,
-  "matches_open": 2,
+  "points_total": 8,
+  "matches_scored": 6,
+  "matches_open": 1,
   "hits": {
-    "exact": 0,
+    "exact": 1,
     "goal_diff": 0,
     "tendency": 2,
     "miss": 3
   },
   "shadow_points": {
     "most_probable": 4,
-    "elo_favorite": 4,
+    "elo_favorite": 8,
     "always_draw": 2,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 5,
-    "elo_favorite": 5,
-    "always_draw": 5,
+    "most_probable": 6,
+    "elo_favorite": 6,
+    "always_draw": 6,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.6089,
+  "brier_avg": 0.6003,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 67.32,
-      "payout_total_eur": 40.37,
-      "profit_total_eur": -26.95,
-      "roi": -0.4003,
-      "bets_scored": 5,
-      "bets_won": 2,
+      "stake_total_eur": 72.32,
+      "payout_total_eur": 51.87,
+      "profit_total_eur": -20.45,
+      "roi": -0.2828,
+      "bets_scored": 6,
+      "bets_won": 3,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -328,7 +328,56 @@
       "home": "TSG Hoffenheim",
       "away": "VfB Stuttgart",
       "kickoff_utc": "2026-09-12T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        2,
+        1
+      ],
+      "points": 4,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 4,
+        "always_draw": 0
+      },
+      "brier": 0.5573,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "TSG Hoffenheim gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.3,
+        "model_probability": 0.3371,
+        "implied_probability": 0.4348,
+        "edge": -0.2247,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 5.0,
+          "payout_eur": 11.5,
+          "profit_eur": 6.5
+        }
+      }
     },
     {
       "home": "1. FC Köln",
