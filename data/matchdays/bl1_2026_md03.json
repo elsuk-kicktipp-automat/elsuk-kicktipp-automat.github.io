@@ -1364,9 +1364,170 @@
       "home": "SV 07 Elversberg",
       "away": "FC Bayern München",
       "kickoff_utc": "2026-09-13T15:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "de988a05f2c1bcbd5d7c1b2d5ab704f29d73b857549fd9397a45afe47f370e5b",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        3
+      ],
+      "advance_tip": null,
+      "expected_points": 1.884,
+      "factors": {
+        "expected_goals": [
+          1.33,
+          3.52
+        ],
+        "probabilities": {
+          "home": 0.084,
+          "draw": 0.11,
+          "away": 0.806
+        },
+        "raw_probabilities": {
+          "home": 0.216,
+          "draw": 0.152,
+          "away": 0.633
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.063,
+          "draw": 0.104,
+          "away": 0.833,
+          "weight": 0.864
+        },
+        "home_advantage": 0.185,
+        "trained_on_matches": 637,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: SV 07 Elversberg gegen Bayern München - Bundesliga",
+              "description": "3. Spieltag: Anpfiff des Spiels ist am 13.09.2026 um 17:30 Uhr. Bayern München spielt in Elversberg.",
+              "published": "2026-09-13T17:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Nach Knie-Schock: Bayern-Coach erklärt: So steht es um Oberdorf",
+              "description": "Frauen Fußball, FC Bayern München, Fußball, DFB Frauen Nationalmannschaft, Frauen Nationalmannschaften, Sport - Leuchtturm München, Sport-Tag im Ticker",
+              "published": "2026-09-13T12:05:04+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/nach-knie-schock-bayern-coach-erklaert-so-steht-es-um-oberdorf-6aa662d4240b302c8a843110"
+            },
+            {
+              "title": "BVB-Boss Ricken über Bayern: „Ich hoffe, sie sind ein bisschen genervt!“",
+              "description": "Clipout TV, clipout, Bundesliga, erste Bundesliga, Lage der Liga, Ricken Lars, Borussia Dortmund, FC Bayern München",
+              "published": "2026-09-13T11:16:17+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bvb-boss-ricken-ueber-bayern-ich-hoffe-sie-sind-ein-bisschen-genervt-6aa66146240b302c8a8430f5"
+            },
+            {
+              "title": "FC Bayern: Dreimal Note 5 für Luis Díaz – Das sagt Vincent Kompany zum Tor-Tief des Stars!",
+              "description": "FC Bayern München, Kompany Vincent, erste Bundesliga, Harry Kane, Fußball, Sport - Leuchtturm München, TorAlarm Top-News, Champions League, DFB Pokal",
+              "published": "2026-09-13T10:11:17+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-dreimal-note-5-fuer-luis-diaz-das-sagt-vincent-kompany-zum-tor-tief-des-stars-6aa58f1b9ed7514977b51864"
+            },
+            {
+              "title": "FC Bayern: Flug zum Elversberg-Spiel nach Luxemburg – Was hinter der Reise-Route steckt!",
+              "description": "FC Bayern München, erste Bundesliga, Kompany Vincent, Champions League, Fußball, SV Elversberg, TorAlarm Top-News, Sport - Leuchtturm München, Harry Kane, Flug",
+              "published": "2026-09-13T10:03:47+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-flug-zum-elversberg-spiel-nach-luxemburg-was-hinter-der-reise-route-steckt-6aa522eccdb463e19b934368"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 23
+            }
+          ],
+          "total_matches": 25,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1:3 – das ist das Ergebnis, das ich sehe. Bayern kommt mit 81 % Siegchance als klarer Favorit und verspricht ein Torfestival auf der Gästeseite. Elversberg muss sich auf einen harten Abnutzungskampf einstellen, die Chancen, das Spiel zu drehen, sind dünn. Wer hier ein enges Duell erwartet, sollte besser das Glas heben, bevor das Ergebnis steht.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          3
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "FC Bayern München gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.14,
+        "model_probability": 0.6325,
+        "implied_probability": 0.8772,
+        "edge": -0.2789,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "FC Bayern München gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.14,
+          "model_probability": 0.6325,
+          "implied_probability": 0.8772,
+          "edge": -0.2789,
+          "expected_value_eur": -5.9,
+          "stake_eur": 21.14,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "b8670e6a8b6af0ca5738b4ee50b59769"
     }
   ]
 }
