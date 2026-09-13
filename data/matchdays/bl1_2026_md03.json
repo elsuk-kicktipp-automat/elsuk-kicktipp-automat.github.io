@@ -1189,6 +1189,14 @@
         }
       },
       "salt": "a69e0f2cc0a56ff027477a5299978905"
+    },
+    {
+      "home": "RB Leipzig",
+      "away": "Hamburger SV",
+      "kickoff_utc": "2026-09-13T13:30:00Z",
+      "status": "sealed",
+      "hash": "f0edf728e16cd2512afc0b489e96b00591e9343ea13a4a75ef475dbad3cb820e",
+      "paper_bet_status": "sealed"
     }
   ]
 }
