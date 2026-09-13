@@ -1197,6 +1197,14 @@
       "status": "sealed",
       "hash": "f0edf728e16cd2512afc0b489e96b00591e9343ea13a4a75ef475dbad3cb820e",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "SV 07 Elversberg",
+      "away": "FC Bayern München",
+      "kickoff_utc": "2026-09-13T15:30:00Z",
+      "status": "sealed",
+      "hash": "de988a05f2c1bcbd5d7c1b2d5ab704f29d73b857549fd9397a45afe47f370e5b",
+      "paper_bet_status": "sealed"
     }
   ]
 }
