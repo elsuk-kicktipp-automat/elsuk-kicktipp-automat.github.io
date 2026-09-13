@@ -4,28 +4,28 @@
   "matchday": 3,
   "stage": "3. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 10,
-  "matches_scored": 8,
-  "matches_open": 1,
+  "points_total": 12,
+  "matches_scored": 9,
+  "matches_open": 0,
   "hits": {
     "exact": 1,
     "goal_diff": 0,
-    "tendency": 3,
+    "tendency": 4,
     "miss": 4
   },
   "shadow_points": {
-    "most_probable": 10,
+    "most_probable": 12,
     "elo_favorite": 10,
     "always_draw": 6,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 8,
-    "elo_favorite": 8,
-    "always_draw": 8,
+    "most_probable": 9,
+    "elo_favorite": 9,
+    "always_draw": 9,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.5738,
+  "brier_avg": 0.5164,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 103.98,
-      "payout_total_eur": 79.77,
-      "profit_total_eur": -24.21,
-      "roi": -0.2328,
-      "bets_scored": 8,
-      "bets_won": 4,
+      "stake_total_eur": 125.12,
+      "payout_total_eur": 103.87,
+      "profit_total_eur": -21.25,
+      "roi": -0.1698,
+      "bets_scored": 9,
+      "bets_won": 5,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -493,7 +493,56 @@
       "home": "SV 07 Elversberg",
       "away": "FC Bayern München",
       "kickoff_utc": "2026-09-13T15:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        3
+      ],
+      "result": [
+        1,
+        2
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.0568,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "FC Bayern München gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.14,
+        "model_probability": 0.6325,
+        "implied_probability": 0.8772,
+        "edge": -0.2789,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 21.14,
+          "payout_eur": 24.1,
+          "profit_eur": 2.96
+        }
+      }
     }
   ]
 }
