@@ -1194,9 +1194,171 @@
       "home": "RB Leipzig",
       "away": "Hamburger SV",
       "kickoff_utc": "2026-09-13T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "f0edf728e16cd2512afc0b489e96b00591e9343ea13a4a75ef475dbad3cb820e",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.703,
+      "factors": {
+        "expected_goals": [
+          2.56,
+          1.07
+        ],
+        "probabilities": {
+          "home": 0.701,
+          "draw": 0.173,
+          "away": 0.127
+        },
+        "raw_probabilities": {
+          "home": 0.632,
+          "draw": 0.215,
+          "away": 0.152
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.711,
+          "draw": 0.166,
+          "away": 0.123,
+          "weight": 0.864
+        },
+        "home_advantage": 0.185,
+        "trained_on_matches": 637,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "RB Leipzig: Vor Druck-Spiel gegen den HSV! So kämpft Martin Demichelis für die Wende",
+              "description": "RB Leipzig, erste Bundesliga, Demichelis Martin, Sport-Tag im Ticker, spielertransfer, Sport - Leuchtturm Leipzig, Hamburger SV",
+              "published": "2026-09-13T11:18:56+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/rb-leipzig-vor-druck-spiel-gegen-den-hsv-so-kaempft-martin-demichelis-fuer-die-wende-6aa56fa6181cb962d488d124"
+            },
+            {
+              "title": "RB Leipzig: „Ich kenne die Regeln!“ Wie Martin Demichelis mit dem Druck umgeht",
+              "description": "RB Leipzig, erste Bundesliga, Sport-Tag im Ticker, Demichelis Martin, Schäfer Marcel, Sport - Leuchtturm Leipzig, Hamburger SV",
+              "published": "2026-09-12T17:26:28+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/rb-leipzig-ich-kenne-die-regeln-wie-martin-demichelis-mit-dem-druck-umgeht-6aa5116c579bc99aee516982"
+            },
+            {
+              "title": "„Er kann es kaum noch erwarten!“: Vuskovic-Comeback beim HSV",
+              "description": "Hochkant BILD-Video intern, erste Bundesliga, Bundesliga, Hamburger SV, Vuskovic Mario, Polzin Merlin, comeback",
+              "published": "2026-09-12T14:00:58+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/er-kann-es-kaum-noch-erwarten-vuskovic-comeback-beim-hsv-6aa45744240b302c8a841d7a"
+            },
+            {
+              "title": "Bundesliga: Gegen den HSV! Ouédraogo und Maksimovic sind RB Leipzigs Hoffnung",
+              "description": "RB Leipzig, erste Bundesliga, Sport-Tag im Ticker, Fußball, spielertransfer, Sport - Leuchtturm Leipzig, Leipzig, Demichelis Martin, Schäfer Marcel, Como, Champions League, Ouedraogo Assan",
+              "published": "2026-09-12T07:54:31+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-sonntag-gegen-den-hsv-ouedraogo-und-maksimovic-sind-rb-leipzigs-hoffnung-6aa3cba60f417ae59102e733"
+            },
+            {
+              "title": "HSV: Vieira-Poker vor Duell in Leipzig – Der Trainer lobt, aber...",
+              "description": "Polzin Merlin, Hamburger SV, erste Bundesliga, Vieira Fabio, Costa Claus, Poulsen Yussuf, Sport - Leuchtturm Hamburg",
+              "published": "2026-09-12T06:30:52+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-vieira-poker-vor-duell-in-leipzig-der-trainer-lobt-aber-6aa3f9d10f417ae59102ec45"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 12
+            }
+          ],
+          "total_matches": 13,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1 – das ist mein Tipp. Leipzig geht mit klarem Vorteil ins Spiel, die Zahlen sprechen von 70 % Heimsieg und einem Torvorsprung von rund 1,5 Tor, also klarer Favorit. Trotzdem darf der HSV nicht unterschätzt werden, er hat genug Punch für ein enges Duell, das schnell zu einem Torfestival werden kann. Auf dem Platz wird's ein Abnutzungskampf, bei dem Leipzig die Oberhand behalten sollte.",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "RB Leipzig gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.32,
+        "model_probability": 0.6324,
+        "implied_probability": 0.7576,
+        "edge": -0.1652,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "RB Leipzig gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.32,
+          "model_probability": 0.6324,
+          "implied_probability": 0.7576,
+          "edge": -0.1652,
+          "expected_value_eur": -3.49,
+          "stake_eur": 21.14,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "b522471b535cfcc93164d0c4819f5f71"
     },
     {
       "home": "SV 07 Elversberg",
