@@ -16,9 +16,170 @@
       "home": "FC Bayern München",
       "away": "1. FC Union Berlin",
       "kickoff_utc": "2026-09-18T18:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "454ca64f6b2e6f17b9fb59dec411d77baaec8b4e053ca3932d956c800607f750",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        4,
+        0
+      ],
+      "advance_tip": null,
+      "expected_points": 2.125,
+      "factors": {
+        "expected_goals": [
+          4.03,
+          0.97
+        ],
+        "probabilities": {
+          "home": 0.916,
+          "draw": 0.056,
+          "away": 0.028
+        },
+        "raw_probabilities": {
+          "home": 0.887,
+          "draw": 0.079,
+          "away": 0.034
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.92,
+          "draw": 0.053,
+          "away": 0.027,
+          "weight": 0.87
+        },
+        "home_advantage": 0.192,
+        "trained_on_matches": 639,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "FC Bayern: Lang verletzter Star vor Comeback – alle Infos zum 4. Spieltag",
+              "description": "Fußball, erste Bundesliga, SC Freiburg, Borussia Dortmund, FC Augsburg 1907, FC Bayern München, RB Leipzig, SV Elversberg, Bayer Leverkusen, Mainz 05, Eintracht Frankfurt, Werder Bremen, FC Schalke, 1. FC Köln, 1899 Hoffenheim, VfB Stuttgart, SC Paderborn 07, 1. FC Union Berlin, Borussia Mönchengladbach, Hamburger SV",
+              "published": "2026-09-18T16:24:28+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-lang-verletzter-star-vor-comeback-alle-infos-zum-4-spieltag-6aace77e7a2a14cb01bece8f"
+            },
+            {
+              "title": "Gespräche im Herbst: Verlängert dieser Bayern-Star plötzlich doch?",
+              "description": "Hochkant BILD-Video intern, Bayern-Insider, erste Bundesliga, Bundesliga, FC Bayern München, clipout, Vertragsverlängerung",
+              "published": "2026-09-18T15:58:33+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/gespraeche-im-herbst-verlaengert-dieser-bayern-star-ploetzlich-doch-6aac73cabaad3fac16cdf0c7"
+            },
+            {
+              "title": "Kein FC Bayern während der Wiesn: Für Kompany ist es \"perfekt\"",
+              "description": "Zum ersten Mal in der Geschichte bestreitet der FC Bayern München kein Pflichtspiel während des Oktoberfests. Für Trainer Vincent Kompany kein allzu großer Verlust, der Belgier hätte die Länderspielpause nicht besser planen können.",
+              "published": "2026-09-18T15:53:37+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "FC Bayern: Kane macht Eigenwerbung für Ballon d’Or – Tor-Vergleich mit Messi und Ronaldo!",
+              "description": "FC Bayern München, Harry Kane, FIFA Ballon d'Or, Fußball, erste Bundesliga, TorAlarm Top-News, Sport - Leuchtturm München, Hoeneß Uli, Champions League, Messi Lionel, Ronaldo Cristiano",
+              "published": "2026-09-18T15:24:52+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-kane-macht-eigenwerbung-fuer-ballon-dor-tor-vergleich-mit-messi-und-ronaldo-6aad1a377a2a14cb01bed5f0"
+            },
+            {
+              "title": "FC Bayern: Alle Stars von Vincent Kompany fit – Gegen Union Berlin startet der große Startelf-Kampf!",
+              "description": "erste Bundesliga, FC Bayern München, Kompany Vincent, Champions League, Harry Kane, Brown Nathaniel, Upamecano Dayot, Karl Lennart, Bischof Tom, Davies Alphonso, Stanisic Josip, Pavlovic Aleksandar, Laimer Konrad, Saibari Ismael, Gnabry Serge, Musiala Jamal, Olise Michael, Tah Jonathan Glao, Sport - Leuchtturm München, TorAlarm Top-News",
+              "published": "2026-09-18T15:01:40+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-alle-stars-von-vincent-kompany-fit-gegen-union-berlin-startet-der-grosse-startelf-kampf-6a9fd1ec54ff84194d4ca9ff"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 32
+            }
+          ],
+          "total_matches": 35,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 4 : 0 – das ist das Ergebnis, das man von der Allianz erwarten darf. Bayern ist mit einer 92 %igen Chance auf den Heimsieg und einem erwarteten Torrausch von über vier Treffern klarer Favorit. Union Berlin bleibt im Abnutzungskampf, weil ein Unentschieden kaum über 5 % liegt. Ein echtes Torfestival für die Bayern, das Union kaum eine Chance lässt.",
+      "shadow_tips": {
+        "most_probable": [
+          4,
+          0
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "FC Bayern München gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.03,
+        "model_probability": 0.8868,
+        "implied_probability": 0.9709,
+        "edge": -0.0866,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "FC Bayern München gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.03,
+          "model_probability": 0.8868,
+          "implied_probability": 0.9709,
+          "edge": -0.0866,
+          "expected_value_eur": -2.17,
+          "stake_eur": 25.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "7bfbc24e66a0bc54056869f1c2022000"
     }
   ]
 }
