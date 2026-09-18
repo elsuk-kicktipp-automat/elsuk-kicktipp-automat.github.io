@@ -1,0 +1,24 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "matchday": 4,
+  "stage": "4. Spieltag",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-09-18T14:30:55Z",
+  "matches": [
+    {
+      "home": "FC Bayern München",
+      "away": "1. FC Union Berlin",
+      "kickoff_utc": "2026-09-18T18:30:00Z",
+      "status": "sealed",
+      "hash": "454ca64f6b2e6f17b9fb59dec411d77baaec8b4e053ca3932d956c800607f750",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}
