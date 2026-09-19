@@ -855,9 +855,169 @@
       "home": "VfB Stuttgart",
       "away": "Borussia Dortmund",
       "kickoff_utc": "2026-09-19T16:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "61e2fb9f57226261d5ba202b5ec385a8a83d6a65d49ca62fce4485c57e1c8b09",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.041,
+      "factors": {
+        "expected_goals": [
+          1.62,
+          1.58
+        ],
+        "probabilities": {
+          "home": 0.384,
+          "draw": 0.249,
+          "away": 0.367
+        },
+        "raw_probabilities": {
+          "home": 0.345,
+          "draw": 0.24,
+          "away": 0.416
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.39,
+          "draw": 0.25,
+          "away": 0.36,
+          "weight": 0.872
+        },
+        "home_advantage": 0.199,
+        "trained_on_matches": 640,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: VfB Stuttgart gegen Borussia Dortmund - Bundesliga",
+              "description": "4. Spieltag: Anpfiff des Spiels ist am 19.09.2026 um 18:30 Uhr. Borussia Dortmund spielt in Stuttgart.",
+              "published": "2026-09-19T18:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Ab 18.30 Uhr live - Stuttgart empfängt Borussia Dortmund",
+              "description": "Im Top-Spiel der Bundesliga treffen Stuttgart und Borussia Dortmund aufeinander. Kann der BVB auswärts den vierten Sieg im vierten Spiel einfahren?",
+              "published": "2026-09-19T11:28:08+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "VfB Stuttgart: Am Samstag ist er Gegner: BVB-Stürmer Silva wäre fast beim VfB gelandet",
+              "description": "Fußball, VfB Stuttgart, Guirassy Sehrou, Hoeneß Sebastian, Bundesliga, Sport - Leuchtturm München, erste Bundesliga",
+              "published": "2026-09-19T04:45:17+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-am-samstag-ist-er-gegner-bvb-stuermer-silva-waere-fast-beim-vfb-gelandet-6aad2272b1857e86757a611c"
+            },
+            {
+              "title": "Paris Brunner trifft schon wieder! Sorry nach „Kopf-ab“-Geste",
+              "description": "Borussia Dortmund, erste Bundesliga, spielertransfer, Fußball, AS Monaco, Aufmacher-Bereich",
+              "published": "2026-09-18T22:19:21+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/paris-brunner-trifft-schon-wieder-sorry-nach-kopf-ab-geste-6aad9174b1857e86757a6986"
+            },
+            {
+              "title": "FC Bayern: Lang verletzter Star vor Comeback – alle Infos zum 4. Spieltag",
+              "description": "Fußball, erste Bundesliga, SC Freiburg, Borussia Dortmund, FC Augsburg 1907, FC Bayern München, RB Leipzig, SV Elversberg, Bayer Leverkusen, Mainz 05, Eintracht Frankfurt, Werder Bremen, FC Schalke, 1. FC Köln, 1899 Hoffenheim, VfB Stuttgart, SC Paderborn 07, 1. FC Union Berlin, Borussia Mönchengladbach, Hamburger SV, Aufmacher-Bereich",
+              "published": "2026-09-18T20:38:45+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-lang-verletzter-star-vor-comeback-alle-infos-zum-4-spieltag-6aace77e7a2a14cb01bece8f"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 18
+            }
+          ],
+          "total_matches": 20,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1 – Stuttgart soll die Gäste knapp ausknocken. Mit einem leichten Heimvorteil von 39 % laut Buchmacher‑Quote ist das Duell eher eine enge Kiste als ein klarer Favoritenlauf, doch die beiden Teams stehen sich fast auf Augenhöhe gegenüber. Wer das Torfestival am Ende des Abnutzungskampfes anführt, wird wohl das heimische Publikum zum Jubeln bringen.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "VfB Stuttgart gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.45,
+        "model_probability": 0.3445,
+        "implied_probability": 0.4082,
+        "edge": -0.1559,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "VfB Stuttgart gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 2.45,
+          "model_probability": 0.3445,
+          "implied_probability": 0.4082,
+          "edge": -0.1559,
+          "expected_value_eur": -0.78,
+          "stake_eur": 5.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "e2b67a36dd284bb6bd69d21f7bf4a042"
     }
   ]
 }
