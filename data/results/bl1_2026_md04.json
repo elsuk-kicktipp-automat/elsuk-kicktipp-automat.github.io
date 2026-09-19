@@ -4,12 +4,12 @@
   "matchday": 4,
   "stage": "4. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 5,
-  "matches_scored": 4,
-  "matches_open": 2,
+  "points_total": 8,
+  "matches_scored": 5,
+  "matches_open": 1,
   "hits": {
     "exact": 0,
-    "goal_diff": 1,
+    "goal_diff": 2,
     "tendency": 1,
     "miss": 2
   },
@@ -20,12 +20,12 @@
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 4,
-    "elo_favorite": 4,
-    "always_draw": 4,
+    "most_probable": 5,
+    "elo_favorite": 5,
+    "always_draw": 5,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.5053,
+  "brier_avg": 0.503,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 49.17,
-      "payout_total_eur": 41.37,
-      "profit_total_eur": -7.8,
-      "roi": -0.1586,
-      "bets_scored": 4,
-      "bets_won": 2,
+      "stake_total_eur": 55.69,
+      "payout_total_eur": 55.39,
+      "profit_total_eur": -0.3,
+      "roi": -0.0054,
+      "bets_scored": 5,
+      "bets_won": 3,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -108,7 +108,56 @@
       "home": "Borussia Mönchengladbach",
       "away": "1. FSV Mainz 05",
       "kickoff_utc": "2026-09-19T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        3,
+        4
+      ],
+      "points": 3,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.4937,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "1. FSV Mainz 05 gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.15,
+        "model_probability": 0.3766,
+        "implied_probability": 0.4651,
+        "edge": -0.1904,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 6.52,
+          "payout_eur": 14.02,
+          "profit_eur": 7.5
+        }
+      }
     },
     {
       "home": "Eintracht Frankfurt",
