@@ -185,33 +185,671 @@
       "home": "Borussia Mönchengladbach",
       "away": "1. FSV Mainz 05",
       "kickoff_utc": "2026-09-19T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "7731e912234fa831b7ecc0ba4f0c57d776e6b4dd015b2562a331a0cfbbe8bafc",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.15,
+      "factors": {
+        "expected_goals": [
+          1.38,
+          1.62
+        ],
+        "probabilities": {
+          "home": 0.316,
+          "draw": 0.256,
+          "away": 0.427
+        },
+        "raw_probabilities": {
+          "home": 0.349,
+          "draw": 0.274,
+          "away": 0.377
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.312,
+          "draw": 0.254,
+          "away": 0.435,
+          "weight": 0.872
+        },
+        "home_advantage": 0.199,
+        "trained_on_matches": 640,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Gladbachs Jahrhundert-Talent Mohya trifft wichtige DFB-Entscheidung",
+              "description": "erste Bundesliga, Elvedi Nico, Borussia Mönchengladbach, Scally Joe, Deutsche Nationalmannschaft, Mohya Wael, Sport – Leuchtturm Essen",
+              "published": "2026-09-19T11:00:53+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/gladbachs-jahrhundert-talent-mohya-trifft-wichtige-dfb-entscheidung-6aae394b994241d0bd960c77"
+            },
+            {
+              "title": "Für die Wende gegen Mainz: Schröder-Appell an 50.000 Gladbacher",
+              "description": "erste Bundesliga, Borussia Mönchengladbach, Schröder Rouven, Polanski Eugen, Fußball, Sport – Leuchtturm Essen",
+              "published": "2026-09-19T09:26:04+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fuer-die-wende-gegen-mainz-schroeder-appell-an-50-000-gladbacher-6aae313db1857e86757a6e39"
+            },
+            {
+              "title": "Borussia Mönchengladbach: Robin Hack mit Premiere im 7. Versuch?",
+              "description": "Borussia Mönchengladbach, erste Bundesliga, Hack Robin, Lichte Jan-Moritz, Sport – Leuchtturm Essen",
+              "published": "2026-09-19T06:01:51+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/borussia-moenchengladbach-robin-hack-mit-premiere-im-7-versuch-6aad7bc0708e760b5e063801"
+            },
+            {
+              "title": "„Stammplatz“ vom 19. September: Bayern mit Schützenfest vor dem Wiesn-Start!",
+              "description": "Stammplatz Video, FC Bayern München, erste Bundesliga, Bundesliga, Borussia Mönchengladbach, Hamburger SV, Polzin Merlin, Klopp Jürgen",
+              "published": "2026-09-19T02:06:36+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/stammplatz-vom-19-september-bayern-mit-schuetzenfest-vor-dem-wiesn-start-6aadba58708e760b5e063aac"
+            },
+            {
+              "title": "FC Bayern: Lang verletzter Star vor Comeback – alle Infos zum 4. Spieltag",
+              "description": "Fußball, erste Bundesliga, SC Freiburg, Borussia Dortmund, FC Augsburg 1907, FC Bayern München, RB Leipzig, SV Elversberg, Bayer Leverkusen, Mainz 05, Eintracht Frankfurt, Werder Bremen, FC Schalke, 1. FC Köln, 1899 Hoffenheim, VfB Stuttgart, SC Paderborn 07, 1. FC Union Berlin, Borussia Mönchengladbach, Hamburger SV, Aufmacher-Bereich",
+              "published": "2026-09-18T20:38:45+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-lang-verletzter-star-vor-comeback-alle-infos-zum-4-spieltag-6aace77e7a2a14cb01bece8f"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 10
+            }
+          ],
+          "total_matches": 10,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp 1:2 – das ist das Wort vom Stammtisch. Mainz geht mit leichtem Vorteil ins Spiel, die Zahlen sprechen von 1,62 Toren gegen 1,38 bei Gladbach, und die Auswärtsquote liegt bei 43 % – ein enges Duell, aber die Gäste haben die Nase vorn. Gladbach muss sich auf einen harten Abnutzungskampf einstellen, denn die Besucher wollen das Torfestival starten. Wer die Gäste nicht im Griff hat, wird schnell das Nachsehen haben.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "1. FSV Mainz 05 gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.15,
+        "model_probability": 0.3766,
+        "implied_probability": 0.4651,
+        "edge": -0.1904,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "1. FSV Mainz 05 gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 2.15,
+          "model_probability": 0.3766,
+          "implied_probability": 0.4651,
+          "edge": -0.1904,
+          "expected_value_eur": -1.24,
+          "stake_eur": 6.52,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "2583bd08abfde585475d1a71a78ff872"
     },
     {
       "home": "Eintracht Frankfurt",
       "away": "SC Freiburg",
       "kickoff_utc": "2026-09-19T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "a64062120b97403b8c45e5a99ba7005c23d95721ac2da7458d51a091c6395323",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.057,
+      "factors": {
+        "expected_goals": [
+          1.62,
+          1.55
+        ],
+        "probabilities": {
+          "home": 0.39,
+          "draw": 0.25,
+          "away": 0.36
+        },
+        "raw_probabilities": {
+          "home": 0.456,
+          "draw": 0.227,
+          "away": 0.316
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.381,
+          "draw": 0.253,
+          "away": 0.366,
+          "weight": 0.872
+        },
+        "home_advantage": 0.199,
+        "trained_on_matches": 640,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Frankfurt dreht spektakuläres Spiel in Mainz",
+              "description": "Mainz führte früh mit 2:0 gegen Eintracht Frankfurt, musste sich nach einer schwachen zweiten Halbzeit aber mit 2:3 geschlagen geben.",
+              "published": "2026-09-18T21:46:19+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "FC Bayern: Lang verletzter Star vor Comeback – alle Infos zum 4. Spieltag",
+              "description": "Fußball, erste Bundesliga, SC Freiburg, Borussia Dortmund, FC Augsburg 1907, FC Bayern München, RB Leipzig, SV Elversberg, Bayer Leverkusen, Mainz 05, Eintracht Frankfurt, Werder Bremen, FC Schalke, 1. FC Köln, 1899 Hoffenheim, VfB Stuttgart, SC Paderborn 07, 1. FC Union Berlin, Borussia Mönchengladbach, Hamburger SV, Aufmacher-Bereich",
+              "published": "2026-09-18T20:38:45+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-lang-verletzter-star-vor-comeback-alle-infos-zum-4-spieltag-6aace77e7a2a14cb01bece8f"
+            },
+            {
+              "title": "Eintracht Frankfurt: 5 spannende Atubolu-Geheimnisse",
+              "description": "erste Bundesliga, Eintracht Frankfurt, Krösche Markus, Hütter Adi, Bundesliga, Sport - Leuchtturm Zentral, Atubolu Noah, Klopp Jürgen, SC Freiburg",
+              "published": "2026-09-18T15:21:19+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-5-spannende-atubolu-hintergruende-6aacfbd1708e760b5e062c55"
+            },
+            {
+              "title": "DFB: Freiburg-Trainer Schuster erklärt Ginters Klopp-Abfuhr",
+              "description": "erste Bundesliga, Nagelsmann Julian, SC Freiburg, Deutsche Nationalmannschaft, Ginter Matthias, Klopp Jürgen, Schuster Julian, Sport - Leuchtturm Zentral",
+              "published": "2026-09-18T15:00:44+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/dfb-freiburg-trainer-schuster-erklaert-ginters-klopp-abfuhr-6aad1d59708e760b5e06303b"
+            },
+            {
+              "title": "Younes Ebnoutalib: Neu-Nationalspieler nur noch Joker bei Eintracht",
+              "description": "Eintracht Frankfurt, Krösche Markus, erste Bundesliga, Bundesliga, Hütter Adi, Fussball Bundesliga, Sport - Leuchtturm Zentral, Klopp Jürgen, Deutsche Nationalmannschaft",
+              "published": "2026-09-18T15:00:44+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/younes-ebnoutalib-neu-nationalspieler-nur-noch-joker-bei-eintracht-6aacf9b6b1857e86757a5cdd"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 9
+            }
+          ],
+          "total_matches": 10,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1 – Frankfurt geht mit leichtem Vorsprung ins Duell. Die Zahlen sprechen: ein Heimvorteil von 39 % gegen 36 % für Freiburg, und die Tore‑Bilanz liegt mit 1,62 zu 1,55 nur knapper auseinander. Das wird ein enges Kopf-an-Kopf‑Duell, bei dem die Frankfurter etwas mehr Biss zeigen, aber kein leichtes Fest. Wer das Torfestival am Ende dominiert, hat das Glück, die Abnutzungskiste besser zu überstehen.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Eintracht Frankfurt gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.55,
+        "model_probability": 0.4564,
+        "implied_probability": 0.3922,
+        "edge": 0.1639,
+        "expected_value_eur": 4.33,
+        "stake_eur": 26.43,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.1057,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Eintracht Frankfurt gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 2.55,
+          "model_probability": 0.4564,
+          "implied_probability": 0.3922,
+          "edge": 0.1639,
+          "expected_value_eur": 1.82,
+          "stake_eur": 11.08,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "8ed29d14697ddff06b49fb86ac974d0a"
     },
     {
       "home": "Hamburger SV",
       "away": "1. FC Köln",
       "kickoff_utc": "2026-09-19T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "fa9ea46aff6208128ade85c4d6bc19d806f0f93ac8ca4da8325fdd9ea486ceeb",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.042,
+      "factors": {
+        "expected_goals": [
+          1.4,
+          1.46
+        ],
+        "probabilities": {
+          "home": 0.354,
+          "draw": 0.266,
+          "away": 0.38
+        },
+        "raw_probabilities": {
+          "home": 0.358,
+          "draw": 0.264,
+          "away": 0.378
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.353,
+          "draw": 0.266,
+          "away": 0.381,
+          "weight": 0.872
+        },
+        "home_advantage": 0.199,
+        "trained_on_matches": 640,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "„Stammplatz“ vom 19. September: Bayern mit Schützenfest vor dem Wiesn-Start!",
+              "description": "Stammplatz Video, FC Bayern München, erste Bundesliga, Bundesliga, Borussia Mönchengladbach, Hamburger SV, Polzin Merlin, Klopp Jürgen",
+              "published": "2026-09-19T02:06:36+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/stammplatz-vom-19-september-bayern-mit-schuetzenfest-vor-dem-wiesn-start-6aadba58708e760b5e063aac"
+            },
+            {
+              "title": "FC Bayern: Lang verletzter Star vor Comeback – alle Infos zum 4. Spieltag",
+              "description": "Fußball, erste Bundesliga, SC Freiburg, Borussia Dortmund, FC Augsburg 1907, FC Bayern München, RB Leipzig, SV Elversberg, Bayer Leverkusen, Mainz 05, Eintracht Frankfurt, Werder Bremen, FC Schalke, 1. FC Köln, 1899 Hoffenheim, VfB Stuttgart, SC Paderborn 07, 1. FC Union Berlin, Borussia Mönchengladbach, Hamburger SV, Aufmacher-Bereich",
+              "published": "2026-09-18T20:38:45+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-lang-verletzter-star-vor-comeback-alle-infos-zum-4-spieltag-6aace77e7a2a14cb01bece8f"
+            },
+            {
+              "title": "HSV hat jetzt zweites Museum – Mitarbeiter laufen täglich durch",
+              "description": "Hamburger SV, zweite Bundesliga, erste Bundesliga, Volksparkstadion, Polzin Merlin, Sport - Leuchtturm Hamburg, Kovac Niko, Seeler Uwe, museum, Vuskovic Luka, Fans",
+              "published": "2026-09-18T18:00:47+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-hat-jetzt-zweites-museum-mitarbeiter-laufen-taeglich-durch-6aacebdf7a2a14cb01becf1a"
+            },
+            {
+              "title": "HSV: So viele Nationalspieler sind unterwegs – Nichts mit einspielen",
+              "description": "Hamburger SV, Polzin Merlin, erste Bundesliga, zweite Bundesliga, Kuntz Stefan, Sport - Leuchtturm Hamburg, Omari Warmed, Ouahdi Zakaria El, Moffi Terem, Poulsen Yussuf, Muheim Miro, Daka Patson, Gronbaek Albert, Wolfe David Moller, Tangvik Sander, Volksparkstadion",
+              "published": "2026-09-18T16:42:07+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-so-viele-nationalspieler-sind-unterwegs-nichts-mit-einspielen-6aacebd1708e760b5e062b1a"
+            },
+            {
+              "title": "HSV: Polzin-Vertrag trotz Krise – Deutliche Krüger-Worte an Kritiker",
+              "description": "Hamburger SV, Polzin Merlin, Fave Loic, erste Bundesliga, zweite Bundesliga, Sport - Leuchtturm Hamburg, Krohn Richard, Costa Claus, Krüger Kathleen, Vertragsverlängerung, Volksparkstadion, Vieira Fabio",
+              "published": "2026-09-18T15:12:25+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-polzin-vertrag-trotz-krise-deutliche-krueger-worte-an-kritiker-6aacebbf7a2a14cb01becf14"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 11
+            }
+          ],
+          "total_matches": 11,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1 : 2 – ein klarer Auswärtssieg für Köln, denn die Quoten liegen bei 38 % für den Besuch. Der HSV muss sich im Abnutzungskampf mit einem leichten Nachteil zufriedengeben, während die Gäste ein bisschen mehr Biss mitbringen. Auf dem Platz wird es ein enges Duell auf Augenhöhe, doch das leichte Torfestival‑Gefühl bei Köln könnte den Unterschied machen. Wer die Kiste nicht offen hält, läuft Gefahr, das Ergebnis zu verschlafen.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "1. FC Köln gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.45,
+        "model_probability": 0.3776,
+        "implied_probability": 0.4082,
+        "edge": -0.0749,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "1. FC Köln gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 2.45,
+          "model_probability": 0.3776,
+          "implied_probability": 0.4082,
+          "edge": -0.0749,
+          "expected_value_eur": -0.49,
+          "stake_eur": 6.58,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "930afa68dd1be330e73c9431949703f3"
     },
     {
       "home": "SV Werder Bremen",
       "away": "FC Augsburg",
       "kickoff_utc": "2026-09-19T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "bd3543ea748089376ac357dabc5306bf18db5513b158f5481fccd4c0c0fb899c",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.096,
+      "factors": {
+        "expected_goals": [
+          1.62,
+          1.47
+        ],
+        "probabilities": {
+          "home": 0.406,
+          "draw": 0.254,
+          "away": 0.341
+        },
+        "raw_probabilities": {
+          "home": 0.376,
+          "draw": 0.276,
+          "away": 0.347
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.41,
+          "draw": 0.25,
+          "away": 0.34,
+          "weight": 0.872
+        },
+        "home_advantage": 0.199,
+        "trained_on_matches": 640,
+        "news_checked": 4,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "FC Bayern: Lang verletzter Star vor Comeback – alle Infos zum 4. Spieltag",
+              "description": "Fußball, erste Bundesliga, SC Freiburg, Borussia Dortmund, FC Augsburg 1907, FC Bayern München, RB Leipzig, SV Elversberg, Bayer Leverkusen, Mainz 05, Eintracht Frankfurt, Werder Bremen, FC Schalke, 1. FC Köln, 1899 Hoffenheim, VfB Stuttgart, SC Paderborn 07, 1. FC Union Berlin, Borussia Mönchengladbach, Hamburger SV, Aufmacher-Bereich",
+              "published": "2026-09-18T20:38:45+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-lang-verletzter-star-vor-comeback-alle-infos-zum-4-spieltag-6aace77e7a2a14cb01bece8f"
+            },
+            {
+              "title": "Mehr Follower als der FCA: Spielerfreundin präsentiert neues Augsburg-Trikot",
+              "description": "FC Augsburg 1907, Bundesliga, Trikot, Rieder Fabian, erste Bundesliga, Hochkant BILD-Video intern",
+              "published": "2026-09-18T19:30:04+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/mehr-follower-als-der-fca-spielerfreundin-praesentiert-neues-augsburg-trikot-6aad07057a2a14cb01bed32f"
+            },
+            {
+              "title": "Stolzer FC Augsburg - Erstmals zwei DFB-Nationalspieler",
+              "description": "Erstmals in der Vereinsgeschichte stellt der FC Augsburg zwei Nationalspieler gleichzeitig. Jürgen Klopp nominierte Finn Dahmen und Hennes Behrens für die Nations League und belohnt damit auch den starken Saisonstart der Schwaben.",
+              "published": "2026-09-17T18:09:30+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "DFB-Nominierung: Augsburg-Star Behrens verrät Details über geheime Klopp-Nachricht",
+              "description": "Klopp Jürgen, erste Bundesliga, DFB, Deutsche Nationalmannschaft, FC Augsburg 1907, Sport - Leuchtturm München",
+              "published": "2026-09-17T11:55:11+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/dfb-nominierung-augsburg-star-behrens-verraet-details-ueber-geheime-klopp-nachricht-6aaba5943e0af7910e52248f"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 3
+            }
+          ],
+          "total_matches": 4,
+          "returned": 4,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp 2:1 – Werder Bremen geht als leichter Favorit ins Spiel, doch die erwarteten 1,62 zu 1,47 Tore deuten auf ein enges Duell hin, das eher ein Abnutzungskampf als ein Torfestival wird. Augsburg hat mit 34 % Siegchance durchaus das Zeug zum Gegenwind, also keine leichte Kost für die Bremer. Werder muss die Chance nutzen, bevor die Kiste zu eng wird, sonst könnte das Unentschieden schnell zur bitteren Realität werden.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SV Werder Bremen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.4,
+        "model_probability": 0.3764,
+        "implied_probability": 0.4167,
+        "edge": -0.0966,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "SV Werder Bremen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 2.4,
+          "model_probability": 0.3764,
+          "implied_probability": 0.4167,
+          "edge": -0.0966,
+          "expected_value_eur": -0.63,
+          "stake_eur": 6.51,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "5fce0b2db348c28f0033177bc9723562"
     },
     {
       "home": "VfB Stuttgart",
