@@ -212,6 +212,14 @@
       "status": "sealed",
       "hash": "bd3543ea748089376ac357dabc5306bf18db5513b158f5481fccd4c0c0fb899c",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "VfB Stuttgart",
+      "away": "Borussia Dortmund",
+      "kickoff_utc": "2026-09-19T16:30:00Z",
+      "status": "sealed",
+      "hash": "61e2fb9f57226261d5ba202b5ec385a8a83d6a65d49ca62fce4485c57e1c8b09",
+      "paper_bet_status": "sealed"
     }
   ]
 }

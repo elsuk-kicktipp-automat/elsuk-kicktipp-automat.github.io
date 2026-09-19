@@ -6,7 +6,7 @@
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 2,
   "matches_scored": 1,
-  "matches_open": 4,
+  "matches_open": 5,
   "hits": {
     "exact": 0,
     "goal_diff": 0,
@@ -126,6 +126,12 @@
       "home": "SV Werder Bremen",
       "away": "FC Augsburg",
       "kickoff_utc": "2026-09-19T13:30:00Z",
+      "status": "sealed"
+    },
+    {
+      "home": "VfB Stuttgart",
+      "away": "Borussia Dortmund",
+      "kickoff_utc": "2026-09-19T16:30:00Z",
       "status": "sealed"
     }
   ]
