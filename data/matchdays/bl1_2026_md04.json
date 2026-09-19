@@ -180,6 +180,38 @@
         }
       },
       "salt": "7bfbc24e66a0bc54056869f1c2022000"
+    },
+    {
+      "home": "Borussia Mönchengladbach",
+      "away": "1. FSV Mainz 05",
+      "kickoff_utc": "2026-09-19T13:30:00Z",
+      "status": "sealed",
+      "hash": "7731e912234fa831b7ecc0ba4f0c57d776e6b4dd015b2562a331a0cfbbe8bafc",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "Eintracht Frankfurt",
+      "away": "SC Freiburg",
+      "kickoff_utc": "2026-09-19T13:30:00Z",
+      "status": "sealed",
+      "hash": "a64062120b97403b8c45e5a99ba7005c23d95721ac2da7458d51a091c6395323",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "Hamburger SV",
+      "away": "1. FC Köln",
+      "kickoff_utc": "2026-09-19T13:30:00Z",
+      "status": "sealed",
+      "hash": "fa9ea46aff6208128ade85c4d6bc19d806f0f93ac8ca4da8325fdd9ea486ceeb",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "SV Werder Bremen",
+      "away": "FC Augsburg",
+      "kickoff_utc": "2026-09-19T13:30:00Z",
+      "status": "sealed",
+      "hash": "bd3543ea748089376ac357dabc5306bf18db5513b158f5481fccd4c0c0fb899c",
+      "paper_bet_status": "sealed"
     }
   ]
 }
