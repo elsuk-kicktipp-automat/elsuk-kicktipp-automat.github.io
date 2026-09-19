@@ -39,6 +39,11 @@
     },
     {
       "home_key": "bormonchengladbach",
+      "away_key": "fsvmainz05",
+      "verified_at_utc": "2026-09-19T09:32:39Z"
+    },
+    {
+      "home_key": "bormonchengladbach",
       "away_key": "svelversberg",
       "verified_at_utc": "2026-09-05T09:32:59Z"
     },
@@ -56,6 +61,11 @@
       "home_key": "eintrachtfrankfurt",
       "away_key": "fcaugsburg",
       "verified_at_utc": "2026-09-06T11:31:48Z"
+    },
+    {
+      "home_key": "eintrachtfrankfurt",
+      "away_key": "scfreiburg",
+      "verified_at_utc": "2026-09-19T09:32:39Z"
     },
     {
       "home_key": "fcaugsburg",
@@ -86,6 +96,11 @@
       "home_key": "fsvmainz05",
       "away_key": "scpaderborn07",
       "verified_at_utc": "2026-08-29T09:33:41Z"
+    },
+    {
+      "home_key": "hamburgersv",
+      "away_key": "1fckoln",
+      "verified_at_utc": "2026-09-19T09:32:39Z"
     },
     {
       "home_key": "hamburgersv",
@@ -131,6 +146,11 @@
       "home_key": "vfbstuttgart",
       "away_key": "1fckoln",
       "verified_at_utc": "2026-09-04T14:32:13Z"
+    },
+    {
+      "home_key": "werderbremen",
+      "away_key": "fcaugsburg",
+      "verified_at_utc": "2026-09-19T09:32:39Z"
     },
     {
       "home_key": "werderbremen",
