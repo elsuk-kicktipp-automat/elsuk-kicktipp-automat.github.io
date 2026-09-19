@@ -4,47 +4,47 @@
   "matchday": 4,
   "stage": "4. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 2,
-  "matches_scored": 1,
-  "matches_open": 5,
+  "points_total": 5,
+  "matches_scored": 4,
+  "matches_open": 2,
   "hits": {
     "exact": 0,
-    "goal_diff": 0,
+    "goal_diff": 1,
     "tendency": 1,
-    "miss": 0
+    "miss": 2
   },
   "shadow_points": {
-    "most_probable": 2,
-    "elo_favorite": 2,
-    "always_draw": 0,
+    "most_probable": 4,
+    "elo_favorite": 9,
+    "always_draw": 2,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 1,
-    "elo_favorite": 1,
-    "always_draw": 1,
+    "most_probable": 4,
+    "elo_favorite": 4,
+    "always_draw": 4,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.011,
+  "brier_avg": 0.5053,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
-    "stake_total_eur": 0.0,
+    "stake_total_eur": 26.43,
     "payout_total_eur": 0.0,
-    "profit_total_eur": 0.0,
-    "roi": null,
-    "bets_scored": 0,
+    "profit_total_eur": -26.43,
+    "roi": -1.0,
+    "bets_scored": 1,
     "bets_won": 0,
     "bankroll_start_eur": 1000.0
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 25.0,
-      "payout_total_eur": 25.75,
-      "profit_total_eur": 0.75,
-      "roi": 0.03,
-      "bets_scored": 1,
-      "bets_won": 1,
+      "stake_total_eur": 49.17,
+      "payout_total_eur": 41.37,
+      "profit_total_eur": -7.8,
+      "roi": -0.1586,
+      "bets_scored": 4,
+      "bets_won": 2,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -114,19 +114,166 @@
       "home": "Eintracht Frankfurt",
       "away": "SC Freiburg",
       "kickoff_utc": "2026-09-19T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        2,
+        2
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 0,
+        "always_draw": 2
+      },
+      "brier": 0.8442,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Eintracht Frankfurt gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.55,
+        "model_probability": 0.4564,
+        "implied_probability": 0.3922,
+        "edge": 0.1639,
+        "expected_value_eur": 4.33,
+        "stake_eur": 26.43,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.1057,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "lost",
+        "stake_eur": 26.43,
+        "payout_eur": 0.0,
+        "profit_eur": -26.43
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 11.08,
+          "payout_eur": 0.0,
+          "profit_eur": -11.08
+        }
+      }
     },
     {
       "home": "Hamburger SV",
       "away": "1. FC Köln",
       "kickoff_utc": "2026-09-19T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        2,
+        1
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 4,
+        "always_draw": 0
+      },
+      "brier": 0.6325,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "1. FC Köln gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.45,
+        "model_probability": 0.3776,
+        "implied_probability": 0.4082,
+        "edge": -0.0749,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 6.58,
+          "payout_eur": 0.0,
+          "profit_eur": -6.58
+        }
+      }
     },
     {
       "home": "SV Werder Bremen",
       "away": "FC Augsburg",
       "kickoff_utc": "2026-09-19T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        3,
+        2
+      ],
+      "points": 3,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 3,
+        "always_draw": 0
+      },
+      "brier": 0.5336,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SV Werder Bremen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.4,
+        "model_probability": 0.3764,
+        "implied_probability": 0.4167,
+        "edge": -0.0966,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 6.51,
+          "payout_eur": 15.62,
+          "profit_eur": 9.11
+        }
+      }
     },
     {
       "home": "VfB Stuttgart",
