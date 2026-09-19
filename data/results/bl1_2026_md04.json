@@ -5,13 +5,13 @@
   "stage": "4. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 8,
-  "matches_scored": 5,
-  "matches_open": 1,
+  "matches_scored": 6,
+  "matches_open": 0,
   "hits": {
     "exact": 0,
     "goal_diff": 2,
     "tendency": 1,
-    "miss": 2
+    "miss": 3
   },
   "shadow_points": {
     "most_probable": 4,
@@ -20,12 +20,12 @@
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 5,
-    "elo_favorite": 5,
-    "always_draw": 5,
+    "most_probable": 6,
+    "elo_favorite": 6,
+    "always_draw": 6,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.503,
+  "brier_avg": 0.5209,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,11 +39,11 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 55.69,
+      "stake_total_eur": 60.69,
       "payout_total_eur": 55.39,
-      "profit_total_eur": -0.3,
-      "roi": -0.0054,
-      "bets_scored": 5,
+      "profit_total_eur": -5.3,
+      "roi": -0.0873,
+      "bets_scored": 6,
       "bets_won": 3,
       "bankroll_start_eur": 1000.0
     }
@@ -328,7 +328,56 @@
       "home": "VfB Stuttgart",
       "away": "Borussia Dortmund",
       "kickoff_utc": "2026-09-19T16:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        0,
+        1
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.6101,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "VfB Stuttgart gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 2.45,
+        "model_probability": 0.3445,
+        "implied_probability": 0.4082,
+        "edge": -0.1559,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 5.0,
+          "payout_eur": 0.0,
+          "profit_eur": -5.0
+        }
+      }
     }
   ]
 }
