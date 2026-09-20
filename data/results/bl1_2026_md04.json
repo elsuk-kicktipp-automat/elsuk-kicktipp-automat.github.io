@@ -5,27 +5,27 @@
   "stage": "4. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 10,
-  "matches_scored": 8,
-  "matches_open": 1,
+  "matches_scored": 9,
+  "matches_open": 0,
   "hits": {
     "exact": 0,
     "goal_diff": 2,
     "tendency": 2,
-    "miss": 4
+    "miss": 5
   },
   "shadow_points": {
-    "most_probable": 6,
+    "most_probable": 8,
     "elo_favorite": 11,
-    "always_draw": 4,
+    "always_draw": 6,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 8,
-    "elo_favorite": 8,
-    "always_draw": 8,
+    "most_probable": 9,
+    "elo_favorite": 9,
+    "always_draw": 9,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.5449,
+  "brier_avg": 0.59,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,11 +39,11 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 79.12,
+      "stake_total_eur": 97.59,
       "payout_total_eur": 79.97,
-      "profit_total_eur": 0.85,
-      "roi": 0.0107,
-      "bets_scored": 8,
+      "profit_total_eur": -17.62,
+      "roi": -0.1806,
+      "bets_scored": 9,
       "bets_won": 4,
       "bankroll_start_eur": 1000.0
     }
@@ -493,7 +493,56 @@
       "home": "SC Paderborn 07",
       "away": "TSG Hoffenheim",
       "kickoff_utc": "2026-09-20T17:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        0,
+        0
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 0,
+        "always_draw": 2
+      },
+      "brier": 0.9513,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "TSG Hoffenheim gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.7,
+        "model_probability": 0.5858,
+        "implied_probability": 0.5882,
+        "edge": -0.0042,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 18.47,
+          "payout_eur": 0.0,
+          "profit_eur": -18.47
+        }
+      }
     }
   ]
 }
