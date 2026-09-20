@@ -1023,9 +1023,169 @@
       "home": "Bayer 04 Leverkusen",
       "away": "RB Leipzig",
       "kickoff_utc": "2026-09-20T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "0f2ec0ec8786b1181d4f043d426f73671316b5ba8280ccdbb377fbd8d6f4a116",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.311,
+      "factors": {
+        "expected_goals": [
+          1.99,
+          1.43
+        ],
+        "probabilities": {
+          "home": 0.504,
+          "draw": 0.228,
+          "away": 0.268
+        },
+        "raw_probabilities": {
+          "home": 0.498,
+          "draw": 0.231,
+          "away": 0.272
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.505,
+          "draw": 0.228,
+          "away": 0.268,
+          "weight": 0.885
+        },
+        "home_advantage": 0.198,
+        "trained_on_matches": 645,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Bayer Leverkusen gegen RB Leipzig - Bundesliga",
+              "description": "4. Spieltag: Anpfiff des Spiels ist am 20.09.2026 um 15:30 Uhr. RB Leipzig spielt in Leverkusen.",
+              "published": "2026-09-20T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Live ab 18.30 Uhr - Union Berlin gegen RB Leipzig",
+              "description": "Am 5. Spieltag der Frauen-Bundesliga sind die Fußballerinnen von RB Leipzig zu Gast bei Union Berlin. Holen die Berlinerinnen ihre ersten Punkte der Saison?",
+              "published": "2026-09-20T11:16:57+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "RB Leipzig: Vorgänger scheiterte regelmäßig! Topspiel-Druck für Martin Demichelis",
+              "description": "erste Bundesliga, RB Leipzig, Demichelis Martin, Sport-Tag im Ticker, Bayer Leverkusen, Sport - Leuchtturm Leipzig",
+              "published": "2026-09-19T06:14:24+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/rb-leipzig-vorgaenger-scheiterte-regelmaessig-topspiel-druck-fuer-martin-demichelis-6aad1a50708e760b5e062ff5"
+            },
+            {
+              "title": "FC Bayern: Lang verletzter Star vor Comeback – alle Infos zum 4. Spieltag",
+              "description": "Fußball, erste Bundesliga, SC Freiburg, Borussia Dortmund, FC Augsburg 1907, FC Bayern München, RB Leipzig, SV Elversberg, Bayer Leverkusen, Mainz 05, Eintracht Frankfurt, Werder Bremen, FC Schalke, 1. FC Köln, 1899 Hoffenheim, VfB Stuttgart, SC Paderborn 07, 1. FC Union Berlin, Borussia Mönchengladbach, Hamburger SV, Aufmacher-Bereich",
+              "published": "2026-09-18T20:38:45+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-lang-verletzter-star-vor-comeback-alle-infos-zum-4-spieltag-6aace77e7a2a14cb01bece8f"
+            },
+            {
+              "title": "RB Leipzig: Nächster Spieler kaputt! Bundesliga-Klub mit Verletzungsseuche",
+              "description": "RB Leipzig, erste Bundesliga, Demichelis Martin, Sport-Tag im Ticker, Sport - Leuchtturm Leipzig",
+              "published": "2026-09-18T16:03:52+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/rb-leipzig-naechster-spieler-kaputt-bundesliga-klub-mit-verletzungsseuche-6aad3d427a2a14cb01bedae9"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 3
+            }
+          ],
+          "total_matches": 5,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1 – Leverkusen geht als klarer Favorit ins Spiel. Die Buchmacher sehen den Heimsieg mit 50 % und das erwartete Torverhältnis von 1,99 : 1,43 lässt keinen Zweifel daran, dass es ein enges Duell auf Augenhöhe wird, doch die Bayerner haben das bessere Gespür für den Abschluss. Es verspricht ein leichtes Torfestival, wobei die Abnutzung im Stadion eher den Heimvorteil stärkt.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.83,
+        "model_probability": 0.4976,
+        "implied_probability": 0.5464,
+        "edge": -0.0895,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Bayer 04 Leverkusen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.83,
+          "model_probability": 0.4976,
+          "implied_probability": 0.5464,
+          "edge": -0.0895,
+          "expected_value_eur": -1.2,
+          "stake_eur": 13.43,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "656e4165761d98dd42a2f61e09ac86c0"
     },
     {
       "home": "FC Schalke 04",
