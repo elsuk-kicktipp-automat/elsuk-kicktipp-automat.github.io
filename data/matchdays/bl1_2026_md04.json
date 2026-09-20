@@ -1328,9 +1328,160 @@
       "home": "SC Paderborn 07",
       "away": "TSG Hoffenheim",
       "kickoff_utc": "2026-09-20T17:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "eaac96c468c26435ca086d16fb8c4af7c0b38f3e386c855602ee50598c004d18",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.448,
+      "factors": {
+        "expected_goals": [
+          1.13,
+          1.94
+        ],
+        "probabilities": {
+          "home": 0.209,
+          "draw": 0.23,
+          "away": 0.561
+        },
+        "raw_probabilities": {
+          "home": 0.094,
+          "draw": 0.32,
+          "away": 0.586
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.224,
+          "draw": 0.219,
+          "away": 0.557,
+          "weight": 0.885
+        },
+        "home_advantage": 0.198,
+        "trained_on_matches": 645,
+        "news_checked": 4,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: SC Paderborn 07 gegen TSG Hoffenheim - Bundesliga",
+              "description": "4. Spieltag: Anpfiff des Spiels ist am 20.09.2026 um 19:30 Uhr. TSG Hoffenheim spielt in Paderborn.",
+              "published": "2026-09-20T19:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Vierte Niederlage in Folge: Harmlose Meppener taumeln weiter",
+              "description": "Gefällig, aber offensiv vollkommen harmlos präsentierte sich der Drittliga-Aufsteiger beim 0:1 bei der TSG Hoffenheim II.",
+              "published": "2026-09-19T16:25:53+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "FC Bayern: Lang verletzter Star vor Comeback – alle Infos zum 4. Spieltag",
+              "description": "Fußball, erste Bundesliga, SC Freiburg, Borussia Dortmund, FC Augsburg 1907, FC Bayern München, RB Leipzig, SV Elversberg, Bayer Leverkusen, Mainz 05, Eintracht Frankfurt, Werder Bremen, FC Schalke, 1. FC Köln, 1899 Hoffenheim, VfB Stuttgart, SC Paderborn 07, 1. FC Union Berlin, Borussia Mönchengladbach, Hamburger SV, Aufmacher-Bereich",
+              "published": "2026-09-18T20:38:45+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-lang-verletzter-star-vor-comeback-alle-infos-zum-4-spieltag-6aace77e7a2a14cb01bece8f"
+            },
+            {
+              "title": "Fehlstart für Hoffenheim auf Kreta",
+              "description": "Die TSG Hoffenheim hat ihr Comeback in der Europa League verloren. Die Kraichgauer unterlagen OFI Kreta in Heraklion.",
+              "published": "2026-09-17T20:51:12+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 1
+            }
+          ],
+          "total_matches": 4,
+          "returned": 4,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 1:2 – das Ergebnis lässt sich kaum besser zusammenfassen. Hoffenheim geht als klarer Favorit ins Spiel, die Buchmacherquote von 56 % für den Auswärtssieg spricht für sich, während Paderborn nur 21 % hat. Auf dem Platz erwartet uns ein harter Abnutzungskampf, doch mit fast zwei Toren pro Spiel ist Hoffenheim eindeutig das Team, das das Torfestival anführt. Paderborn kann höchstens hoffen, die Kiste eng zu halten, aber die Zahlen deuten auf ein eindeutiges Auswärtstor hin.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "TSG Hoffenheim gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.7,
+        "model_probability": 0.5858,
+        "implied_probability": 0.5882,
+        "edge": -0.0042,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "TSG Hoffenheim gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.7,
+          "model_probability": 0.5858,
+          "implied_probability": 0.5882,
+          "edge": -0.0042,
+          "expected_value_eur": -0.08,
+          "stake_eur": 18.47,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "81614c3722dc2f84c71ec5a321f2b8b2"
     }
   ]
 }
