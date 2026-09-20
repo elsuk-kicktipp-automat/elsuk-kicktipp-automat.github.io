@@ -1026,6 +1026,14 @@
       "status": "sealed",
       "hash": "0f2ec0ec8786b1181d4f043d426f73671316b5ba8280ccdbb377fbd8d6f4a116",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "FC Schalke 04",
+      "away": "SV 07 Elversberg",
+      "kickoff_utc": "2026-09-20T15:30:00Z",
+      "status": "sealed",
+      "hash": "af6a7b23a0fe44b037aa44abead1b74b303a8e02f333883d9a231fbf2dc0371c",
+      "paper_bet_status": "sealed"
     }
   ]
 }

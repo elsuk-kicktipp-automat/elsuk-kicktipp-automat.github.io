@@ -6,7 +6,7 @@
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 8,
   "matches_scored": 6,
-  "matches_open": 1,
+  "matches_open": 2,
   "hits": {
     "exact": 0,
     "goal_diff": 2,
@@ -383,6 +383,12 @@
       "home": "Bayer 04 Leverkusen",
       "away": "RB Leipzig",
       "kickoff_utc": "2026-09-20T13:30:00Z",
+      "status": "sealed"
+    },
+    {
+      "home": "FC Schalke 04",
+      "away": "SV 07 Elversberg",
+      "kickoff_utc": "2026-09-20T15:30:00Z",
       "status": "sealed"
     }
   ]
