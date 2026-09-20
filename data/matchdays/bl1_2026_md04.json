@@ -1034,6 +1034,14 @@
       "status": "sealed",
       "hash": "af6a7b23a0fe44b037aa44abead1b74b303a8e02f333883d9a231fbf2dc0371c",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "SC Paderborn 07",
+      "away": "TSG Hoffenheim",
+      "kickoff_utc": "2026-09-20T17:30:00Z",
+      "status": "sealed",
+      "hash": "eaac96c468c26435ca086d16fb8c4af7c0b38f3e386c855602ee50598c004d18",
+      "paper_bet_status": "sealed"
     }
   ]
 }

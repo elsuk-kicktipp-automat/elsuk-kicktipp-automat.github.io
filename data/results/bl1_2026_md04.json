@@ -6,7 +6,7 @@
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 8,
   "matches_scored": 6,
-  "matches_open": 2,
+  "matches_open": 3,
   "hits": {
     "exact": 0,
     "goal_diff": 2,
@@ -389,6 +389,12 @@
       "home": "FC Schalke 04",
       "away": "SV 07 Elversberg",
       "kickoff_utc": "2026-09-20T15:30:00Z",
+      "status": "sealed"
+    },
+    {
+      "home": "SC Paderborn 07",
+      "away": "TSG Hoffenheim",
+      "kickoff_utc": "2026-09-20T17:30:00Z",
       "status": "sealed"
     }
   ]
