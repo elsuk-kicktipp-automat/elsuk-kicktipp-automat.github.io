@@ -1018,6 +1018,14 @@
         }
       },
       "salt": "e2b67a36dd284bb6bd69d21f7bf4a042"
+    },
+    {
+      "home": "Bayer 04 Leverkusen",
+      "away": "RB Leipzig",
+      "kickoff_utc": "2026-09-20T13:30:00Z",
+      "status": "sealed",
+      "hash": "0f2ec0ec8786b1181d4f043d426f73671316b5ba8280ccdbb377fbd8d6f4a116",
+      "paper_bet_status": "sealed"
     }
   ]
 }
