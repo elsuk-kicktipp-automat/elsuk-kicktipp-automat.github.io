@@ -5,27 +5,27 @@
   "stage": "4. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 10,
-  "matches_scored": 7,
-  "matches_open": 2,
+  "matches_scored": 8,
+  "matches_open": 1,
   "hits": {
     "exact": 0,
     "goal_diff": 2,
     "tendency": 2,
-    "miss": 3
+    "miss": 4
   },
   "shadow_points": {
-    "most_probable": 4,
+    "most_probable": 6,
     "elo_favorite": 11,
-    "always_draw": 2,
+    "always_draw": 4,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 7,
-    "elo_favorite": 7,
-    "always_draw": 7,
+    "most_probable": 8,
+    "elo_favorite": 8,
+    "always_draw": 8,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.4993,
+  "brier_avg": 0.5449,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,11 +39,11 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 74.12,
+      "stake_total_eur": 79.12,
       "payout_total_eur": 79.97,
-      "profit_total_eur": 5.85,
-      "roi": 0.0789,
-      "bets_scored": 7,
+      "profit_total_eur": 0.85,
+      "roi": 0.0107,
+      "bets_scored": 8,
       "bets_won": 4,
       "bankroll_start_eur": 1000.0
     }
@@ -438,7 +438,56 @@
       "home": "FC Schalke 04",
       "away": "SV 07 Elversberg",
       "kickoff_utc": "2026-09-20T15:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        0,
+        0
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 0,
+        "always_draw": 2
+      },
+      "brier": 0.8641,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "FC Schalke 04 gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.9,
+        "model_probability": 0.2917,
+        "implied_probability": 0.5263,
+        "edge": -0.4457,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 5.0,
+          "payout_eur": 0.0,
+          "profit_eur": -5.0
+        }
+      }
     },
     {
       "home": "SC Paderborn 07",
