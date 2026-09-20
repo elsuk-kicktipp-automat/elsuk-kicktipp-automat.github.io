@@ -1191,9 +1191,138 @@
       "home": "FC Schalke 04",
       "away": "SV 07 Elversberg",
       "kickoff_utc": "2026-09-20T15:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "af6a7b23a0fe44b037aa44abead1b74b303a8e02f333883d9a231fbf2dc0371c",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.246,
+      "factors": {
+        "expected_goals": [
+          1.73,
+          1.3
+        ],
+        "probabilities": {
+          "home": 0.469,
+          "draw": 0.249,
+          "away": 0.283
+        },
+        "raw_probabilities": {
+          "home": 0.292,
+          "draw": 0.235,
+          "away": 0.473
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.492,
+          "draw": 0.25,
+          "away": 0.258,
+          "weight": 0.885
+        },
+        "home_advantage": 0.198,
+        "trained_on_matches": 645,
+        "news_checked": 1,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: FC Schalke 04 gegen SV 07 Elversberg - Bundesliga",
+              "description": "4. Spieltag: Anpfiff des Spiels ist am 20.09.2026 um 17:30 Uhr. SV 07 Elversberg spielt in Gelsenkirchen.",
+              "published": "2026-09-20T17:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 0
+            }
+          ],
+          "total_matches": 1,
+          "returned": 1,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2:1 – Schalke geht als leichter Favorit ins Duell, die Zahlen sprechen von fast 50 % Siegchance und rund 1,7 Toren pro Spiel, während Elversberg mit 1,3 Toren im Hinterkopf bleibt. Auf heimischem Rasen erwarten wir einen offenen Schlagabtausch, doch die Gäste haben genug Biss, um die Kiste eng zu halten. Es wird ein Abnutzungskampf, bei dem die Schalker Offensivkraft das Zünglein an der Waage sein dürfte.",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "FC Schalke 04 gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 24,
+        "odds_decimal": 1.9,
+        "model_probability": 0.2917,
+        "implied_probability": 0.5263,
+        "edge": -0.4457,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "FC Schalke 04 gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 24,
+          "odds_decimal": 1.9,
+          "model_probability": 0.2917,
+          "implied_probability": 0.5263,
+          "edge": -0.4457,
+          "expected_value_eur": -2.23,
+          "stake_eur": 5.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "c5ac73399840449d14368ae985b08b52"
     },
     {
       "home": "SC Paderborn 07",
