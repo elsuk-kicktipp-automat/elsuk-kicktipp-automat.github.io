@@ -14,6 +14,7 @@ Datenfluss (Fairness-Mechanismus, siehe concept.md §5):
                        letztem Anstoß Klartext) + verschlüsseltes .enc daneben
     data/bonus/        Saison-Bonusfragen der Kicktipp-Runde, gleiche Mechanik
                        wie kombi/ (Enthüllung nach dem ersten Anstoß)
+    data/schedule/     Spielplan ohne Ergebnisse (Startseite: nächster Spieltag, Pausen)
     data/cache/        API-Antworten (gitignored)
 """
 
@@ -37,6 +38,7 @@ MAPPINGS_DIR = DATA_DIR / "mappings"
 KOMBI_DIR = DATA_DIR / "kombi"
 BONUS_DIR = DATA_DIR / "bonus"
 SUBMISSIONS_DIR = DATA_DIR / "submissions"
+SCHEDULE_DIR = DATA_DIR / "schedule"
 
 
 def load_config(path: Path | str = DEFAULT_CONFIG_PATH) -> dict:

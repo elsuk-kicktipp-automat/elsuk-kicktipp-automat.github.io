@@ -1,0 +1,1740 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "matchdays": [
+    {
+      "matchday": 1,
+      "stage": "1. Spieltag",
+      "matches": [
+        {
+          "home": "FC Bayern München",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2026-08-28T18:30:00Z"
+        },
+        {
+          "home": "1. FC Köln",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2026-08-29T13:30:00Z"
+        },
+        {
+          "home": "1. FC Union Berlin",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2026-08-29T13:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2026-08-29T13:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2026-08-29T13:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2026-08-29T13:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2026-08-29T16:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2026-08-30T13:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2026-08-30T15:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 2,
+      "stage": "2. Spieltag",
+      "matches": [
+        {
+          "home": "VfB Stuttgart",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2026-09-04T18:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2026-09-05T13:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2026-09-05T13:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2026-09-05T13:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2026-09-05T13:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2026-09-05T13:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2026-09-05T16:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2026-09-06T13:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2026-09-06T15:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 3,
+      "stage": "3. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Union Berlin",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2026-09-11T18:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2026-09-12T13:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2026-09-12T13:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2026-09-12T13:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2026-09-12T13:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2026-09-12T13:30:00Z"
+        },
+        {
+          "home": "1. FC Köln",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2026-09-12T16:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2026-09-13T13:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2026-09-13T15:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 4,
+      "stage": "4. Spieltag",
+      "matches": [
+        {
+          "home": "FC Bayern München",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2026-09-18T18:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2026-09-19T13:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2026-09-19T13:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2026-09-19T13:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2026-09-19T13:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2026-09-19T16:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2026-09-20T13:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2026-09-20T15:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2026-09-20T17:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 5,
+      "stage": "5. Spieltag",
+      "matches": [
+        {
+          "home": "Borussia Dortmund",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2026-10-09T18:30:00Z"
+        },
+        {
+          "home": "1. FC Union Berlin",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2026-10-10T13:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2026-10-10T13:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2026-10-10T13:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2026-10-10T13:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2026-10-10T13:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2026-10-10T16:30:00Z"
+        },
+        {
+          "home": "1. FC Köln",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2026-10-11T13:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2026-10-11T15:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 6,
+      "stage": "6. Spieltag",
+      "matches": [
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2026-10-16T18:30:00Z"
+        },
+        {
+          "home": "1. FC Union Berlin",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2026-10-17T13:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2026-10-17T13:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2026-10-17T13:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2026-10-17T13:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2026-10-17T13:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2026-10-17T16:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2026-10-18T13:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2026-10-18T15:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 7,
+      "stage": "7. Spieltag",
+      "matches": [
+        {
+          "home": "VfB Stuttgart",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2026-10-23T18:30:00Z"
+        },
+        {
+          "home": "1. FC Köln",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2026-10-24T13:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2026-10-24T13:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2026-10-24T13:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2026-10-24T13:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2026-10-24T13:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2026-10-24T16:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2026-10-25T14:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2026-10-25T16:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 8,
+      "stage": "8. Spieltag",
+      "matches": [
+        {
+          "home": "SV 07 Elversberg",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2026-10-30T19:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2026-10-31T14:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2026-10-31T14:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2026-10-31T14:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2026-10-31T14:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2026-10-31T14:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2026-10-31T17:30:00Z"
+        },
+        {
+          "home": "1. FC Union Berlin",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2026-11-01T14:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2026-11-01T16:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 9,
+      "stage": "9. Spieltag",
+      "matches": [
+        {
+          "home": "Hamburger SV",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2026-11-06T19:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2026-11-07T14:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2026-11-07T14:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2026-11-07T14:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2026-11-07T14:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2026-11-07T17:30:00Z"
+        },
+        {
+          "home": "1. FC Köln",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2026-11-08T14:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2026-11-08T16:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2026-11-08T18:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 10,
+      "stage": "10. Spieltag",
+      "matches": [
+        {
+          "home": "FC Bayern München",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2026-11-20T19:30:00Z"
+        },
+        {
+          "home": "1. FC Union Berlin",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2026-11-21T14:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2026-11-21T14:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2026-11-21T14:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2026-11-21T14:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2026-11-21T14:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2026-11-21T17:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2026-11-22T14:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2026-11-22T16:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 11,
+      "stage": "11. Spieltag",
+      "matches": [
+        {
+          "home": "SV Werder Bremen",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2026-11-27T19:30:00Z"
+        },
+        {
+          "home": "1. FC Köln",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2026-11-28T14:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2026-11-28T14:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2026-11-28T14:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2026-11-28T14:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2026-11-28T17:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2026-11-29T14:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2026-11-29T16:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2026-11-29T18:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 12,
+      "stage": "12. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Union Berlin",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2026-12-05T14:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2026-12-05T14:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2026-12-05T14:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2026-12-05T14:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2026-12-05T14:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2026-12-05T14:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2026-12-05T14:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2026-12-05T14:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2026-12-05T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 13,
+      "stage": "13. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Köln",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2026-12-12T14:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2026-12-12T14:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2026-12-12T14:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2026-12-12T14:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2026-12-12T14:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2026-12-12T14:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2026-12-12T14:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2026-12-12T14:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2026-12-12T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 14,
+      "stage": "14. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Union Berlin",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2026-12-19T14:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2026-12-19T14:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2026-12-19T14:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2026-12-19T14:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2026-12-19T14:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2026-12-19T14:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2026-12-19T14:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2026-12-19T14:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2026-12-19T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 15,
+      "stage": "15. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Köln",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2027-01-09T14:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2027-01-09T14:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2027-01-09T14:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2027-01-09T14:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2027-01-09T14:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2027-01-09T14:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-01-09T14:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2027-01-09T14:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2027-01-09T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 16,
+      "stage": "16. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Köln",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2027-01-12T19:30:00Z"
+        },
+        {
+          "home": "1. FC Union Berlin",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2027-01-12T19:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2027-01-12T19:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2027-01-12T19:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2027-01-12T19:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2027-01-12T19:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2027-01-12T19:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2027-01-12T19:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2027-01-12T19:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 17,
+      "stage": "17. Spieltag",
+      "matches": [
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2027-01-16T14:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2027-01-16T14:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-01-16T14:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2027-01-16T14:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2027-01-16T14:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2027-01-16T14:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2027-01-16T14:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2027-01-16T14:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2027-01-16T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 18,
+      "stage": "18. Spieltag",
+      "matches": [
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2027-01-23T14:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2027-01-23T14:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-01-23T14:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2027-01-23T14:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2027-01-23T14:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2027-01-23T14:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2027-01-23T14:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2027-01-23T14:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2027-01-23T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 19,
+      "stage": "19. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Köln",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2027-01-30T14:30:00Z"
+        },
+        {
+          "home": "1. FC Union Berlin",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2027-01-30T14:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2027-01-30T14:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2027-01-30T14:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2027-01-30T14:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2027-01-30T14:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2027-01-30T14:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2027-01-30T14:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2027-01-30T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 20,
+      "stage": "20. Spieltag",
+      "matches": [
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2027-02-06T14:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2027-02-06T14:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2027-02-06T14:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2027-02-06T14:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-02-06T14:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2027-02-06T14:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2027-02-06T14:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2027-02-06T14:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2027-02-06T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 21,
+      "stage": "21. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Köln",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2027-02-13T14:30:00Z"
+        },
+        {
+          "home": "1. FC Union Berlin",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2027-02-13T14:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2027-02-13T14:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2027-02-13T14:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2027-02-13T14:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2027-02-13T14:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2027-02-13T14:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2027-02-13T14:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2027-02-13T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 22,
+      "stage": "22. Spieltag",
+      "matches": [
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2027-02-20T14:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2027-02-20T14:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2027-02-20T14:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2027-02-20T14:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2027-02-20T14:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2027-02-20T14:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-02-20T14:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2027-02-20T14:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2027-02-20T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 23,
+      "stage": "23. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Köln",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2027-02-27T14:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2027-02-27T14:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-02-27T14:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2027-02-27T14:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2027-02-27T14:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2027-02-27T14:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2027-02-27T14:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2027-02-27T14:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2027-02-27T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 24,
+      "stage": "24. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Union Berlin",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2027-03-02T19:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2027-03-02T19:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2027-03-02T19:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2027-03-02T19:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2027-03-02T19:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2027-03-02T19:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2027-03-02T19:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2027-03-02T19:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2027-03-02T19:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 25,
+      "stage": "25. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Köln",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-03-06T14:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2027-03-06T14:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2027-03-06T14:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2027-03-06T14:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2027-03-06T14:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2027-03-06T14:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2027-03-06T14:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2027-03-06T14:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2027-03-06T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 26,
+      "stage": "26. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Union Berlin",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2027-03-13T14:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2027-03-13T14:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2027-03-13T14:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2027-03-13T14:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2027-03-13T14:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2027-03-13T14:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2027-03-13T14:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2027-03-13T14:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2027-03-13T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 27,
+      "stage": "27. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Köln",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2027-03-20T14:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2027-03-20T14:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2027-03-20T14:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2027-03-20T14:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-03-20T14:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2027-03-20T14:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2027-03-20T14:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2027-03-20T14:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2027-03-20T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 28,
+      "stage": "28. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Union Berlin",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2027-04-03T13:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2027-04-03T13:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2027-04-03T13:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2027-04-03T13:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2027-04-03T13:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2027-04-03T13:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2027-04-03T13:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2027-04-03T13:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2027-04-03T13:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 29,
+      "stage": "29. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Köln",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2027-04-10T13:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2027-04-10T13:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2027-04-10T13:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2027-04-10T13:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-04-10T13:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2027-04-10T13:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2027-04-10T13:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2027-04-10T13:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2027-04-10T13:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 30,
+      "stage": "30. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Union Berlin",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2027-04-17T13:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2027-04-17T13:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2027-04-17T13:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2027-04-17T13:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2027-04-17T13:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2027-04-17T13:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2027-04-17T13:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2027-04-17T13:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2027-04-17T13:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 31,
+      "stage": "31. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Köln",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2027-04-24T13:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2027-04-24T13:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2027-04-24T13:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2027-04-24T13:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2027-04-24T13:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2027-04-24T13:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2027-04-24T13:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-04-24T13:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2027-04-24T13:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 32,
+      "stage": "32. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Union Berlin",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2027-05-08T13:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2027-05-08T13:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2027-05-08T13:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2027-05-08T13:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2027-05-08T13:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2027-05-08T13:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2027-05-08T13:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2027-05-08T13:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2027-05-08T13:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 33,
+      "stage": "33. Spieltag",
+      "matches": [
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2027-05-15T13:30:00Z"
+        },
+        {
+          "home": "Borussia Dortmund",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2027-05-15T13:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "FC Augsburg",
+          "kickoff_utc": "2027-05-15T13:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2027-05-15T13:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2027-05-15T13:30:00Z"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-05-15T13:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2027-05-15T13:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2027-05-15T13:30:00Z"
+        },
+        {
+          "home": "VfB Stuttgart",
+          "away": "RB Leipzig",
+          "kickoff_utc": "2027-05-15T13:30:00Z"
+        }
+      ]
+    },
+    {
+      "matchday": 34,
+      "stage": "34. Spieltag",
+      "matches": [
+        {
+          "home": "1. FC Köln",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2027-05-22T13:30:00Z"
+        },
+        {
+          "home": "1. FC Union Berlin",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2027-05-22T13:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2027-05-22T13:30:00Z"
+        },
+        {
+          "home": "FC Augsburg",
+          "away": "Hamburger SV",
+          "kickoff_utc": "2027-05-22T13:30:00Z"
+        },
+        {
+          "home": "FC Bayern München",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2027-05-22T13:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2027-05-22T13:30:00Z"
+        },
+        {
+          "home": "RB Leipzig",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2027-05-22T13:30:00Z"
+        },
+        {
+          "home": "SC Freiburg",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2027-05-22T13:30:00Z"
+        },
+        {
+          "home": "SV 07 Elversberg",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2027-05-22T13:30:00Z"
+        }
+      ]
+    }
+  ]
+}

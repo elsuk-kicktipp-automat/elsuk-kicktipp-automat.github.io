@@ -11,7 +11,7 @@
 
 import argparse
 
-from . import backtest, bonus, delivery_audit, evaluate, kicktipp_bot, kombi, learn, predict, seal
+from . import backtest, bonus, delivery_audit, evaluate, kicktipp_bot, kombi, learn, predict, schedule, seal
 from .config import load_config
 
 
@@ -27,6 +27,7 @@ def main():
     sub.add_parser("evaluate", help="enthüllte Tipps gegen reale Ergebnisse abrechnen")
     sub.add_parser("learn", help="Lernzustand aktualisieren (Vertrauensregler, Quotengewicht)")
     sub.add_parser("audit", help="fällige Spiele gegen Versiegelung und Kicktipp-Quittung prüfen")
+    sub.add_parser("schedule", help="Spielplan für die Startseite nach data/schedule/ schreiben")
     bt = sub.add_parser("backtest", help="Backtests ausführen")
     bt.add_argument("--mode", choices=["club", "national", "all"], default="all")
 
@@ -53,6 +54,8 @@ def main():
         learn.main(config)
     elif args.command == "audit":
         delivery_audit.main(config)
+    elif args.command == "schedule":
+        schedule.main(config)
     else:
         backtest.main(config, args.mode)
 

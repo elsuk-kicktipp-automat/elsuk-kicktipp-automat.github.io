@@ -73,6 +73,12 @@ jobs:
       - name: Selbstlernen (Vertrauensregler, Quotengewicht)
         run: python -m engine.cli learn
 
+      # Nur für die Startseite (nächster Spieltag, Pausen-Banner); darf die
+      # Tippabgabe dieses Laufs nie aufhalten.
+      - name: Spielplan
+        run: python -m engine.cli schedule
+        continue-on-error: true
+
       - name: Änderungen committen
         id: commit
         run: |
