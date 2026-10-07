@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import BonusCard from '../components/BonusCard.astro';
 import KombiCard from '../components/KombiCard.astro';
 import MatchCard from '../components/MatchCard.astro';
-import { competitionLabel, formatKickoff, lastKickoff, loadBonus, loadKombis, loadMatchdays, loadResults, resultsFor, scoredMatch } from '../lib/data.mjs';
+import { competitionLabel, firstKickoff, formatKickoff, lastKickoff, loadBonus, loadKombis, loadMatchdays, loadResults, loadSchedule, nextMatchday, resultsFor, scoredMatch } from '../lib/data.mjs';
 
 const matchdays = loadMatchdays();
 const results = loadResults();
@@ -12,26 +12,60 @@ const scored = current ? resultsFor(current, results) : undefined;
 const latestKombi = loadKombis().at(-1);
 const bonus = loadBonus();
 
-const label = current ? competitionLabel(current.competition) : '';
-
 // Kicker nennt Wettbewerb und Saison, die Überschrift darunter die Runde.
 // Vorher stand die Nummer zweimal da ("Bundesliga · Runde 1" über "1. Spieltag");
 // die Saison dagegen stand nirgends - im Archiv, wo Runden mehrerer Spielzeiten
 // untereinander stehen, fehlte sie spürbar. Turnier-Labels tragen ihr Jahr schon
 // im Namen ("WM 2026"), dort wird nichts angehängt.
-const seasonLabel = !current || /\d{4}/.test(label)
-  ? label
-  : `${label} ${current.season}/${String(current.season + 1).slice(-2)}`;
+function seasonLabelOf(md) {
+  if (!md) return '';
+  const label = competitionLabel(md.competition);
+  return /\d{4}/.test(label) ? label : `${label} ${md.season}/${String(md.season + 1).slice(-2)}`;
+}
+const seasonLabel = seasonLabelOf(current);
 
-// Pausen-Stempel: Solange die letzte getippte Runde länger als BREAK_DAYS her
-// ist, läuft gerade nichts - ohne Hinweis liest sich die Startseite so, als
-// wäre ein Spieltag von vor Wochen der aktuelle. Rein aus den Daten abgeleitet,
-// damit der Stempel von selbst verschwindet, sobald wieder getippt wird (und in
-// der Winterpause von selbst wiederkommt).
-const BREAK_DAYS = 3;
+// Zeitfenster: Ein abgelaufener Spieltag samt Kombi bleibt KEEP_DAYS nach dem
+// letzten Anstoß stehen, danach zeigt die Seite den Spielplan der nächsten
+// Runde. Die Seite ist statisch und wird nur bei neuen Daten gebaut - deshalb
+// trägt jedes zeitabhängige Element seine Grenzen als data-Attribute, und das
+// Skript am Seitenende zieht sie im Browser nach.
+const DAY_MS = 86_400_000;
+const KEEP_DAYS = 4;
+// Mehr Abstand zwischen zwei Runden ist keine normale Spielwoche mehr.
+const PAUSE_DAYS = 9;
+const MATCH_MS = 2 * 3_600_000;
+const now = Date.now();
+
+// Explizit statt per Spread: Astro hängt sonst ein zweites class-Attribut an
+// und die scoped Styles greifen nicht mehr.
+function win(from = -Infinity, until = Infinity) {
+  return {
+    from: Number.isFinite(from) ? from : undefined,
+    until: Number.isFinite(until) ? until : undefined,
+    hidden: !(now >= from && now < until),
+  };
+}
+
 const lastKick = current ? lastKickoff(current) : '';
-const daysSinceLast = lastKick ? (Date.now() - Date.parse(lastKick)) / 86_400_000 : 0;
-const inBreak = daysSinceLast >= BREAK_DAYS;
+const recentUntil = lastKick ? Date.parse(lastKick) + KEEP_DAYS * DAY_MS : Infinity;
+const next = current ? nextMatchday(loadSchedule(), current, lastKick) : undefined;
+const nextFirst = next ? firstKickoff(next) : '';
+const nextStart = next ? Date.parse(nextFirst) : Infinity;
+
+function pauseLabel() {
+  if (!next || nextStart - Date.parse(lastKick) < PAUSE_DAYS * DAY_MS) return null;
+  if (next.competition !== current.competition || next.season !== current.season) return 'Saisonpause';
+  const winter = new Date(lastKick).getUTCMonth() === 11 || new Date(nextFirst).getUTCMonth() === 0;
+  return winter ? 'Winterpause' : 'Länderspielpause';
+}
+const pause = pauseLabel();
+
+// Ohne bekannte nächste Runde bleibt der letzte Spieltag stehen - sonst wäre die Seite leer.
+const recentWin = next ? win(-Infinity, recentUntil) : win();
+const upcomingWin = win(next ? recentUntil : Infinity);
+const kombiWin = latestKombi
+  ? win(-Infinity, Date.parse(latestKombi.reveal_after_utc) + KEEP_DAYS * DAY_MS)
+  : win();
 // Der nächste Anstoß ist erst bekannt, sobald die Saison-Bonusfragen versiegelt
 // sind: deren Tippfrist IST der erste Anstoß der Saison. Vorher kennt die Site
 // den Spielplan nicht - sie liest nur data/, und dort steht bis dahin nichts.
@@ -39,6 +73,29 @@ const nextKickoff =
   bonus?.reveal_after_utc && Date.parse(bonus.reveal_after_utc) > Date.now()
     ? bonus.reveal_after_utc
     : null;
+
+const banners = [];
+if (!next && lastKick) {
+  banners.push({
+    main: 'Saisonpause',
+    note: nextKickoff ? `Saisonstart ${formatKickoff(nextKickoff)}` : `Zuletzt getippt: ${formatKickoff(lastKick)}`,
+    from: recentUntil,
+  });
+} else if (pause) {
+  banners.push({
+    main: pause,
+    note: `Weiter am ${formatKickoff(nextFirst)} mit dem ${next.stage}`,
+    from: Date.parse(lastKick) + MATCH_MS,
+    until: nextStart,
+  });
+} else if (next) {
+  banners.push({
+    main: 'Nächster Spieltag',
+    note: `${next.stage} ab ${formatKickoff(nextFirst)}`,
+    from: recentUntil,
+    until: nextStart,
+  });
+}
 
 // Zweifarbiger Hero-Titel: bei "…finale" wird der Suffix abgesetzt eingefärbt,
 // sonst das letzte Wort ("1. Runde" -> "1." / "Runde").
@@ -49,6 +106,7 @@ function splitTitle(stage) {
   return idx > -1 ? [stage.slice(0, idx + 1), stage.slice(idx + 1)] : ['', stage];
 }
 const [titlePrefix, titleSuffix] = current ? splitTitle(current.stage) : ['', ''];
+const [nextPrefix, nextSuffix] = next ? splitTitle(next.stage) : ['', ''];
 
 const stats = scored?.matches_scored > 0
   ? [
@@ -63,42 +121,54 @@ const stats = scored?.matches_scored > 0
 <Layout title="Aktueller Spieltag">
   {current ? (
     <>
-      {inBreak && (
-        <div class="stamp-row">
-          <div class="stamp">
-            <span class="stamp-main">Saisonpause</span>
-            <span class="stamp-note">
-              {nextKickoff
-                ? `Saisonstart ${formatKickoff(nextKickoff)}`
-                : `Zuletzt getippt: ${formatKickoff(lastKick)}`}
-            </span>
+      {banners.map((b) => ({ ...b, w: win(b.from, b.until) })).map((b) => (
+        <div class="banner" data-from={b.w.from} data-until={b.w.until} hidden={b.w.hidden}>
+          <span class="banner-main">{b.main}</span>
+          <span class="banner-note">{b.note}</span>
+        </div>
+      ))}
+
+      <div data-from={recentWin.from} data-until={recentWin.until} hidden={recentWin.hidden}>
+        <section class="hero">
+          <div class="kicker">
+            <span class="kicker-bar"></span>
+            <span class="kicker-text">{seasonLabel}</span>
+          </div>
+          <h1>{titlePrefix}<span class="accent">{titleSuffix}</span></h1>
+        </section>
+
+        {current.hinweis && <div class="notice">{current.hinweis}</div>}
+
+        {stats.length > 0 && (
+          <section class="stats">
+            {stats.map((s) => (
+              <div class="stat-tile">
+                <span class="stat-value accent">{s.value}</span>
+                <span class="stat-label">{s.label}</span>
+              </div>
+            ))}
+          </section>
+        )}
+      </div>
+
+      {next && (
+        <div data-from={upcomingWin.from} data-until={upcomingWin.until} hidden={upcomingWin.hidden}>
+          <section class="hero">
+            <div class="kicker">
+              <span class="kicker-bar"></span>
+              <span class="kicker-text">{seasonLabelOf(next)}</span>
+            </div>
+            <h1>{nextPrefix}<span class="accent">{nextSuffix}</span></h1>
+          </section>
+          <div class="notice">
+            Noch nicht getippt: Der Automat tippt jedes Spiel erst kurz vor Anstoß, damit
+            Aufstellungen und aktuelle Quoten einfließen. Bis dahin steht hier der Spielplan.
           </div>
         </div>
       )}
 
-      <section class="hero">
-        <div class="kicker">
-          <span class="kicker-bar"></span>
-          <span class="kicker-text">{seasonLabel}</span>
-        </div>
-        <h1>{titlePrefix}<span class="accent">{titleSuffix}</span></h1>
-      </section>
-
-      {current.hinweis && <div class="notice">{current.hinweis}</div>}
-
-      {stats.length > 0 && (
-        <section class="stats">
-          {stats.map((s) => (
-            <div class="stat-tile">
-              <span class="stat-value accent">{s.value}</span>
-              <span class="stat-label">{s.label}</span>
-            </div>
-          ))}
-        </section>
-      )}
-
       {latestKombi && (
-        <section class="kombi-section">
+        <section class="kombi-section" data-from={kombiWin.from} data-until={kombiWin.until} hidden={kombiWin.hidden}>
           <KombiCard kombi={latestKombi} />
         </section>
       )}
@@ -109,11 +179,34 @@ const stats = scored?.matches_scored > 0
         </section>
       )}
 
-      <section class="matches">
+      <section class="matches" data-from={recentWin.from} data-until={recentWin.until} hidden={recentWin.hidden}>
         {current.matches.map((m, i) => (
           <MatchCard match={m} scored={scoredMatch(m, scored)} delay={i * 60} />
         ))}
       </section>
+
+      {next && (
+        <section class="fixtures" data-from={upcomingWin.from} data-until={upcomingWin.until} hidden={upcomingWin.hidden}>
+          {next.matches.map((m) => (
+            <div class="fixture">
+              <span class="fixture-time">{formatKickoff(m.kickoff_utc)}</span>
+              <span class="fixture-teams">{m.home} – {m.away}</span>
+              <span class="fixture-tag">Tipp folgt</span>
+            </div>
+          ))}
+        </section>
+      )}
+
+      <script is:inline>
+        (() => {
+          const now = Date.now();
+          for (const el of document.querySelectorAll('[data-from],[data-until]')) {
+            const from = el.dataset.from ? Number(el.dataset.from) : -Infinity;
+            const until = el.dataset.until ? Number(el.dataset.until) : Infinity;
+            el.hidden = !(now >= from && now < until);
+          }
+        })();
+      </script>
     </>
   ) : (
     <>
@@ -127,57 +220,82 @@ const stats = scored?.matches_scored > 0
 </Layout>
 
 <style>
-  /* Pausen-Stempel: bleibt im Textfluss statt über dem Hero zu schweben.
-     Ein absolut positionierter Stempel überdeckt auf schmalen Geräten
-     zwangsläufig die Überschrift - so überlappt er nur optisch (negativer
-     Rand) und verdeckt nie etwas. */
-  /* Die Einblend-Animation sitzt auf dem Wrapper, nicht auf dem Stempel:
-     riseIn endet auf `transform: none` und würde mit fill-mode `both` die
-     Drehung dauerhaft überschreiben. */
-  .stamp-row { padding: 34px 10px 0; max-width: 100%; animation: riseIn 0.5s both; }
-  .stamp {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    padding: 9px 24px 11px;
-    color: var(--red);
-    /* Tintenkontur statt gefüllter Fläche, plus zweite Linie mit Abstand -
-       die Doppelkontur ist das, was einen Gummistempel ausmacht. */
-    border: 3px solid var(--red);
-    border-radius: 8px;
-    outline: 2px solid rgba(255, 77, 94, 0.5);
-    outline-offset: 5px;
-    background: transparent;
-    transform: rotate(-8deg);
-    transform-origin: left center;
-    /* leicht durchscheinend wie aufgedrückte Tinte */
-    opacity: 0.82;
+  /* Sonst gewinnt display:grid/flex der Abschnitte gegen das hidden-Attribut. */
+  [hidden] { display: none !important; }
+
+  .banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 18px;
+    margin-top: 34px;
+    padding: 16px 22px;
+    border-radius: 16px;
+    background: linear-gradient(90deg, rgba(212, 255, 63, 0.14), rgba(212, 255, 63, 0.03));
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(212, 255, 63, 0.35);
+    border-left: 6px solid var(--lime);
+    box-shadow: var(--glass-highlight), 0 12px 32px rgba(0, 0, 0, 0.35);
+    animation: riseIn 0.5s both;
   }
-  .stamp-main {
+  .banner + .banner { margin-top: 12px; }
+  .banner-main {
     font-family: var(--font-display);
-    /* clamp statt Breakpoint-Sprüngen: skaliert stufenlos über alle
-       Zwischengrößen, nicht nur an den Extremen */
-    font-size: clamp(26px, 6.5vw, 44px);
+    font-size: clamp(20px, 6vw, 32px);
     line-height: 1;
-    letter-spacing: 0.09em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
+    color: var(--lime);
+    min-width: 0;
+    overflow-wrap: anywhere;
+    hyphens: auto;
   }
-  .stamp-note {
-    font-size: clamp(9.5px, 2.1vw, 12px);
+  .banner-note {
+    font-size: clamp(10.5px, 2.2vw, 13px);
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    opacity: 0.85;
-    text-align: center;
+    color: var(--text);
+  }
+
+  .fixtures {
+    display: grid;
+    gap: 10px;
+    margin: 28px 0 0;
+    animation: riseIn 0.5s 0.15s both;
+  }
+  .fixture {
+    display: grid;
+    grid-template-columns: minmax(170px, auto) 1fr auto;
+    align-items: center;
+    gap: 6px 18px;
+    padding: 14px 20px;
+    border-radius: 14px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-highlight);
+  }
+  .fixture-time {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+  .fixture-teams { font-weight: 700; }
+  .fixture-tag {
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    padding: 3px 10px;
   }
   @media (max-width: 560px) {
-    /* flacher gedreht, sonst ragt die Ecke aus dem Viewport */
-    .stamp { transform: rotate(-4deg); padding: 8px 15px 10px; outline-offset: 4px; }
-    .stamp-row { padding-top: 24px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .stamp-row { animation: none; }
+    .fixture { grid-template-columns: 1fr auto; }
+    .fixture-teams { grid-column: 1 / -1; grid-row: 2; }
   }
 
   .hero { padding: 44px 4px 0; animation: riseIn 0.5s both; }

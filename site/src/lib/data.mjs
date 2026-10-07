@@ -18,7 +18,7 @@ function readDirJson(dir) {
 }
 
 /** Frühester Anstoß einer Spieltags-Datei. */
-function firstKickoff(md) {
+export function firstKickoff(md) {
   return md.matches.reduce((min, m) => (m.kickoff_utc < min ? m.kickoff_utc : min), '9999');
 }
 
@@ -87,6 +87,23 @@ export function resultsFor(matchday, results) {
 export function scoredMatch(match, resultReport) {
   return resultReport?.matches.find(
     (m) => m.home === match.home && m.away === match.away && m.points !== undefined
+  );
+}
+
+/** Alle Runden aus data/schedule/ (engine/schedule.py), nach erstem Anstoß sortiert. */
+export function loadSchedule() {
+  return readDirJson('schedule')
+    .flatMap((s) => s.matchdays.map((md) => ({ ...md, competition: s.competition, season: s.season })))
+    .filter((md) => md.matches.length > 0)
+    .sort((a, b) => firstKickoff(a).localeCompare(firstKickoff(b)));
+}
+
+/** Erste Runde des Spielplans, die nach `afterIso` beginnt und nicht `current` ist. */
+export function nextMatchday(schedule, current, afterIso) {
+  return schedule.find(
+    (md) =>
+      firstKickoff(md) > afterIso &&
+      !(md.competition === current?.competition && md.season === current?.season && md.matchday === current?.matchday)
   );
 }
 
