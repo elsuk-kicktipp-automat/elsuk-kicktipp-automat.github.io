@@ -46,9 +46,20 @@ function win(from = -Infinity, until = Infinity) {
   };
 }
 
-const lastKick = current ? lastKickoff(current) : '';
+const schedule = current ? loadSchedule() : [];
+const isCurrent = (md) =>
+  md.competition === current?.competition && md.season === current?.season && md.matchday === current?.matchday;
+// Tipp-Dateien wachsen erst kurz vor jedem Anstoß. Für Zeitfenster und
+// Countdown ergänzen wir die noch ungetippten Partien aus dem Spielplan.
+// Neu terminierte Anstoßzeiten aus dem Spielplan haben dabei Vorrang.
+const currentMatches = new Map();
+for (const m of [...(current?.matches ?? []), ...(schedule.find(isCurrent)?.matches ?? [])]) {
+  currentMatches.set(JSON.stringify([m.home, m.away]), m);
+}
+const currentWithSchedule = current ? { ...current, matches: [...currentMatches.values()] } : undefined;
+const lastKick = currentWithSchedule ? lastKickoff(currentWithSchedule) : '';
 const recentUntil = lastKick ? Date.parse(lastKick) + KEEP_DAYS * DAY_MS : Infinity;
-const next = current ? nextMatchday(loadSchedule(), current, lastKick) : undefined;
+const next = current ? nextMatchday(schedule, current, lastKick) : undefined;
 const nextFirst = next ? firstKickoff(next) : '';
 const nextStart = next ? Date.parse(nextFirst) : Infinity;
 
@@ -78,12 +89,14 @@ const banners = [];
 if (!next && lastKick) {
   banners.push({
     main: 'Saisonpause',
+    pause: true,
     note: nextKickoff ? `Saisonstart ${formatKickoff(nextKickoff)}` : `Zuletzt getippt: ${formatKickoff(lastKick)}`,
     from: recentUntil,
   });
 } else if (pause) {
   banners.push({
     main: pause,
+    pause: true,
     note: `Weiter am ${formatKickoff(nextFirst)} mit dem ${next.stage}`,
     from: Date.parse(lastKick) + MATCH_MS,
     until: nextStart,
@@ -96,6 +109,27 @@ if (!next && lastKick) {
     until: nextStart,
   });
 }
+
+// Countdown: zählt im Browser auf das nächste Einzelspiel herunter. Die Seite
+// bekommt dafür die kommenden Anstoßzeiten mit (gleichzeitige Spiele als eine
+// Gruppe) - so stimmt der Timer auch, wenn länger nicht neu gebaut wurde.
+// Steht schon ein Pausen-Stempel oder Banner da, läuft der Timer dort mit; der
+// eigene Countdown-Banner erscheint nur, wenn sonst keiner sichtbar ist.
+const COUNTDOWN_GROUPS = 20;
+const kickoffGroups = new Map();
+for (const m of currentWithSchedule ? [currentWithSchedule, ...schedule.filter((md) => !isCurrent(md))].flatMap((md) => md.matches) : []) {
+  const t = Date.parse(m.kickoff_utc);
+  if (t + MATCH_MS <= now) continue;
+  kickoffGroups.set(t, [...(kickoffGroups.get(t) ?? []), m]);
+}
+const kickoffs = [...kickoffGroups]
+  .sort(([a], [b]) => a - b)
+  .slice(0, COUNTDOWN_GROUPS)
+  .map(([t, ms]) => ({
+    t,
+    label: ms.length === 1 ? `${ms[0].home} – ${ms[0].away}` : `${ms.length} Spiele`,
+    when: formatKickoff(ms[0].kickoff_utc),
+  }));
 
 // Zweifarbiger Hero-Titel: bei "…finale" wird der Suffix abgesetzt eingefärbt,
 // sonst das letzte Wort ("1. Runde" -> "1." / "Runde").
@@ -121,12 +155,29 @@ const stats = scored?.matches_scored > 0
 <Layout title="Aktueller Spieltag">
   {current ? (
     <>
-      {banners.map((b) => ({ ...b, w: win(b.from, b.until) })).map((b) => (
+      {banners.map((b) => ({ ...b, w: win(b.from, b.until) })).map((b) => b.pause ? (
+        <div class="stamp-row" data-from={b.w.from} data-until={b.w.until} hidden={b.w.hidden}>
+          <div class="stamp">
+            <span class="stamp-main">{b.main}</span>
+            <span class="stamp-note">{b.note}</span>
+            <span class="stamp-timer" role="timer"></span>
+          </div>
+        </div>
+      ) : (
         <div class="banner" data-from={b.w.from} data-until={b.w.until} hidden={b.w.hidden}>
           <span class="banner-main">{b.main}</span>
           <span class="banner-note">{b.note}</span>
+          <span class="banner-timer" role="timer"></span>
         </div>
       ))}
+
+      {kickoffs.length > 0 && (
+        <div class="banner" data-kickoffs={JSON.stringify(kickoffs)} data-match-ms={MATCH_MS} hidden>
+          <span class="banner-main"></span>
+          <span class="banner-note"></span>
+          <span class="banner-timer" role="timer"></span>
+        </div>
+      )}
 
       <div data-from={recentWin.from} data-until={recentWin.until} hidden={recentWin.hidden}>
         <section class="hero">
@@ -199,12 +250,38 @@ const stats = scored?.matches_scored > 0
 
       <script is:inline>
         (() => {
-          const now = Date.now();
-          for (const el of document.querySelectorAll('[data-from],[data-until]')) {
-            const from = el.dataset.from ? Number(el.dataset.from) : -Infinity;
-            const until = el.dataset.until ? Number(el.dataset.until) : Infinity;
-            el.hidden = !(now >= from && now < until);
-          }
+          const windows = document.querySelectorAll('[data-from],[data-until]');
+          const cd = document.querySelector('[data-kickoffs]');
+          const kickoffs = cd ? JSON.parse(cd.dataset.kickoffs) : [];
+          const matchMs = cd ? Number(cd.dataset.matchMs) : 0;
+          const pad = (n) => String(n).padStart(2, '0');
+          const tick = () => {
+            const now = Date.now();
+            // Auch bei offenem Tab wechseln Banner und Spieltagskarten zur
+            // richtigen Zeit; erst danach das sichtbare Timer-Ziel bestimmen.
+            for (const el of windows) {
+              const from = el.dataset.from ? Number(el.dataset.from) : -Infinity;
+              const until = el.dataset.until ? Number(el.dataset.until) : Infinity;
+              el.hidden = !(now >= from && now < until);
+            }
+            if (!cd) return;
+            const [main, note, timer] = cd.children;
+            const host = document.querySelector('[data-from]:not([hidden]) [role="timer"]');
+            const live = kickoffs.filter((k) => k.t <= now && now < k.t + matchMs);
+            const next = kickoffs.find((k) => k.t > now);
+            const text = (s, d = Math.floor(s / 86400)) =>
+              (d ? `${d} T ` : '') + `${pad(Math.floor(s / 3600) % 24)}:${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}`;
+            if (host) host.textContent = next ? `noch ${text(Math.floor((next.t - now) / 1000))}` : '';
+            cd.hidden = Boolean(host) || (!live.length && !next);
+            if (cd.hidden) return;
+            main.textContent = live.length ? 'Läuft gerade' : 'Nächstes Spiel';
+            note.textContent = live.length ? live.map((k) => k.label).join(' · ') : `${next.label} · ${next.when}`;
+            if (!next) return (timer.textContent = '');
+            timer.textContent =
+              (live.length ? 'Nächstes Spiel in ' : 'noch ') + text(Math.floor((next.t - now) / 1000));
+          };
+          tick();
+          setInterval(tick, 1000);
         })();
       </script>
     </>
@@ -257,6 +334,79 @@ const stats = scored?.matches_scored > 0
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text);
+  }
+  /* Feste Ziffernbreite, sonst zappelt die Zeile im Sekundentakt. */
+  .banner-timer {
+    margin-left: auto;
+    font-size: clamp(15px, 4vw, 20px);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    color: var(--lime);
+  }
+  .banner-timer:empty, .stamp-timer:empty { display: none; }
+
+  /* Pausen-Stempel: bleibt im Textfluss statt über dem Hero zu schweben.
+     Ein absolut positionierter Stempel überdeckt auf schmalen Geräten
+     zwangsläufig die Überschrift - so überlappt er nur optisch (negativer
+     Rand) und verdeckt nie etwas. */
+  /* Die Einblend-Animation sitzt auf dem Wrapper, nicht auf dem Stempel:
+     riseIn endet auf `transform: none` und würde mit fill-mode `both` die
+     Drehung dauerhaft überschreiben. */
+  .stamp-row { padding: 34px 10px 0; max-width: 100%; animation: riseIn 0.5s both; }
+  .stamp {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 9px 24px 11px;
+    color: var(--red);
+    /* Tintenkontur statt gefüllter Fläche, plus zweite Linie mit Abstand -
+       die Doppelkontur ist das, was einen Gummistempel ausmacht. */
+    border: 3px solid var(--red);
+    border-radius: 8px;
+    outline: 2px solid rgba(255, 77, 94, 0.5);
+    outline-offset: 5px;
+    background: transparent;
+    /* Um die Mitte und nur leicht gedreht: Mit Timer und langer Unterzeile ist
+       der Stempel so breit, dass seine rechte Ecke sonst in den Header ragt. */
+    transform: rotate(-5deg);
+    /* leicht durchscheinend wie aufgedrückte Tinte */
+    opacity: 0.82;
+  }
+  .stamp-main {
+    font-family: var(--font-display);
+    /* clamp statt Breakpoint-Sprüngen: skaliert stufenlos über alle
+       Zwischengrößen, nicht nur an den Extremen */
+    font-size: clamp(26px, 6.5vw, 44px);
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  .stamp-note {
+    font-size: clamp(9.5px, 2.1vw, 12px);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    text-align: center;
+  }
+  /* Feste Ziffernbreite wie beim Banner-Timer. */
+  .stamp-timer {
+    font-size: clamp(14px, 3.4vw, 19px);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  @media (max-width: 560px) {
+    /* flacher gedreht, sonst ragt die Ecke aus dem Viewport */
+    .stamp { transform: rotate(-3deg); padding: 8px 15px 10px; outline-offset: 4px; }
+    .stamp-row { padding-top: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .stamp-row { animation: none; }
   }
 
   .fixtures {
