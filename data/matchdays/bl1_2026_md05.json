@@ -16,9 +16,169 @@
       "home": "Borussia Dortmund",
       "away": "SV Werder Bremen",
       "kickoff_utc": "2026-10-09T18:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "86cdfd3c9630d865d1ee96f7c275e7f11d4b198ad2eb14eaf4036e6e03c2f76d",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.731,
+      "factors": {
+        "expected_goals": [
+          2.53,
+          0.99
+        ],
+        "probabilities": {
+          "home": 0.713,
+          "draw": 0.17,
+          "away": 0.117
+        },
+        "raw_probabilities": {
+          "home": 0.722,
+          "draw": 0.176,
+          "away": 0.102
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.711,
+          "draw": 0.169,
+          "away": 0.119,
+          "weight": 0.891
+        },
+        "home_advantage": 0.205,
+        "trained_on_matches": 648,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "\"Bestes Jahr meiner Karriere\": Füllkrug freut sich auf Rückkehr nach Dortmund",
+              "description": "Nach eigener Aussage erlebte Niclas Füllkrug bei Borussia Dortmund das beste Jahr seiner Karriere. Nun kehrt der 33-Jährige mit Werder Bremen erstmals zurück an alte Wirkungsstätte - jedoch nicht nur, um alte Bekannte zu begrüßen.",
+              "published": "2026-10-09T11:22:40+00:00",
+              "source": "kicker",
+              "source_label": "Kicker"
+            },
+            {
+              "title": "Toni Kroos bald Trainer in Spanien?",
+              "description": "Fußball, Real Madrid, Primera División - La Liga, Kroos Toni, Champions League, Borussia Dortmund, Start-up, Aufmacher-Bereich, FC Bayern München, erste Bundesliga",
+              "published": "2026-10-09T02:18:23+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/toni-kroos-bald-trainer-in-spanien-6ac7e1086e0a564ee52e9aae"
+            },
+            {
+              "title": "Bundesliga-Restart: Was ist neu nach drei Wochen Länderspielpause?",
+              "description": "Borussia Dortmund geht als Tabellenführer in den \"Restart\" der Bundesliga, nach scheinbar endlos langen drei Wochen Länderspielpause. Passiert ist einiges - ein Überblick.",
+              "published": "2026-10-08T14:24:07+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau"
+            },
+            {
+              "title": "Nach heftiger Großkreutz-Kritik: Schalke-Fährmann bald im BVB-Podcast",
+              "description": "FC Schalke, Borussia Dortmund, Fährmann Ralf, Großkreutz Kevin, erste Bundesliga, Sport – Leuchtturm Essen, Backhaus Max, Kitsch Christian, Aufmacher-Bereich",
+              "published": "2026-10-08T13:45:55+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/nach-heftiger-grosskreutz-kritik-schalke-faehrmann-bald-im-bvb-podcast-6ac646bb75caf261c519c6eb"
+            },
+            {
+              "title": "BVB-Star ist die größte Entdeckung von Jürgen Klopp",
+              "description": "Borussia Dortmund, erste Bundesliga, spielertransfer, Fußball, Kovac Niko, Deutsche Nationalmannschaft, Anton Waldemar, Sport – Leuchtturm Essen, Weiler Jörg",
+              "published": "2026-10-08T13:35:13+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bvb-star-ist-die-groesste-entdeckung-von-juergen-klopp-6ac68552680a65c2883c3df5"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 6
+            }
+          ],
+          "total_matches": 8,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null
+      },
+      "begruendung": "Tipp: 2 : 1. Dortmund geht mit klarer Übermacht in die Partie, die 71 % Siegchance sprechen für ein Torfestival zu Hause, während Bremen kaum mehr als ein Gegentreffer zu erwarten hat. Die Bayern setzen auf ein schnelles Pressing und ein schnelles Umschalten, das die Gäste in ein Abnutzungsspiel zwingt. Wer das Spiel überlebt, wird am Ende mit einem knappen, aber verdienten Sieg nach Hause gehen.",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          0
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 21,
+        "odds_decimal": 1.33,
+        "model_probability": 0.7218,
+        "implied_probability": 0.7519,
+        "edge": -0.0399,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Borussia Dortmund gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 21,
+          "odds_decimal": 1.33,
+          "model_probability": 0.7218,
+          "implied_probability": 0.7519,
+          "edge": -0.0399,
+          "expected_value_eur": -1.0,
+          "stake_eur": 25.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "a754cf99b8ee1375cac69484f3a33d94"
     }
   ]
 }
