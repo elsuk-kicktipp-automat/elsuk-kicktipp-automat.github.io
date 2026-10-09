@@ -10,6 +10,7 @@ FEED_XML = """<?xml version="1.0" encoding="utf-8"?>
 <item>
   <title>Deutschland ohne Stammtorwart: Ausfall vor dem Achtelfinale</title>
   <description>Der Kapitän fehlt verletzt.</description>
+  <link>https://www.kicker.de/deutschland-ohne-stammtorwart</link>
   <pubDate>Thu, 02 Jul 2026 10:00:00 GMT</pubDate>
 </item>
 <item>
@@ -57,6 +58,13 @@ class TestFetchSnippets:
         titles = [r["title"] for r in result]
         assert any("Stammtorwart" in t for t in titles)
         assert not any("Frankreich" in t for t in titles)
+
+    def test_keeps_the_article_link_for_every_source(self, cache_with_feed):
+        now = datetime(2026, 7, 3, 12, tzinfo=timezone.utc)
+        result = fetch_snippets("Deutschland", "Portugal", cache_dir=cache_with_feed, cache_tag="2026-07-03", now=now)
+        urls = {r["source"]: r["url"] for r in result}
+        assert urls["kicker"] == "https://www.kicker.de/deutschland-ohne-stammtorwart"
+        assert urls["bild"] == "https://www.bild.de/sport/fussball/deutschland-ohne-stammtorwart"
 
     def test_excludes_items_older_than_max_age(self, cache_with_feed):
         now = datetime(2026, 7, 3, 12, tzinfo=timezone.utc)

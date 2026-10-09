@@ -39,11 +39,12 @@ const knockout = hasKnockoutStages(matchdays, activeCompetition(matchdays));
     </li>
     <li>
       <strong>Claude Opus 5.5</strong> – formuliert die Begründungstexte in
-      flüssigerer Sprache (siehe Abschnitt 5).
+      flüssigerer Sprache und prüft Nachrichten auf einen möglichen Grund für
+      eine Tipp-Anpassung (siehe Abschnitt 5).
     </li>
     <li>
-      <strong>Groq (GPT-OSS 120B)</strong> – prüft Nachrichten auf einen möglichen
-      Grund für eine Tipp-Anpassung (siehe Abschnitt 5).
+      <strong>Groq (GPT-OSS 120B)</strong> – Ersatz für die Nachrichtenprüfung,
+      falls Claude nicht erreichbar ist.
     </li>
     <li>
       <strong>News-Check</strong> – Kicker- und Sportschau-RSS sowie die
@@ -151,8 +152,12 @@ EOF`}</pre>
     eine Template-Begründung aus denselben Zahlen ein.
   </p>
   <p>
-    Zusätzlich liest ein zweites LLM (GPT-OSS 120B über Groq) aktuelle
-    Schlagzeilen zu beiden Teams (Kicker,
+    Welches Modell wie viele Tokens verbraucht hat, steht nach Anstoß in der
+    „Quellen &amp; Faktoren"-Box, ebenso die gelesenen Meldungen.
+  </p>
+  <p>
+    Zusätzlich liest das LLM (Claude Opus 5.5; ist es nicht erreichbar, GPT-OSS
+    120B über Groq) aktuelle Schlagzeilen zu beiden Teams (Kicker,
     Sportschau, BILD-News-Sitemap) und darf – nur bei einem konkreten harten Grund
     wie einer Verletzung, Sperre oder Rotation – eine Anpassung um höchstens ein Tor
     je Team vorschlagen.

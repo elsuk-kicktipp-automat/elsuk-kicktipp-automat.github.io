@@ -22,6 +22,35 @@ const newsHitsBySource = checkedNewsSources
   .filter((source) => source.matches > 0)
   .map((source) => `${source.label}: ${source.matches}`)
   .join(' · ');
+
+// Die Meldungen, die der News-Check gelesen hat. Nur Überschrift, Quelle und
+// Datum; verlinkt wird ausschließlich auf http(s)-Adressen aus dem Feed.
+const newsDate = new Intl.DateTimeFormat('de-DE', { timeZone: 'Europe/Berlin', day: '2-digit', month: '2-digit' });
+const seenNews = new Set();
+const newsItems = (newsSources?.snippets ?? [])
+  .filter((item) => {
+    const key = `${item.source}|${item.title}`;
+    if (seenNews.has(key)) return false;
+    seenNews.add(key);
+    return true;
+  })
+  .map((item) => ({
+    title: item.title,
+    label: item.source_label ?? item.source,
+    date: item.published ? newsDate.format(new Date(item.published)) : null,
+    url: /^https?:\/\//.test(item.url ?? '') ? item.url : null,
+  }));
+
+// Token-Verbrauch aller LLM-Aufrufe dieses Spiels (engine/llm.py: ask)
+const llmUsage = factors.llm_usage;
+const tokenCount = new Intl.NumberFormat('de-DE');
+const MODEL_LABELS = { 'claude-opus-5-5': 'Claude Opus 5.5', 'openai/gpt-oss-120b': 'GPT-OSS 120B (Groq)' };
+const PURPOSE_LABELS = { news: 'News-Check', begruendung: 'Begründung' };
+const usageCalls = (llmUsage?.calls ?? []).map(
+  (call) =>
+    `${PURPOSE_LABELS[call.zweck] ?? call.zweck}: ${MODEL_LABELS[call.model] ?? call.model}, ` +
+    `${tokenCount.format(call.input_tokens)} + ${tokenCount.format(call.output_tokens)}`
+);
 const pointsClass = scored ? `p${scored.points}` : '';
 const paperBet = match.paper_bet;
 const paperBetResult = scored?.paper_bet_result;
@@ -244,6 +273,30 @@ const mehrereStrategien = wettZeilen.length > 1;
               {failedNewsSources.length > 0 && <> · nicht erreichbar: {failedNewsSources.map((source) => source.label).join(', ')}</>}
             </li>
           ) : null}
+          {newsItems.length > 0 && (
+            <li class="plain">
+              <details class="news-list">
+                <summary>Gelesene Meldungen anzeigen</summary>
+                <ul>
+                  {newsItems.map((item) => (
+                    <li>
+                      <span class="news-meta">{item.label}{item.date && <> · {item.date}</>}:</span>{' '}
+                      {item.url
+                        ? <a href={item.url} target="_blank" rel="noopener noreferrer">{item.title}</a>
+                        : item.title}
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </li>
+          )}
+          {llmUsage && (
+            <li>
+              KI-Verbrauch: {tokenCount.format(llmUsage.input_tokens)} Token Eingabe ·{' '}
+              {tokenCount.format(llmUsage.output_tokens)} Token Ausgabe
+              <span class="usage-calls" title="Je Aufruf: Eingabe + Ausgabe in Token">{usageCalls.join(' · ')}</span>
+            </li>
+          )}
         </ul>
       </div>
 
@@ -488,6 +541,14 @@ const mehrereStrategien = wettZeilen.length > 1;
     color: var(--text-body);
   }
   .sources-list li { margin: 2px 0; }
+  /* Zeile ohne Aufzählungspunkt: das Aufklapp-Dreieck steht an seiner Stelle */
+  .sources-list li.plain { list-style: none; margin-left: -1.1em; }
+  .news-list summary { cursor: pointer; color: var(--lime); font-weight: 600; }
+  .news-list ul { margin: 4px 0 0; padding-left: 1.1em; }
+  .news-list li { overflow-wrap: anywhere; }
+  .news-list a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  .news-meta, .usage-calls { color: var(--text-muted); }
+  .usage-calls { display: block; }
 
   .reveal-proof {
     margin: 14px 22px 0;

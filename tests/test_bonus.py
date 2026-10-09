@@ -121,8 +121,12 @@ class TestAnswerQuestions:
         )
         assert answers["first_coach_change"] == ["SV Werder Bremen"]
 
-    def test_uses_llm_answer_when_available(self, monkeypatch):
-        monkeypatch.setattr(bonus, "call_groq", lambda *a, **k: "Borussia Dortmund")
+    def test_uses_claude_answer_without_asking_groq(self, monkeypatch):
+        def groq_must_not_run(*args, **kwargs):
+            raise AssertionError("Groq ist nur Ersatz, wenn Claude ausfällt")
+
+        monkeypatch.setattr("engine.llm.call_claude", lambda prompt, **kw: "Borussia Dortmund")
+        monkeypatch.setattr("engine.llm.call_groq", groq_must_not_run)
         answers, sources = bonus.answer_questions(
             _probabilities(), promoted=set(), api_key="key", llm_model="x",
             kinds=("top_scorer_club",),
@@ -130,8 +134,29 @@ class TestAnswerQuestions:
         assert answers["top_scorer_club"] == ["Borussia Dortmund"]
         assert sources["top_scorer_club"] == "llm"
 
+    def test_groq_answers_when_claude_is_unavailable(self, monkeypatch):
+        monkeypatch.setattr("engine.llm.call_groq", lambda *a, **k: "Borussia Dortmund")
+        answers, sources = bonus.answer_questions(
+            _probabilities(), promoted=set(), api_key="key", llm_model="x",
+            kinds=("top_scorer_club",),
+        )
+        assert answers["top_scorer_club"] == ["Borussia Dortmund"]
+        assert sources["top_scorer_club"] == "llm"
+
+    def test_disabled_llm_asks_nobody(self, monkeypatch):
+        def must_not_run(*args, **kwargs):
+            raise AssertionError("llm.enabled=false darf kein LLM fragen")
+
+        monkeypatch.setattr("engine.llm.call_claude", must_not_run)
+        monkeypatch.setattr("engine.llm.call_groq", must_not_run)
+        _, sources = bonus.answer_questions(
+            _probabilities(), promoted=set(), api_key="key", llm_model="x",
+            kinds=("top_scorer_club",), llm_enabled=False,
+        )
+        assert sources["top_scorer_club"] == "heuristic"
+
     def test_unusable_llm_answer_falls_back(self, monkeypatch):
-        monkeypatch.setattr(bonus, "call_groq", lambda *a, **k: "Hansa Rostock")
+        monkeypatch.setattr("engine.llm.call_groq", lambda *a, **k: "Hansa Rostock")
         answers, sources = bonus.answer_questions(
             _probabilities(), promoted=set(), api_key="key", llm_model="x",
             kinds=("top_scorer_club",),

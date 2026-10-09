@@ -1,14 +1,18 @@
 """LLM-Schicht: Begründungstexte + Anpassungsvorschlag (concept.md Schicht 3).
 
+Alle LLM-Aufrufe gehen zuerst an Claude Opus 5.5 über die Claude-Code-
+Kommandozeile (`claude -p`) mit dem Claude-Abo - kein API-Schlüssel, keine
+Zusatzkosten. Groq (Free Tier) springt nur ein, wenn Claude nicht erreichbar
+ist (siehe ask). Jeder gelungene Aufruf wird mit Zweck, Modell und Tokens
+mitgeschrieben und pro Spiel veröffentlicht (factors.llm_usage).
+
 Begründung: ersetzt die Template-Begründung durch einen vom LLM formulierten
 Analysetext, der dieselben Modellzahlen in flüssigerer Sprache einordnet.
-Schreibt Claude Opus 5.5 über die Claude-Code-Kommandozeile (`claude -p`) mit
-dem Claude-Abo - kein API-Schlüssel, keine Zusatzkosten. Der Text ist Teil
-des Hashes und nach dem Versiegeln nicht mehr korrigierbar, deshalb wird er
-vorher geprüft (check_begruendung).
+Hier gibt es keinen Groq-Ersatz: fällt Claude aus, bleibt die Template-
+Begründung. Der Text ist Teil des Hashes und nach dem Versiegeln nicht mehr
+korrigierbar, deshalb wird er vorher geprüft (check_begruendung).
 
-Anpassungsvorschlag (Groq Free Tier): Mit News-Schnipseln
-(engine/sources/news.py) darf das LLM
+Anpassungsvorschlag: Mit News-Schnipseln (engine/sources/news.py) darf das LLM
 einen Tipp innerhalb von ±1 Tor vorschlagen – aber nur mit konkretem Grund
 (Verletzung, Sperre, Rotation), nicht auf Basis von nichts. Läuft aktuell im
 Schatten-Modus: der Vorschlag wird nur geloggt und als eigener Schattentipper
@@ -32,11 +36,11 @@ import requests
 
 GROQ_API_BASE = "https://api.groq.com/openai/v1"
 DEFAULT_MODEL = "openai/gpt-oss-120b"
-# Begründungstext: läuft über das Claude-Abo. Lokal reicht die angemeldete
-# `claude`-CLI, in GitHub Actions das Token aus `claude setup-token`
-# (Secret CLAUDE_CODE_OAUTH_TOKEN, ein Jahr gültig).
-BEGRUENDUNG_MODEL = "claude-opus-5-5"
-BEGRUENDUNG_SYSTEM = (
+# Claude läuft über das Abo. Lokal reicht die angemeldete `claude`-CLI, in
+# GitHub Actions das Token aus `claude setup-token` (Secret
+# CLAUDE_CODE_OAUTH_TOKEN, ein Jahr gültig).
+CLAUDE_MODEL = "claude-opus-5-5"
+CLAUDE_SYSTEM = (
     "Du schreibst kurze Texte genau nach Vorgabe. Antworte nur mit dem verlangten "
     "Text, ohne Vor- oder Nachbemerkung."
 )
@@ -127,6 +131,7 @@ def call_groq(
     temperature: float = 0.4,
     max_tokens: int = 300,
     reasoning_effort: str = "low",
+    usage: list | None = None,
 ) -> str | None:
     """Best-effort Chat-Completion; None bei jedem Fehler (Fallback greift dann).
 
@@ -147,14 +152,24 @@ def call_groq(
             timeout=20,
         )
         resp.raise_for_status()
-        text = resp.json()["choices"][0]["message"]["content"].strip()
+        data = resp.json()
+        text = data["choices"][0]["message"]["content"].strip()
+        tokens = data.get("usage") or {}
+        _record(usage, model, tokens.get("prompt_tokens"), tokens.get("completion_tokens"))
         return text or None
     except (requests.RequestException, KeyError, IndexError, ValueError) as exc:
         print(f"Groq-LLM nicht verfügbar: {exc}")
         return None
 
 
-def call_claude(prompt: str, model: str = BEGRUENDUNG_MODEL) -> str | None:
+def _record(usage: list | None, model: str, input_tokens, output_tokens) -> None:
+    if usage is not None:
+        usage.append(
+            {"model": model, "input_tokens": int(input_tokens or 0), "output_tokens": int(output_tokens or 0)}
+        )
+
+
+def call_claude(prompt: str, model: str = CLAUDE_MODEL, usage: list | None = None) -> str | None:
     """Best-effort-Aufruf über `claude -p`; None bei jedem Fehler (Fallback greift dann).
 
     Läuft bewusst über das Abo statt über die API: ANTHROPIC_API_KEY und
@@ -169,7 +184,7 @@ def call_claude(prompt: str, model: str = BEGRUENDUNG_MODEL) -> str | None:
     try:
         proc = subprocess.run(
             [
-                "claude", "-p", "--model", model, "--system-prompt", BEGRUENDUNG_SYSTEM,
+                "claude", "-p", "--model", model, "--system-prompt", CLAUDE_SYSTEM,
                 "--tools", "", "--strict-mcp-config", "--setting-sources", "",
                 "--no-session-persistence", "--output-format", "json",
             ],
@@ -182,10 +197,50 @@ def call_claude(prompt: str, model: str = BEGRUENDUNG_MODEL) -> str | None:
         if proc.returncode != 0 or data.get("is_error"):
             raise ValueError(str(data.get("result"))[:200])
         text = data["result"].strip()
+        tokens = data.get("usage") or {}
+        # Eingabe = frisch gelesene plus (neu angelegte oder wiederverwendete)
+        # zwischengespeicherte Tokens; die CLI weist sie getrennt aus
+        _record(
+            usage, model,
+            sum(tokens.get(k) or 0 for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens")),
+            tokens.get("output_tokens"),
+        )
         return text or None
     except (OSError, subprocess.SubprocessError, KeyError, AttributeError, ValueError) as exc:
         print(f"Claude nicht verfügbar: {exc}")
         return None
+
+
+def ask(
+    prompt: str,
+    zweck: str,
+    usage: list | None = None,
+    groq_api_key: str | None = None,
+    groq_model: str = DEFAULT_MODEL,
+    **groq_kwargs,
+) -> str | None:
+    """Claude zuerst, Groq nur als Ersatz (und nur mit Schlüssel).
+
+    Jeder gelungene Aufruf landet mit Zweck, Modell und Tokens in `usage` -
+    auch ein Text, der danach durch die Prüfung fällt, hat Tokens gekostet."""
+    calls: list = []
+    text = call_claude(prompt, usage=calls)
+    if not text and groq_api_key:
+        text = call_groq(prompt, groq_api_key, groq_model, usage=calls, **groq_kwargs)
+    if usage is not None:
+        usage.extend({"zweck": zweck, **call} for call in calls)
+    return text
+
+
+def summarize_usage(calls: list) -> dict | None:
+    """Verbrauch eines Spiels für die Veröffentlichung; None ohne gelungenen Aufruf."""
+    if not calls:
+        return None
+    return {
+        "input_tokens": sum(c["input_tokens"] for c in calls),
+        "output_tokens": sum(c["output_tokens"] for c in calls),
+        "calls": calls,
+    }
 
 
 def _name_tokens(name: str) -> set[str]:
@@ -212,14 +267,14 @@ def check_begruendung(text: str, match_context: dict, other_teams=()) -> str | N
 
 
 def generate_begruendung(
-    match_context: dict, other_teams=(), model: str = BEGRUENDUNG_MODEL
+    match_context: dict, other_teams=(), usage: list | None = None
 ) -> tuple[str | None, str]:
     """(text, quelle) – quelle ist "llm" oder "template". text ist None, wenn der
     Aufrufer auf die Template-Begründung zurückfallen soll: Claude nicht
     erreichbar oder zwei Texte in Folge durch die Prüfung gefallen."""
     prompt = build_prompt(match_context)
     for _ in range(2):
-        text = call_claude(prompt, model)
+        text = ask(prompt, "begruendung", usage)
         if not text:
             break
         problem = check_begruendung(text, match_context, other_teams)
@@ -285,15 +340,20 @@ def parse_adjustment_response(text: str) -> dict | None:
 
 
 def propose_adjustment(
-    match_context: dict, news: list[dict], api_key: str | None, model: str = DEFAULT_MODEL
+    match_context: dict,
+    news: list[dict],
+    api_key: str | None,
+    model: str = DEFAULT_MODEL,
+    usage: list | None = None,
 ) -> dict | None:
     """Schattentipp-Vorschlag (siehe Modul-Docstring) oder None, wenn keine
-    News vorliegen, das LLM ausfällt oder kein harter Grund gefunden wurde."""
-    if not api_key or not news:
+    News vorliegen, das LLM ausfällt oder kein harter Grund gefunden wurde.
+    api_key/model gelten für den Groq-Ersatz."""
+    if not news:
         return None
-    text = call_groq(
-        build_adjustment_prompt(match_context, news), api_key, model,
-        temperature=0.2, max_tokens=400,
+    text = ask(
+        build_adjustment_prompt(match_context, news), "news", usage,
+        groq_api_key=api_key, groq_model=model, temperature=0.2, max_tokens=400,
     )
     if not text:
         return None

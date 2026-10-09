@@ -61,6 +61,7 @@ def _fetch_feed(name: str, url: str, cache_dir: Path, cache_tag: str) -> list[di
     for item in root.iter("item"):
         title = (item.findtext("title") or "").strip()
         description = (item.findtext("description") or "").strip()
+        link = (item.findtext("link") or "").strip()
         pub_date_raw = item.findtext("pubDate")
         try:
             pub_date = parsedate_to_datetime(pub_date_raw) if pub_date_raw else None
@@ -74,6 +75,7 @@ def _fetch_feed(name: str, url: str, cache_dir: Path, cache_tag: str) -> list[di
                     "published": pub_date,
                     "source": name,
                     "source_label": SOURCE_LABELS.get(name, name),
+                    "url": link,
                 }
             )
     return items

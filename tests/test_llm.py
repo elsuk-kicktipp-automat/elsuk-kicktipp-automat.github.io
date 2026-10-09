@@ -11,6 +11,7 @@ from engine.llm import (
     generate_begruendung,
     parse_adjustment_response,
     propose_adjustment,
+    summarize_usage,
 )
 
 MATCH_CONTEXT = {
@@ -101,6 +102,22 @@ class TestCallGroq:
         result = call_groq("prompt", "fake-key")
         assert result == "Klarer Heimsieg erwartet."
 
+    def test_records_token_usage(self, monkeypatch):
+        class FakeResponse:
+            def raise_for_status(self):
+                pass
+
+            def json(self):
+                return {
+                    "choices": [{"message": {"content": "ok"}}],
+                    "usage": {"prompt_tokens": 540, "completion_tokens": 120},
+                }
+
+        usage = []
+        monkeypatch.setattr("engine.llm.requests.post", lambda *a, **kw: FakeResponse())
+        call_groq("prompt", "fake-key", usage=usage)
+        assert usage == [{"model": "openai/gpt-oss-120b", "input_tokens": 540, "output_tokens": 120}]
+
     def test_returns_none_on_network_error(self, monkeypatch):
         def raise_error(*args, **kwargs):
             raise requests.ConnectionError("down")
@@ -145,6 +162,27 @@ class TestCallClaude:
             lambda *a, **kw: FakeProc('{"is_error": false, "result": "  Klarer Heimsieg erwartet.  "}'),
         )
         assert call_claude("prompt") == "Klarer Heimsieg erwartet."
+
+    def test_records_token_usage_including_cached_input(self, monkeypatch):
+        stdout = (
+            '{"is_error": false, "result": "Text", "usage": {"input_tokens": 2, '
+            '"cache_creation_input_tokens": 1423, "cache_read_input_tokens": 5, "output_tokens": 230}}'
+        )
+        usage = []
+        monkeypatch.setattr("engine.llm.shutil.which", lambda name: "/usr/bin/claude")
+        monkeypatch.setattr("engine.llm.subprocess.run", lambda *a, **kw: FakeProc(stdout))
+        call_claude("prompt", usage=usage)
+        assert usage == [{"model": "claude-opus-5-5", "input_tokens": 1430, "output_tokens": 230}]
+
+    def test_failed_call_records_no_usage(self, monkeypatch):
+        usage = []
+        monkeypatch.setattr("engine.llm.shutil.which", lambda name: "/usr/bin/claude")
+        monkeypatch.setattr(
+            "engine.llm.subprocess.run",
+            lambda *a, **kw: FakeProc('{"is_error": true, "result": "API Error: 400"}', returncode=1),
+        )
+        assert call_claude("prompt", usage=usage) is None
+        assert usage == []
 
     def test_missing_cli_returns_none(self, monkeypatch):
         def must_not_run(*args, **kwargs):
@@ -240,20 +278,20 @@ class TestCheckBegruendung:
 
 class TestGenerateBegruendung:
     def test_claude_unavailable_falls_back_to_template(self, monkeypatch):
-        monkeypatch.setattr("engine.llm.call_claude", lambda prompt, model: None)
+        monkeypatch.setattr("engine.llm.call_claude", lambda prompt, **kw: None)
         text, source = generate_begruendung(MATCH_CONTEXT)
         assert text is None
         assert source == "template"
 
     def test_successful_llm_call(self, monkeypatch):
-        monkeypatch.setattr("engine.llm.call_claude", lambda prompt, model: "Tipp 2:1, die Schweiz liegt vorn.")
+        monkeypatch.setattr("engine.llm.call_claude", lambda prompt, **kw: "Tipp 2:1, die Schweiz liegt vorn.")
         text, source = generate_begruendung(MATCH_CONTEXT, other_teams=["Frankreich"])
         assert text == "Tipp 2:1, die Schweiz liegt vorn."
         assert source == "llm"
 
     def test_rejected_text_gets_one_more_attempt(self, monkeypatch):
         answers = ["Tipp 2:1, wie zuletzt Frankreich.", "Tipp 2:1, die Schweiz liegt vorn."]
-        monkeypatch.setattr("engine.llm.call_claude", lambda prompt, model: answers.pop(0))
+        monkeypatch.setattr("engine.llm.call_claude", lambda prompt, **kw: answers.pop(0))
         text, source = generate_begruendung(MATCH_CONTEXT, other_teams=["Frankreich"])
         assert text == "Tipp 2:1, die Schweiz liegt vorn."
         assert source == "llm"
@@ -261,7 +299,7 @@ class TestGenerateBegruendung:
     def test_two_rejected_texts_fall_back_to_template(self, monkeypatch):
         calls = []
 
-        def always_third_team(prompt, model):
+        def always_third_team(prompt, **kw):
             calls.append(1)
             return "Tipp 2:1, wie zuletzt Frankreich."
 
@@ -270,6 +308,27 @@ class TestGenerateBegruendung:
         assert text is None
         assert source == "template"
         assert len(calls) == 2
+
+    def test_never_falls_back_to_groq(self, monkeypatch):
+        # Die Groq-Texte waren der Anlass der Umstellung: ohne Claude gilt das Template
+        def groq_must_not_run(*args, **kwargs):
+            raise AssertionError("für Begründungen gibt es keinen Groq-Ersatz")
+
+        monkeypatch.setattr("engine.llm.call_groq", groq_must_not_run)
+        assert generate_begruendung(MATCH_CONTEXT) == (None, "template")
+
+    def test_rejected_attempt_still_counts_as_usage(self, monkeypatch):
+        answers = ["Tipp 2:1, wie zuletzt Frankreich.", "Tipp 2:1, die Schweiz liegt vorn."]
+
+        def fake_claude(prompt, usage=None, **kw):
+            usage.append({"model": "claude-opus-5-5", "input_tokens": 1400, "output_tokens": 250})
+            return answers.pop(0)
+
+        usage = []
+        monkeypatch.setattr("engine.llm.call_claude", fake_claude)
+        generate_begruendung(MATCH_CONTEXT, other_teams=["Frankreich"], usage=usage)
+        assert [c["zweck"] for c in usage] == ["begruendung", "begruendung"]
+        assert summarize_usage(usage)["input_tokens"] == 2800
 
 
 ADJUSTMENT_CONTEXT = {"home": "Deutschland", "away": "Portugal", "tip": (2, 1)}
@@ -319,6 +378,18 @@ class TestParseAdjustmentResponse:
         assert parse_adjustment_response(text) is None
 
 
+class TestSummarizeUsage:
+    def test_no_calls_is_none(self):
+        assert summarize_usage([]) is None
+
+    def test_sums_all_calls_of_a_match(self):
+        calls = [
+            {"zweck": "news", "model": "claude-opus-5-5", "input_tokens": 900, "output_tokens": 60},
+            {"zweck": "begruendung", "model": "claude-opus-5-5", "input_tokens": 1400, "output_tokens": 250},
+        ]
+        assert summarize_usage(calls) == {"input_tokens": 2300, "output_tokens": 310, "calls": calls}
+
+
 class TestProposeAdjustment:
     def test_no_news_skips_llm_call_entirely(self, monkeypatch):
         called = []
@@ -327,8 +398,33 @@ class TestProposeAdjustment:
         assert result is None
         assert called == []  # kein API-Call ohne News - nichts zu begründen
 
-    def test_no_api_key_returns_none(self):
+    def test_without_claude_and_api_key_returns_none(self):
         assert propose_adjustment(ADJUSTMENT_CONTEXT, NEWS, api_key=None) is None
+
+    def test_claude_answers_first_and_groq_is_not_asked(self, monkeypatch):
+        def groq_must_not_run(*args, **kwargs):
+            raise AssertionError("Groq ist nur Ersatz, wenn Claude ausfällt")
+
+        def fake_claude(prompt, usage=None, **kw):
+            usage.append({"model": "claude-opus-5-5", "input_tokens": 900, "output_tokens": 60})
+            return '{"adjust": true, "home_delta": -1, "away_delta": 0, "grund": "Verletzung"}'
+
+        usage = []
+        monkeypatch.setattr("engine.llm.call_claude", fake_claude)
+        monkeypatch.setattr("engine.llm.call_groq", groq_must_not_run)
+        result = propose_adjustment(ADJUSTMENT_CONTEXT, NEWS, api_key="fake-key", usage=usage)
+        assert result == {"home_delta": -1, "away_delta": 0, "grund": "Verletzung"}
+        assert usage == [
+            {"zweck": "news", "model": "claude-opus-5-5", "input_tokens": 900, "output_tokens": 60}
+        ]
+
+    def test_claude_works_without_groq_key(self, monkeypatch):
+        monkeypatch.setattr(
+            "engine.llm.call_claude",
+            lambda prompt, **kw: '{"adjust": true, "home_delta": 0, "away_delta": 1, "grund": "Sperre"}',
+        )
+        result = propose_adjustment(ADJUSTMENT_CONTEXT, NEWS, api_key=None)
+        assert result == {"home_delta": 0, "away_delta": 1, "grund": "Sperre"}
 
     def test_successful_proposal(self, monkeypatch):
         monkeypatch.setattr(

@@ -31,6 +31,7 @@ PREDICTION = {
             "factors": {"expected_goals": [1.1, 1.2]},
             "advance_tip": {"pick": "Kanada", "probability": 0.52},
             "begruendung": "Ausgeglichenes Spiel.",
+            "begruendung_source": "llm",
         },
         {
             "home": "Paraguay",
@@ -155,6 +156,8 @@ class TestUnseal:
         assert first["tip"] == [1, 1]
         assert first["advance_tip"] == {"pick": "Kanada", "probability": 0.52}
         assert first["begruendung"] == "Ausgeglichenes Spiel."
+        # ohne dieses Feld kann die Website nicht zeigen, wer den Text schrieb
+        assert first["begruendung_source"] == "llm"
         assert second["status"] == "sealed"
         assert "tip" not in second
         # Verschlüsselte Datei bleibt, solange noch etwas versiegelt ist

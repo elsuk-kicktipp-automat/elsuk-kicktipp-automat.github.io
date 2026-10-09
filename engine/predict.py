@@ -274,10 +274,10 @@ def predict_matches(
 
     predictions = []
     for i, m in enumerate(sorted(targets, key=lambda t: (t.kickoff_utc, t.home_name))):
-        # Groqs Free Tier begrenzt Tokens pro MINUTE (gpt-oss-120b: 8.000). Ein
-        # Samstag bringt bis zu 5 Partien in einen Lauf, jede kostet einen Call
-        # (Anpassungsvorschlag) - ohne Pause reißt das Limit und der Vorschlag
-        # fiele aus. Die Wartezeit ist unkritisch: der Lauf ist stündlich getaktet.
+        # Groqs Free Tier begrenzt Tokens pro MINUTE (gpt-oss-120b: 8.000). Groq
+        # ist nur noch Ersatz für Claude (llm.ask); fällt Claude aber für einen
+        # ganzen Lauf aus, kostet jede der bis zu 5 Samstagspartien einen Call -
+        # ohne Pause reißt dann das Limit. Die Wartezeit ist unkritisch.
         if i and groq_api_key:
             time.sleep(LLM_PAUSE_SECONDS)
 
@@ -300,6 +300,9 @@ def predict_matches(
         llm_adjustment = None
         news_checked = None
         news_report = None
+        # Alle LLM-Aufrufe dieses Spiels (News-Check, Begründung) mit Modell und
+        # Tokens - wird unter factors.llm_usage veröffentlicht
+        llm_usage: list = []
         news_cfg = config.get("llm", {}).get("adjustment", {})
         if news_cfg.get("enabled"):
             news_report = news_source.fetch_report(
@@ -307,28 +310,28 @@ def predict_matches(
             )
             news = news_report["snippets"]
             news_checked = len(news)
-            if groq_api_key:
-                proposal = llm.propose_adjustment(
-                    {"home": m.home_name, "away": m.away_name, "tip": tip}, news, groq_api_key, llm_model
+            proposal = llm.propose_adjustment(
+                {"home": m.home_name, "away": m.away_name, "tip": tip},
+                news, groq_api_key, llm_model, usage=llm_usage,
+            )
+            if proposal is not None:
+                adjusted = (
+                    max(0, tip[0] + proposal["home_delta"]),
+                    max(0, tip[1] + proposal["away_delta"]),
                 )
-                if proposal is not None:
-                    adjusted = (
-                        max(0, tip[0] + proposal["home_delta"]),
-                        max(0, tip[1] + proposal["away_delta"]),
-                    )
-                    llm_adjustment = {
-                        "tip": list(adjusted),
-                        "grund": proposal["grund"],
-                        "news_count": len(news),
-                        "applied": False,
-                    }
-                    if llm_trusted:
-                        applied_tip = apply_llm_adjustment(tip, adjusted, m.stage_name)
-                        if applied_tip is not None:
-                            llm_adjustment["applied"] = True
-                            llm_adjustment["base_tip"] = list(tip)
-                            tip = applied_tip
-                            ev = expected_points(tip, matrix, scheme)
+                llm_adjustment = {
+                    "tip": list(adjusted),
+                    "grund": proposal["grund"],
+                    "news_count": len(news),
+                    "applied": False,
+                }
+                if llm_trusted:
+                    applied_tip = apply_llm_adjustment(tip, adjusted, m.stage_name)
+                    if applied_tip is not None:
+                        llm_adjustment["applied"] = True
+                        llm_adjustment["base_tip"] = list(tip)
+                        tip = applied_tip
+                        ev = expected_points(tip, matrix, scheme)
 
         lam, mu = marginal_expected_goals(matrix)
         probs = outcome_probabilities(matrix)
@@ -389,7 +392,7 @@ def predict_matches(
                 "llm_adjustment": llm_adjustment,
             }
             llm_text, source = llm.generate_begruendung(
-                context, other_teams=known_teams - {m.home_name, m.away_name}
+                context, other_teams=known_teams - {m.home_name, m.away_name}, usage=llm_usage
             )
             begruendung = llm_text or template_text
 
@@ -442,6 +445,7 @@ def predict_matches(
                     "news_checked": news_checked,
                     "news_sources": news_report,
                     "llm_adjustment": llm_adjustment,
+                    "llm_usage": llm.summarize_usage(llm_usage),
                 },
                 "begruendung": begruendung,
                 "paper_bet": paper_bet,

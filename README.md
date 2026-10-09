@@ -58,11 +58,14 @@ WM-Daten bleiben unter `data/` liegen und sind im Site-Archiv nachprüfbar.
    `CLAUDE_CODE_OAUTH_TOKEN` (`claude setup-token`, ein Jahr gültig). Vor dem
    Versiegeln wird geprüft, dass der Text den Tipp nennt und keine dritte
    Mannschaft; ohne CLI/Token/Kontingent oder nach zwei verworfenen Texten
-   springt die Template-Begründung ein. Zusätzlich prüft der News-Check
-   ([Groq](https://console.groq.com), Free Tier, `openai/gpt-oss-120b`) Kicker,
-   Sportschau und die BILD-News-Sitemap auf aktuelle Schlagzeilen zu den Teams.
+   springt die Template-Begründung ein. Zusätzlich prüft der News-Check Kicker,
+   Sportschau und die BILD-News-Sitemap auf aktuelle Schlagzeilen zu den Teams,
+   ebenfalls mit Claude; nur wenn Claude nicht erreichbar ist, springt
+   [Groq](https://console.groq.com) (Free Tier, `openai/gpt-oss-120b`) ein.
    Eine daraus abgeleitete Tipp-Anpassung läuft nur als Schattentipp mit und
-   ändert den offiziellen Tipp nicht.
+   ändert den offiziellen Tipp nicht. Die gelesenen Meldungen und der
+   Token-Verbrauch aller LLM-Aufrufe eines Spiels (`factors.llm_usage`) werden
+   nach Anstoß veröffentlicht.
 9. **Kicktipp-Abgabe:** Der Playwright-Bot trägt versiegelte Tipps bei
    kicktipp.de ein und liest die gespeicherten Werte danach serverseitig zurück.
    Abweichungen, fehlende Spiele oder verworfene Eingaben machen den Workflow rot.
@@ -170,10 +173,11 @@ dieselbe Datenlage muss dieselbe Antwort ergeben, sonst wäre eine versiegelte
 Antwort nicht nachvollziehbar.
 
 Für die letzten beiden Fragen hat das Projekt **keine Datenquelle** – es gibt
-weder Spieler- noch Trainerdaten. Dort entscheidet Groq mit seinem Weltwissen
-und bekommt die Modellprognose als Kontext. Das ist die einzige Stelle, an der
-die LLM-Schicht eine echte Abgabe bestimmt statt nur im Schatten mitzulaufen;
-ist Groq nicht erreichbar, greift eine dokumentierte Heuristik (stärkste
+weder Spieler- noch Trainerdaten. Dort entscheidet Claude Opus 5.5 (Ersatz:
+Groq) mit seinem Weltwissen und bekommt die Modellprognose als Kontext. Das
+ist die einzige Stelle, an der die LLM-Schicht eine echte Abgabe bestimmt
+statt nur im Schatten mitzulaufen; ist kein LLM erreichbar, greift eine
+dokumentierte Heuristik (stärkste
 Offensive bzw. größte Abstiegsgefahr unter den etablierten Vereinen).
 
 Abgerechnet wird automatisch, sobald die nötige Tabelle steht (Herbstmeister
@@ -266,7 +270,7 @@ engine/                Python-Engine
   model.py             Dixon-Coles-Poisson mit ELO-Term
   market.py            Quoten-Blending der Wahrscheinlichkeitsmatrix (Vorhersagezeit)
   paper_betting.py     theoretische Wetten, Einsatzlogik, Abrechnung
-  llm.py               LLM-Begründungstexte (Claude) mit Template-Fallback, News-Anpassung (Groq)
+  llm.py               LLM-Aufrufe (Claude, Ersatz Groq): Begründung, News-Anpassung, Verbrauch
   kicktipp_bot.py      Playwright-Abgabe bei kicktipp.de mit Verifikation
   optimizer.py         Kicktipp-Punktelogik + EV-Optimierung + Baselines
   teams.py             Team-Identität über normalisierte Namen

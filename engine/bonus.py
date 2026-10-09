@@ -31,7 +31,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .config import BONUS_DIR, MAPPINGS_DIR, load_dotenv
-from .llm import call_groq
+from . import llm
 from .seal import _fernet, require_secret
 from .teams import normalize
 
@@ -173,8 +173,10 @@ def answer_questions(
     api_key: str | None,
     llm_model: str,
     kinds=tuple(ANSWER_COUNTS),
+    llm_enabled: bool = True,
 ) -> tuple[dict[str, list[str]], dict[str, str]]:
-    """(Antworten je Fragetyp, Quelle je Fragetyp)."""
+    """(Antworten je Fragetyp, Quelle je Fragetyp). Das LLM ist Claude;
+    api_key/llm_model gelten für den Groq-Ersatz (llm.ask)."""
     forecast = build_forecast(probabilities)
     answers: dict[str, list[str]] = {}
     sources: dict[str, str] = {}
@@ -191,11 +193,12 @@ def answer_questions(
             sources[kind] = "simulation"
         else:
             team = None
-            if api_key:
-                text = call_groq(
+            if llm_enabled:
+                text = llm.ask(
                     build_llm_prompt(kind, forecast, probabilities.teams),
-                    api_key,
-                    llm_model,
+                    "bonus",
+                    groq_api_key=api_key,
+                    groq_model=llm_model,
                     temperature=0.3,
                     max_tokens=150,
                 )
@@ -515,8 +518,9 @@ def main(config: dict) -> None:
     answers, sources = answer_questions(
         probabilities,
         promoted,
-        os.environ.get("GROQ_API_KEY") if llm_cfg.get("enabled") else None,
+        os.environ.get("GROQ_API_KEY"),
         llm_cfg.get("model", "openai/gpt-oss-120b"),
+        llm_enabled=bool(llm_cfg.get("enabled")),
     )
 
     bonus = {

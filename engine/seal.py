@@ -47,6 +47,9 @@ REVEALED_FIELDS = (
     "expected_points",
     "factors",
     "begruendung",
+    # "llm" oder "template": ohne dieses Feld zeigte die Website nie an, wer
+    # den Text geschrieben hat
+    "begruendung_source",
     "shadow_tips",
     "paper_bet",
     "shadow_bets",
