@@ -1,0 +1,96 @@
+{
+  "_kommentar": "Versionshistorie der Methode, von Hand gepflegt. Nur Änderungen daran, wie Tipp, Begründung oder Wette entstehen - keine Darstellung, kein Betrieb. Neue Version = neuer Eintrag am Ende. since_utc: ab diesem Zeitpunkt entstehen Tipps nach dem Stand. model_version: die Kennung aus engine/predict.py, die zu dem Stand gehört (der letzte Eintrag muss der aktuellen entsprechen, siehe tests/test_versions.py). Die Website zeigt die Liste unter 'Wie ich denke' und die Version an jedem Spiel.",
+  "versions": [
+    {
+      "version": 1,
+      "since_utc": "2026-07-02T21:49:18Z",
+      "model_version": "dixon-coles-elo-1",
+      "title": "Start im WM-Testbetrieb",
+      "changes": [
+        "Statistisches Modell (Dixon-Coles-Poisson) mit ELO-Bewertung als Vorwissen.",
+        "Getippt wird nicht das wahrscheinlichste Ergebnis, sondern das mit dem höchsten erwarteten Kicktipp-Punktwert.",
+        "Die erste Runde (WM-Sechzehntelfinale) wurde noch unversiegelt veröffentlicht."
+      ]
+    },
+    {
+      "version": 2,
+      "since_utc": "2026-07-04T05:42:49Z",
+      "model_version": "dixon-coles-elo-3-market-llm-news",
+      "title": "Versiegelung, Quoten und Sprachmodell",
+      "changes": [
+        "Tipps werden vor Anstoß per Hash versiegelt und erst danach enthüllt.",
+        "Buchmacherquoten fließen in die Prognose ein.",
+        "Die Begründung formuliert ein Sprachmodell (Llama 3.3 70B über Groq); fällt es aus, gilt ein fester Vorlagentext.",
+        "News-Check: Schlagzeilen von Kicker und Sportschau werden geprüft. Ein möglicher Anpassungsvorschlag läuft nur als Schattentipp mit.",
+        "Bei einem Remis-Tipp in K.o.-Spielen kommt ein Zusatztipp fürs Elfmeterschießen dazu.",
+        "Zu jedem Tipp gehört eine Paper-Wette mit Spielgeld."
+      ]
+    },
+    {
+      "version": 3,
+      "since_utc": "2026-07-09T17:55:55Z",
+      "model_version": "dixon-coles-elo-3-market-llm-news",
+      "title": "Tipp-Fenster und Selbstlernen",
+      "changes": [
+        "Getippt wird erst im Fenster von vier Stunden vor Anstoß, damit aktuelle Nachrichten und Quoten noch einfließen.",
+        "K.o.-Spiele werden nicht mehr unentschieden getippt, weil die Runde nach Elfmeterschießen wertet.",
+        "Das Gewicht der Buchmacherquote wird aus den bisherigen Ergebnissen gelernt. Ein Vertrauensregler entscheidet, ob der News-Vorschlag je den echten Tipp ändern darf.",
+        "BILD kommt als dritte News-Quelle dazu.",
+        "Die Begründungstexte werden kürzer und im Ton eines Fußball-Kommentators geschrieben."
+      ]
+    },
+    {
+      "version": 4,
+      "since_utc": "2026-07-10T06:09:34Z",
+      "model_version": "dixon-coles-elo-3-market-llm-news",
+      "title": "Kombiwette",
+      "changes": [
+        "Zusätzlich eine Paper-Kombiwette aus zwei bis drei Spielen, wenn jedes davon auch einzeln einen rechnerischen Vorteil hätte."
+      ]
+    },
+    {
+      "version": 5,
+      "since_utc": "2026-08-14T08:05:35Z",
+      "model_version": "dixon-coles-elo-3-market-llm-news",
+      "title": "Umstellung auf die Bundesliga 2026/27",
+      "changes": [
+        "Wettbewerb ist die Bundesliga: Vereine mit Heimvorteil statt Nationalteams auf neutralem Platz.",
+        "Saison-Bonusfragen werden beantwortet und versiegelt.",
+        "Zweite Wettvariante „Locker“ setzt auf jede Partie, mit Einsatz nach Zuversicht.",
+        "Der Vertrauensregler verlangt im Schnitt einen Punkt Vorsprung je Anpassung statt nur einen positiven Saldo."
+      ]
+    },
+    {
+      "version": 6,
+      "since_utc": "2026-08-15T17:21:40Z",
+      "model_version": "dixon-coles-elo-3-market-llm-news",
+      "title": "Sprachmodell gewechselt",
+      "changes": [
+        "GPT-OSS 120B ersetzt das von Groq abgeschaltete Llama 3.3 70B."
+      ]
+    },
+    {
+      "version": 7,
+      "since_utc": "2026-08-28T21:06:02Z",
+      "model_version": "dixon-coles-elo-3-market-llm-news",
+      "title": "Saisonfragen abgeschaltet",
+      "changes": [
+        "Der Spielleiter hat die Saisonfragen in der Runde deaktiviert. Der Automat beantwortet sie nicht mehr."
+      ]
+    },
+    {
+      "version": 8,
+      "since_utc": "2026-10-09T19:26:21Z",
+      "model_version": "dixon-coles-elo-3-market-llm-news",
+      "title": "Claude Opus 5.5",
+      "changes": [
+        "Claude Opus 5.5 schreibt die Begründungstexte und prüft die Nachrichten. GPT-OSS 120B springt beim News-Check nur noch als Ersatz ein.",
+        "Anlass: Das vorherige Sprachmodell nannte in 4 von 36 Bundesliga-Texten einen falschen Verein.",
+        "Das Sprachmodell darf zeitloses Wissen über die beiden Mannschaften einbringen (Spitznamen, Stadion, Region).",
+        "Vor dem Versiegeln wird geprüft, dass der Text den Tipp nennt und keine dritte Mannschaft.",
+        "Gelesene Meldungen und Token-Verbrauch werden nach Anstoß veröffentlicht.",
+        "Jeder Tipp trägt die Version, nach der er entstanden ist."
+      ]
+    }
+  ]
+}

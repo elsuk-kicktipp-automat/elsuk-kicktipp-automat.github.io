@@ -4,6 +4,7 @@ import '@fontsource/archivo/latin-400.css';
 import '@fontsource/archivo/latin-500.css';
 import '@fontsource/archivo/latin-600.css';
 import '@fontsource/archivo/latin-700.css';
+import { loadVersions } from '../lib/data.mjs';
 import { SITE_VERSION } from '../lib/siteVersion.mjs';
 
 const { title = 'Der Automat' } = Astro.props;
@@ -87,6 +88,7 @@ const current = Astro.url.pathname;
           <a href="https://github.com/elsuk-kicktipp-automat/elsuk-kicktipp-automat.github.io">GitHub</a>
           · <a href={`${base}/impressum/`}>Impressum</a>
           · <a href={`${base}/datenschutz/`}>Datenschutz</a>
+          · <a href={`${base}/wie-ich-denke/#versionen`}>Methode: Version {loadVersions().at(-1).version}</a>
         </footer>
       </div>
     </div>

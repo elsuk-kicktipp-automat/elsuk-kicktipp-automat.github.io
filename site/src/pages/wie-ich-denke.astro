@@ -1,6 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { activeCompetition, hasKnockoutStages, loadMatchdays } from '../lib/data.mjs';
+import {
+  activeCompetition,
+  formatVersionDate,
+  hasKnockoutStages,
+  loadMatchdays,
+  loadVersions,
+} from '../lib/data.mjs';
 
 // K.o.-Sonderregeln (Elfmeterschießen-Zusatztipp, Remis-Ausschluss, 90-Minuten-
 // Wertung bei Verlängerung) nur erklären, wenn der laufende Wettbewerb sie
@@ -8,6 +14,8 @@ import { activeCompetition, hasKnockoutStages, loadMatchdays } from '../lib/data
 // bis Mai nie greifen.
 const matchdays = loadMatchdays();
 const knockout = hasKnockoutStages(matchdays, activeCompetition(matchdays));
+// Neueste Version zuerst
+const versions = loadVersions().slice().reverse();
 ---
 
 <Layout title="Wie ich denke">
@@ -140,8 +148,9 @@ EOF`}</pre>
 
   <h2>5. Begründungstexte &amp; News-Check</h2>
   <p>
-    Die Fließtexte zu jedem Spiel formuliert ein LLM (seit Oktober 2026 Claude
-    Opus 5.5, davor GPT-OSS 120B über Groq) aus den Zahlen, die auch in der
+    Die Fließtexte zu jedem Spiel formuliert ein LLM (aktuell Claude Opus 5.5,
+    frühere Stände in der <a href="#versionen">Versionshistorie</a>) aus den
+    Zahlen, die auch in der
     „Quellen &amp; Faktoren"-Box stehen – Modellwahrscheinlichkeiten, ELO-Werte,
     Quote, News-Check-Ergebnis, der gewählte Tipp. Spitznamen, Stadion oder
     Region der beiden Mannschaften steuert das LLM aus eigenem Wissen bei; das
@@ -318,4 +327,27 @@ EOF`}</pre>
     Futter, um tatsächlich zu greifen. Die Entwicklung ist auf der Bilanz-Seite
     als Lernkurve sichtbar.
   </p>
+
+  <h2 id="versionen">9. Versionshistorie</h2>
+  <p>
+    Jede Änderung daran, wie Tipp, Begründung oder Wette entstehen, bekommt eine
+    Versionsnummer. Welche Version für ein Spiel galt, steht in dessen Box
+    „Quellen &amp; Faktoren". Seit Version 8 wird sie bei jedem Tipp
+    mitgeschrieben, für ältere Spiele ist sie aus dem Anstoß abgeleitet.
+    Änderungen an Darstellung und Betrieb stehen hier nicht, sondern in der
+    <a href="https://github.com/elsuk-kicktipp-automat/elsuk-kicktipp-automat.github.io/commits/main/">Commit-Historie</a>.
+  </p>
+  {versions.map((v) => (
+    <section class="version">
+      <h3>Version {v.version} · seit {formatVersionDate(v)} · {v.title}</h3>
+      <ul>
+        {v.changes.map((change) => <li>{change}</li>)}
+      </ul>
+    </section>
+  ))}
 </Layout>
+
+<style>
+  .version h3 { margin: 18px 0 4px; font-size: 15px; }
+  .version ul { margin-top: 0; }
+</style>

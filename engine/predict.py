@@ -35,6 +35,7 @@ from .sources.odds import (
 )
 from .sources.openligadb import Match, fetch_competition
 from .teams import is_knockout_stage
+from .versions import current_version
 
 MODEL_VERSION = "dixon-coles-elo-3-market-llm-news"
 
@@ -271,6 +272,7 @@ def predict_matches(
     # Alle bekannten Mannschaften: die Textprüfung (llm.check_begruendung)
     # verwirft Begründungen, die eine dritte Mannschaft nennen
     known_teams = {name for t in (*train, *targets) for name in (t.home_name, t.away_name)}
+    method_version = current_version()
 
     predictions = []
     for i, m in enumerate(sorted(targets, key=lambda t: (t.kickoff_utc, t.home_name))):
@@ -446,6 +448,9 @@ def predict_matches(
                     "news_sources": news_report,
                     "llm_adjustment": llm_adjustment,
                     "llm_usage": llm.summarize_usage(llm_usage),
+                    # Stand der Methode laut data/versions.json, nach dem dieser
+                    # Tipp entstanden ist
+                    "method_version": method_version,
                 },
                 "begruendung": begruendung,
                 "paper_bet": paper_bet,

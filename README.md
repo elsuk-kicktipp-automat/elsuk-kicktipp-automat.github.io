@@ -256,6 +256,20 @@ anders, und ein fehlender Eintrag fällt still aus (Quoten) oder lässt den Lauf
 fehlschlagen (Kicktipp). Die Tipprunde selbst steht im Secret `KICKTIPP_RUNDE`,
 nicht in der config.
 
+## Versionshistorie
+
+`data/versions.json` hält fest, wann sich geändert hat, wie Tipp, Begründung
+oder Wette entstehen. Die Website zeigt die Liste unter „Wie ich denke" und
+die Version an jedem Spiel; `predict.py` schreibt die letzte Version an jeden
+Tipp (`factors.method_version`).
+
+Bei einer solchen Änderung einen Eintrag **am Ende** ergänzen: fortlaufende
+`version`, `since_utc` (ab wann Tipps danach entstehen), `model_version`
+(die Kennung aus `engine/predict.py`), `title` und `changes`. Änderungen an
+Darstellung oder Betrieb gehören nicht hinein. `tests/test_versions.py`
+schlägt fehl, wenn die Kennung im Code geändert wird, ohne dass ein Eintrag
+dazukommt.
+
 ## Projektstruktur
 
 ```text
@@ -274,6 +288,7 @@ engine/                Python-Engine
   kicktipp_bot.py      Playwright-Abgabe bei kicktipp.de mit Verifikation
   optimizer.py         Kicktipp-Punktelogik + EV-Optimierung + Baselines
   teams.py             Team-Identität über normalisierte Namen
+  versions.py          Versionshistorie der Methode (data/versions.json)
   sources/
     openligadb.py      Spielplan/Ergebnisse mit Cache
     elo.py             ELO-Adapter (clubelo.com | eloratings.net)
@@ -286,6 +301,7 @@ data/                  JSON-„Datenbank" (cache/ ist gitignored)
   bonus/               Saison-Bonusfragen (Hash bis zur Frist, dann Antworten)
   mappings/            Namens-Zuordnung OpenLigaDB -> ELO-/Quoten-/Kicktipp-Namen
                        und Bonus-Fragetexte
+  versions.json        Versionshistorie der Methode (von Hand gepflegt)
 site/                  Astro-Website (GitHub Pages)
 .github/workflows/     GitHub Actions (Spieltag, Entsiegeln, Site-Deploy)
 config.yaml            Wettbewerb, Punkteschema, Modell- und Backtest-Parameter

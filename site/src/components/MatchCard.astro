@@ -1,10 +1,12 @@
 ---
-import { formatKickoff } from '../lib/data.mjs';
+import { formatKickoff, formatVersionDate, loadVersions, versionFor } from '../lib/data.mjs';
 import SchwitzIndex from './SchwitzIndex.astro';
 
 // match: Eintrag aus data/matchdays/*.json, scored: passender Eintrag aus data/results/
 const { match, scored, delay = 0 } = Astro.props;
 const sealed = match.status === 'sealed';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const version = sealed ? null : versionFor(match, loadVersions());
 const factors = match.factors ?? {};
 const probs = factors.probabilities;
 const xg = factors.expected_goals;
@@ -297,6 +299,12 @@ const mehrereStrategien = wettZeilen.length > 1;
               <span class="usage-calls" title="Je Aufruf: Eingabe + Ausgabe in Token">{usageCalls.join(' · ')}</span>
             </li>
           )}
+          {version && (
+            <li title={version.derived ? 'Für Spiele vor Version 8 aus dem Anstoß abgeleitet' : 'Beim Tipp mitgeschrieben'}>
+              Methode: <a class="version-link" href={`${base}/wie-ich-denke/#versionen`}>Version {version.version}</a>
+              {' '}(seit {formatVersionDate(version)})
+            </li>
+          )}
         </ul>
       </div>
 
@@ -546,7 +554,7 @@ const mehrereStrategien = wettZeilen.length > 1;
   .news-list summary { cursor: pointer; color: var(--lime); font-weight: 600; }
   .news-list ul { margin: 4px 0 0; padding-left: 1.1em; }
   .news-list li { overflow-wrap: anywhere; }
-  .news-list a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  .news-list a, .version-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
   .news-meta, .usage-calls { color: var(--text-muted); }
   .usage-calls { display: block; }
 

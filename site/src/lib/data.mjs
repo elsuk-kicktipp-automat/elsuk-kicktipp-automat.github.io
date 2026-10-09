@@ -134,6 +134,33 @@ export function loadBacktest(mode) {
   return existsSync(path) ? readJson(path) : null;
 }
 
+/** Versionshistorie der Methode (data/versions.json), älteste zuerst. */
+export function loadVersions() {
+  return readJson(join(DATA_DIR, 'versions.json')).versions;
+}
+
+/** Version, nach der ein Tipp entstand: mitgeschrieben (factors.method_version,
+ * seit Version 8) oder für ältere Spiele aus dem Anstoß abgeleitet. */
+export function versionFor(match, versions) {
+  const stamped = match.factors?.method_version;
+  if (stamped != null) {
+    const entry = versions.find((v) => v.version === stamped);
+    return entry ? { ...entry, derived: false } : null;
+  }
+  const entry = versions.filter((v) => v.since_utc <= match.kickoff_utc).at(-1);
+  return entry ? { ...entry, derived: true } : null;
+}
+
+/** Datum, seit dem eine Version gilt (deutsche Zeit). */
+export function formatVersionDate(version) {
+  return new Date(version.since_utc).toLocaleDateString('de-DE', {
+    timeZone: 'Europe/Berlin',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
+}
+
 export function formatKickoff(iso) {
   return (
     new Date(iso).toLocaleString('de-DE', {
