@@ -1,10 +1,14 @@
-"""LLM-Schicht: Begründungstexte + Anpassungsvorschlag (concept.md Schicht 3,
-Groq Free Tier).
+"""LLM-Schicht: Begründungstexte + Anpassungsvorschlag (concept.md Schicht 3).
 
 Begründung: ersetzt die Template-Begründung durch einen vom LLM formulierten
 Analysetext, der dieselben Modellzahlen in flüssigerer Sprache einordnet.
+Schreibt Claude Opus 5.5 über die Claude-Code-Kommandozeile (`claude -p`) mit
+dem Claude-Abo - kein API-Schlüssel, keine Zusatzkosten. Der Text ist Teil
+des Hashes und nach dem Versiegeln nicht mehr korrigierbar, deshalb wird er
+vorher geprüft (check_begruendung).
 
-Anpassungsvorschlag: Mit News-Schnipseln (engine/sources/news.py) darf das LLM
+Anpassungsvorschlag (Groq Free Tier): Mit News-Schnipseln
+(engine/sources/news.py) darf das LLM
 einen Tipp innerhalb von ±1 Tor vorschlagen – aber nur mit konkretem Grund
 (Verletzung, Sperre, Rotation), nicht auf Basis von nichts. Läuft aktuell im
 Schatten-Modus: der Vorschlag wird nur geloggt und als eigener Schattentipper
@@ -18,12 +22,26 @@ das System bleibt immer funktionsfähig.
 """
 
 import json
+import os
 import re
+import shutil
+import subprocess
+import tempfile
 
 import requests
 
 GROQ_API_BASE = "https://api.groq.com/openai/v1"
 DEFAULT_MODEL = "openai/gpt-oss-120b"
+# Begründungstext: läuft über das Claude-Abo. Lokal reicht die angemeldete
+# `claude`-CLI, in GitHub Actions das Token aus `claude setup-token`
+# (Secret CLAUDE_CODE_OAUTH_TOKEN, ein Jahr gültig).
+BEGRUENDUNG_MODEL = "claude-opus-5-5"
+BEGRUENDUNG_SYSTEM = (
+    "Du schreibst kurze Texte genau nach Vorgabe. Antworte nur mit dem verlangten "
+    "Text, ohne Vor- oder Nachbemerkung."
+)
+# Endungen, mit denen ein Mannschaftsname im Fließtext auftaucht ("Kölner")
+NAME_SUFFIX = r"(?:er|ern|ers|en|es|e|s)?"
 
 
 def build_prompt(match_context: dict) -> str:
@@ -89,8 +107,11 @@ def build_prompt(match_context: dict) -> str:
         "ein, zwei der aussagekräftigsten und übersetze den Rest in Fußballsprache "
         "(klarer Favorit, enge Kiste, Duell auf Augenhöhe, Torfestival, Abnutzungskampf). "
         "Sprich über die Teams und das Spiel, nicht über 'das Modell', 'die Statistik' "
-        "oder 'die Berechnung'. Erfinde nichts dazu: keine Spielernamen, Verletzungen, "
-        "Ergebnisse, Bilanzen, Formkurven oder Anekdoten, die oben nicht stehen. "
+        "oder 'die Berechnung'. Dein Wissen über die beiden Mannschaften darfst du "
+        "einbringen, soweit es zeitlos ist: Spitznamen, Stadion, Stadt und Region, "
+        "Farben, Tradition. Erfinde nichts zur aktuellen Lage dazu: keine Spielernamen, "
+        "Trainer, Verletzungen, Ergebnisse, Bilanzen, Tabellenstände oder Formkurven, "
+        "die oben nicht stehen. Nenne außer den beiden Mannschaften keine andere. "
         "Ordne das Kräfteverhältnis ehrlich anhand der Zahlen ein und bleib dabei "
         "in einer Linie: einen klaren Favoriten nicht kleinreden, ein enges Duell "
         "nicht zum Selbstläufer erklären. Vermeide Fachwörter wie Erwartungswert, "
@@ -111,8 +132,7 @@ def call_groq(
 
     reasoning_effort steuert, wie lange das Modell vor der Antwort nachdenkt.
     Das Denken zählt gegen max_tokens - ist der Deckel zu niedrig, kommt eine
-    leere Antwort zurück. Deshalb nur dort "medium", wo die Sprachqualität
-    zählt (Begründung); für JSON/Einwort-Antworten reicht "low"."""
+    leere Antwort zurück. Für JSON/Einwort-Antworten reicht "low"."""
     try:
         resp = requests.post(
             f"{GROQ_API_BASE}/chat/completions",
@@ -134,21 +154,80 @@ def call_groq(
         return None
 
 
+def call_claude(prompt: str, model: str = BEGRUENDUNG_MODEL) -> str | None:
+    """Best-effort-Aufruf über `claude -p`; None bei jedem Fehler (Fallback greift dann).
+
+    Läuft bewusst über das Abo statt über die API: ANTHROPIC_API_KEY und
+    ANTHROPIC_AUTH_TOKEN hätten Vorrang vor dem Abo-Login und würden berechnet,
+    deshalb bekommt der Aufruf sie nicht mit. Ohne Werkzeuge, ohne Einstellungen
+    und MCP-Server des Rechners und aus einem leeren Verzeichnis, damit nur der
+    Prompt zählt. Die Antwort wird nie geloggt - sie enthält den Tipp."""
+    if not shutil.which("claude"):
+        print("Claude-CLI nicht installiert")
+        return None
+    env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN")}
+    try:
+        proc = subprocess.run(
+            [
+                "claude", "-p", "--model", model, "--system-prompt", BEGRUENDUNG_SYSTEM,
+                "--tools", "", "--strict-mcp-config", "--setting-sources", "",
+                "--no-session-persistence", "--output-format", "json",
+            ],
+            input=prompt, capture_output=True, text=True, timeout=180,
+            env=env, cwd=tempfile.gettempdir(),
+        )
+        data = json.loads(proc.stdout)
+        # Bei Fehlern (Limit erreicht, CLI zu alt, nicht angemeldet) steht die
+        # Fehlermeldung im result-Feld - die darf nie als Begründung durchgehen
+        if proc.returncode != 0 or data.get("is_error"):
+            raise ValueError(str(data.get("result"))[:200])
+        text = data["result"].strip()
+        return text or None
+    except (OSError, subprocess.SubprocessError, KeyError, AttributeError, ValueError) as exc:
+        print(f"Claude nicht verfügbar: {exc}")
+        return None
+
+
+def _name_tokens(name: str) -> set[str]:
+    """Wörter, an denen eine Mannschaft im Fließtext erkennbar ist."""
+    return {word for word in re.findall(r"[^\W\d_]+", name) if len(word) >= 4}
+
+
+def check_begruendung(text: str, match_context: dict, other_teams=()) -> str | None:
+    """Prüft den LLM-Text vor dem Versiegeln; liefert den Ablehnungsgrund oder None.
+
+    Geprüft wird nur, was sich aus den Daten sicher entscheiden lässt: Der Text
+    nennt den Tipp, und er nennt keine dritte Mannschaft (so stand am 5. Spieltag
+    2026 "Die Bayern" im Text zu Dortmund - Bremen). Was das Modell aus eigenem
+    Wissen über die beiden Mannschaften schreibt, bleibt ungeprüft."""
+    tip = match_context["tip"]
+    if not re.search(rf"(?<!\d){tip[0]}\s*:\s*{tip[1]}(?!\d)", text):
+        return "Tipp fehlt im Text"
+    own = _name_tokens(match_context["home"]) | _name_tokens(match_context["away"])
+    for team in other_teams:
+        for token in _name_tokens(team) - own:
+            if re.search(rf"\b{re.escape(token)}{NAME_SUFFIX}\b", text):
+                return f"nennt dritte Mannschaft ({team})"
+    return None
+
+
 def generate_begruendung(
-    match_context: dict, api_key: str | None, model: str = DEFAULT_MODEL
+    match_context: dict, other_teams=(), model: str = BEGRUENDUNG_MODEL
 ) -> tuple[str | None, str]:
     """(text, quelle) – quelle ist "llm" oder "template". text ist None, wenn der
-    Aufrufer auf die Template-Begründung zurückfallen soll."""
-    if not api_key:
-        return None, "template"
-    # Höhere Temperature als beim Anpassungs-Prompt: hier zählt lebendige,
-    # abwechslungsreiche Sprache, die Fakten stehen ohnehin im Dossier. Nicht
-    # höher als 0.5 - darüber erfindet gpt-oss schiefe deutsche Wortschöpfungen.
-    text = call_groq(
-        build_prompt(match_context), api_key, model,
-        temperature=0.5, max_tokens=800, reasoning_effort="medium",
-    )
-    return (text, "llm") if text else (None, "template")
+    Aufrufer auf die Template-Begründung zurückfallen soll: Claude nicht
+    erreichbar oder zwei Texte in Folge durch die Prüfung gefallen."""
+    prompt = build_prompt(match_context)
+    for _ in range(2):
+        text = call_claude(prompt, model)
+        if not text:
+            break
+        problem = check_begruendung(text, match_context, other_teams)
+        if problem is None:
+            return text, "llm"
+        # Nur der Grund ins Log, nie der Text: er enthält den Tipp vor Anstoß
+        print(f"LLM-Begründung verworfen: {problem}")
+    return None, "template"
 
 
 def build_adjustment_prompt(match_context: dict, news: list[dict]) -> str:

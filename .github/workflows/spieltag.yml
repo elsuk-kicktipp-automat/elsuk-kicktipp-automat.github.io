@@ -40,9 +40,20 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      # Die Begründungstexte schreibt Claude über das Abo (engine/llm.py). Fehlt
+      # die CLI oder das Token, springt die Template-Begründung ein - die
+      # Tippabgabe darf daran nie hängen.
+      - name: Claude-CLI installieren
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+        continue-on-error: true
+        timeout-minutes: 3
+
       - name: Prognose (Spiele im Tipp-Fenster)
         run: python -m engine.cli predict
         env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
 

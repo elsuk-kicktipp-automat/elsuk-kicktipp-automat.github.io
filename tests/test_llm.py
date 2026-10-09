@@ -1,9 +1,13 @@
+import subprocess
+
 import requests
 
 from engine.llm import (
     build_adjustment_prompt,
     build_prompt,
+    call_claude,
     call_groq,
+    check_begruendung,
     generate_begruendung,
     parse_adjustment_response,
     propose_adjustment,
@@ -68,6 +72,11 @@ class TestBuildPrompt:
         assert "Vermeide Fachwörter" in prompt
         assert "Erfinde nichts" in prompt
 
+    def test_allows_timeless_team_knowledge_but_no_third_team(self):
+        prompt = build_prompt(MATCH_CONTEXT)
+        assert "Spitznamen, Stadion" in prompt
+        assert "keine andere" in prompt
+
     def test_neutral_venue_replaces_home_away_roles(self):
         prompt = build_prompt({**MATCH_CONTEXT, "neutral_venue": True})
         assert "neutraler Platz" in prompt
@@ -122,23 +131,145 @@ class TestCallGroq:
         assert call_groq("prompt", "fake-key") is None
 
 
+class FakeProc:
+    def __init__(self, stdout, returncode=0):
+        self.stdout = stdout
+        self.returncode = returncode
+
+
+class TestCallClaude:
+    def test_returns_text_on_success(self, monkeypatch):
+        monkeypatch.setattr("engine.llm.shutil.which", lambda name: "/usr/bin/claude")
+        monkeypatch.setattr(
+            "engine.llm.subprocess.run",
+            lambda *a, **kw: FakeProc('{"is_error": false, "result": "  Klarer Heimsieg erwartet.  "}'),
+        )
+        assert call_claude("prompt") == "Klarer Heimsieg erwartet."
+
+    def test_missing_cli_returns_none(self, monkeypatch):
+        def must_not_run(*args, **kwargs):
+            raise AssertionError("ohne CLI darf kein Prozess gestartet werden")
+
+        monkeypatch.setattr("engine.llm.shutil.which", lambda name: None)
+        monkeypatch.setattr("engine.llm.subprocess.run", must_not_run)
+        assert call_claude("prompt") is None
+
+    def test_error_message_is_never_returned_as_text(self, monkeypatch):
+        # Limit erreicht, CLI zu alt, nicht angemeldet: die Meldung steht im
+        # result-Feld und würde sonst als Begründung versiegelt
+        monkeypatch.setattr("engine.llm.shutil.which", lambda name: "/usr/bin/claude")
+        monkeypatch.setattr(
+            "engine.llm.subprocess.run",
+            lambda *a, **kw: FakeProc('{"is_error": true, "result": "API Error: 400"}', returncode=1),
+        )
+        assert call_claude("prompt") is None
+
+    def test_returns_none_on_timeout(self, monkeypatch):
+        def raise_timeout(*args, **kwargs):
+            raise subprocess.TimeoutExpired(cmd="claude", timeout=180)
+
+        monkeypatch.setattr("engine.llm.shutil.which", lambda name: "/usr/bin/claude")
+        monkeypatch.setattr("engine.llm.subprocess.run", raise_timeout)
+        assert call_claude("prompt") is None
+
+    def test_returns_none_on_malformed_output(self, monkeypatch):
+        monkeypatch.setattr("engine.llm.shutil.which", lambda name: "/usr/bin/claude")
+        monkeypatch.setattr("engine.llm.subprocess.run", lambda *a, **kw: FakeProc("kein JSON"))
+        assert call_claude("prompt") is None
+
+    def test_api_credentials_are_not_passed_on(self, monkeypatch):
+        # Abo statt API: ein gesetzter API-Schlüssel hätte Vorrang und würde berechnet
+        seen = {}
+
+        def fake_run(*args, **kwargs):
+            seen.update(kwargs["env"])
+            return FakeProc('{"is_error": false, "result": "Text"}')
+
+        monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-test")
+        monkeypatch.setenv("ANTHROPIC_AUTH_TOKEN", "token")
+        monkeypatch.setenv("CLAUDE_CODE_OAUTH_TOKEN", "abo-token")
+        monkeypatch.setattr("engine.llm.shutil.which", lambda name: "/usr/bin/claude")
+        monkeypatch.setattr("engine.llm.subprocess.run", fake_run)
+        call_claude("prompt")
+        assert "ANTHROPIC_API_KEY" not in seen
+        assert "ANTHROPIC_AUTH_TOKEN" not in seen
+        assert seen["CLAUDE_CODE_OAUTH_TOKEN"] == "abo-token"
+
+
+BVB_CONTEXT = {"home": "Borussia Dortmund", "away": "SV Werder Bremen", "tip": (2, 1)}
+LIGA = ["FC Bayern München", "Borussia Mönchengladbach", "Bayer 04 Leverkusen", "1. FC Köln"]
+# Am 09.10.2026 so versiegelt (gpt-oss-120b): die dritte Mannschaft ist frei erfunden
+BAYERN_TEXT = (
+    "Tipp: 2 : 1. Dortmund geht mit klarer Übermacht in die Partie, die 71 % Siegchance "
+    "sprechen für ein Torfestival zu Hause, während Bremen kaum mehr als ein Gegentreffer "
+    "zu erwarten hat. Die Bayern setzen auf ein schnelles Pressing und ein schnelles "
+    "Umschalten, das die Gäste in ein Abnutzungsspiel zwingt."
+)
+
+
+class TestCheckBegruendung:
+    def test_rejects_invented_third_team(self):
+        assert check_begruendung(BAYERN_TEXT, BVB_CONTEXT, LIGA) == "nennt dritte Mannschaft (FC Bayern München)"
+
+    def test_accepts_own_knowledge_about_both_teams(self):
+        text = (
+            "2:1 für Dortmund. Der BVB ist zu Hause klarer Favorit, auf der Südtribüne "
+            "grummelt es trotzdem, weil Werder ein Tor zuzutrauen ist. Die Schwarz-Gelben "
+            "behalten die Punkte."
+        )
+        assert check_begruendung(text, BVB_CONTEXT, LIGA) is None
+
+    def test_rejects_inflected_name(self):
+        assert check_begruendung("Tipp 2:1 - die Kölner kommen als Außenseiter.", BVB_CONTEXT, LIGA) is not None
+
+    def test_shared_name_part_is_not_a_third_team(self):
+        # "Borussia" steckt auch in Mönchengladbach, gemeint ist hier Dortmund
+        assert check_begruendung("Tipp 2:1 - die Borussia gewinnt.", BVB_CONTEXT, LIGA) is None
+
+    def test_bayer_and_bayern_are_kept_apart(self):
+        bayern = {"home": "FC Bayern München", "away": "1. FC Union Berlin", "tip": (4, 0)}
+        assert check_begruendung("4:0 - die Bayern sind haushoher Favorit.", bayern, ["Bayer 04 Leverkusen"]) is None
+        leverkusen = {"home": "Bayer 04 Leverkusen", "away": "RB Leipzig", "tip": (2, 1)}
+        assert check_begruendung("2:1 - unterm Bayer-Kreuz bleibt der Dreier.", leverkusen, LIGA) is None
+        assert check_begruendung("2:1 - die Bayerner haben das bessere Gespür.", leverkusen, LIGA) is not None
+
+    def test_rejects_text_without_the_tip(self):
+        assert check_begruendung("Dortmund gewinnt knapp.", BVB_CONTEXT, LIGA) == "Tipp fehlt im Text"
+        assert check_begruendung("Dortmund gewinnt 12:1.", BVB_CONTEXT, LIGA) == "Tipp fehlt im Text"
+
+
 class TestGenerateBegruendung:
-    def test_no_api_key_falls_back_to_template(self):
-        text, source = generate_begruendung(MATCH_CONTEXT, api_key=None)
+    def test_claude_unavailable_falls_back_to_template(self, monkeypatch):
+        monkeypatch.setattr("engine.llm.call_claude", lambda prompt, model: None)
+        text, source = generate_begruendung(MATCH_CONTEXT)
         assert text is None
         assert source == "template"
 
     def test_successful_llm_call(self, monkeypatch):
-        monkeypatch.setattr("engine.llm.call_groq", lambda prompt, key, model, **kw: "LLM-Text.")
-        text, source = generate_begruendung(MATCH_CONTEXT, api_key="fake-key")
-        assert text == "LLM-Text."
+        monkeypatch.setattr("engine.llm.call_claude", lambda prompt, model: "Tipp 2:1, die Schweiz liegt vorn.")
+        text, source = generate_begruendung(MATCH_CONTEXT, other_teams=["Frankreich"])
+        assert text == "Tipp 2:1, die Schweiz liegt vorn."
         assert source == "llm"
 
-    def test_failed_llm_call_falls_back_to_template(self, monkeypatch):
-        monkeypatch.setattr("engine.llm.call_groq", lambda prompt, key, model, **kw: None)
-        text, source = generate_begruendung(MATCH_CONTEXT, api_key="fake-key")
+    def test_rejected_text_gets_one_more_attempt(self, monkeypatch):
+        answers = ["Tipp 2:1, wie zuletzt Frankreich.", "Tipp 2:1, die Schweiz liegt vorn."]
+        monkeypatch.setattr("engine.llm.call_claude", lambda prompt, model: answers.pop(0))
+        text, source = generate_begruendung(MATCH_CONTEXT, other_teams=["Frankreich"])
+        assert text == "Tipp 2:1, die Schweiz liegt vorn."
+        assert source == "llm"
+
+    def test_two_rejected_texts_fall_back_to_template(self, monkeypatch):
+        calls = []
+
+        def always_third_team(prompt, model):
+            calls.append(1)
+            return "Tipp 2:1, wie zuletzt Frankreich."
+
+        monkeypatch.setattr("engine.llm.call_claude", always_third_team)
+        text, source = generate_begruendung(MATCH_CONTEXT, other_teams=["Frankreich"])
         assert text is None
         assert source == "template"
+        assert len(calls) == 2
 
 
 ADJUSTMENT_CONTEXT = {"home": "Deutschland", "away": "Portugal", "tip": (2, 1)}

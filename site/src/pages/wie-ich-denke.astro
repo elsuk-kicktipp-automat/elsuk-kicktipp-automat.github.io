@@ -38,9 +38,12 @@ const knockout = hasKnockoutStages(matchdays, activeCompetition(matchdays));
       Einzelquelle kaum zu schlagen.
     </li>
     <li>
-      <strong>Groq (GPT-OSS 120B)</strong> – formuliert die Begründungstexte in
-      flüssigerer Sprache und prüft Nachrichten auf einen möglichen Grund für eine
-      Tipp-Anpassung (siehe Abschnitt 5).
+      <strong>Claude Opus 5.5</strong> – formuliert die Begründungstexte in
+      flüssigerer Sprache (siehe Abschnitt 5).
+    </li>
+    <li>
+      <strong>Groq (GPT-OSS 120B)</strong> – prüft Nachrichten auf einen möglichen
+      Grund für eine Tipp-Anpassung (siehe Abschnitt 5).
     </li>
     <li>
       <strong>News-Check</strong> – Kicker- und Sportschau-RSS sowie die
@@ -136,15 +139,20 @@ EOF`}</pre>
 
   <h2>5. Begründungstexte &amp; News-Check</h2>
   <p>
-    Die Fließtexte zu jedem Spiel formuliert ein LLM (GPT-OSS 120B über Groq) aus
-    genau den Zahlen, die auch in der „Quellen &amp; Faktoren"-Box stehen –
-    Modellwahrscheinlichkeiten, ELO-Werte, Quote, News-Check-Ergebnis, der gewählte
-    Tipp. Ein 🤖-Hinweis unter dem Text markiert, wenn das LLM geschrieben hat; ohne
-    Antwort (kein Netzwerk, Rate-Limit) springt automatisch eine Template-Begründung
-    aus denselben Zahlen ein.
+    Die Fließtexte zu jedem Spiel formuliert ein LLM (seit Oktober 2026 Claude
+    Opus 5.5, davor GPT-OSS 120B über Groq) aus den Zahlen, die auch in der
+    „Quellen &amp; Faktoren"-Box stehen – Modellwahrscheinlichkeiten, ELO-Werte,
+    Quote, News-Check-Ergebnis, der gewählte Tipp. Spitznamen, Stadion oder
+    Region der beiden Mannschaften steuert das LLM aus eigenem Wissen bei; das
+    wird nicht nachgeprüft. Geprüft wird vor dem Versiegeln, dass der Text den
+    Tipp nennt und keine dritte Mannschaft. Ein 🤖-Hinweis unter dem Text
+    markiert, wenn das LLM geschrieben hat; ohne brauchbare Antwort (kein
+    Netzwerk, Rate-Limit, Prüfung zweimal nicht bestanden) springt automatisch
+    eine Template-Begründung aus denselben Zahlen ein.
   </p>
   <p>
-    Zusätzlich liest das LLM aktuelle Schlagzeilen zu beiden Teams (Kicker,
+    Zusätzlich liest ein zweites LLM (GPT-OSS 120B über Groq) aktuelle
+    Schlagzeilen zu beiden Teams (Kicker,
     Sportschau, BILD-News-Sitemap) und darf – nur bei einem konkreten harten Grund
     wie einer Verletzung, Sperre oder Rotation – eine Anpassung um höchstens ein Tor
     je Team vorschlagen.

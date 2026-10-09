@@ -155,6 +155,9 @@ bonus:
 
 llm:
   enabled: true
+  # provider/model gelten für Anpassungsvorschlag und Bonusfragen. Den
+  # Begründungstext schreibt Claude Opus 5.5 über das Claude-Abo
+  # (engine/llm.py: BEGRUENDUNG_MODEL, kein API-Schlüssel).
   provider: groq
   # Llama 3.3 70B wurde von Groq zum 16.08.2026 abgeschaltet. gpt-oss ist ein
   # Reasoning-Modell: sein Nachdenken zählt gegen max_tokens (siehe llm.py).

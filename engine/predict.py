@@ -268,13 +268,16 @@ def predict_matches(
     llm_trusted = bool((learning_state or {}).get("llm_trust", {}).get("trusted"))
     llm_cfg = config.get("llm", {})
     llm_model = llm_cfg.get("model", llm.DEFAULT_MODEL)
+    # Alle bekannten Mannschaften: die Textprüfung (llm.check_begruendung)
+    # verwirft Begründungen, die eine dritte Mannschaft nennen
+    known_teams = {name for t in (*train, *targets) for name in (t.home_name, t.away_name)}
 
     predictions = []
     for i, m in enumerate(sorted(targets, key=lambda t: (t.kickoff_utc, t.home_name))):
         # Groqs Free Tier begrenzt Tokens pro MINUTE (gpt-oss-120b: 8.000). Ein
-        # Samstag bringt bis zu 5 Partien in einen Lauf, jede kostet zwei Calls
-        # - ohne Pause reißt das Limit und die Begründung fiele auf das Template
-        # zurück. Die Wartezeit ist unkritisch: der Lauf ist stündlich getaktet.
+        # Samstag bringt bis zu 5 Partien in einen Lauf, jede kostet einen Call
+        # (Anpassungsvorschlag) - ohne Pause reißt das Limit und der Vorschlag
+        # fiele aus. Die Wartezeit ist unkritisch: der Lauf ist stündlich getaktet.
         if i and groq_api_key:
             time.sleep(LLM_PAUSE_SECONDS)
 
@@ -385,7 +388,9 @@ def predict_matches(
                 "news_sources": news_report,
                 "llm_adjustment": llm_adjustment,
             }
-            llm_text, source = llm.generate_begruendung(context, groq_api_key, llm_model)
+            llm_text, source = llm.generate_begruendung(
+                context, other_teams=known_teams - {m.home_name, m.away_name}
+            )
             begruendung = llm_text or template_text
 
         predictions.append(

@@ -1,0 +1,40 @@
+# Prüft von Hand, ob die Begründungstexte in GitHub Actions über das Claude-Abo
+# laufen: CLI installieren, anmelden mit dem Secret CLAUDE_CODE_OAUTH_TOKEN
+# (`claude setup-token`, ein Jahr gültig) und einen Mini-Aufruf über denselben
+# Code schicken, den der Spieltags-Lauf nutzt (engine/llm.py). Rot heißt: der
+# Spieltags-Lauf würde auf die Template-Begründung zurückfallen.
+#
+# Nur manuell (workflow_dispatch) - jeder Lauf verbraucht ein wenig Abo-Kontingent.
+name: Claude-Check
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  claude-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Claude-CLI installieren
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Abo-Anmeldung prüfen (ein Mini-Aufruf über engine/llm.py)
+        run: |
+          claude --version
+          python -c "import sys; from engine import llm; sys.exit(0 if llm.call_claude('Antworte nur mit dem Wort: ok') else 1)"
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}

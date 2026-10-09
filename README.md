@@ -5,7 +5,7 @@ Website: **<https://elsuk-kicktipp-automat.github.io/>**
 
 **Stand: Phase 2-4 im Test-/Härtungsbetrieb** – Statistik-Engine (OpenLigaDB +
 ELO + Quoten, Dixon-Coles-Modell, Kicktipp-Punkteoptimierung, Backtesting),
-LLM-Begründungsschicht (Groq), Paper-Betting, Astro-Website, Hash-Versiegelung,
+LLM-Begründungsschicht (Claude Opus 5.5), Paper-Betting, Astro-Website, Hash-Versiegelung,
 GitHub-Actions-Automatisierung und verifizierte Kicktipp-Abgabe per Playwright.
 Der WM-2026-Testbetrieb lief bis 19.07.2026; seit dem 14.08.2026 läuft die
 Pipeline auf der **Bundesliga 2026/27** (erster Anstoß 28.08.2026). Die
@@ -50,10 +50,16 @@ WM-Daten bleiben unter `data/` liegen und sind im Site-Archiv nachprüfbar.
    gelieferten Bookmaker-Quoten genutzt. Der Einsatz wird per konservativem
    Fractional-Kelly aus der rohen Modellwahrscheinlichkeit vor Markt-Blend
    berechnet und bei 100 EUR gedeckelt (`paper_betting` in `config.yaml`).
-8. **LLM-Begründung:** [Groq](https://console.groq.com) (Free Tier,
-   `openai/gpt-oss-120b`) formuliert den Begründungstext aus denselben
-   Modellzahlen in natürlicher Sprache; ohne Key/Netzwerk springt automatisch
-   die Template-Begründung ein. Zusätzlich prüft der News-Check Kicker,
+8. **LLM-Begründung:** Claude Opus 5.5 formuliert den Begründungstext aus
+   denselben Modellzahlen in natürlicher Sprache und darf zeitloses Wissen über
+   die beiden Mannschaften einbringen (Spitznamen, Stadion, Region). Der Aufruf
+   läuft über die Claude-Code-CLI mit dem Claude-Abo, ohne API-Schlüssel: lokal
+   über die angemeldete CLI, in GitHub Actions über das Secret
+   `CLAUDE_CODE_OAUTH_TOKEN` (`claude setup-token`, ein Jahr gültig). Vor dem
+   Versiegeln wird geprüft, dass der Text den Tipp nennt und keine dritte
+   Mannschaft; ohne CLI/Token/Kontingent oder nach zwei verworfenen Texten
+   springt die Template-Begründung ein. Zusätzlich prüft der News-Check
+   ([Groq](https://console.groq.com), Free Tier, `openai/gpt-oss-120b`) Kicker,
    Sportschau und die BILD-News-Sitemap auf aktuelle Schlagzeilen zu den Teams.
    Eine daraus abgeleitete Tipp-Anpassung läuft nur als Schattentipp mit und
    ändert den offiziellen Tipp nicht.
@@ -260,7 +266,7 @@ engine/                Python-Engine
   model.py             Dixon-Coles-Poisson mit ELO-Term
   market.py            Quoten-Blending der Wahrscheinlichkeitsmatrix (Vorhersagezeit)
   paper_betting.py     theoretische Wetten, Einsatzlogik, Abrechnung
-  llm.py               LLM-Begründungstexte (Groq) mit Template-Fallback
+  llm.py               LLM-Begründungstexte (Claude) mit Template-Fallback, News-Anpassung (Groq)
   kicktipp_bot.py      Playwright-Abgabe bei kicktipp.de mit Verifikation
   optimizer.py         Kicktipp-Punktelogik + EV-Optimierung + Baselines
   teams.py             Team-Identität über normalisierte Namen
