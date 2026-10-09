@@ -1,0 +1,24 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "matchday": 5,
+  "stage": "5. Spieltag",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-10-09T14:30:59Z",
+  "matches": [
+    {
+      "home": "Borussia Dortmund",
+      "away": "SV Werder Bremen",
+      "kickoff_utc": "2026-10-09T18:30:00Z",
+      "status": "sealed",
+      "hash": "86cdfd3c9630d865d1ee96f7c275e7f11d4b198ad2eb14eaf4036e6e03c2f76d",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}
