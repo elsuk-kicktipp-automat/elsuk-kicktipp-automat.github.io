@@ -4,47 +4,47 @@
   "matchday": 5,
   "stage": "5. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 0,
-  "matches_scored": 1,
-  "matches_open": 6,
+  "points_total": 2,
+  "matches_scored": 3,
+  "matches_open": 4,
   "hits": {
     "exact": 0,
     "goal_diff": 0,
-    "tendency": 0,
-    "miss": 1
+    "tendency": 1,
+    "miss": 2
   },
   "shadow_points": {
-    "most_probable": 0,
-    "elo_favorite": 0,
+    "most_probable": 2,
+    "elo_favorite": 3,
     "always_draw": 2,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 1,
-    "elo_favorite": 1,
-    "always_draw": 1,
+    "most_probable": 3,
+    "elo_favorite": 3,
+    "always_draw": 3,
     "llm_adjusted": 0
   },
-  "brier_avg": 1.211,
+  "brier_avg": 0.6891,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
-    "stake_total_eur": 0.0,
+    "stake_total_eur": 100.0,
     "payout_total_eur": 0.0,
-    "profit_total_eur": 0.0,
-    "roi": null,
-    "bets_scored": 0,
+    "profit_total_eur": -100.0,
+    "roi": -1.0,
+    "bets_scored": 1,
     "bets_won": 0,
     "bankroll_start_eur": 1000.0
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 25.0,
-      "payout_total_eur": 0.0,
-      "profit_total_eur": -25.0,
-      "roi": -1.0,
-      "bets_scored": 1,
-      "bets_won": 0,
+      "stake_total_eur": 57.92,
+      "payout_total_eur": 17.63,
+      "profit_total_eur": -40.29,
+      "roi": -0.6956,
+      "bets_scored": 3,
+      "bets_won": 1,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -108,7 +108,56 @@
       "home": "1. FC Union Berlin",
       "away": "SV 07 Elversberg",
       "kickoff_utc": "2026-10-10T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        1,
+        0
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 3,
+        "always_draw": 0
+      },
+      "brier": 0.5988,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "SV 07 Elversberg gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 20,
+        "odds_decimal": 2.65,
+        "model_probability": 0.6421,
+        "implied_probability": 0.3774,
+        "edge": 0.7015,
+        "expected_value_eur": 70.15,
+        "stake_eur": 100.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.4252,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "lost",
+        "stake_eur": 100.0,
+        "payout_eur": 0.0,
+        "profit_eur": -100.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 21.69,
+          "payout_eur": 0.0,
+          "profit_eur": -21.69
+        }
+      }
     },
     {
       "home": "1. FSV Mainz 05",
@@ -126,7 +175,56 @@
       "home": "SC Paderborn 07",
       "away": "VfB Stuttgart",
       "kickoff_utc": "2026-10-10T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        0,
+        2
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.2575,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "VfB Stuttgart gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 20,
+        "odds_decimal": 1.57,
+        "model_probability": 0.4589,
+        "implied_probability": 0.6369,
+        "edge": -0.2794,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 11.23,
+          "payout_eur": 17.63,
+          "profit_eur": 6.4
+        }
+      }
     },
     {
       "home": "TSG Hoffenheim",
