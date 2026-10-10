@@ -149,6 +149,11 @@
     },
     {
       "home_key": "rbleipzig",
+      "away_key": "eintrachtfrankfurt",
+      "verified_at_utc": "2026-10-10T12:32:03Z"
+    },
+    {
+      "home_key": "rbleipzig",
       "away_key": "hamburgersv",
       "verified_at_utc": "2026-09-13T09:46:43Z"
     },
