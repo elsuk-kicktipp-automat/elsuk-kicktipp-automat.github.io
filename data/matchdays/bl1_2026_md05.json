@@ -1110,9 +1110,191 @@
       "home": "RB Leipzig",
       "away": "Eintracht Frankfurt",
       "kickoff_utc": "2026-10-10T16:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "e955db147c69895c316b1fa4250622686d70f5e6ff9e354fe32b19b5f48fd652",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.496,
+      "factors": {
+        "expected_goals": [
+          2.38,
+          1.38
+        ],
+        "probabilities": {
+          "home": 0.598,
+          "draw": 0.199,
+          "away": 0.203
+        },
+        "raw_probabilities": {
+          "home": 0.547,
+          "draw": 0.211,
+          "away": 0.242
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.604,
+          "draw": 0.197,
+          "away": 0.199,
+          "weight": 0.893
+        },
+        "home_advantage": 0.201,
+        "trained_on_matches": 649,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: RB Leipzig gegen Eintracht Frankfurt - Bundesliga",
+              "description": "5. Spieltag: Anpfiff des Spiels ist am 10.10.2026 um 18:30 Uhr. Eintracht Frankfurt spielt in Leipzig.",
+              "published": "2026-10-10T18:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/rb-leipzig-gegen-eintracht-frankfurt,audiostream-rb-leipzig-gegen-eintracht-frankfurt-112.html"
+            },
+            {
+              "title": "LIVE! Schwimmt sich Ulm unter Schwartz frei? - SVS am Bornheimer Hang",
+              "description": "Dem SSV Ulm 1846 steht das Wasser bis zum Kopf. Am 11. Spieltag der Regionalliga Südwest empfängt das sieglose Schlusslicht unter Neu-Coach Alois Schwartz Eintracht Frankfurt II. An der Spitze kämpfen der SGV Heilbronn-Freiberg und die Stuttgarter Kickers im Fernduell um den Sonnenplatz. Beide bestreiten knifflige Auswärtsspiele.",
+              "published": "2026-10-10T10:22:08+00:00",
+              "source": "kicker",
+              "source_label": "Kicker",
+              "url": "https://www.kicker.de/live-schwimmt-sich-ulm-unter-schwartz-frei-svs-am-bornheimer-hang-1258032/artikel#omrss"
+            },
+            {
+              "title": "RB Leipzig: Was dahintersteckt! Benjamin Henrichs schwärmt von Roger Schmidt",
+              "description": "RB Leipzig, erste Bundesliga, Sport-Tag im Ticker, spielertransfer, Henrichs Benjamin, Sport - Leuchtturm Leipzig, Schmidt Roger, Klopp Jürgen",
+              "published": "2026-10-10T06:07:33+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/rb-leipzig-was-dahintersteckt-benjamin-henrichs-schwaermt-von-roger-schmidt-6ac962bb5528343575dfeac3"
+            },
+            {
+              "title": "Bundesliga: Drei Trainer schon am 5. Spieltag unter Druck",
+              "description": "1. FC Köln, Fußball, Trainer, 1. FC Union Berlin, RB Leipzig, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-10-10T03:42:24+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-drei-trainer-schon-am-5-spieltag-unter-druck-6ac905f85528343575dfe636"
+            },
+            {
+              "title": "Bundesligist mit kurioser Serie seit Gründung des Vereins",
+              "description": "RB Leipzig, erste Bundesliga, Demichelis Martin, Sport-Tag im Ticker, Sport - Leuchtturm Leipzig, Eintracht Frankfurt, Fußball, Zentralstadion Leipzig",
+              "published": "2026-10-09T17:53:49+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesligist-mit-kurioser-serie-seit-gruendung-des-vereins-6ac8a93e79dbba342d294cef"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 11
+            }
+          ],
+          "total_matches": 13,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2807,
+          "output_tokens": 359,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1482,
+              "output_tokens": 90
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1325,
+              "output_tokens": 269
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "2:1 für die Roten Bullen – und wer in der Red Bull Arena auf etwas anderes als einen Heimsieg setzt, muss schon sehr an die Adler glauben. Leipzig geht als klarer Favorit ins Spiel, mit rund 60 Prozent Siegchance spricht fast alles für die Sachsen. Ganz ohne Gegentor wird es aber kaum abgehen, denn die Eintracht reist nicht zum Kaffeetrinken aus Frankfurt an und trifft erfahrungsgemäß auch auswärts. Unterm Strich rechne ich mit einem munteren Abend mit Toren auf beiden Seiten, an dessen Ende die Bullen ein Tor mehr auf der Anzeigetafel haben.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "RB Leipzig gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 20,
+        "odds_decimal": 1.57,
+        "model_probability": 0.547,
+        "implied_probability": 0.6369,
+        "edge": -0.1412,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "RB Leipzig gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 20,
+          "odds_decimal": 1.57,
+          "model_probability": 0.547,
+          "implied_probability": 0.6369,
+          "edge": -0.1412,
+          "expected_value_eur": -2.3,
+          "stake_eur": 16.26,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "5403cd2415a478de8a9dd81d4ecdadd6"
     }
   ]
 }
