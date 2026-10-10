@@ -184,41 +184,927 @@
       "home": "1. FC Union Berlin",
       "away": "SV 07 Elversberg",
       "kickoff_utc": "2026-10-10T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "985b7bb3ab011fc61f95e19c4a6819c760962c40d6d51468270e643a03fc4b42",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.022,
+      "factors": {
+        "expected_goals": [
+          1.52,
+          1.53
+        ],
+        "probabilities": {
+          "home": 0.372,
+          "draw": 0.254,
+          "away": 0.374
+        },
+        "raw_probabilities": {
+          "home": 0.172,
+          "draw": 0.186,
+          "away": 0.642
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.396,
+          "draw": 0.262,
+          "away": 0.342,
+          "weight": 0.893
+        },
+        "home_advantage": 0.201,
+        "trained_on_matches": 649,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Bundesliga: Drei Trainer schon am 5. Spieltag unter Druck",
+              "description": "1. FC Köln, Fußball, Trainer, 1. FC Union Berlin, RB Leipzig, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-10-10T03:42:24+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-drei-trainer-schon-am-5-spieltag-unter-druck-6ac905f85528343575dfe636"
+            },
+            {
+              "title": "Union Berlin: Mit Schweiz-Duo zum Erfolg?",
+              "description": "1. FC Union Berlin, Sport - Leuchtturm Berlin, Fußball, SV Elversberg, Bundesliga, Sport-Tag im Ticker, Regio Sport Berlin, Friedrich Marvin, Burke Oliver, Nationalmannschaft Schweiz",
+              "published": "2026-10-09T17:55:59+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/union-berlin-mit-schweiz-duo-zum-erfolg-6ac8a860c9122e6e3c97ba10"
+            },
+            {
+              "title": "Sie hatten ihn extra geschont: DIESER Elversberger wackelt für Union!",
+              "description": "SV Elversberg, Fußball, zweite Bundesliga, Saarland, Bundesliga, Sport - Leuchtturm Zentral, Bundesliga bei BILD, 1. FC Union Berlin",
+              "published": "2026-10-09T12:31:27+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/sie-hatten-ihn-extra-geschont-dieser-elversberger-wackelt-fuer-union-6ac88f5c79dbba342d294b01"
+            },
+            {
+              "title": "So hoch sind Gehälter in der Frauenfußball-Bundesliga wirklich",
+              "description": "Frauen Fußball, Fußball, VfL Wolfsburg, 1. FC Union Berlin, Frauen Nationalmannschaften, FC Bayern München, gehalt",
+              "published": "2026-10-09T12:00:15+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/so-hoch-sind-gehaelter-in-der-frauenfussball-bundesliga-wirklich-6ac8a11ec9122e6e3c97b988"
+            },
+            {
+              "title": "1. FC Union vor Elversberg: Lustrinelli plant den Befreiungsschlag",
+              "description": "1. FC Union Berlin, SV Elversberg, Friedrich Marvin, Fußball, Stadion An der Alten Försterei, Sport - Leuchtturm Berlin, Bundesliga, Koch Matthias",
+              "published": "2026-10-08T17:33:46+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/1-fc-union-vor-elversberg-lustrinelli-plant-den-befreiungsschlag-6ac7abcfbad8b2d292848804"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 6
+            }
+          ],
+          "total_matches": 6,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2708,
+          "output_tokens": 691,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1377,
+              "output_tokens": 153
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1331,
+              "output_tokens": 538
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Ich lehne mich aus dem Fenster und tippe 1:2: Die Saarländer aus Elversberg entführen die Punkte aus der Alten Försterei. Ehrlich gesagt ist das ein Duell auf Augenhöhe: Beide Seiten kommen auf je 37 Prozent Siegchance, und vorne haben beide genug Pulver für jeweils anderthalb Tore im Schnitt. Die Wettanbieter trauen den Eisernen dank Heimvorteil und Köpenicker Kesselstimmung einen Hauch mehr zu, aber ein Selbstläufer wird das für die Rot-Weißen nicht. Wer bei so einer offenen Kiste auf ein Torspektakel mit dem glücklicheren Ende für die Gäste setzt, braucht etwas Mut und vielleicht ein zweites Bier.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "SV 07 Elversberg gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 20,
+        "odds_decimal": 2.65,
+        "model_probability": 0.6421,
+        "implied_probability": 0.3774,
+        "edge": 0.7015,
+        "expected_value_eur": 70.15,
+        "stake_eur": 100.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.4252,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "SV 07 Elversberg gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 20,
+          "odds_decimal": 2.65,
+          "model_probability": 0.6421,
+          "implied_probability": 0.3774,
+          "edge": 0.7015,
+          "expected_value_eur": 15.22,
+          "stake_eur": 21.69,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "92c28383a8c1691db56a33032d25ba06"
     },
     {
       "home": "1. FSV Mainz 05",
       "away": "Bayer 04 Leverkusen",
       "kickoff_utc": "2026-10-10T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "e3a19ea4dae354c8e944e3def65a4de7127ffc61e610e92b789b838015b2c81e",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.17,
+      "factors": {
+        "expected_goals": [
+          1.42,
+          1.7
+        ],
+        "probabilities": {
+          "home": 0.314,
+          "draw": 0.248,
+          "away": 0.437
+        },
+        "raw_probabilities": {
+          "home": 0.309,
+          "draw": 0.252,
+          "away": 0.44
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.315,
+          "draw": 0.248,
+          "away": 0.437,
+          "weight": 0.893
+        },
+        "home_advantage": 0.201,
+        "trained_on_matches": 649,
+        "news_checked": 2,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Bayer 04 Leverkusen: Hoffnung bei Ibrahim Maza für das Spiel in Mainz",
+              "description": "Sport – Leuchtturm Essen, Bayer Leverkusen, Maza Ibrahim, Mainz 05, Leverkusen, Bundesliga, Fußball, erste Bundesliga, Nationalmannschaft Algerien",
+              "published": "2026-10-09T16:58:13+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bayer-04-leverkusen-hoffnung-bei-ibrahim-maza-fuer-das-spiel-in-mainz-6ac893096e0a564ee52e9ff0"
+            },
+            {
+              "title": "Bayer 04 Leverkusen: Victor Boniface ist plötzlich wieder wichtig!",
+              "description": "Sport – Leuchtturm Essen, Fußball, Bundesliga, Bayer Leverkusen, Boniface Victor, Kofane Christian, Schick Patrik, erste Bundesliga",
+              "published": "2026-10-09T15:03:22+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bayer-04-leverkusen-victor-boniface-ist-ploetzlich-wieder-wichtig-6ac89537c9122e6e3c97b8b5"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 2
+            }
+          ],
+          "total_matches": 2,
+          "returned": 2,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2401,
+          "output_tokens": 565,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1061,
+              "output_tokens": 116
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1340,
+              "output_tokens": 449
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Ich lege mich auf ein 1:2 fest: Die Werkself fährt als Favorit an den Rhein, mit 44 Prozent Siegchance gegenüber 31 für die Hausherren, ein Selbstläufer wird das aber nicht. Die Nullfünfer werden in der MEWA ARENA mit Karnevalsgemüt und rot-weißer Leidenschaft dagegenhalten und dürften ihren Treffer durchaus bekommen. Auf beiden Seiten riecht es nach Toren, also eher nach offenem Schlagabtausch als nach zähem Abnutzungskampf. Am Ende sollte die etwas größere Klasse der Schwarz-Roten den Ausschlag geben, und die Mainzer Fastnachtsstimmung bekommt einen kleinen Dämpfer.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 20,
+        "odds_decimal": 2.1,
+        "model_probability": 0.4398,
+        "implied_probability": 0.4762,
+        "edge": -0.0764,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "Bayer 04 Leverkusen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 20,
+          "odds_decimal": 2.1,
+          "model_probability": 0.4398,
+          "implied_probability": 0.4762,
+          "edge": -0.0764,
+          "expected_value_eur": -0.77,
+          "stake_eur": 10.13,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "a544fe5af1a33a2523be2bc48e4f5335"
     },
     {
       "home": "FC Augsburg",
       "away": "FC Bayern München",
       "kickoff_utc": "2026-10-10T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "4b1d1d13f0d7377e3710a499f0ddf5427448c6d8a2ab24829a31f770d75216aa",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        3
+      ],
+      "advance_tip": null,
+      "expected_points": 1.897,
+      "factors": {
+        "expected_goals": [
+          1.17,
+          3.33
+        ],
+        "probabilities": {
+          "home": 0.079,
+          "draw": 0.114,
+          "away": 0.807
+        },
+        "raw_probabilities": {
+          "home": 0.093,
+          "draw": 0.142,
+          "away": 0.764
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.077,
+          "draw": 0.111,
+          "away": 0.812,
+          "weight": 0.893
+        },
+        "home_advantage": 0.201,
+        "trained_on_matches": 649,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Bayern-Leihgabe in Spanien übel beschimpft – Fans wünschen den Tod",
+              "description": "FC Bayern München, spielertransfer, Primera División - La Liga, erste Bundesliga, Tuchel Thomas, Sport - Leuchtturm München, Espanyol Barcelona, FC Malaga, Aufmacher-Bereich",
+              "published": "2026-10-10T10:21:04+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-fans-in-spanien-wuenschen-zaragoza-den-tod-6ac941795528343575dfe943"
+            },
+            {
+              "title": "Bayerns Bilanz gegen Bayern - und wo sich der FCA einreiht",
+              "description": "Am Samstag steigt mal wieder das derzeit einzige Duell zwischen bayerischen Erstligisten. Der FC Augsburg empfängt die Bayern. Ein Blick auf die Bilanz des Rekordmeisters gegen Teams aus dem Freistaat - mit legendären Duellen, großen und überraschenden Namen.",
+              "published": "2026-10-10T06:34:32+00:00",
+              "source": "kicker",
+              "source_label": "Kicker",
+              "url": "https://www.kicker.de/bayerns-bilanz-gegen-bayern-und-wo-sich-der-fca-einreiht-1259274/artikel#omrss"
+            },
+            {
+              "title": "Aus diesem Fehler lernte Bayern-Trainer Vincent Kompany",
+              "description": "FC Bayern München, Kompany Vincent, erste Bundesliga, Bundesliga, Pressekonferenz, Hochkant BILD-Video intern, Most Viewed Bundesliga",
+              "published": "2026-10-10T08:00:34+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/aus-diesem-fehler-lernte-bayern-trainer-vincent-kompany-6ac8cb5559dfcd93a3d5f460"
+            },
+            {
+              "title": "Juwel von Bayern München erleidet brutale Narbe",
+              "description": "FC Bayern München, erste Bundesliga, SpVgg Unterhaching, Kompany Vincent, dritte Liga, Sport - Leuchtturm München, TorAlarm Top-News, Aufmacher-Bereich",
+              "published": "2026-10-09T21:38:14+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/juwel-von-bayern-muenchen-erleidet-brutale-narbe-6ac92afd61b3d4c01d3e18b4"
+            },
+            {
+              "title": "Müller-Wohlfahrt exklusiv: So lief der Zoff mit Pep Guardiola",
+              "description": "FC Bayern München, erste Bundesliga, Guardiola Josep, Müller-Wohlfahrt Dr. Hans-Wilhelm, Hochkant BILD-Video intern",
+              "published": "2026-10-09T21:30:42+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/mueller-wohlfahrt-exklusiv-so-lief-der-zoff-mit-pep-guardiola-6ac7f3256e0a564ee52e9b64"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 28
+            }
+          ],
+          "total_matches": 29,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2730,
+          "output_tokens": 373,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1413,
+              "output_tokens": 79
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1317,
+              "output_tokens": 294
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Mein Tipp: 1:3 für die Bayern, und wer in der Fuggerstadt auf ein Wunder hofft, sollte vorher lieber noch eine Kerze im Dom anzünden. Die Roten aus München reisen als haushoher Favorit an, mit rund 81 Prozent Siegchance ist das eher ein Pflichtbesuch als ein bayerisches Derby auf Augenhöhe. Die Fuggerstädter dürfen sich in ihrer Arena trotzdem auf einen eigenen Treffer freuen, denn hinten lässt der Rekordmeister gern mal die Tür einen Spalt offen. Vorne aber rollt der Münchner Ball so zuverlässig wie ein Bierfass bergab, drei Tore fürs Auswärtskonto sind da eher Pflicht als Kür.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          3
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "FC Bayern München gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 20,
+        "odds_decimal": 1.16,
+        "model_probability": 0.7644,
+        "implied_probability": 0.8621,
+        "edge": -0.1133,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "FC Bayern München gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 20,
+          "odds_decimal": 1.16,
+          "model_probability": 0.7644,
+          "implied_probability": 0.8621,
+          "edge": -0.1133,
+          "expected_value_eur": -2.83,
+          "stake_eur": 25.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "b7d47162478697cecc8603f6a816c0d4"
     },
     {
       "home": "SC Paderborn 07",
       "away": "VfB Stuttgart",
       "kickoff_utc": "2026-10-10T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "d1117e68217819fda9fc0e631c016b42df5ce2fd11ed55afcf3efc122e6a1d8c",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.486,
+      "factors": {
+        "expected_goals": [
+          1.25,
+          2.18
+        ],
+        "probabilities": {
+          "home": 0.203,
+          "draw": 0.212,
+          "away": 0.586
+        },
+        "raw_probabilities": {
+          "home": 0.245,
+          "draw": 0.296,
+          "away": 0.459
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.198,
+          "draw": 0.202,
+          "away": 0.601,
+          "weight": 0.893
+        },
+        "home_advantage": 0.201,
+        "trained_on_matches": 649,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "VfB droht der Absturz auf die Abstiegsplätze: Sieg-Pflicht für Hoeneß!",
+              "description": "erste Bundesliga, VfB Stuttgart, Fußball, Hoeneß Sebastian, Wehrle Alexander, Wohlgemuth Fabian, Sport - Leuchtturm München, Champions League, Bundesliga",
+              "published": "2026-10-09T15:30:19+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-droht-der-absturz-auf-die-abstiegsplaetze-sieg-pflicht-fuer-hoeness-6ac8d12f5528343575dfe196"
+            },
+            {
+              "title": "VfB Stuttgart: Profi-Durchbruch in Paderborn! VfB-Star Führich und die besondere Rückkehr",
+              "description": "VfB Stuttgart, Fußball, Hoeneß Sebastian, erste Bundesliga, Bundesliga, Sport - Leuchtturm München, Champions League",
+              "published": "2026-10-09T14:14:15+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-profi-durchbruch-in-paderborn-vfb-star-fuehrich-und-die-besondere-rueckkehr-6ac8c2953b2b428232f0b158"
+            },
+            {
+              "title": "Bundesliga: Ex-Nationalspieler Max Kruse verdient jetzt Geld mit dem BVB",
+              "description": "Kruse Max, Harnik Martin, Fans, erste Bundesliga, zweite Bundesliga, 2. Bundesliga, Schwank Kevin, DSC Arminia Bielefeld, MSV Duisburg, VfL Wolfsburg, SC Paderborn 07, Sport - Leuchtturm Hamburg, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-10-09T10:05:54+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-ex-nationalspieler-max-kruse-verdient-jetzt-geld-mit-dem-bvb-6ac779710b278d38b2e5d45a"
+            },
+            {
+              "title": "Das ist nach drei Wochen Länderspielen neu in der Bundesliga",
+              "description": "VfB Stuttgart, Fußball, erste Bundesliga, Bundesliga, Hoeneß Sebastian, FC Bayern München, Borussia Mönchengladbach, SV Elversberg, Aufmacher-Bereich, super-a-teaser, quad-teaser",
+              "published": "2026-10-09T02:31:35+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/das-ist-nach-drei-wochen-laenderspielen-neu-in-der-bundesliga-6ac7e19c079be464751de659"
+            },
+            {
+              "title": "VfB Stuttgart: „Ihm gehört die Zukunft“! Hoeneß-Plädoyer für Jeltsch",
+              "description": "Fußball, VfB Stuttgart, Hoeneß Sebastian, Wehrle Alexander, Wohlgemuth Fabian, Jeltsch Finn, Sport - Leuchtturm München, Champions League, Bundesliga",
+              "published": "2026-10-08T16:50:50+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-ihm-gehoert-die-zukunft-hoeness-plaedoyer-fuer-jeltsch-6ac7834f54d8fdab8776071a"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 7
+            }
+          ],
+          "total_matches": 7,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2834,
+          "output_tokens": 346,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1508,
+              "output_tokens": 85
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1326,
+              "output_tokens": 261
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Mein Tipp: 1:2 für den VfB, und zwar ohne großes Zittern. Die Schwaben reisen als klarer Favorit an, rund sechs von zehn Wetten laufen auf einen Auswärtssieg hinaus, und mit gut zwei Toren im Gepäck dürfte das Rote Brustring-Ensemble in Ostwestfalen kaum leer ausgehen. Paderborn wird in der Heimstätte natürlich nicht Spalier stehen, ein Treffer für die Hausherren ist drin, mehr als ein Achtungserfolg aber eher nicht. Wer in Paderborn auf eine Überraschung setzt, braucht schon mehr Hoffnung als Bier am Stammtisch.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          2
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "VfB Stuttgart gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 20,
+        "odds_decimal": 1.57,
+        "model_probability": 0.4589,
+        "implied_probability": 0.6369,
+        "edge": -0.2794,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "VfB Stuttgart gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 20,
+          "odds_decimal": 1.57,
+          "model_probability": 0.4589,
+          "implied_probability": 0.6369,
+          "edge": -0.2794,
+          "expected_value_eur": -3.14,
+          "stake_eur": 11.23,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "2fad019e32eb16f9ae4e2a77693fc855"
     },
     {
       "home": "TSG Hoffenheim",
       "away": "Hamburger SV",
       "kickoff_utc": "2026-10-10T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "61f7e6e639981d3b09ae5b85d18eee9090df85fc6f005e9457e934546fa9b7f1",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.643,
+      "factors": {
+        "expected_goals": [
+          2.36,
+          1.06
+        ],
+        "probabilities": {
+          "home": 0.664,
+          "draw": 0.19,
+          "away": 0.147
+        },
+        "raw_probabilities": {
+          "home": 0.596,
+          "draw": 0.216,
+          "away": 0.188
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.672,
+          "draw": 0.187,
+          "away": 0.142,
+          "weight": 0.893
+        },
+        "home_advantage": 0.201,
+        "trained_on_matches": 649,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Nächster Rückschlag für den HSV vor Hoffenheim-Spiel",
+              "description": "Hamburger SV, zweite Bundesliga, erste Bundesliga, Jatta Bakery, Ouahdi Zakaria El, Sport - Leuchtturm Hamburg",
+              "published": "2026-10-09T16:49:02+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/naechster-rueckschlag-fuer-den-hsv-vor-hoffenheim-spiel-6ac8bbb420e7d912abb7a79a"
+            },
+            {
+              "title": "HSV: Vuskovic macht schon Druck – Obwohl er gar nicht spielen darf",
+              "description": "Hamburger SV, Polzin Merlin, erste Bundesliga, Vuskovic Luka, Vuskovic Mario, Sport - Leuchtturm Hamburg, Torunarigha Jordan, Omari Warmed, Nandja Shafiq, Bornauw Sebastiaan, Capaldo Nicolas, Spielsperre, Epo, Doping-Missbrauch",
+              "published": "2026-10-09T15:24:20+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-vuskovic-macht-schon-druck-obwohl-er-gar-nicht-spielen-darf-6ac8b96320e7d912abb7a709"
+            },
+            {
+              "title": "HSV castet Trainer-Talente – Es geht um eine besondere Einladung",
+              "description": "Hamburger SV, Polzin Merlin, zweite Bundesliga, Fave Loic, erste Bundesliga, Nachwuchstrainer, Sport - Leuchtturm Hamburg, Casting, Stellenausschreibung, Volksparkstadion",
+              "published": "2026-10-09T14:53:03+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-castet-trainer-talente-es-geht-um-eine-besondere-einladung-6ac89027c9122e6e3c97b849"
+            },
+            {
+              "title": "TSG Hoffenheim: So reagiert die TSG auf die HSV-Vorwürfe",
+              "description": "erste Bundesliga, Fans, Hamburger SV, Dauerkarte, 1899 Hoffenheim, Sport - Leuchtturm Zentral",
+              "published": "2026-10-09T14:45:10+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/tsg-hoffenheim-so-reagiert-die-tsg-auf-die-hsv-vorwuerfe-6ac8ca873b2b428232f0b271"
+            },
+            {
+              "title": "HSV: So fit ist Poulsen wirklich – Andeutung von Trainer Polzin",
+              "description": "Hamburger SV, Polzin Merlin, erste Bundesliga, Poulsen Yussuf, Stange Otto, Moffi Terem, Sport - Leuchtturm Hamburg",
+              "published": "2026-10-08T17:01:55+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-so-fit-ist-poulsen-wirklich-andeutung-von-trainer-polzin-6ac78c00bad8b2d2928483dd"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 7
+            }
+          ],
+          "total_matches": 7,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2741,
+          "output_tokens": 437,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1418,
+              "output_tokens": 199
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1323,
+              "output_tokens": 238
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Ich tippe 2:1 für Hoffenheim, und wer im Kraichgau etwas anderes erwartet, hat zu lange am Sinsheimer Bratwurststand gestanden. Die TSG geht als klarer Favorit ins Spiel, zwei von drei Ausgängen enden hier mit einem blau-weißen Jubel. Vorne dürfte die Heimelf mehr als genug Gelegenheiten bekommen, um die Rothosen ordentlich unter Druck zu setzen. Ein Tor bringt der Dino von der Elbe aber trotzdem mit, denn ganz ohne hanseatischen Stolz fährt man nicht in den Süden.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "TSG Hoffenheim gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 20,
+        "odds_decimal": 1.37,
+        "model_probability": 0.5957,
+        "implied_probability": 0.7299,
+        "edge": -0.1839,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "TSG Hoffenheim gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 20,
+          "odds_decimal": 1.37,
+          "model_probability": 0.5957,
+          "implied_probability": 0.7299,
+          "edge": -0.1839,
+          "expected_value_eur": -3.5,
+          "stake_eur": 19.04,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "f7b2c8746fcae10d3ef38757cfbde418"
     },
     {
       "home": "RB Leipzig",
