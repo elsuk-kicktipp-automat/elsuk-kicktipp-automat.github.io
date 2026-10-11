@@ -1303,6 +1303,14 @@
       "status": "sealed",
       "hash": "040bd7263c0f6d2f1fa8e15d3332c3e051c712b29c0a73694948ca66828d505c",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "SC Freiburg",
+      "away": "FC Schalke 04",
+      "kickoff_utc": "2026-10-11T15:30:00Z",
+      "status": "sealed",
+      "hash": "5c62c9dfdd2bc03082f0ed054c3ecf5ccf9f9ec8032c58d0e4e23c1afff5585e",
+      "paper_bet_status": "sealed"
     }
   ]
 }
