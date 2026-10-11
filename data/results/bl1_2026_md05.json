@@ -4,28 +4,28 @@
   "matchday": 5,
   "stage": "5. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 11,
-  "matches_scored": 8,
-  "matches_open": 1,
+  "points_total": 14,
+  "matches_scored": 9,
+  "matches_open": 0,
   "hits": {
     "exact": 1,
-    "goal_diff": 1,
+    "goal_diff": 2,
     "tendency": 2,
     "miss": 4
   },
   "shadow_points": {
     "most_probable": 4,
-    "elo_favorite": 9,
+    "elo_favorite": 13,
     "always_draw": 4,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 8,
-    "elo_favorite": 8,
-    "always_draw": 8,
+    "most_probable": 9,
+    "elo_favorite": 9,
+    "always_draw": 9,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.7298,
+  "brier_avg": 0.6823,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 138.33,
-      "payout_total_eur": 83.39,
-      "profit_total_eur": -54.94,
-      "roi": -0.3972,
-      "bets_scored": 8,
-      "bets_won": 4,
+      "stake_total_eur": 146.07,
+      "payout_total_eur": 96.16,
+      "profit_total_eur": -49.91,
+      "roi": -0.3417,
+      "bets_scored": 9,
+      "bets_won": 5,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -493,7 +493,56 @@
       "home": "SC Freiburg",
       "away": "FC Schalke 04",
       "kickoff_utc": "2026-10-11T15:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        0
+      ],
+      "result": [
+        2,
+        1
+      ],
+      "points": 3,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 4,
+        "always_draw": 0
+      },
+      "brier": 0.3024,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SC Freiburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 22,
+        "odds_decimal": 1.65,
+        "model_probability": 0.3979,
+        "implied_probability": 0.6061,
+        "edge": -0.3435,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 7.74,
+          "payout_eur": 12.77,
+          "profit_eur": 5.03
+        }
+      }
     }
   ]
 }
