@@ -1490,9 +1490,183 @@
       "home": "SC Freiburg",
       "away": "FC Schalke 04",
       "kickoff_utc": "2026-10-11T15:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "5c62c9dfdd2bc03082f0ed054c3ecf5ccf9f9ec8032c58d0e4e23c1afff5585e",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        0
+      ],
+      "advance_tip": null,
+      "expected_points": 1.464,
+      "factors": {
+        "expected_goals": [
+          1.7,
+          0.93
+        ],
+        "probabilities": {
+          "home": 0.552,
+          "draw": 0.25,
+          "away": 0.198
+        },
+        "raw_probabilities": {
+          "home": 0.398,
+          "draw": 0.337,
+          "away": 0.265
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.568,
+          "draw": 0.241,
+          "away": 0.191,
+          "weight": 0.903
+        },
+        "home_advantage": 0.21,
+        "trained_on_matches": 655,
+        "news_checked": 4,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: SC Freiburg gegen FC Schalke 04 - Bundesliga",
+              "description": "5. Spieltag: Anpfiff des Spiels ist am 11.10.2026 um 17:30 Uhr. FC Schalke 04 spielt in Freiburg.",
+              "published": "2026-10-11T17:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/sc-freiburg-gegen-fc-schalke-04,audiostream-sc-freiburg-gegen-fc-schalke-04-102.html"
+            },
+            {
+              "title": "Nach drei Horror-Pleiten: Schalke 04 hofft auf Testspiel-Sylla",
+              "description": "FC Schalke, SC Freiburg, Freiburg, Kitsch Christian, Sport – Leuchtturm Essen, Sportarten, Sport, Sport, Sportbegriffe, Fußball, DFB, Fussball Bundesliga, erste Bundesliga, Bundesliga, Bundesliga bei BILD, aufstieg, Abstiegskampf, Dzeko Edin, Muslic Miron, Sylla Moussa, Stürmer, Mittelstürmer",
+              "published": "2026-10-11T05:04:49+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/nach-drei-horror-pleiten-schalke-04-hofft-auf-testspiel-sylla-6ac9416061b3d4c01d3e19b9"
+            },
+            {
+              "title": "FC Schalke 04: Hätten Sie damit gerechnet? 10 erstaunliche S04-Statistiken",
+              "description": "zweite Bundesliga, FC Schalke, Fußball, erste Bundesliga, Gelsenkirchen, Sport – Leuchtturm Essen, Backhaus Max",
+              "published": "2026-10-10T05:00:32+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-schalke-04-haetten-sie-damit-gerechnet-10-erstaunliche-s04-statistiken-6ac79ada79dbba342d2940d4"
+            },
+            {
+              "title": "Drei heiße Aufgaben für Schalke 04: Jetzt muss Miron Muslic liefern!",
+              "description": "FC Schalke, SC Freiburg, Sport – Leuchtturm Essen, Kitsch Christian, Backhaus Max, Sportarten, Sport, Sport, Sportbegriffe, Fußball, DFB, Fussball Bundesliga, erste Bundesliga, aufstieg, Abstiegskampf, Dzeko Edin, Muslic Miron",
+              "published": "2026-10-09T17:04:21+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/drei-heisse-aufgaben-fuer-schalke-04-jetzt-muss-miron-muslic-liefern-6ac7570d75caf261c519d649"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 3
+            }
+          ],
+          "total_matches": 4,
+          "returned": 4,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2727,
+          "output_tokens": 545,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1407,
+              "output_tokens": 89
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1320,
+              "output_tokens": 456
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Ich lege mich auf ein knappes 1:0 für den Sport-Club fest, weil die Breisgauer hier der klare Favorit sind und in mehr als jedem zweiten Fall als Sieger vom Platz gehen dürften. Unter dem Schwarzwald-Himmel im Europa-Park-Stadion spricht vieles dafür, dass Freiburg das Spiel macht und die Knappen aus dem Ruhrpott vor allem mit Verteidigen beschäftigt sind. Ein Torfestival erwarte ich trotzdem nicht: Gut anderthalb Tore traue ich den Hausherren zu, Königsblau knapp eines, und das riecht eher nach geduldigem Abnutzungskampf als nach Spektakel. Am Ende reicht dem Sport-Club ein einziger sauberer Treffer, und die Schalker Fans müssen mit leeren Händen zurück in den Pott.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SC Freiburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 22,
+        "odds_decimal": 1.65,
+        "model_probability": 0.3979,
+        "implied_probability": 0.6061,
+        "edge": -0.3435,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "SC Freiburg gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 22,
+          "odds_decimal": 1.65,
+          "model_probability": 0.3979,
+          "implied_probability": 0.6061,
+          "edge": -0.3435,
+          "expected_value_eur": -2.66,
+          "stake_eur": 7.74,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "5e3eb10975b8b1a00021d581cf1af10e"
     }
   ]
 }
