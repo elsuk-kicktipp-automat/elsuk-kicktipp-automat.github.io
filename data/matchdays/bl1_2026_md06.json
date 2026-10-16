@@ -16,9 +16,191 @@
       "home": "Eintracht Frankfurt",
       "away": "1. FC Köln",
       "kickoff_utc": "2026-10-16T18:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "414e9ef94a2246229dc1641485f93233e471738dd9af050d697a44a19a797adb",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.355,
+      "factors": {
+        "expected_goals": [
+          2.05,
+          1.39
+        ],
+        "probabilities": {
+          "home": 0.525,
+          "draw": 0.222,
+          "away": 0.253
+        },
+        "raw_probabilities": {
+          "home": 0.557,
+          "draw": 0.204,
+          "away": 0.239
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.521,
+          "draw": 0.224,
+          "away": 0.255,
+          "weight": 0.906
+        },
+        "home_advantage": 0.213,
+        "trained_on_matches": 657,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Eintracht Frankfurt gegen 1. FC Köln - Bundesliga",
+              "description": "6. Spieltag: Anpfiff des Spiels ist am 16.10.2026 um 20:30 Uhr. 1. FC Köln spielt in Frankfurt am Main.",
+              "published": "2026-10-16T20:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/eintracht-frankfurt-gegen-1-fc-koeln,audiostream-eintracht-frankfurt-gegen-1-fc-koeln-106.html"
+            },
+            {
+              "title": "Eintracht Frankfurt: Das sagt Maik Franz zur Diskussion um Robin Koch",
+              "description": "Eintracht Frankfurt, erste Bundesliga, Krösche Markus, Bundesliga, Sport - Leuchtturm Zentral, Hütter Adi, Franz Maik, Koch Robin, Knauff Ansgar, Burkardt Jonathan",
+              "published": "2026-10-16T12:55:34+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-das-sagt-maik-franz-zur-diskussion-um-robin-koch-6ad1e61051e5094f7a56e5e9"
+            },
+            {
+              "title": "Live ab 20.30 Uhr - Frankfurt gegen Köln",
+              "description": "Im Bundesliga-Freitagsabendspiel empfängt Eintracht Frankfurt den 1. FC Köln.",
+              "published": "2026-10-16T12:32:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesliga/ma12194218/eintracht-frankfurt_1-fc-koeln/liveticker"
+            },
+            {
+              "title": "Eintracht Frankfurt: Die Hintergründe zu Hütters Koch-Entscheidung",
+              "description": "Eintracht Frankfurt, erste Bundesliga, Krösche Markus, Koch Robin, Hütter Adi, Sport - Leuchtturm Zentral",
+              "published": "2026-10-16T09:28:55+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-die-hintergruende-zu-huetters-koch-entscheidung-6ad0c367199dc15f1abd4ea6"
+            },
+            {
+              "title": "Borussia Mönchengladbach: Zento Uno ist Blessins „letzte Karte“",
+              "description": "erste Bundesliga, Blessin Alexander, Borussia Mönchengladbach, FC St. Pauli, 1. FC Köln, 1899 Hoffenheim, Fußball, Sport – Leuchtturm Essen",
+              "published": "2026-10-16T08:27:26+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/japaner-vor-startelf-debuet-gladbachs-uno-ist-blessins-letzte-karte-6ad123ad51e5094f7a56de74"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 17
+            }
+          ],
+          "total_matches": 20,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2680,
+          "output_tokens": 494,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1354,
+              "output_tokens": 84
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1326,
+              "output_tokens": 410
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "2:1 für die Eintracht, und zwar mit Ansage: Im Frankfurter Stadtwald hat der Adler die Krallen ausgefahren, und mit gut jeder zweiten Siegchance gehen die Hessen als verdienter Favorit in diesen Abend. Ein Spaziergang wird das aber nicht, denn die Geißböcke reisen nicht zum Sightseeing aus der Domstadt an und dürften vorne ihr Tor machen. Rechnet euch auf ein munteres Hin und Her mit Toren auf beiden Seiten ein, bei dem am Ende die Frankfurter das bessere Ende für sich haben und die Kölner mit einem Pünktchen Hoffnung, aber leeren Händen an den Rhein zurückfahren.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Eintracht Frankfurt gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 22,
+        "odds_decimal": 1.77,
+        "model_probability": 0.5567,
+        "implied_probability": 0.565,
+        "edge": -0.0147,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Eintracht Frankfurt gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 22,
+          "odds_decimal": 1.77,
+          "model_probability": 0.5567,
+          "implied_probability": 0.565,
+          "edge": -0.0147,
+          "expected_value_eur": -0.25,
+          "stake_eur": 16.81,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "70b3695184f4339463c6da60bacbf03e"
     }
   ]
 }
