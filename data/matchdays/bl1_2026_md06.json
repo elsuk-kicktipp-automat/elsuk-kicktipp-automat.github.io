@@ -1,0 +1,24 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "matchday": 6,
+  "stage": "6. Spieltag",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-10-16T14:31:17Z",
+  "matches": [
+    {
+      "home": "Eintracht Frankfurt",
+      "away": "1. FC Köln",
+      "kickoff_utc": "2026-10-16T18:30:00Z",
+      "status": "sealed",
+      "hash": "414e9ef94a2246229dc1641485f93233e471738dd9af050d697a44a19a797adb",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}
