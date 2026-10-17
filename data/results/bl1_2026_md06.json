@@ -5,27 +5,27 @@
   "stage": "6. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 7,
-  "matches_scored": 4,
-  "matches_open": 3,
+  "matches_scored": 5,
+  "matches_open": 2,
   "hits": {
     "exact": 1,
     "goal_diff": 1,
     "tendency": 0,
-    "miss": 2
+    "miss": 3
   },
   "shadow_points": {
-    "most_probable": 2,
-    "elo_favorite": 6,
-    "always_draw": 2,
-    "llm_adjusted": 0
-  },
-  "shadow_matches": {
     "most_probable": 4,
-    "elo_favorite": 4,
+    "elo_favorite": 6,
     "always_draw": 4,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.6774,
+  "shadow_matches": {
+    "most_probable": 5,
+    "elo_favorite": 5,
+    "always_draw": 5,
+    "llm_adjusted": 0
+  },
+  "brier_avg": 0.7457,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,11 +39,11 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 51.06,
+      "stake_total_eur": 71.42,
       "payout_total_eur": 41.0,
-      "profit_total_eur": -10.06,
-      "roi": -0.197,
-      "bets_scored": 4,
+      "profit_total_eur": -30.42,
+      "roi": -0.4259,
+      "bets_scored": 5,
       "bets_won": 2,
       "bankroll_start_eur": 1000.0
     }
@@ -108,7 +108,56 @@
       "home": "1. FC Union Berlin",
       "away": "Borussia Dortmund",
       "kickoff_utc": "2026-10-17T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        0,
+        0
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 0,
+        "always_draw": 2
+      },
+      "brier": 1.019,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.52,
+        "model_probability": 0.6188,
+        "implied_probability": 0.6579,
+        "edge": -0.0595,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 20.36,
+          "payout_eur": 0.0,
+          "profit_eur": -20.36
+        }
+      }
     },
     {
       "home": "FC Schalke 04",
