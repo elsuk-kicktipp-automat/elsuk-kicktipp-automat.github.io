@@ -241,6 +241,14 @@
       "status": "sealed",
       "hash": "f56749a50de14a0ab49803c84731137852a938e23c849b47b60a0c7ea690c1ba",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "FC Bayern München",
+      "away": "RB Leipzig",
+      "kickoff_utc": "2026-10-17T16:30:00Z",
+      "status": "sealed",
+      "hash": "a4d9b7c14cab0c1d26b2a5bf4c89b66c46652f4ada57fa85c8c2aaa23b04ea1e",
+      "paper_bet_status": "sealed"
     }
   ]
 }
