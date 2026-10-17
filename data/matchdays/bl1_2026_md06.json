@@ -201,6 +201,46 @@
         }
       },
       "salt": "70b3695184f4339463c6da60bacbf03e"
+    },
+    {
+      "home": "1. FC Union Berlin",
+      "away": "Borussia Dortmund",
+      "kickoff_utc": "2026-10-17T13:30:00Z",
+      "status": "sealed",
+      "hash": "857cc812b006b120c5616cd91ceda1c1e92c9e059d6b5fbc0e1f7a810197ff76",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "FC Schalke 04",
+      "away": "1. FSV Mainz 05",
+      "kickoff_utc": "2026-10-17T13:30:00Z",
+      "status": "sealed",
+      "hash": "c88484428846130fcbce82b16b4d915e1e40b4036b1229c1988fc689ceb51f30",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "Hamburger SV",
+      "away": "VfB Stuttgart",
+      "kickoff_utc": "2026-10-17T13:30:00Z",
+      "status": "sealed",
+      "hash": "fd240557a748fa021f8055d555f1574a1c3c98b34c756bf58194e87f91ace34f",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "SV 07 Elversberg",
+      "away": "FC Augsburg",
+      "kickoff_utc": "2026-10-17T13:30:00Z",
+      "status": "sealed",
+      "hash": "38cb7bd4a29da3b54244488807a7ad74548b94705f86ad3deea79784f3dac6fb",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "SV Werder Bremen",
+      "away": "SC Paderborn 07",
+      "kickoff_utc": "2026-10-17T13:30:00Z",
+      "status": "sealed",
+      "hash": "f56749a50de14a0ab49803c84731137852a938e23c849b47b60a0c7ea690c1ba",
+      "paper_bet_status": "sealed"
     }
   ]
 }
