@@ -4,28 +4,28 @@
   "matchday": 6,
   "stage": "6. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 10,
-  "matches_scored": 6,
-  "matches_open": 1,
+  "points_total": 12,
+  "matches_scored": 7,
+  "matches_open": 0,
   "hits": {
     "exact": 1,
     "goal_diff": 2,
-    "tendency": 0,
+    "tendency": 1,
     "miss": 3
   },
   "shadow_points": {
-    "most_probable": 4,
-    "elo_favorite": 9,
+    "most_probable": 6,
+    "elo_favorite": 11,
     "always_draw": 4,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 6,
-    "elo_favorite": 6,
-    "always_draw": 6,
+    "most_probable": 7,
+    "elo_favorite": 7,
+    "always_draw": 7,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.7112,
+  "brier_avg": 0.6192,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 88.07,
-      "payout_total_eur": 82.62,
-      "profit_total_eur": -5.44,
-      "roi": -0.0618,
-      "bets_scored": 6,
-      "bets_won": 3,
+      "stake_total_eur": 113.07,
+      "payout_total_eur": 112.62,
+      "profit_total_eur": -0.44,
+      "roi": -0.0039,
+      "bets_scored": 7,
+      "bets_won": 4,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -383,7 +383,56 @@
       "home": "FC Bayern München",
       "away": "RB Leipzig",
       "kickoff_utc": "2026-10-17T16:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        3,
+        1
+      ],
+      "result": [
+        6,
+        1
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 2,
+        "always_draw": 0
+      },
+      "brier": 0.067,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "FC Bayern München gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 22,
+        "odds_decimal": 1.2,
+        "model_probability": 0.7444,
+        "implied_probability": 0.8333,
+        "edge": -0.1067,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 25.0,
+          "payout_eur": 30.0,
+          "profit_eur": 5.0
+        }
+      }
     }
   ]
 }
