@@ -206,41 +206,871 @@
       "home": "1. FC Union Berlin",
       "away": "Borussia Dortmund",
       "kickoff_utc": "2026-10-17T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "857cc812b006b120c5616cd91ceda1c1e92c9e059d6b5fbc0e1f7a810197ff76",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.552,
+      "factors": {
+        "expected_goals": [
+          1.02,
+          2.04
+        ],
+        "probabilities": {
+          "home": 0.175,
+          "draw": 0.215,
+          "away": 0.61
+        },
+        "raw_probabilities": {
+          "home": 0.164,
+          "draw": 0.217,
+          "away": 0.619
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.176,
+          "draw": 0.215,
+          "away": 0.609,
+          "weight": 0.908
+        },
+        "home_advantage": 0.214,
+        "trained_on_matches": 658,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: 1. FC Union Berlin gegen Borussia Dortmund - Bundesliga",
+              "description": "6. Spieltag: Anpfiff des Spiels ist am 17.10.2026 um 15:30 Uhr. Borussia Dortmund spielt in Berlin.",
+              "published": "2026-10-17T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/1-fc-union-berlin-gegen-borussia-dortmund,audiostream-1-fc-union-berlin-gegen-borussia-dortmund-108.html"
+            },
+            {
+              "title": "An Zahlen nicht ablesbar: Was Beier für Kovac so wertvoll macht",
+              "description": "Die Kritik an Maximilian Beier wehrte Niko Kovac auf der Pressekonferenz am Freitag mit Lob ab. Der einstige Mittelstürmer wird auch in den kommenden Wochen ein wichtiger Faktor für Borussia Dortmund bleiben.",
+              "published": "2026-10-17T06:26:30+00:00",
+              "source": "kicker",
+              "source_label": "Kicker",
+              "url": "https://www.kicker.de/an-zahlen-nicht-ablesbar-was-beier-fuer-kovac-so-wertvoll-macht-1262027/artikel#omrss"
+            },
+            {
+              "title": "Spannender Verdacht: BVB-Star deshalb kein Thema bei Klopp?",
+              "description": "Stammplatz Video, Borussia Dortmund, Beier Maximilian, Hochkant BILD-Video intern, Bundesliga",
+              "published": "2026-10-17T00:00:11+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/spannender-verdacht-bvb-star-deshalb-kein-thema-bei-klopp-6ad2878651e5094f7a56f349"
+            },
+            {
+              "title": "Union Berlin: Legende hospitiert bei den Frauen",
+              "description": "1. FC Union Berlin, Trainer, Frauen Fußball, Sport - Leuchtturm Berlin, Fußball, Trimmel Christopher, Sport-Tag im Ticker",
+              "published": "2026-10-16T16:43:44+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/union-berlin-legende-hospitiert-bei-den-frauen-6ad230f2d2eabbd56ed6a2d8"
+            },
+            {
+              "title": "BVB: Pikantes Kader-Problem aufgedeckt",
+              "description": "Borussia Dortmund, erste Bundesliga, Fußball, Kovac Niko, spielertransfer, Sport – Leuchtturm Essen, Hüber Yannick, Weiler Jörg",
+              "published": "2026-10-16T15:37:53+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bvb-pikantes-kader-problem-aufgedeckt-6ad10c44199dc15f1abd577c"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 18
+            }
+          ],
+          "total_matches": 20,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2672,
+          "output_tokens": 313,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1343,
+              "output_tokens": 88
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1329,
+              "output_tokens": 225
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Mein Tipp für die Alte Försterei: 1:2 für den BVB, und zwar ohne großes Zittern. Die Schwarz-Gelben reisen als klarer Favorit nach Köpenick, gut sechs von zehn Anläufen dieses Duells landen auf ihrer Seite. Die Eisernen werden sich mit Herz, Stadionlärm und Waldluft im Rücken reinbeißen, und ein Tor ist für die Rot-Weißen absolut drin. Am Ende dürfte Dortmund aber einmal öfter treffen und mit drei Punkten im Gepäck zurück in den Pott fahren.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.52,
+        "model_probability": 0.6188,
+        "implied_probability": 0.6579,
+        "edge": -0.0595,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "Borussia Dortmund gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.52,
+          "model_probability": 0.6188,
+          "implied_probability": 0.6579,
+          "edge": -0.0595,
+          "expected_value_eur": -1.21,
+          "stake_eur": 20.36,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "87fdb6e5d18c28541dceff6e2d1a57b9"
     },
     {
       "home": "FC Schalke 04",
       "away": "1. FSV Mainz 05",
       "kickoff_utc": "2026-10-17T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "c88484428846130fcbce82b16b4d915e1e40b4036b1229c1988fc689ceb51f30",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        0,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.116,
+      "factors": {
+        "expected_goals": [
+          1.23,
+          1.4
+        ],
+        "probabilities": {
+          "home": 0.324,
+          "draw": 0.271,
+          "away": 0.405
+        },
+        "raw_probabilities": {
+          "home": 0.355,
+          "draw": 0.324,
+          "away": 0.32
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.32,
+          "draw": 0.266,
+          "away": 0.413,
+          "weight": 0.908
+        },
+        "home_advantage": 0.214,
+        "trained_on_matches": 658,
+        "news_checked": 3,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: FC Schalke 04 gegen 1. FSV Mainz 05 - Bundesliga",
+              "description": "6. Spieltag: Anpfiff des Spiels ist am 17.10.2026 um 15:30 Uhr. 1. FSV Mainz 05 spielt in Gelsenkirchen.",
+              "published": "2026-10-17T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/fc-schalke-04-gegen-1-fsv-mainz-05,audiostream-fc-schalke-04-gegen-1-fsv-mainz-05-102.html"
+            },
+            {
+              "title": "FC Schalke 04: Plötzlich hinten dran – Charaktertest für Dina Ebimbe!",
+              "description": "FC Schalke, zweite Bundesliga, Muslic Miron, Gelsenkirchen, Fußball, Sport – Leuchtturm Essen, Backhaus Max",
+              "published": "2026-10-17T05:00:59+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-schalke-04-ploetzlich-hinten-drancharaktertest-fuer-dina-ebimbe-6ad0b084199dc15f1abd4cb2"
+            },
+            {
+              "title": "FC Schalke 04: Das wird lustig – Kuschelbär Katic fetzt sich gern!",
+              "description": "FC Schalke, zweite Bundesliga, Gelsenkirchen, Fußball, Baumann Frank, Sport – Leuchtturm Essen, Backhaus Max",
+              "published": "2026-10-16T15:43:41+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-schalke-04-das-wird-lustig-kuschelbaer-katic-fetzt-sich-gern-6ad1333e51e5094f7a56deee"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 2
+            }
+          ],
+          "total_matches": 3,
+          "returned": 3,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2468,
+          "output_tokens": 379,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1138,
+              "output_tokens": 85
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1330,
+              "output_tokens": 294
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Mein Tipp für die Partie auf Schalke: 0:1 für die Gäste aus Mainz, ein knapper Auswärtscoup statt eines königsblauen Festtags. Die Nullfünfer reisen als leichter Favorit an, rund 40 Prozent sprechen für sie, aber von einer klaren Sache kann keine Rede sein, das ist eher eine enge Kiste mit leichter Schlagseite Richtung Rheinhessen. Torfestival? Eher nicht, ich rechne mit einem zähen Abnutzungskampf im Ruhrpott, bei dem ein einziger Treffer reichen kann. Wenn die Knappen ihre Kurve im Rücken nicht in Tore ummünzen, fahren die Rot-Weißen mit drei Punkten im Gepäck zurück an den Rhein.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "1. FSV Mainz 05 gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.25,
+        "model_probability": 0.3204,
+        "implied_probability": 0.4444,
+        "edge": -0.2792,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "1. FSV Mainz 05 gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 2.25,
+          "model_probability": 0.3204,
+          "implied_probability": 0.4444,
+          "edge": -0.2792,
+          "expected_value_eur": -1.4,
+          "stake_eur": 5.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "2e21c51aba8cfba40a7ac0f5798560f3"
     },
     {
       "home": "Hamburger SV",
       "away": "VfB Stuttgart",
       "kickoff_utc": "2026-10-17T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "fd240557a748fa021f8055d555f1574a1c3c98b34c756bf58194e87f91ace34f",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.385,
+      "factors": {
+        "expected_goals": [
+          1.22,
+          1.9
+        ],
+        "probabilities": {
+          "home": 0.236,
+          "draw": 0.232,
+          "away": 0.532
+        },
+        "raw_probabilities": {
+          "home": 0.229,
+          "draw": 0.227,
+          "away": 0.543
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.237,
+          "draw": 0.232,
+          "away": 0.531,
+          "weight": 0.908
+        },
+        "home_advantage": 0.214,
+        "trained_on_matches": 658,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Hamburger SV gegen VfB Stuttgart - Bundesliga",
+              "description": "6. Spieltag: Anpfiff des Spiels ist am 17.10.2026 um 15:30 Uhr. VfB Stuttgart spielt in Hamburg.",
+              "published": "2026-10-17T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/hamburger-sv-gegen-vfb-stuttgart,audiostream-hamburger-sv-gegen-vfb-stuttgart-106.html"
+            },
+            {
+              "title": "Fortuna Köln erlebt bitteren Abend gegen VfB II",
+              "description": "Fortuna Köln wartet in der 3. Liga weiter auf einen Heimsieg. Gegen den VfB Stuttgart II rückte der Schiedsrichter in den Fokus.",
+              "published": "2026-10-16T21:18:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/regional/wdr/wdr-fortuna-koeln-erlebt-bitteren-abend-gegen-vfb-ii-100.html"
+            },
+            {
+              "title": "HSV wollte diesen Stuttgart-Profi",
+              "description": "Hamburger SV, Fußball, VfB Stuttgart, Elfadli Daniel, Sport - Leuchtturm Hamburg, spielertransfer",
+              "published": "2026-10-16T17:42:56+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-wollte-diesen-stuttgart-profi-6ad2117b0e64c69ce0e15bb7"
+            },
+            {
+              "title": "HSV macht die schlausten Testspiele – Kleines Geld, große Emotionen",
+              "description": "Hamburger SV, zweite Bundesliga, erste Bundesliga, Volksparkstadion, Fans, Sport - Leuchtturm Hamburg, Vuskovic Mario, Vuskovic Luka, Polzin Merlin, Huwer Eric, FC Kopenhagen, Dauerkarte, freundschaftsspiel",
+              "published": "2026-10-16T17:20:37+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-macht-die-schlausten-testspiele-kleines-geld-grosse-emotionen-6ad20ff6d2eabbd56ed69f0c"
+            },
+            {
+              "title": "HSV: Die Transfer-Ideen nach dem Remberg-Aus",
+              "description": "Hamburger SV, erste Bundesliga, Polzin Merlin, Remberg Nicolai, Costa Claus, Amoako Kofi, Sport - Leuchtturm Hamburg",
+              "published": "2026-10-16T15:53:37+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-die-transfer-ideen-nach-dem-remberg-aus-6ad2037e0e64c69ce0e15a6e"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 12
+            }
+          ],
+          "total_matches": 14,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2671,
+          "output_tokens": 302,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1350,
+              "output_tokens": 77
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1321,
+              "output_tokens": 225
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Mein Tipp für den Volkspark: 1:2, die Schwaben nehmen die Punkte mit nach Hause. Der VfB reist als klarer Favorit an die Elbe, mit 53 Prozent Siegchance ist das kein Bauchgefühl, sondern eine deutliche Ansage. Die Rothosen werden vor ihrem Publikum ordentlich Dampf machen und ein Tor ist allemal drin, aber hinten dürfte es öfter brennen, als den Hamburgern lieb ist. Wer auf einen Heimdreier setzt, braucht schon eine steife Brise Nordseewind im Rücken.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "VfB Stuttgart gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.75,
+        "model_probability": 0.5434,
+        "implied_probability": 0.5714,
+        "edge": -0.0491,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "VfB Stuttgart gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.75,
+          "model_probability": 0.5434,
+          "implied_probability": 0.5714,
+          "edge": -0.0491,
+          "expected_value_eur": -0.79,
+          "stake_eur": 16.05,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "de8f5b281423601531d6f73eb5d3a619"
     },
     {
       "home": "SV 07 Elversberg",
       "away": "FC Augsburg",
       "kickoff_utc": "2026-10-17T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "38cb7bd4a29da3b54244488807a7ad74548b94705f86ad3deea79784f3dac6fb",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.094,
+      "factors": {
+        "expected_goals": [
+          1.57,
+          1.44
+        ],
+        "probabilities": {
+          "home": 0.403,
+          "draw": 0.252,
+          "away": 0.345
+        },
+        "raw_probabilities": {
+          "home": 0.554,
+          "draw": 0.227,
+          "away": 0.219
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.387,
+          "draw": 0.255,
+          "away": 0.358,
+          "weight": 0.908
+        },
+        "home_advantage": 0.214,
+        "trained_on_matches": 658,
+        "news_checked": 1,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: SV 07 Elversberg gegen FC Augsburg - Bundesliga",
+              "description": "6. Spieltag: Anpfiff des Spiels ist am 17.10.2026 um 15:30 Uhr. FC Augsburg spielt in Elversberg.",
+              "published": "2026-10-17T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/sv-07-elversberg-gegen-fc-augsburg,audiostream-sv-07-elversberg-gegen-fc-augsburg-100.html"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 0
+            }
+          ],
+          "total_matches": 1,
+          "returned": 1,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2229,
+          "output_tokens": 375,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 906,
+              "output_tokens": 85
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1323,
+              "output_tokens": 290
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "2:1 für Elversberg – an der Kaiserlinde in der Saarlandprovinz wird der FC Augsburg knapp, aber verdient nach Hause geschickt. Leicht favorisiert sind die Schwarz-Weißen, mehr aber auch nicht: Mit 40 zu 35 Prozent ist das ein Duell auf Augenhöhe, bei dem der Heimvorteil das Zünglein an der Waage spielt. Weil beide Seiten nach vorne Lust haben und hinten nicht dichtmachen, darf man sich auf Tore auf beiden Seiten freuen statt auf einen zähen Abnutzungskampf. Die Fuggerstädter bringen genug Wucht mit, um zu ärgern, am Ende jubelt aber das kleine Dorf mit dem großen Herzen.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SV 07 Elversberg gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.5,
+        "model_probability": 0.5538,
+        "implied_probability": 0.4,
+        "edge": 0.3845,
+        "expected_value_eur": 24.64,
+        "stake_eur": 64.09,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.2563,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "SV 07 Elversberg gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 2.5,
+          "model_probability": 0.5538,
+          "implied_probability": 0.4,
+          "edge": 0.3845,
+          "expected_value_eur": 6.4,
+          "stake_eur": 16.65,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "d2e6281193a6b42f33a383e4ef797a25"
     },
     {
       "home": "SV Werder Bremen",
       "away": "SC Paderborn 07",
       "kickoff_utc": "2026-10-17T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "f56749a50de14a0ab49803c84731137852a938e23c849b47b60a0c7ea690c1ba",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.403,
+      "factors": {
+        "expected_goals": [
+          1.81,
+          1.11
+        ],
+        "probabilities": {
+          "home": 0.537,
+          "draw": 0.239,
+          "away": 0.224
+        },
+        "raw_probabilities": {
+          "home": 0.493,
+          "draw": 0.314,
+          "away": 0.192
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.541,
+          "draw": 0.231,
+          "away": 0.228,
+          "weight": 0.908
+        },
+        "home_advantage": 0.214,
+        "trained_on_matches": 658,
+        "news_checked": 1,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Fußball: Deutscher Profi vom Polizeibewerber zum Millionenstürmer",
+              "description": "Fußball, spielertransfer, Bundesliga, Belgien, Stürmer, Mittelstürmer, 3. Liga, Polizei, Bewerbung, Europa League, Kroatien, Tor, Fußballspieler, Profi, Spielervermittler, SC Verl, Eintracht Trier, Sport-Tag im Ticker, Sport - Leuchtturm Leipzig, SC Paderborn 07, Lemgo, Europa League, Real Sociedad San Sebastián, Aufmacher-Bereich",
+              "published": "2026-10-15T14:33:40+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fussball-deutscher-profi-vom-polizeibewerber-zum-millionenstuermer-6acf3ded4ba5238b7412fefd"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 1
+            }
+          ],
+          "total_matches": 1,
+          "returned": 1,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2358,
+          "output_tokens": 384,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1032,
+              "output_tokens": 92
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1326,
+              "output_tokens": 292
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Mein Tipp für das Weserstadion: Werder gewinnt 2:1, und zwar ohne großes Zittern, aber auch nicht im Vorbeigehen. Die Grün-Weißen gehen mit gut 54 Prozent Siegchance als klarer Favorit ins Spiel und dürften vor heimischer Kulisse an der Weser öfter vors Tor kommen als die Gäste aus Ostwestfalen. Paderborn ist allerdings nicht angereist, um nur Fischbrötchen zu essen: Ein Treffer der Ostwestfalen ist durchaus drin, deshalb wird es kein Spaziergang. Am Ende sollte Bremen trotzdem den längeren Atem haben, und die Fans in der Ostkurve dürfen ein zufriedenes Feierabendbier bestellen.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SV Werder Bremen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 22,
+        "odds_decimal": 1.7,
+        "model_probability": 0.4934,
+        "implied_probability": 0.5882,
+        "edge": -0.1611,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "SV Werder Bremen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 22,
+          "odds_decimal": 1.7,
+          "model_probability": 0.4934,
+          "implied_probability": 0.5882,
+          "edge": -0.1611,
+          "expected_value_eur": -2.13,
+          "stake_eur": 13.2,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "f0d3363298ffd1b8a4ffa1ea49e7b710"
     },
     {
       "home": "FC Bayern München",
