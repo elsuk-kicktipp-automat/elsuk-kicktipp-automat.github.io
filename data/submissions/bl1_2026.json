@@ -69,6 +69,11 @@
     },
     {
       "home_key": "bormonchengladbach",
+      "away_key": "1899hoffenheim",
+      "verified_at_utc": "2026-10-18T11:32:07Z"
+    },
+    {
+      "home_key": "bormonchengladbach",
       "away_key": "fsvmainz05",
       "verified_at_utc": "2026-09-19T09:32:39Z"
     },
