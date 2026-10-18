@@ -4,11 +4,11 @@
   "matchday": 6,
   "stage": "6. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 16,
-  "matches_scored": 8,
-  "matches_open": 1,
+  "points_total": 20,
+  "matches_scored": 9,
+  "matches_open": 0,
   "hits": {
-    "exact": 2,
+    "exact": 3,
     "goal_diff": 2,
     "tendency": 1,
     "miss": 3
@@ -20,12 +20,12 @@
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 8,
-    "elo_favorite": 8,
-    "always_draw": 8,
+    "most_probable": 9,
+    "elo_favorite": 9,
+    "always_draw": 9,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.5729,
+  "brier_avg": 0.5607,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 132.17,
-      "payout_total_eur": 142.61,
-      "profit_total_eur": 10.45,
-      "roi": 0.0791,
-      "bets_scored": 8,
-      "bets_won": 5,
+      "stake_total_eur": 138.74,
+      "payout_total_eur": 156.08,
+      "profit_total_eur": 17.35,
+      "roi": 0.1251,
+      "bets_scored": 9,
+      "bets_won": 6,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -493,7 +493,56 @@
       "home": "Borussia Mönchengladbach",
       "away": "TSG Hoffenheim",
       "kickoff_utc": "2026-10-18T15:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        1,
+        2
+      ],
+      "points": 4,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.4636,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "TSG Hoffenheim gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.05,
+        "model_probability": 0.3775,
+        "implied_probability": 0.4878,
+        "edge": -0.2262,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 6.57,
+          "payout_eur": 13.47,
+          "profit_eur": 6.9
+        }
+      }
     }
   ]
 }
