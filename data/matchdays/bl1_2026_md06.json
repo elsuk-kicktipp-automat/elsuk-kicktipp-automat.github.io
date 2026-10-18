@@ -1266,9 +1266,183 @@
       "home": "Bayer 04 Leverkusen",
       "away": "SC Freiburg",
       "kickoff_utc": "2026-10-18T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "f40ecfe3719cb0d3c6a7a0aa3f1e2d6f685d380244b71435b30e884840f5b83a",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.513,
+      "factors": {
+        "expected_goals": [
+          2.08,
+          1.13
+        ],
+        "probabilities": {
+          "home": 0.593,
+          "draw": 0.213,
+          "away": 0.194
+        },
+        "raw_probabilities": {
+          "home": 0.597,
+          "draw": 0.204,
+          "away": 0.2
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.593,
+          "draw": 0.214,
+          "away": 0.193,
+          "weight": 0.915
+        },
+        "home_advantage": 0.224,
+        "trained_on_matches": 664,
+        "news_checked": 4,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Bayer Leverkusen gegen SC Freiburg - Bundesliga",
+              "description": "6. Spieltag: Anpfiff des Spiels ist am 18.10.2026 um 15:30 Uhr. SC Freiburg spielt in Leverkusen.",
+              "published": "2026-10-18T15:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/bayer-leverkusen-gegen-sc-freiburg,audiostream-bayer-leverkusen-gegen-sc-freiburg-108.html"
+            },
+            {
+              "title": "Ist Eggestein auf dem Weg zu einem neuen Scorerbestwert?",
+              "description": "Der SC Freiburg ist weiterhin ungeschlagen, hat jetzt aber drei knackige Aufgaben vor sich - und will auch gegen die vermeintlich größeren Teams mithalten.",
+              "published": "2026-10-18T08:44:25+00:00",
+              "source": "kicker",
+              "source_label": "Kicker",
+              "url": "https://www.kicker.de/ist-eggestein-auf-dem-weg-zu-einem-neuen-scorerbestwert-1262508/artikel#omrss"
+            },
+            {
+              "title": "Philipp Treu über Klopp, Wirtz und den Freiburg-Höhenflug",
+              "description": "Deutsche Nationalmannschaft, SC Freiburg, Klopp Jürgen, Treu Philipp",
+              "published": "2026-10-18T10:25:33+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/philipp-treu-ueber-klopp-wirtz-und-den-freiburg-hoehenflug-6ad3d162199dc15f1abd7bf4"
+            },
+            {
+              "title": "Ab 15.30 Uhr live - Bayer Leverkusen gegen SC Freiburg",
+              "description": "In der BayArena empfängt Leverkusen den tabellen Ersten Freiburg.",
+              "published": "2026-10-18T09:52:29+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesliga/ma12194212/bayer-leverkusen_sc-freiburg/liveticker"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 1
+            }
+          ],
+          "total_matches": 4,
+          "returned": 4,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2504,
+          "output_tokens": 359,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1175,
+              "output_tokens": 90
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1329,
+              "output_tokens": 269
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Mein Tipp: 2:1 für die Werkself, und zwar ohne großes Zittern. In der BayArena ist Leverkusen klarer Favorit, knapp sechs von zehn Wetten auf einen Heimsieg sind bei diesem Duell gut angelegtes Geld. Die Breisgauer reisen aber nicht als Kanonenfutter an den Rhein: Ein Tor trauen wir dem Sport-Club aus dem Schwarzwald allemal zu, für mehr als eine Ehrenrunde dürfte es aber kaum reichen. Unterm Bayer-Kreuz wird also eher solide Heimarbeit abgeliefert als ein Torfestival gefeiert, und am Ende stehen die Schwarz-Roten oben.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.57,
+        "model_probability": 0.5967,
+        "implied_probability": 0.6369,
+        "edge": -0.0632,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Bayer 04 Leverkusen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.57,
+          "model_probability": 0.5967,
+          "implied_probability": 0.6369,
+          "edge": -0.0632,
+          "expected_value_eur": -1.21,
+          "stake_eur": 19.1,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "e5e4e693863eb49ea280b90aa7f9f7a5"
     },
     {
       "home": "Borussia Mönchengladbach",
