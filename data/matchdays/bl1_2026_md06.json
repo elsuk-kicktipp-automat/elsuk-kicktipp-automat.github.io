@@ -1269,6 +1269,14 @@
       "status": "sealed",
       "hash": "f40ecfe3719cb0d3c6a7a0aa3f1e2d6f685d380244b71435b30e884840f5b83a",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "Borussia Mönchengladbach",
+      "away": "TSG Hoffenheim",
+      "kickoff_utc": "2026-10-18T15:30:00Z",
+      "status": "sealed",
+      "hash": "c9c5aed8765f5bd9b896d737ddf9269f567f226d6bf348ec7013b721d79f856b",
+      "paper_bet_status": "sealed"
     }
   ]
 }
