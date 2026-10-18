@@ -1448,9 +1448,191 @@
       "home": "Borussia Mönchengladbach",
       "away": "TSG Hoffenheim",
       "kickoff_utc": "2026-10-18T15:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "c9c5aed8765f5bd9b896d737ddf9269f567f226d6bf348ec7013b721d79f856b",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.187,
+      "factors": {
+        "expected_goals": [
+          1.48,
+          1.78
+        ],
+        "probabilities": {
+          "home": 0.317,
+          "draw": 0.237,
+          "away": 0.446
+        },
+        "raw_probabilities": {
+          "home": 0.392,
+          "draw": 0.231,
+          "away": 0.377
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.31,
+          "draw": 0.237,
+          "away": 0.452,
+          "weight": 0.915
+        },
+        "home_advantage": 0.224,
+        "trained_on_matches": 664,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Borussia Mönchengladbach gegen TSG Hoffenheim - Bundesliga",
+              "description": "6. Spieltag: Anpfiff des Spiels ist am 18.10.2026 um 17:30 Uhr. TSG Hoffenheim spielt in Mönchengladbach.",
+              "published": "2026-10-18T17:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/borussia-moenchengladbach-gegen-tsg-hoffenheim,audiostream-borussia-moenchengladbach-gegen-tsg-hoffenheim-100.html"
+            },
+            {
+              "title": "Jetzt live - TSG Hoffenheim II gegen SC Verl",
+              "description": "In Sinsheim kommen die TSG Hoffenheim II und der SC Verl zusammen.",
+              "published": "2026-10-18T13:05:25+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-3-liga/ma12241165/tsg-hoffenheim-ii_sc-verl/liveticker"
+            },
+            {
+              "title": "Ab 17.30 Uhr live - Gladbach empfängt Hoffenheim",
+              "description": "Es ist ein absolutes Kellerduell: Der Tabellenletzte Borussia Mönchengladbach empfängt die ebenfalls kriselnden Hoffenheimer.",
+              "published": "2026-10-18T09:53:47+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesliga/ma12194245/borussia-moenchengladbach_tsg-hoffenheim/liveticker"
+            },
+            {
+              "title": "Borussia Mönchengladbach: Warum Alexander Blessin Hoffenheim-Experte ist",
+              "description": "erste Bundesliga, Borussia Mönchengladbach, Blessin Alexander, Sport – Leuchtturm Essen, 1899 Hoffenheim, Stadion im Borussia-Park",
+              "published": "2026-10-18T08:11:35+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/borussia-moenchengladbach-warum-alexander-blessin-hoffenheim-experte-ist-6ad23fe7199dc15f1abd6a2f"
+            },
+            {
+              "title": "Auch Blessin fragt sich: Wer ist schuld an Gladbachs Muskel-Seuche?",
+              "description": "Borussia Mönchengladbach, erste Bundesliga, Blessin Alexander, Polanski Eugen, Schröder Rouven, Fußball, 1899 Hoffenheim, Sport – Leuchtturm Essen, Kleindienst Tim",
+              "published": "2026-10-18T05:30:08+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/auch-blessin-fragt-sich-wer-ist-schuld-an-gladbachs-muskel-seuche-6ad3acc45784be99e043c642"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 8
+            }
+          ],
+          "total_matches": 11,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2676,
+          "output_tokens": 485,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1343,
+              "output_tokens": 151
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1333,
+              "output_tokens": 334
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Ich tippe 1:2, denn die Kraichgauer reisen mit leicht besseren Karten an den Niederrhein, auch wenn von einer klaren Sache keine Rede sein kann. Bei 45 Prozent für einen Auswärtssieg ist Hoffenheim der kleine Favorit, aber die Fohlen sind im Borussia-Park keine Laufkundschaft. Beide Teams haben ordentlich Zug zum Tor, also rechne ich eher mit einem offenen Schlagabtausch als mit einem zähen Abnutzungskampf. Gladbach trifft, das schwarz-weiß-grüne Anhang darf jubeln, doch am Ende nimmt die TSG die Punkte mit nach Sinsheim.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "TSG Hoffenheim gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.05,
+        "model_probability": 0.3775,
+        "implied_probability": 0.4878,
+        "edge": -0.2262,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "TSG Hoffenheim gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 2.05,
+          "model_probability": 0.3775,
+          "implied_probability": 0.4878,
+          "edge": -0.2262,
+          "expected_value_eur": -1.49,
+          "stake_eur": 6.57,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "7c6830a7ac4d72ee648006fd1e0d2ee2"
     }
   ]
 }
