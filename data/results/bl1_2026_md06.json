@@ -4,28 +4,28 @@
   "matchday": 6,
   "stage": "6. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 12,
-  "matches_scored": 7,
-  "matches_open": 2,
+  "points_total": 16,
+  "matches_scored": 8,
+  "matches_open": 1,
   "hits": {
-    "exact": 1,
+    "exact": 2,
     "goal_diff": 2,
     "tendency": 1,
     "miss": 3
   },
   "shadow_points": {
-    "most_probable": 6,
-    "elo_favorite": 11,
+    "most_probable": 10,
+    "elo_favorite": 15,
     "always_draw": 4,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 7,
-    "elo_favorite": 7,
-    "always_draw": 7,
+    "most_probable": 8,
+    "elo_favorite": 8,
+    "always_draw": 8,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.6192,
+  "brier_avg": 0.5729,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 113.07,
-      "payout_total_eur": 112.62,
-      "profit_total_eur": -0.44,
-      "roi": -0.0039,
-      "bets_scored": 7,
-      "bets_won": 4,
+      "stake_total_eur": 132.17,
+      "payout_total_eur": 142.61,
+      "profit_total_eur": 10.45,
+      "roi": 0.0791,
+      "bets_scored": 8,
+      "bets_won": 5,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -438,7 +438,56 @@
       "home": "Bayer 04 Leverkusen",
       "away": "SC Freiburg",
       "kickoff_utc": "2026-10-18T13:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        2,
+        1
+      ],
+      "points": 4,
+      "shadow_points": {
+        "most_probable": 4,
+        "elo_favorite": 4,
+        "always_draw": 0
+      },
+      "brier": 0.2487,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.57,
+        "model_probability": 0.5967,
+        "implied_probability": 0.6369,
+        "edge": -0.0632,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 19.1,
+          "payout_eur": 29.99,
+          "profit_eur": 10.89
+        }
+      }
     },
     {
       "home": "Borussia Mönchengladbach",
