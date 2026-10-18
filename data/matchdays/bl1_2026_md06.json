@@ -1261,6 +1261,14 @@
         }
       },
       "salt": "11cea1e8f82a64ef5bb6d7be3a19d6c5"
+    },
+    {
+      "home": "Bayer 04 Leverkusen",
+      "away": "SC Freiburg",
+      "kickoff_utc": "2026-10-18T13:30:00Z",
+      "status": "sealed",
+      "hash": "f40ecfe3719cb0d3c6a7a0aa3f1e2d6f685d380244b71435b30e884840f5b83a",
+      "paper_bet_status": "sealed"
     }
   ]
 }

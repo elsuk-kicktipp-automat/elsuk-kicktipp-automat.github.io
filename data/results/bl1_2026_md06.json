@@ -6,7 +6,7 @@
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 12,
   "matches_scored": 7,
-  "matches_open": 0,
+  "matches_open": 1,
   "hits": {
     "exact": 1,
     "goal_diff": 2,
@@ -433,6 +433,12 @@
           "profit_eur": 5.0
         }
       }
+    },
+    {
+      "home": "Bayer 04 Leverkusen",
+      "away": "SC Freiburg",
+      "kickoff_utc": "2026-10-18T13:30:00Z",
+      "status": "sealed"
     }
   ]
 }
