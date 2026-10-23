@@ -16,9 +16,203 @@
       "home": "VfB Stuttgart",
       "away": "Borussia Mönchengladbach",
       "kickoff_utc": "2026-10-23T18:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "ad482ec6529cee6f59c83bfa00da74c398167f0c3941d5f57d7743344d5d23ad",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.706,
+      "factors": {
+        "expected_goals": [
+          2.62,
+          1.11
+        ],
+        "probabilities": {
+          "home": 0.703,
+          "draw": 0.165,
+          "away": 0.131
+        },
+        "raw_probabilities": {
+          "home": 0.657,
+          "draw": 0.187,
+          "away": 0.156
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.707,
+          "draw": 0.163,
+          "away": 0.129,
+          "weight": 0.918
+        },
+        "home_advantage": 0.222,
+        "trained_on_matches": 666,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: VfB Stuttgart gegen Borussia Mönchengladbach - Bundesliga",
+              "description": "7. Spieltag: Anpfiff des Spiels ist am 23.10.2026 um 20:30 Uhr. Borussia Mönchengladbach spielt in Stuttgart.",
+              "published": "2026-10-23T20:15:00+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/vfb-stuttgart-gegen-borussia-moenchengladbach,audiostream-vfb-stuttgart-gegen-borussia-moenchengladbach-108.html"
+            },
+            {
+              "title": "Infos und Aufstellungen zur Bundesliga: 2 Bayern-Stars fehlen, Neuer und Kimmich fraglich!",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, TorAlarm Top-News, Bundesliga, 1. FC Köln, 1. FC Union Berlin, RB Leipzig, Werder Bremen, FC Augsburg 1907, Eintracht Frankfurt, VfB Stuttgart, Hamburger SV, Mainz 05, Borussia Mönchengladbach, SC Freiburg, Kompany Vincent, Spieltag 3, SC Paderborn 07, SV Elversberg, FC Schalke, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-10-23T16:23:27+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/infos-und-aufstellungen-zur-bundesliga-2-bayern-stars-fehlen-neuer-und-kimmich-fraglich-6adb22c9400ffbb8e251b3c8"
+            },
+            {
+              "title": "Bundesliga: Wichtigster Star von Gladbach fehlt aus privaten Gründen in Stuttgart",
+              "description": "Borussia Mönchengladbach, Hochrainer Sebastian, Diks Kevin, Blessin Alexander, Kleindienst Tim, Chiarodia Fabio, Itakura Ko, Leszczynski Jan, Sander Philipp, Scally Joe, Fußball, Sport – Leuchtturm Essen, Aufmacher-Bereich",
+              "published": "2026-10-23T16:05:39+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-wichtigster-star-von-gladbach-fehlt-aus-privaten-gruenden-in-stuttgart-6adb1764773b23ff64a3a0be"
+            },
+            {
+              "title": "VfB Stuttgart: Kuriose Beobachtung: VfB-Stars umgehen Rolls-Royce-Verbot",
+              "description": "VfB Stuttgart, Hoeneß Sebastian, Wehrle Alexander, Wohlgemuth Fabian, Fußball, Sport - Leuchtturm München, erste Bundesliga",
+              "published": "2026-10-23T13:12:01+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-kuriose-beobachtung-vfb-stars-umgehen-rolls-royce-verbot-6adb14bc773b23ff64a3a07a"
+            },
+            {
+              "title": "\"Noch selbstbewusster\" - Stuttgarts Jamie Leweling kommt in Fahrt",
+              "description": "Der VfB Stuttgart hadert mit dem 1:1 gegen Atlético Madrid. Stürmer Jamie Leweling hat dennoch gute Laune - und könnte auch gegen Mönchengladbach zum Erfolgsfaktor werden.",
+              "published": "2026-10-23T11:47:39+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/regional/swr/swr-noch-selbstbewusster-stuttgarts-jamie-leweling-kommt-in-fahrt-100.html"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 5
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 13
+            }
+          ],
+          "total_matches": 19,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": {
+          "tip": [
+            2,
+            0
+          ],
+          "grund": "Laut Bild fehlt Gladbachs wichtigster Spieler aus privaten Gründen in Stuttgart.",
+          "news_count": 5,
+          "applied": false
+        },
+        "llm_usage": {
+          "input_tokens": 3041,
+          "output_tokens": 658,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1641,
+              "output_tokens": 172
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1400,
+              "output_tokens": 486
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Mein Tipp: 2:1 für den VfB. Wenn die Schwaben vor heimischer Kulisse in Cannstatt mit dem Brustring auflaufen, sind sie klarer Favorit; sieben von zehn solcher Abende enden mit weiß-roter Feierlaune, und auch die Wettbüros sehen das kaum anders. Vorne dürfte es für die Gastgeber ordentlich klingeln, doch die Fohlen vom Niederrhein reisen nicht an, um nur Spalier zu stehen, und ein Ehrentreffer der Grün-Weiß-Schwarzen ist fest eingeplant. Sollte das Gerücht aus der Bild stimmen, dass Gladbachs wichtigster Mann privat verhindert ist, könnte am Ende sogar die Null stehen, aber ich bleibe beim 2:1.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ],
+        "llm_adjusted": [
+          2,
+          0
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "VfB Stuttgart gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.32,
+        "model_probability": 0.6569,
+        "implied_probability": 0.7576,
+        "edge": -0.1329,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "VfB Stuttgart gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.32,
+          "model_probability": 0.6569,
+          "implied_probability": 0.7576,
+          "edge": -0.1329,
+          "expected_value_eur": -3.0,
+          "stake_eur": 22.53,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "02ad087407b1c7daa5a0be0162f19236"
     }
   ]
 }
