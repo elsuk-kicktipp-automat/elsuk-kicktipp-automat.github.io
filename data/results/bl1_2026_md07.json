@@ -4,28 +4,28 @@
   "matchday": 7,
   "stage": "7. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 6,
-  "matches_scored": 6,
-  "matches_open": 1,
+  "points_total": 9,
+  "matches_scored": 7,
+  "matches_open": 0,
   "hits": {
     "exact": 1,
-    "goal_diff": 0,
+    "goal_diff": 1,
     "tendency": 1,
     "miss": 4
   },
   "shadow_points": {
-    "most_probable": 8,
-    "elo_favorite": 5,
+    "most_probable": 11,
+    "elo_favorite": 8,
     "always_draw": 6,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 6,
-    "elo_favorite": 6,
-    "always_draw": 6,
+    "most_probable": 7,
+    "elo_favorite": 7,
+    "always_draw": 7,
     "llm_adjusted": 1
   },
-  "brier_avg": 0.7845,
+  "brier_avg": 0.6996,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 81.83,
-      "payout_total_eur": 36.36,
-      "profit_total_eur": -45.46,
-      "roi": -0.5555,
-      "bets_scored": 6,
-      "bets_won": 2,
+      "stake_total_eur": 105.81,
+      "payout_total_eur": 71.61,
+      "profit_total_eur": -34.19,
+      "roi": -0.3231,
+      "bets_scored": 7,
+      "bets_won": 3,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -384,7 +384,56 @@
       "home": "Borussia Dortmund",
       "away": "Eintracht Frankfurt",
       "kickoff_utc": "2026-10-24T16:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        1,
+        0
+      ],
+      "points": 3,
+      "shadow_points": {
+        "most_probable": 3,
+        "elo_favorite": 3,
+        "always_draw": 0
+      },
+      "brier": 0.1904,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.47,
+        "model_probability": 0.6821,
+        "implied_probability": 0.6803,
+        "edge": 0.0027,
+        "expected_value_eur": 0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0058,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 23.98,
+          "payout_eur": 35.25,
+          "profit_eur": 11.27
+        }
+      }
     }
   ]
 }
