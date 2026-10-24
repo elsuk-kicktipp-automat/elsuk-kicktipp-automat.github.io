@@ -218,41 +218,904 @@
       "home": "1. FC Köln",
       "away": "FC Schalke 04",
       "kickoff_utc": "2026-10-24T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "0e73c44ff5cec07e41b7778d89c163b9dc504a9a3ba5ff6f36fa216c60646729",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        0
+      ],
+      "advance_tip": null,
+      "expected_points": 1.237,
+      "factors": {
+        "expected_goals": [
+          1.52,
+          1.15
+        ],
+        "probabilities": {
+          "home": 0.456,
+          "draw": 0.263,
+          "away": 0.281
+        },
+        "raw_probabilities": {
+          "home": 0.396,
+          "draw": 0.339,
+          "away": 0.266
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.461,
+          "draw": 0.257,
+          "away": 0.282,
+          "weight": 0.919
+        },
+        "home_advantage": 0.217,
+        "trained_on_matches": 667,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Bundesliga: 2 Stars der Bayern fehlen, Neuer und Kimmich fraglich!",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, TorAlarm Top-News, Bundesliga, 1. FC Köln, 1. FC Union Berlin, RB Leipzig, Werder Bremen, FC Augsburg 1907, Eintracht Frankfurt, VfB Stuttgart, Hamburger SV, Mainz 05, Borussia Mönchengladbach, SC Freiburg, Kompany Vincent, Spieltag 3, SC Paderborn 07, SV Elversberg, FC Schalke, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-10-24T08:13:32+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-2-stars-der-bayern-fehlen-neuer-und-kimmich-fraglich-6adb22c9400ffbb8e251b3c8"
+            },
+            {
+              "title": "FC Schalke: Königsblau am Scheideweg: Wende oder Krisenstart?",
+              "description": "FC Schalke, Fußball, Muslic Miron, Ruhrgebiet, Klemm Constantin, Kitsch Christian, Sport – Leuchtturm Essen, Ruhrgebiet regional, Ruhrgebiet regional Sport, Baumann Frank, Dzeko Edin, Karaman-Kenan, Karius Loris, Sport-Tag im Ticker, 1. FC Köln",
+              "published": "2026-10-23T17:15:57+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-schalke-koenigsblau-am-scheideweg-wende-oder-krisenstart-6ada88cbea9d017b539af228"
+            },
+            {
+              "title": "Auf Pressekonferenz: Köln-Coach kontert Littbarski-Kritik",
+              "description": "Hochkant BILD-Video intern, Bundesliga, erste Bundesliga, Pressekonferenz, 1. FC Köln",
+              "published": "2026-10-23T14:17:13+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/auf-pressekonferenz-koeln-coach-kontert-littbarski-kritik-6adb1bfed8be1e987154e1f7"
+            },
+            {
+              "title": "1. FC Köln: Nach Einzelgespräch: Mikey Moore muss jetzt liefern",
+              "description": "1. FC Köln, erste Bundesliga, Fußball, El Mala Said, Premier League, Sport – Leuchtturm Essen, Kessler Thomas",
+              "published": "2026-10-23T09:55:08+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/1-fc-koeln-nach-einzelgespraech-mikey-moore-muss-jetzt-liefern-6adafcf19fbb7e8e310dcd4e"
+            },
+            {
+              "title": "FC Schalke: Ist das bitter: Nächster Star-Ausfall auf Schalke!",
+              "description": "FC Schalke, Muslic Miron, Fußball, Gelsenkirchen, Bundesliga, Ruhrgebiet, Ruhrgebiet regional, Ruhrgebiet regional Sport, Sport – Leuchtturm Essen, Klemm Constantin, Kitsch Christian, Sport-Tag im Ticker, Karaman-Kenan, Dzeko Edin, 1. FC Köln",
+              "published": "2026-10-22T17:41:36+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-schalke-ist-das-bitter-naechster-star-ausfall-auf-schalke-6ada0ac3add2491464b3be5d"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 7
+            }
+          ],
+          "total_matches": 7,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2959,
+          "output_tokens": 510,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1637,
+              "output_tokens": 268
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1322,
+              "output_tokens": 242
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Mein Tipp für den Abend in Müngersdorf: 1:0 für den Effzeh, und zwar mit Ansage. Die Geißböcke gehen mit leichtem Vorteil ins Duell, gut 46 Prozent sprechen für einen Heimsieg. Ein Selbstläufer wird das trotzdem nicht, denn die Knappen aus dem Pott reisen nicht zum Kölsch-Trinken an den Rhein. Ich erwarte eher einen zähen Traditionskampf zwischen Rot-Weiß und Königsblau als ein Torfestival, und am Ende reicht der Domstadt ein einziger Treffer, damit die Südkurve singt.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "1. FC Köln gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 22,
+        "odds_decimal": 2.0,
+        "model_probability": 0.3959,
+        "implied_probability": 0.5,
+        "edge": -0.2082,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "1. FC Köln gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 22,
+          "odds_decimal": 2.0,
+          "model_probability": 0.3959,
+          "implied_probability": 0.5,
+          "edge": -0.2082,
+          "expected_value_eur": -1.59,
+          "stake_eur": 7.62,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "226f106743f2393717b5267789587b38"
     },
     {
       "home": "1. FSV Mainz 05",
       "away": "SV Werder Bremen",
       "kickoff_utc": "2026-10-24T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "8a1b6d99ebf52ffa93b402f6bcec98ac936766dff74d4ca823399192b37d3f7a",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.425,
+      "factors": {
+        "expected_goals": [
+          1.89,
+          1.13
+        ],
+        "probabilities": {
+          "home": 0.548,
+          "draw": 0.231,
+          "away": 0.221
+        },
+        "raw_probabilities": {
+          "home": 0.537,
+          "draw": 0.234,
+          "away": 0.229
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.549,
+          "draw": 0.231,
+          "away": 0.22,
+          "weight": 0.919
+        },
+        "home_advantage": 0.217,
+        "trained_on_matches": 667,
+        "news_checked": 0,
+        "news_sources": {
+          "snippets": [],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 0
+            }
+          ],
+          "total_matches": 0,
+          "returned": 0,
+          "has_news": false
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 1315,
+          "output_tokens": 439,
+          "calls": [
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1315,
+              "output_tokens": 439
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Ich tippe 2:1 für Mainz, denn die Nullfünfer gehen in der heimischen MEWA Arena als klarer Favorit ins Rennen und haben mehr als jede zweite Siegchance auf ihrer Seite. Fast zwei Tore traue ich den Rot-Weißen vor eigenem Publikum zu, da dürfte in Rheinhessen schon vor dem Abpfiff die Fastnachtsstimmung aufkommen. Werder ist aber kein Kanonenfutter: Die Grün-Weißen von der Weser bringen genug hanseatische Sturheit mit, um mindestens einmal einzunetzen. Am Ende sehe ich keinen Spaziergang, aber einen verdienten Heimsieg, bei dem die Bremer Fans auf der Heimfahrt Richtung Norden ordentlich Zeit zum Grübeln haben.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "1. FSV Mainz 05 gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 21,
+        "odds_decimal": 1.7,
+        "model_probability": 0.5369,
+        "implied_probability": 0.5882,
+        "edge": -0.0872,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "1. FSV Mainz 05 gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 21,
+          "odds_decimal": 1.7,
+          "model_probability": 0.5369,
+          "implied_probability": 0.5882,
+          "edge": -0.0872,
+          "expected_value_eur": -1.37,
+          "stake_eur": 15.68,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "6bdefb5cadafcb397049bf42b378ced8"
     },
     {
       "home": "FC Augsburg",
       "away": "1. FC Union Berlin",
       "kickoff_utc": "2026-10-24T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "698ca87df53c913f0b12b375adfdf6bd50195d0caa7ee4260499313d3eb06904",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.381,
+      "factors": {
+        "expected_goals": [
+          1.85,
+          1.18
+        ],
+        "probabilities": {
+          "home": 0.528,
+          "draw": 0.235,
+          "away": 0.237
+        },
+        "raw_probabilities": {
+          "home": 0.526,
+          "draw": 0.244,
+          "away": 0.23
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.529,
+          "draw": 0.234,
+          "away": 0.237,
+          "weight": 0.919
+        },
+        "home_advantage": 0.217,
+        "trained_on_matches": 667,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Bundesliga: 2 Stars der Bayern fehlen, Neuer und Kimmich fraglich!",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, TorAlarm Top-News, Bundesliga, 1. FC Köln, 1. FC Union Berlin, RB Leipzig, Werder Bremen, FC Augsburg 1907, Eintracht Frankfurt, VfB Stuttgart, Hamburger SV, Mainz 05, Borussia Mönchengladbach, SC Freiburg, Kompany Vincent, Spieltag 3, SC Paderborn 07, SV Elversberg, FC Schalke, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-10-24T08:13:32+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-2-stars-der-bayern-fehlen-neuer-und-kimmich-fraglich-6adb22c9400ffbb8e251b3c8"
+            },
+            {
+              "title": "Wer wird Millionär: Bundesligist lädt Jauch-Kandidaten ein",
+              "description": "Sport - Leuchtturm Berlin, 1. FC Union Berlin, Berlin regional news, Regio Sport Berlin",
+              "published": "2026-10-23T13:13:25+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/er-kannte-seinen-namen-nicht-wwm-kandidat-besucht-union-trainer-mauro-lustrinelli-6adb39b4d8be1e987154e5cf"
+            },
+            {
+              "title": "Es geht um die Abwehr: Lustrinelli überrascht mit Sonne-&-Schnee-Spruch",
+              "description": "Sport - Leuchtturm Berlin, 1. FC Union Berlin, Berlin regional news, Regio Sport Berlin",
+              "published": "2026-10-23T12:28:56+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/es-geht-um-die-abwehr-lustrinelli-ueberrascht-mit-sonne-schnee-spruch-6adb1a7d9fbb7e8e310dcf6f"
+            },
+            {
+              "title": "Union Berlin: Zingler warnt vor Verfolgern im Frauen-Fußball",
+              "description": "1. FC Union Berlin, Fußball, erste Bundesliga, Trainer, Zingler Dirk, Sport-Tag im Ticker, Sport - Leuchtturm Berlin, Frauen Fußball, Popp Alexandra",
+              "published": "2026-10-23T09:04:30+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/union-berlin-zingler-warnt-vor-verfolgern-im-frauen-fussball-6ada40af3b306813908ba44f"
+            },
+            {
+              "title": "Union Berlin: Gray ist Unions Mini-Guirassy",
+              "description": "Fußball, erste Bundesliga, 1. FC Union Berlin, Sport-Tag im Ticker, Trainer, Guirassy Sehrou, Lukaku Romelu, Borussia Dortmund, Sport - Leuchtturm Berlin, Stürmer",
+              "published": "2026-10-22T19:29:34+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/union-berlin-gray-ist-unions-mini-guirassy-6ada2f1f7d7d59c2a19ee940"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 7
+            }
+          ],
+          "total_matches": 7,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2833,
+          "output_tokens": 351,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1509,
+              "output_tokens": 84
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1324,
+              "output_tokens": 267
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "2:1 für den FCA, und zwar ohne schlechtes Gewissen: Die Fuggerstädter gehen als klarer Favorit in dieses Heimspiel, mit gut 50 Prozent Siegchance spricht einiges für die Hausherren. Augsburg sollte vor heimischer Kulisse in Rot-Grün-Weiß das Spiel machen und dürfte knapp zwei Tore auflegen. Die Eisernen aus Köpenick sind allerdings nicht als Kanonenfutter angereist und werden ihren Treffer wohl auch mitnehmen. Ein Torfestival wird das nicht, aber am Ende sollte der Bayerisch-Schwäbische Stammtisch zufrieden sein Bier austrinken können.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "FC Augsburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 22,
+        "odds_decimal": 1.75,
+        "model_probability": 0.5265,
+        "implied_probability": 0.5714,
+        "edge": -0.0786,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "FC Augsburg gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 22,
+          "odds_decimal": 1.75,
+          "model_probability": 0.5265,
+          "implied_probability": 0.5714,
+          "edge": -0.0786,
+          "expected_value_eur": -1.19,
+          "stake_eur": 15.09,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "64b1c74d4d0eac4d5ff2927db95be874"
     },
     {
       "home": "RB Leipzig",
       "away": "SV 07 Elversberg",
       "kickoff_utc": "2026-10-24T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "d385cfe4a1c9adbef6f152b70a664eb1818578a7fc21b9aef44fa346b70e6af7",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.627,
+      "factors": {
+        "expected_goals": [
+          2.5,
+          1.21
+        ],
+        "probabilities": {
+          "home": 0.661,
+          "draw": 0.179,
+          "away": 0.159
+        },
+        "raw_probabilities": {
+          "home": 0.516,
+          "draw": 0.202,
+          "away": 0.282
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.674,
+          "draw": 0.177,
+          "away": 0.148,
+          "weight": 0.919
+        },
+        "home_advantage": 0.217,
+        "trained_on_matches": 667,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Bundesliga: 2 Stars der Bayern fehlen, Neuer und Kimmich fraglich!",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, TorAlarm Top-News, Bundesliga, 1. FC Köln, 1. FC Union Berlin, RB Leipzig, Werder Bremen, FC Augsburg 1907, Eintracht Frankfurt, VfB Stuttgart, Hamburger SV, Mainz 05, Borussia Mönchengladbach, SC Freiburg, Kompany Vincent, Spieltag 3, SC Paderborn 07, SV Elversberg, FC Schalke, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-10-24T08:13:32+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-2-stars-der-bayern-fehlen-neuer-und-kimmich-fraglich-6adb22c9400ffbb8e251b3c8"
+            },
+            {
+              "title": "Yamal und Diomande sind seine Kunden! Friseur der Fußball-Stars kämpft um WM-Titel",
+              "description": "Friseur, erste Bundesliga, Yamal Lamine, RB Leipzig, Sport - Leuchtturm Leipzig, Sport-Tag im Ticker",
+              "published": "2026-10-24T06:07:06+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/yamal-und-diomande-sind-seine-kunden-friseur-der-fussball-stars-kaempft-um-wm-titel-6adb5fcdd8be1e987154ea51"
+            },
+            {
+              "title": "Bayern gewinnt mit Verteidigerin Gilles im Tor",
+              "description": "In der Frauen-Bundesliga sorgt die Partie RB Leipzig gegen den FC Bayern München für ein seltenes Kuriosum. Innenverteidigerin Vanessa Gilles hütet für 15 Minuten das Bayern-Tor.",
+              "published": "2026-10-23T22:29:31+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/frauen-bundesliga/bayern-gewinnt-mit-verteidigerin-gilles-im-tor,video-frauen-bundesliga-rb-leipzig-fc-bayern-muenchen-100.html"
+            },
+            {
+              "title": "Frauen-Bundesliga: Bayern Schlägt Leipzig mit Feldspielerin im Tor",
+              "description": "Bayern München hat in der Frauen-Bundesliga seine Erfolgsserie fortgesetzt. Gegen RB Leipzig feierte der Meister seinen 50. Liga-Sieg in Folge (5:1) und überstand dabei eine fatale rote Karte.",
+              "published": "2026-10-23T22:10:21+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/regional/br/br-bei-rot-fuer-mahmutovic-fcb-frauen-feiern-50-liga-sieg-in-folge-102.html"
+            },
+            {
+              "title": "FC Bayern: Die emotionale Geschichte hinter diesem Foto",
+              "description": "RB Leipzig, erste Bundesliga, FC Bayern München, Sport-Tag im Ticker, Fußball, Frauen Fußball, Sport - Leuchtturm Leipzig",
+              "published": "2026-10-23T21:31:34+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bei-sieg-der-bayern-frauen-in-leipzig-die-emotionale-geschichte-hinter-diesem-einlauf-foto-6adb964252163646ec17f1f1"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 11
+            }
+          ],
+          "total_matches": 13,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2883,
+          "output_tokens": 349,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1560,
+              "output_tokens": 80
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1323,
+              "output_tokens": 269
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "2:1 für die Roten Bullen – und wer in der Red Bull Arena auf eine Saarland-Sensation wettet, hat wohl ein Glas zu viel vom Leipziger Bier erwischt. Zwei von drei Szenarien enden mit einem Heimsieg, Leipzig ist hier klarer Favorit und dürfte das Elversberger Tor ordentlich unter Beschuss nehmen. Die Kleinstadt-Truppe von der Kaiserlinde ist aber kein Fallobst und wird sich nicht nur hinten reinstellen: Ein Treffer ist den Gästen absolut zuzutrauen. Am Ende sollte Leipzig zwar nicht im Torrausch, aber verdient die drei Punkte einsacken.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "RB Leipzig gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 22,
+        "odds_decimal": 1.4,
+        "model_probability": 0.5156,
+        "implied_probability": 0.7143,
+        "edge": -0.2782,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "RB Leipzig gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 22,
+          "odds_decimal": 1.4,
+          "model_probability": 0.5156,
+          "implied_probability": 0.7143,
+          "edge": -0.2782,
+          "expected_value_eur": -4.02,
+          "stake_eur": 14.46,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "29aa2157b88ff81d5a097493bbd46b56"
     },
     {
       "home": "SC Paderborn 07",
       "away": "Hamburger SV",
       "kickoff_utc": "2026-10-24T13:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "b8c80bc16c365a41ee8f7031e182501a25bf9cf88cc360a25a75e00ecb042bc6",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        0
+      ],
+      "advance_tip": null,
+      "expected_points": 1.098,
+      "factors": {
+        "expected_goals": [
+          1.4,
+          1.26
+        ],
+        "probabilities": {
+          "home": 0.397,
+          "draw": 0.269,
+          "away": 0.334
+        },
+        "raw_probabilities": {
+          "home": 0.375,
+          "draw": 0.315,
+          "away": 0.31
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.399,
+          "draw": 0.265,
+          "away": 0.336,
+          "weight": 0.919
+        },
+        "home_advantage": 0.217,
+        "trained_on_matches": 667,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Bundesliga: 2 Stars der Bayern fehlen, Neuer und Kimmich fraglich!",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, TorAlarm Top-News, Bundesliga, 1. FC Köln, 1. FC Union Berlin, RB Leipzig, Werder Bremen, FC Augsburg 1907, Eintracht Frankfurt, VfB Stuttgart, Hamburger SV, Mainz 05, Borussia Mönchengladbach, SC Freiburg, Kompany Vincent, Spieltag 3, SC Paderborn 07, SV Elversberg, FC Schalke, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-10-24T08:13:32+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-2-stars-der-bayern-fehlen-neuer-und-kimmich-fraglich-6adb22c9400ffbb8e251b3c8"
+            },
+            {
+              "title": "HSV: Zum Comeback! Vuskovic-Dokumentation kommt ins Kino",
+              "description": "Hamburger SV, Vuskovic Mario, Epo, Doping-Missbrauch, zweite Bundesliga, Sport - Leuchtturm Hamburg, Vuskovic Luka, Polzin Merlin, Cinemaxx, Kino, dokumentarfilm, erste Bundesliga",
+              "published": "2026-10-24T07:01:06+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-zum-comeback-vuskovic-dokumentation-kommt-ins-kino-6adbbaf89fbb7e8e310ddcb3"
+            },
+            {
+              "title": "HSV: Platz 1 bei Spieler-Flocks! Der Aufsteiger im HSV-Trikot-Ranking",
+              "description": "Hamburger SV, erste Bundesliga, Vuskovic Mario, Polzin Merlin, zweite Bundesliga, Sport - Leuchtturm Hamburg, Remberg Nicolai, Gronbaek Albert, Vieira Fabio, Vuskovic Luka, Trikot",
+              "published": "2026-10-23T19:35:59+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-platz-1-bei-spieler-flocks-der-aufsteiger-im-hsv-trikot-ranking-6adb525c9fbb7e8e310dd527"
+            },
+            {
+              "title": "Vor HSV-Auftritt in Paderborn: Das große Zittern um Capaldo",
+              "description": "Polzin Merlin, Hamburger SV, erste Bundesliga, Capaldo Nicolas, Lokonga Albert Sambi, Nandja Shafiq, Gronbaek Albert, Sport - Leuchtturm Hamburg",
+              "published": "2026-10-23T17:34:13+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vor-hsv-auftritt-in-paderborn-das-grosse-zittern-um-capaldo-6adb519d400ffbb8e251b97a"
+            },
+            {
+              "title": "BVB: Ehemaliger Star Julian Brandt gegen van der Vaart: „Lass mich in Ruhe mit dem Mist“",
+              "description": "van der Vaart Rafael, Fußball, Ajax Amsterdam, Hamburger SV, Klopp Jürgen, Sport – Leuchtturm Essen, Hüber Yannick, Borussia Dortmund, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-10-23T16:23:15+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bvb-ehemaliger-star-julian-brandt-gegen-van-der-vaart-lass-mich-in-ruhe-mit-dem-mist-6adb0b30773b23ff64a39fb3"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 9
+            }
+          ],
+          "total_matches": 9,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2985,
+          "output_tokens": 331,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1663,
+              "output_tokens": 73
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1322,
+              "output_tokens": 258
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Mein Tipp für den Abend an der Pader: ein knappes 1:0 für den SCP. Paderborn hat mit 40 Prozent Siegchance die Nase vorn, aber das ist kein klarer Favorit, sondern ein Duell auf Augenhöhe, bei dem der Heimvorteil den Ausschlag geben dürfte. Der HSV reist mit großem Namen und blau-weiß-schwarzer Tradition in die Home Deluxe Arena, doch Tradition schießt bekanntlich keine Tore. Ich rechne mit einer engen Kiste ohne Torfestival, in der ein einziger Treffer reicht und die Ostwestfalen das Ding mit Kampf über die Zeit bringen.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SC Paderborn 07 gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 22,
+        "odds_decimal": 2.5,
+        "model_probability": 0.3754,
+        "implied_probability": 0.4,
+        "edge": -0.0614,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "SC Paderborn 07 gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 22,
+          "odds_decimal": 2.5,
+          "model_probability": 0.3754,
+          "implied_probability": 0.4,
+          "edge": -0.0614,
+          "expected_value_eur": -0.4,
+          "stake_eur": 6.45,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "800ce2e7250e123503a78dbf96bdc4f8"
     },
     {
       "home": "Borussia Dortmund",
