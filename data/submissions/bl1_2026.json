@@ -89,6 +89,11 @@
     },
     {
       "home_key": "borussiadortmund",
+      "away_key": "eintrachtfrankfurt",
+      "verified_at_utc": "2026-10-24T12:32:04Z"
+    },
+    {
+      "home_key": "borussiadortmund",
       "away_key": "hamburgersv",
       "verified_at_utc": "2026-08-29T12:32:43Z"
     },
