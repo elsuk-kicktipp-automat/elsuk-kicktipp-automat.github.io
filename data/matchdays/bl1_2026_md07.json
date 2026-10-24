@@ -1121,9 +1121,191 @@
       "home": "Borussia Dortmund",
       "away": "Eintracht Frankfurt",
       "kickoff_utc": "2026-10-24T16:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "af1abd4754365081e3d188638cdb851bbb20d8a367c138875469265784f498da",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.602,
+      "factors": {
+        "expected_goals": [
+          2.36,
+          1.16
+        ],
+        "probabilities": {
+          "home": 0.644,
+          "draw": 0.19,
+          "away": 0.166
+        },
+        "raw_probabilities": {
+          "home": 0.682,
+          "draw": 0.177,
+          "away": 0.141
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.641,
+          "draw": 0.191,
+          "away": 0.169,
+          "weight": 0.919
+        },
+        "home_advantage": 0.217,
+        "trained_on_matches": 667,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Ex-Eintracht-Stürmer Fenin: Gefallener Bundesliga-Star wird MMA-Kämpfer",
+              "description": "Fenin Martin, Oktagon MMA, Mixed Martial Arts Organisationen, Mixed Martial Arts, Eintracht Frankfurt",
+              "published": "2026-10-24T14:22:23+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/news/ausland/ex-eintracht-stuermer-fenin-gefallener-bundesliga-star-wird-mma-kaempfer-6ad738ab199dc15f1abda505"
+            },
+            {
+              "title": "Jetzt live - Frankfurt zu Gast in Stuttgart",
+              "description": "Eintracht Frankfurt will den dritten Platz in der Fußball-Bundesliga der Frauen zementieren. Dafür braucht es einen Auswärtssieg in Stuttgart.",
+              "published": "2026-10-24T13:56:59+02:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesliga-frauen/ma12306256/vfb-stuttgart_eintracht-frankfurt/liveticker"
+            },
+            {
+              "title": "Sie spricht voller Stolz: Wontorra heute mit historischem TV-Moment",
+              "description": "erste Bundesliga, Fußball, SKY, Wontorra Laura, DAZN, RTL, Borussia Dortmund, Eintracht Frankfurt",
+              "published": "2026-10-24T13:44:40+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/sie-spricht-voller-stolz-wontorra-heute-mit-historischem-tv-moment-6adba78d9fbb7e8e310ddc02"
+            },
+            {
+              "title": "Eintracht Frankfurt: Markus Krösches letzte Rede in der Kabine",
+              "description": "Eintracht Frankfurt, Krösche Markus, erste Bundesliga, Hütter Adi, Hellmann Axel, Sport - Leuchtturm Zentral, Aufmacher-Bereich",
+              "published": "2026-10-24T12:51:35+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-markus-kroesches-letzte-rede-in-der-kabine-6adb4960400ffbb8e251b856"
+            },
+            {
+              "title": "BVB: Wann die Stars striktes Handy-Verbot haben",
+              "description": "Borussia Dortmund, erste Bundesliga, Kovac Niko, Fußball, FC Bayern München, Sport – Leuchtturm Essen, Hüber Yannick",
+              "published": "2026-10-24T10:27:43+02:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bvb-wann-die-stars-striktes-handy-verbot-haben-6adb4eb7d8be1e987154e84d"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 27
+            }
+          ],
+          "total_matches": 28,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2648,
+          "output_tokens": 398,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1319,
+              "output_tokens": 142
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1329,
+              "output_tokens": 256
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Mein Tipp: 2:1 für den BVB, und zwar ohne großes Zittern. Vor der Gelben Wand im Westfalenstadion sind die Schwarz-Gelben klarer Favorit, knapp zwei von drei Szenarien enden mit einem Dortmunder Heimsieg. Die Adler vom Main werden trotzdem nicht nur zum Zuschauen in den Ruhrpott reisen und dürften ihren Treffer mitnehmen. Am Ende schlägt aber das Herz der Südtribüne lauter, auch wenn kein Torfestival zu erwarten ist, sondern ein verdienter Pflichtsieg mit etwas Kribbeln bis zum Schlusspfiff.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.47,
+        "model_probability": 0.6821,
+        "implied_probability": 0.6803,
+        "edge": 0.0027,
+        "expected_value_eur": 0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0058,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Borussia Dortmund gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.47,
+          "model_probability": 0.6821,
+          "implied_probability": 0.6803,
+          "edge": 0.0027,
+          "expected_value_eur": 0.07,
+          "stake_eur": 23.98,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "7a7ece37f82a7a382f4409ea84c5bb10"
     }
   ]
 }
