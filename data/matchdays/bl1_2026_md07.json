@@ -253,6 +253,14 @@
       "status": "sealed",
       "hash": "b8c80bc16c365a41ee8f7031e182501a25bf9cf88cc360a25a75e00ecb042bc6",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "Borussia Dortmund",
+      "away": "Eintracht Frankfurt",
+      "kickoff_utc": "2026-10-24T16:30:00Z",
+      "status": "sealed",
+      "hash": "af1abd4754365081e3d188638cdb851bbb20d8a367c138875469265784f498da",
+      "paper_bet_status": "sealed"
     }
   ]
 }
