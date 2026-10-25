@@ -4,6 +4,11 @@
   "submissions": [
     {
       "home_key": "1899hoffenheim",
+      "away_key": "bayer04leverkusen",
+      "verified_at_utc": "2026-10-25T10:31:59Z"
+    },
+    {
+      "home_key": "1899hoffenheim",
       "away_key": "borussiadortmund",
       "verified_at_utc": "2026-09-05T09:32:59Z"
     },
