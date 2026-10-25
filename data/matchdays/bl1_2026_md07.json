@@ -1314,6 +1314,14 @@
       "status": "sealed",
       "hash": "040a0b9054bfb48849ff0f8ffdda62c7620adb702a4b039a005bd63d2ac39925",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "SC Freiburg",
+      "away": "FC Bayern München",
+      "kickoff_utc": "2026-10-25T16:30:00Z",
+      "status": "sealed",
+      "hash": "4c9a41bb4b8b95b68f796bec85f7e4a92b24ddfe7ad1a2a56e66a2633cf129f3",
+      "paper_bet_status": "sealed"
     }
   ]
 }
