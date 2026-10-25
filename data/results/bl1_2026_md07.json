@@ -4,28 +4,28 @@
   "matchday": 7,
   "stage": "7. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 9,
-  "matches_scored": 8,
-  "matches_open": 1,
+  "points_total": 11,
+  "matches_scored": 9,
+  "matches_open": 0,
   "hits": {
     "exact": 1,
     "goal_diff": 1,
-    "tendency": 1,
+    "tendency": 2,
     "miss": 5
   },
   "shadow_points": {
-    "most_probable": 11,
+    "most_probable": 13,
     "elo_favorite": 10,
     "always_draw": 6,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 8,
-    "elo_favorite": 8,
-    "always_draw": 8,
+    "most_probable": 9,
+    "elo_favorite": 9,
+    "always_draw": 9,
     "llm_adjusted": 1
   },
-  "brier_avg": 0.708,
+  "brier_avg": 0.6443,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -481,7 +481,43 @@
       "home": "SC Freiburg",
       "away": "FC Bayern München",
       "kickoff_utc": "2026-10-25T16:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        1,
+        3
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.1346,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "FC Bayern München gewinnt",
+        "status": "missing_odds"
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "skipped",
+          "stake_eur": 0.0,
+          "payout_eur": 0.0,
+          "profit_eur": 0.0
+        }
+      }
     }
   ]
 }
