@@ -73,6 +73,18 @@ jobs:
         continue-on-error: true
         timeout-minutes: 3
 
+      # Quoten-Cache über die Läufe hinweg (engine/sources/odds.py): Ohne ihn
+      # holte jeder 15-Minuten-Lauf die Quoten neu, und das Freikontingent von
+      # 500 Abrufen/Monat war am 25.10.2026 nach drei Spieltagen leer. Ob neu
+      # abgerufen wird, entscheidet das Alter im Cache, nicht dieser Schritt.
+      - name: Quoten-Cache holen
+        uses: actions/cache/restore@v4
+        continue-on-error: true
+        with:
+          path: data/cache/odds_*.json
+          key: odds-${{ github.run_id }}
+          restore-keys: odds-
+
       - name: Prognose (Spiele im Tipp-Fenster)
         run: python -m engine.cli predict
         env:
@@ -92,6 +104,14 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
           SEAL_SECRET: ${{ secrets.SEAL_SECRET }}
+
+      - name: Quoten-Cache sichern
+        if: always() && hashFiles('data/cache/odds_*.json') != ''
+        uses: actions/cache/save@v4
+        continue-on-error: true
+        with:
+          path: data/cache/odds_*.json
+          key: odds-${{ github.run_id }}
 
       # Saison-Bonusfragen: einmal pro Saison, Frist ist der erste Anstoß.
       # Läuft nach dem ersten Mal sofort wieder raus (Datei existiert schon).

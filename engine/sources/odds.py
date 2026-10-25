@@ -3,14 +3,17 @@
 Liefert entvigte (um die Buchmacher-Marge bereinigte) Heimsieg-/Remis-/
 Auswärtssieg-Wahrscheinlichkeiten pro Spiel – der stärkste Einzel-Prior fürs
 Modell (siehe concept.md §3). Wegen des knappen Freikontingents wird jede
-Antwort unter einem Tages-Cache-Tag abgelegt und pro Lauf nur einmal
-abgerufen, nicht bei jedem Modell-Fit neu.
+Antwort mit Abrufzeit gecacht und erst neu geholt, wenn sie älter als
+`max_age_minutes` ist. Der Workflow hebt den Cache zwischen den Läufen auf
+(actions/cache); ohne das holte jeder 15-Minuten-Lauf neu und das Kontingent
+war am 25.10.2026 nach drei Spieltagen leer.
 
 Kein historischer Endpunkt im Free Tier – Backtests laufen daher ohne
 Quoten-Term (config: `model.odds.enabled: false` im Abschnitt `backtest`).
 """
 
 import json
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
@@ -32,23 +35,37 @@ def fetch_raw_odds(
     sport_key: str,
     regions: str = "eu",
     cache_dir: Path = CACHE_DIR,
-    cache_tag: str = "latest",
+    max_age_minutes: int = 60,
+    now: datetime | None = None,
 ) -> list[dict]:
-    """Rohe h2h-Quoten aller anstehenden Spiele einer Sportart; unter `cache_tag`
-    gecacht, damit ein einzelner Spieltags-Lauf nur einen Request verbraucht."""
+    """Rohe h2h-Quoten aller anstehenden Spiele einer Sportart; aus dem Cache,
+    solange der letzte Abruf höchstens `max_age_minutes` alt ist."""
+    now = now or datetime.now(timezone.utc)
     cache_dir.mkdir(parents=True, exist_ok=True)
-    cache_file = cache_dir / f"odds_{sport_key}_{cache_tag}.json"
+    cache_file = cache_dir / f"odds_{sport_key}.json"
     if cache_file.exists():
-        return json.loads(cache_file.read_text(encoding="utf-8"))
+        cached = json.loads(cache_file.read_text(encoding="utf-8"))
+        # Ältere Cache-Dateien waren eine nackte Liste ohne Abrufzeit: gelten als veraltet
+        if isinstance(cached, dict) and "fetched_utc" in cached:
+            fetched = datetime.fromisoformat(cached["fetched_utc"])
+            if now - fetched <= timedelta(minutes=max_age_minutes):
+                return cached["events"]
 
     resp = requests.get(
         f"{API_BASE}/sports/{sport_key}/odds",
         params={"apiKey": api_key, "regions": regions, "markets": "h2h", "oddsFormat": "decimal"},
         timeout=30,
     )
+    # Restkontingent steht im Antwortkopf (keine Geheimnisse, darf ins öffentliche Log)
+    remaining = resp.headers.get("x-requests-remaining")
+    if remaining is not None:
+        print(f"Quoten neu geladen ({sport_key}), Restkontingent diesen Monat: {remaining}")
     resp.raise_for_status()
     raw = resp.json()
-    cache_file.write_text(json.dumps(raw, ensure_ascii=False), encoding="utf-8")
+    cache_file.write_text(
+        json.dumps({"fetched_utc": now.isoformat(), "events": raw}, ensure_ascii=False),
+        encoding="utf-8",
+    )
     return raw
 
 
@@ -187,13 +204,13 @@ def load_probabilities(
     sport_key: str,
     regions: str = "eu",
     cache_dir: Path = CACHE_DIR,
-    cache_tag: str = "latest",
+    max_age_minutes: int = 60,
 ) -> dict[tuple[str, str], dict[str, float]]:
     """Best-effort: liefert {} statt eines Fehlers, wenn die API nicht erreichbar
     ist oder der Sport-Key nicht (mehr) existiert – Quoten sind ein Prior, kein
     Hard-Requirement (System bleibt ohne sie funktionsfähig, siehe concept.md)."""
     try:
-        raw = fetch_raw_odds(api_key, sport_key, regions, cache_dir, cache_tag)
+        raw = fetch_raw_odds(api_key, sport_key, regions, cache_dir, max_age_minutes)
     except requests.RequestException as exc:
         print(f"Quoten nicht verfügbar ({sport_key}): {exc}")
         return {}
@@ -209,12 +226,12 @@ def load_betting_markets(
     sport_key: str,
     regions: str = "eu",
     cache_dir: Path = CACHE_DIR,
-    cache_tag: str = "latest",
+    max_age_minutes: int = 60,
     preferred_bookmakers: list[str] | tuple[str, ...] = ("tipico_de",),
 ) -> dict[tuple[str, str], dict]:
     """Best-effort Dezimalquoten für Paper-Betting; nutzt denselben Cache wie load_probabilities."""
     try:
-        raw = fetch_raw_odds(api_key, sport_key, regions, cache_dir, cache_tag)
+        raw = fetch_raw_odds(api_key, sport_key, regions, cache_dir, max_age_minutes)
     except requests.RequestException as exc:
         print(f"Paper-Betting-Quoten nicht verfügbar ({sport_key}): {exc}")
         return {}

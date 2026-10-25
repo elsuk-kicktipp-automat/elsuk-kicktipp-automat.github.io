@@ -294,7 +294,11 @@ def run_kombi(config: dict, now: datetime | None = None) -> dict | None:
     elo = load_elo(config, config["team_type"], ref_date.date())
     model = build_model(config, config["neutral_venue"], config["team_type"])
     model.fit(train, ref_date, elo=elo)
-    markets = load_betting_markets(config, ref_date.date())
+    # Die Kombi-Suche läuft alle 15 Minuten, solange keine zustande kommt;
+    # minutengenaue Quoten braucht sie nicht (config.yaml: kombi.odds_max_age_minutes).
+    markets = load_betting_markets(
+        config, ref_date.date(), max_age_minutes=cfg.get("odds_max_age_minutes", 180)
+    )
 
     candidates = []
     for m in sorted(upcoming, key=lambda t: (t.kickoff_utc, t.home_name)):

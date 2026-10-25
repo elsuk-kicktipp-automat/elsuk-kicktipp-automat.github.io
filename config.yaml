@@ -55,6 +55,11 @@ odds:
   regions: eu
   # Gewicht der Marktquote beim Blend mit der Modellmeinung (1.0 = nur Markt)
   market_weight: 0.7
+  # Quoten gelten beim Tippen so lange als frisch; älter wird neu abgerufen.
+  # Free Tier: 500 Abrufe/Monat. Der Cache wird zwischen den Läufen aufgehoben
+  # (spieltag.yml, actions/cache). Ohne ihn holte jeder 15-Minuten-Lauf neu, und
+  # das Kontingent war am 25.10.2026 aufgebraucht.
+  max_age_minutes: 60
 
 # Paper-Betting: rein theoretische 1X2-Wetten, keine echte Wettabgabe.
 # Vorzug: Tipico DE. Falls nicht vorhanden, nutzt die Engine den Marktdurchschnitt
@@ -108,6 +113,9 @@ kombi:
   # Automat still ohne Markt-Prior weiter - das stärkste Einzelsignal.
   window_hours: 24
   max_legs: 3
+  # Die Kombi-Suche läuft alle 15 Minuten, solange keine zustande kommt
+  # (am 24.10.2026 in 95 von 96 Läufen). Quoten bis 3 Stunden Alter reichen ihr.
+  odds_max_age_minutes: 180
   min_leg_probability: 0.55 # "sicher": Bein braucht >= 55% Modellwahrscheinlichkeit
   min_leg_edge: 0.02
   staking:

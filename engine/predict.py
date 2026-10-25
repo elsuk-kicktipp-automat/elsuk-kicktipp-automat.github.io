@@ -72,13 +72,17 @@ def load_odds(config: dict, on_date=None) -> dict[tuple[str, str], dict[str, flo
     if not api_key:
         print("ODDS_API_KEY fehlt, laufe ohne Quoten-Prior.")
         return {}
-    cache_tag = (on_date or datetime.now(timezone.utc).date()).isoformat()
     return load_odds_probabilities(
-        api_key, odds_cfg["sport_key"], odds_cfg.get("regions", "eu"), cache_tag=cache_tag
+        api_key,
+        odds_cfg["sport_key"],
+        odds_cfg.get("regions", "eu"),
+        max_age_minutes=odds_cfg.get("max_age_minutes", 60),
     )
 
 
-def load_betting_markets(config: dict, on_date=None) -> dict[tuple[str, str], dict]:
+def load_betting_markets(
+    config: dict, on_date=None, max_age_minutes: int | None = None
+) -> dict[tuple[str, str], dict]:
     betting_cfg = config.get("paper_betting", {})
     odds_cfg = config.get("odds", {})
     if not betting_cfg.get("enabled") or not odds_cfg.get("enabled"):
@@ -88,12 +92,13 @@ def load_betting_markets(config: dict, on_date=None) -> dict[tuple[str, str], di
     if not api_key:
         print("ODDS_API_KEY fehlt, Paper-Betting läuft ohne Quoten.")
         return {}
-    cache_tag = (on_date or datetime.now(timezone.utc).date()).isoformat()
+    if max_age_minutes is None:
+        max_age_minutes = odds_cfg.get("max_age_minutes", 60)
     return load_odds_betting_markets(
         api_key,
         odds_cfg["sport_key"],
         odds_cfg.get("regions", "eu"),
-        cache_tag=cache_tag,
+        max_age_minutes=max_age_minutes,
         preferred_bookmakers=betting_cfg.get("provider_preference", ["tipico_de"]),
     )
 

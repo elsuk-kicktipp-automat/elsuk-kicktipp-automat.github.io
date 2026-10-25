@@ -91,6 +91,17 @@
         "Gelesene Meldungen und Token-Verbrauch werden nach Anstoß veröffentlicht.",
         "Jeder Tipp trägt die Version, nach der er entstanden ist."
       ]
+    },
+    {
+      "version": 9,
+      "since_utc": "2026-10-25T18:46:11Z",
+      "model_version": "dixon-coles-elo-3-market-llm-news",
+      "title": "Quoten seltener abrufen",
+      "changes": [
+        "Die Buchmacherquoten werden jetzt zwischengespeichert. Beim Tippen sind sie höchstens 60 Minuten alt, die Suche nach Kombiwetten nutzt Quoten bis 3 Stunden Alter.",
+        "Anlass: Das kostenlose Quoten-Kontingent (500 Abrufe im Monat) war am 25.10.2026 aufgebraucht, weil jeder Lauf die Quoten neu geholt hat. Die beiden Sonntagsspiele des 7. Spieltags (Hoffenheim–Leverkusen, Freiburg–Bayern) wurden deshalb ohne Quoten getippt, und es gab keine Papierwette.",
+        "Bis das Kontingent zum Monatswechsel neu startet, entstehen Tipps ohne Quoten und ohne Papierwetten."
+      ]
     }
   ]
 }

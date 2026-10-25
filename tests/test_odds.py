@@ -1,4 +1,5 @@
 import json
+from datetime import datetime, timedelta, timezone
 
 import pytest
 
@@ -159,32 +160,73 @@ class TestParseBettingMarkets:
 
 
 class TestFetchAndCache:
-    def test_uses_cache_without_network(self, tmp_path, mapping_env):
-        cache_file = tmp_path / "odds_soccer_test_2026-07-04.json"
-        cache_file.write_text(json.dumps([RAW_EVENT]), encoding="utf-8")
-        raw = fetch_raw_odds("key", "soccer_test", cache_dir=tmp_path, cache_tag="2026-07-04")
-        assert raw == [RAW_EVENT]
+    NOW = datetime(2026, 7, 4, 12, 0, tzinfo=timezone.utc)
 
-    def test_writes_cache_on_fetch(self, tmp_path, mapping_env, monkeypatch):
+    @staticmethod
+    def _fake_get(calls):
         class FakeResponse:
+            headers = {"x-requests-remaining": "123"}
+
             def raise_for_status(self):
                 pass
 
             def json(self):
                 return [RAW_EVENT]
 
-        calls = []
-
         def fake_get(url, params, timeout):
             calls.append(url)
             return FakeResponse()
 
-        monkeypatch.setattr("engine.sources.odds.requests.get", fake_get)
-        raw = fetch_raw_odds("key", "soccer_test", cache_dir=tmp_path, cache_tag="2026-07-05")
+        return fake_get
+
+    def _write_cache(self, tmp_path, fetched):
+        cache_file = tmp_path / "odds_soccer_test.json"
+        cache_file.write_text(
+            json.dumps({"fetched_utc": fetched.isoformat(), "events": [RAW_EVENT]}), encoding="utf-8"
+        )
+
+    def test_uses_fresh_cache_without_network(self, tmp_path, mapping_env, monkeypatch):
+        calls = []
+        monkeypatch.setattr("engine.sources.odds.requests.get", self._fake_get(calls))
+        self._write_cache(tmp_path, self.NOW - timedelta(minutes=59))
+        raw = fetch_raw_odds("key", "soccer_test", cache_dir=tmp_path, max_age_minutes=60, now=self.NOW)
         assert raw == [RAW_EVENT]
+        assert calls == []
+
+    def test_refetches_stale_cache(self, tmp_path, mapping_env, monkeypatch):
+        calls = []
+        monkeypatch.setattr("engine.sources.odds.requests.get", self._fake_get(calls))
+        self._write_cache(tmp_path, self.NOW - timedelta(minutes=61))
+        fetch_raw_odds("key", "soccer_test", cache_dir=tmp_path, max_age_minutes=60, now=self.NOW)
         assert len(calls) == 1
 
-        fetch_raw_odds("key", "soccer_test", cache_dir=tmp_path, cache_tag="2026-07-05")
+    def test_longer_max_age_reuses_older_cache(self, tmp_path, mapping_env, monkeypatch):
+        # Kombi-Suche: 3 Stunden alte Quoten reichen ihr
+        calls = []
+        monkeypatch.setattr("engine.sources.odds.requests.get", self._fake_get(calls))
+        self._write_cache(tmp_path, self.NOW - timedelta(minutes=150))
+        fetch_raw_odds("key", "soccer_test", cache_dir=tmp_path, max_age_minutes=180, now=self.NOW)
+        assert calls == []
+
+    def test_legacy_list_cache_counts_as_stale(self, tmp_path, mapping_env, monkeypatch):
+        calls = []
+        monkeypatch.setattr("engine.sources.odds.requests.get", self._fake_get(calls))
+        (tmp_path / "odds_soccer_test.json").write_text(json.dumps([RAW_EVENT]), encoding="utf-8")
+        fetch_raw_odds("key", "soccer_test", cache_dir=tmp_path, now=self.NOW)
+        assert len(calls) == 1
+
+    def test_writes_cache_on_fetch_and_logs_quota(self, tmp_path, mapping_env, monkeypatch, capsys):
+        calls = []
+        monkeypatch.setattr("engine.sources.odds.requests.get", self._fake_get(calls))
+        raw = fetch_raw_odds("key", "soccer_test", cache_dir=tmp_path, now=self.NOW)
+        assert raw == [RAW_EVENT]
+        assert len(calls) == 1
+        out = capsys.readouterr().out
+        assert "Restkontingent diesen Monat: 123" in out
+        assert "apiKey" not in out  # API-Schlüssel nie ins öffentliche Log
+
+        later = self.NOW + timedelta(minutes=10)
+        fetch_raw_odds("key", "soccer_test", cache_dir=tmp_path, now=later)
         assert len(calls) == 1  # zweiter Aufruf kommt aus dem Cache
 
 
@@ -196,11 +238,14 @@ class TestLoadProbabilitiesResilience:
             raise requests.ConnectionError("down")
 
         monkeypatch.setattr("engine.sources.odds.requests.get", fake_get)
-        result = load_probabilities("key", "soccer_test", cache_dir=tmp_path, cache_tag="x")
+        result = load_probabilities("key", "soccer_test", cache_dir=tmp_path)
         assert result == {}
 
     def test_error_object_instead_of_list_returns_empty_dict(self, tmp_path, mapping_env):
-        cache_file = tmp_path / "odds_bad_sport_x.json"
-        cache_file.write_text(json.dumps({"message": "Unknown sport"}), encoding="utf-8")
-        result = load_probabilities("key", "bad_sport", cache_dir=tmp_path, cache_tag="x")
+        cache_file = tmp_path / "odds_bad_sport.json"
+        fetched = datetime.now(timezone.utc).isoformat()
+        cache_file.write_text(
+            json.dumps({"fetched_utc": fetched, "events": {"message": "Unknown sport"}}), encoding="utf-8"
+        )
+        result = load_probabilities("key", "bad_sport", cache_dir=tmp_path)
         assert result == {}
