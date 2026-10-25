@@ -1448,9 +1448,162 @@
       "home": "SC Freiburg",
       "away": "FC Bayern München",
       "kickoff_utc": "2026-10-25T16:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "4c9a41bb4b8b95b68f796bec85f7e4a92b24ddfe7ad1a2a56e66a2633cf129f3",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.689,
+      "factors": {
+        "expected_goals": [
+          1.24,
+          2.74
+        ],
+        "probabilities": {
+          "home": 0.139,
+          "draw": 0.161,
+          "away": 0.701
+        },
+        "raw_probabilities": {
+          "home": 0.139,
+          "draw": 0.161,
+          "away": 0.701
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": null,
+        "home_advantage": 0.219,
+        "trained_on_matches": 673,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Vincent Kompany: Es gibt schon länger Sorgen um den Trainer des FC Bayern",
+              "description": "clipout, Clipout TV, erste Bundesliga, Bundesliga, Lage der Liga, FC Bayern München, Kompany Vincent",
+              "published": "2026-10-25T13:24:36+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/schon-laenger-sorgen-um-kompany-er-wollte-nicht-dass-wir-darueber-berichten-6adde29051fb647ba7e7c4b5"
+            },
+            {
+              "title": "Warum in Freiburg vor dem Bayern-Spiel die Sinne geschärft sind",
+              "description": "Nach dem nahezu perfekten Saisonstart hat der SC Freiburg gegen zwei Top-Klubs zwei Niederlagen kassiert. Nun trifft der Sport-Club mit dem FC Bayern auf das nächste Spitzenteam, gegen das es bisher wenig zu holen war. Doch womöglich kommt der Rekordmeister genau zum richtigen Zeitpunkt.",
+              "published": "2026-10-25T12:22:06+00:00",
+              "source": "kicker",
+              "source_label": "Kicker",
+              "url": "https://www.kicker.de/warum-in-freiburg-vor-dem-bayern-spiel-die-sinne-geschaerft-sind-1264710/artikel#omrss"
+            },
+            {
+              "title": "„Jeder ist streng angehalten …“: Ansage an alle Kompany-Besucher!",
+              "description": "clipout, Clipout TV, erste Bundesliga, Bundesliga, Lage der Liga, FC Bayern München, Kompany Vincent, Eberl Max, Hoeneß Uli",
+              "published": "2026-10-25T13:16:08+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/jeder-ist-streng-angehalten-ansage-an-alle-kompany-besucher-6adde9caba080c37bf6d0c53"
+            },
+            {
+              "title": "Vincent Kompanys Vater sprach über den Trainer des FC Bayern",
+              "description": "Kompany Vincent, FC Bayern München, erste Bundesliga, Champions League, Eberl Max, Sport – Leuchtturm Essen, Aufmacher-Bereich, super-a-teaser, quad-teaser",
+              "published": "2026-10-25T13:06:21+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vincent-kompanys-vater-sprach-ueber-den-trainer-des-fc-bayern-6addca89a6a5d701acbce887"
+            },
+            {
+              "title": "1. FC Magdeburg: Simic mit erstem Tor und Bayern-Ansage: „Alles ist möglich!“",
+              "description": "Fußball, Sport-Tag im Ticker, zweite Bundesliga, 1. FC Magdeburg, Sander Petrik, Karlsruher SC, FC Bayern München, Cardiff City, Sport - Leuchtturm Leipzig",
+              "published": "2026-10-25T12:49:42+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/1-fc-magdeburg-simic-mit-erstem-tor-und-bayern-ansage-alles-ist-moeglich-6addbe50a6a5d701acbce7ce"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 56
+            }
+          ],
+          "total_matches": 59,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2705,
+          "output_tokens": 382,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1445,
+              "output_tokens": 81
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1260,
+              "output_tokens": 301
+            }
+          ]
+        },
+        "method_version": 8
+      },
+      "begruendung": "Mein Tipp: 1:2, die Bayern nehmen die drei Punkte aus dem Breisgau mit, auch wenn der Sportclub ihnen dabei ordentlich auf die Füße steigt. Mit rund 70 Prozent Siegchance reisen die Münchner als klarer Favorit an, und wer so viel Offensivwucht im Gepäck hat, schenkt dem Gastgeber erfahrungsgemäß zwei, drei Gegentreffer ein. Freiburg hat aber genug Biss und das eigene Publikum im Rücken, um selbst einen Treffer zu erzwingen, dass die Breisgauer leer ausgehen, wäre also fast schon unhöflich. Am Ende dürfte Rot-Weiß trotzdem jubeln, nur eben nicht der Sportclub aus dem Schwarzwald.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          2
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "FC Bayern München gewinnt",
+        "status": "missing_odds"
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "FC Bayern München gewinnt",
+          "status": "missing_odds"
+        }
+      },
+      "salt": "083cd0375d74aece693a0c4f17520894"
     }
   ]
 }
