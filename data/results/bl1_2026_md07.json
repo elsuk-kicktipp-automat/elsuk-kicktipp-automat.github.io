@@ -5,27 +5,27 @@
   "stage": "7. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 9,
-  "matches_scored": 7,
-  "matches_open": 2,
+  "matches_scored": 8,
+  "matches_open": 1,
   "hits": {
     "exact": 1,
     "goal_diff": 1,
     "tendency": 1,
-    "miss": 4
+    "miss": 5
   },
   "shadow_points": {
     "most_probable": 11,
-    "elo_favorite": 8,
+    "elo_favorite": 10,
     "always_draw": 6,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 7,
-    "elo_favorite": 7,
-    "always_draw": 7,
+    "most_probable": 8,
+    "elo_favorite": 8,
+    "always_draw": 8,
     "llm_adjusted": 1
   },
-  "brier_avg": 0.6996,
+  "brier_avg": 0.708,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -439,7 +439,43 @@
       "home": "TSG Hoffenheim",
       "away": "Bayer 04 Leverkusen",
       "kickoff_utc": "2026-10-25T14:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        3,
+        0
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 2,
+        "always_draw": 0
+      },
+      "brier": 0.7662,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "missing_odds"
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "skipped",
+          "stake_eur": 0.0,
+          "payout_eur": 0.0,
+          "profit_eur": 0.0
+        }
+      }
     },
     {
       "home": "SC Freiburg",
