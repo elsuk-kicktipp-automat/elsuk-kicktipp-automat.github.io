@@ -13,6 +13,7 @@ Quoten-Term (config: `model.odds.enabled: false` im Abschnitt `backtest`).
 """
 
 import json
+from collections.abc import Sequence
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -30,8 +31,13 @@ def _load_mapping() -> dict[str, str]:
     return {normalize(k): v for k, v in raw.items() if not k.startswith("_")}
 
 
+# Antwortcodes von The Odds API, wenn das Monatskontingent eines Schlüssels leer ist
+QUOTA_EXHAUSTED = (401, 429)
+KEY_LABELS = ("Hauptschlüssel", "Ersatzschlüssel")
+
+
 def fetch_raw_odds(
-    api_key: str,
+    api_key: str | Sequence[str],
     sport_key: str,
     regions: str = "eu",
     cache_dir: Path = CACHE_DIR,
@@ -39,7 +45,10 @@ def fetch_raw_odds(
     now: datetime | None = None,
 ) -> list[dict]:
     """Rohe h2h-Quoten aller anstehenden Spiele einer Sportart; aus dem Cache,
-    solange der letzte Abruf höchstens `max_age_minutes` alt ist."""
+    solange der letzte Abruf höchstens `max_age_minutes` alt ist.
+
+    `api_key` darf eine Liste sein: Der zweite Schlüssel wird nur benutzt, wenn
+    der erste kein Kontingent mehr hat (Ersatz bis zum Monatswechsel)."""
     now = now or datetime.now(timezone.utc)
     cache_dir.mkdir(parents=True, exist_ok=True)
     cache_file = cache_dir / f"odds_{sport_key}.json"
@@ -51,15 +60,22 @@ def fetch_raw_odds(
             if now - fetched <= timedelta(minutes=max_age_minutes):
                 return cached["events"]
 
-    resp = requests.get(
-        f"{API_BASE}/sports/{sport_key}/odds",
-        params={"apiKey": api_key, "regions": regions, "markets": "h2h", "oddsFormat": "decimal"},
-        timeout=30,
-    )
+    keys = [api_key] if isinstance(api_key, str) else [k for k in api_key if k]
+    for index, key in enumerate(keys):
+        label = KEY_LABELS[min(index, len(KEY_LABELS) - 1)]
+        resp = requests.get(
+            f"{API_BASE}/sports/{sport_key}/odds",
+            params={"apiKey": key, "regions": regions, "markets": "h2h", "oddsFormat": "decimal"},
+            timeout=30,
+        )
+        if resp.status_code in QUOTA_EXHAUSTED and index < len(keys) - 1:
+            print(f"{label}: Kontingent erschöpft (HTTP {resp.status_code}), versuche {KEY_LABELS[index + 1]}.")
+            continue
+        break
     # Restkontingent steht im Antwortkopf (keine Geheimnisse, darf ins öffentliche Log)
     remaining = resp.headers.get("x-requests-remaining")
     if remaining is not None:
-        print(f"Quoten neu geladen ({sport_key}), Restkontingent diesen Monat: {remaining}")
+        print(f"Quoten neu geladen ({sport_key}, {label}), Restkontingent diesen Monat: {remaining}")
     resp.raise_for_status()
     raw = resp.json()
     cache_file.write_text(
@@ -200,7 +216,7 @@ def parse_betting_markets(
 
 
 def load_probabilities(
-    api_key: str,
+    api_key: str | Sequence[str],
     sport_key: str,
     regions: str = "eu",
     cache_dir: Path = CACHE_DIR,
@@ -222,7 +238,7 @@ def load_probabilities(
 
 
 def load_betting_markets(
-    api_key: str,
+    api_key: str | Sequence[str],
     sport_key: str,
     regions: str = "eu",
     cache_dir: Path = CACHE_DIR,

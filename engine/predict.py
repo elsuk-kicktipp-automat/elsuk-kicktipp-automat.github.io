@@ -63,17 +63,22 @@ def marginal_expected_goals(matrix: np.ndarray) -> tuple[float, float]:
     return lam, mu
 
 
+def _odds_api_keys() -> list[str]:
+    """Hauptschlüssel und, falls gesetzt, Ersatzschlüssel (nur bei leerem Kontingent)."""
+    return [k for k in (os.environ.get("ODDS_API_KEY"), os.environ.get("ODDS_API_KEY_FALLBACK")) if k]
+
+
 def load_odds(config: dict, on_date=None) -> dict[tuple[str, str], dict[str, float]]:
     odds_cfg = config.get("odds", {})
     if not odds_cfg.get("enabled"):
         return {}
     load_dotenv()
-    api_key = os.environ.get("ODDS_API_KEY")
-    if not api_key:
+    api_keys = _odds_api_keys()
+    if not api_keys:
         print("ODDS_API_KEY fehlt, laufe ohne Quoten-Prior.")
         return {}
     return load_odds_probabilities(
-        api_key,
+        api_keys,
         odds_cfg["sport_key"],
         odds_cfg.get("regions", "eu"),
         max_age_minutes=odds_cfg.get("max_age_minutes", 60),
@@ -88,14 +93,14 @@ def load_betting_markets(
     if not betting_cfg.get("enabled") or not odds_cfg.get("enabled"):
         return {}
     load_dotenv()
-    api_key = os.environ.get("ODDS_API_KEY")
-    if not api_key:
+    api_keys = _odds_api_keys()
+    if not api_keys:
         print("ODDS_API_KEY fehlt, Paper-Betting läuft ohne Quoten.")
         return {}
     if max_age_minutes is None:
         max_age_minutes = odds_cfg.get("max_age_minutes", 60)
     return load_odds_betting_markets(
-        api_key,
+        api_keys,
         odds_cfg["sport_key"],
         odds_cfg.get("regions", "eu"),
         max_age_minutes=max_age_minutes,

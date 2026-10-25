@@ -165,6 +165,7 @@ class TestFetchAndCache:
     @staticmethod
     def _fake_get(calls):
         class FakeResponse:
+            status_code = 200
             headers = {"x-requests-remaining": "123"}
 
             def raise_for_status(self):
@@ -228,6 +229,53 @@ class TestFetchAndCache:
         later = self.NOW + timedelta(minutes=10)
         fetch_raw_odds("key", "soccer_test", cache_dir=tmp_path, now=later)
         assert len(calls) == 1  # zweiter Aufruf kommt aus dem Cache
+
+
+class TestFallbackKey:
+    NOW = datetime(2026, 7, 4, 12, 0, tzinfo=timezone.utc)
+
+    @staticmethod
+    def _fake_get(calls, status_by_key):
+        class FakeResponse:
+            def __init__(self, status):
+                self.status_code = status
+                self.headers = {"x-requests-remaining": "0" if status != 200 else "499"}
+
+            def raise_for_status(self):
+                if self.status_code != 200:
+                    import requests
+
+                    raise requests.HTTPError(f"{self.status_code} Client Error")
+
+            def json(self):
+                return [RAW_EVENT]
+
+        def fake_get(url, params, timeout):
+            calls.append(params["apiKey"])
+            return FakeResponse(status_by_key[params["apiKey"]])
+
+        return fake_get
+
+    def test_primary_key_is_used_while_it_has_quota(self, tmp_path, mapping_env, monkeypatch):
+        calls = []
+        monkeypatch.setattr("engine.sources.odds.requests.get", self._fake_get(calls, {"alt": 200, "neu": 200}))
+        fetch_raw_odds(["alt", "neu"], "soccer_test", cache_dir=tmp_path, now=self.NOW)
+        assert calls == ["alt"]
+
+    def test_fallback_key_only_when_primary_is_exhausted(self, tmp_path, mapping_env, monkeypatch, capsys):
+        calls = []
+        monkeypatch.setattr("engine.sources.odds.requests.get", self._fake_get(calls, {"alt": 401, "neu": 200}))
+        raw = fetch_raw_odds(["alt", "neu"], "soccer_test", cache_dir=tmp_path, now=self.NOW)
+        assert raw == [RAW_EVENT]
+        assert calls == ["alt", "neu"]
+        out = capsys.readouterr().out
+        assert "Ersatzschlüssel" in out and "alt" not in out and "neu" not in out.replace("neu geladen", "")
+
+    def test_both_exhausted_returns_empty_dict(self, tmp_path, mapping_env, monkeypatch):
+        calls = []
+        monkeypatch.setattr("engine.sources.odds.requests.get", self._fake_get(calls, {"alt": 401, "neu": 429}))
+        assert load_probabilities(["alt", "neu"], "soccer_test", cache_dir=tmp_path) == {}
+        assert calls == ["alt", "neu"]
 
 
 class TestLoadProbabilitiesResilience:
