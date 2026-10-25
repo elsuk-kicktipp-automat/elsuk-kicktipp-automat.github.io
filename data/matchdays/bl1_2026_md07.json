@@ -1306,6 +1306,14 @@
         }
       },
       "salt": "7a7ece37f82a7a382f4409ea84c5bb10"
+    },
+    {
+      "home": "TSG Hoffenheim",
+      "away": "Bayer 04 Leverkusen",
+      "kickoff_utc": "2026-10-25T14:30:00Z",
+      "status": "sealed",
+      "hash": "040a0b9054bfb48849ff0f8ffdda62c7620adb702a4b039a005bd63d2ac39925",
+      "paper_bet_status": "sealed"
     }
   ]
 }

@@ -6,7 +6,7 @@
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 9,
   "matches_scored": 7,
-  "matches_open": 0,
+  "matches_open": 1,
   "hits": {
     "exact": 1,
     "goal_diff": 1,
@@ -434,6 +434,12 @@
           "profit_eur": 11.27
         }
       }
+    },
+    {
+      "home": "TSG Hoffenheim",
+      "away": "Bayer 04 Leverkusen",
+      "kickoff_utc": "2026-10-25T14:30:00Z",
+      "status": "sealed"
     }
   ]
 }
