@@ -1,0 +1,24 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "matchday": 8,
+  "stage": "8. Spieltag",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-10-30T15:31:06Z",
+  "matches": [
+    {
+      "home": "SV 07 Elversberg",
+      "away": "1. FSV Mainz 05",
+      "kickoff_utc": "2026-10-30T19:30:00Z",
+      "status": "sealed",
+      "hash": "280a3aa88b7f41493d1880a977b00bd42810a356e8706fdcccfb417ec54c3fb2",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}
