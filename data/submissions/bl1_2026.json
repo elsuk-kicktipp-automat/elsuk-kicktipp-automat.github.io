@@ -78,6 +78,11 @@
       "verified_at_utc": "2026-10-18T09:32:13Z"
     },
     {
+      "home_key": "bayer04leverkusen",
+      "away_key": "vfbstuttgart",
+      "verified_at_utc": "2026-10-31T10:33:49Z"
+    },
+    {
       "home_key": "bormonchengladbach",
       "away_key": "1899hoffenheim",
       "verified_at_utc": "2026-10-18T11:32:07Z"
@@ -86,6 +91,11 @@
       "home_key": "bormonchengladbach",
       "away_key": "fsvmainz05",
       "verified_at_utc": "2026-09-19T09:32:39Z"
+    },
+    {
+      "home_key": "bormonchengladbach",
+      "away_key": "scpaderborn07",
+      "verified_at_utc": "2026-10-31T10:33:49Z"
     },
     {
       "home_key": "bormonchengladbach",
@@ -148,6 +158,11 @@
       "verified_at_utc": "2026-08-30T11:31:54Z"
     },
     {
+      "home_key": "fcaugsburg",
+      "away_key": "scfreiburg",
+      "verified_at_utc": "2026-10-31T10:33:49Z"
+    },
+    {
       "home_key": "fcbayernmunchen",
       "away_key": "1fcunionberlin",
       "verified_at_utc": "2026-09-18T14:31:51Z"
@@ -166,6 +181,11 @@
       "home_key": "fcschalke04",
       "away_key": "fsvmainz05",
       "verified_at_utc": "2026-10-17T09:33:27Z"
+    },
+    {
+      "home_key": "fcschalke04",
+      "away_key": "rbleipzig",
+      "verified_at_utc": "2026-10-31T10:33:49Z"
     },
     {
       "home_key": "fcschalke04",
@@ -301,6 +321,11 @@
       "home_key": "vfbstuttgart",
       "away_key": "borussiadortmund",
       "verified_at_utc": "2026-09-19T12:31:50Z"
+    },
+    {
+      "home_key": "werderbremen",
+      "away_key": "1899hoffenheim",
+      "verified_at_utc": "2026-10-31T10:33:49Z"
     },
     {
       "home_key": "werderbremen",
