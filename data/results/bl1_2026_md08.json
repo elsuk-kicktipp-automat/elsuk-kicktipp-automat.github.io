@@ -6,7 +6,7 @@
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 0,
   "matches_scored": 1,
-  "matches_open": 0,
+  "matches_open": 5,
   "hits": {
     "exact": 0,
     "goal_diff": 0,
@@ -103,6 +103,36 @@
           "profit_eur": -5.0
         }
       }
+    },
+    {
+      "home": "Bayer 04 Leverkusen",
+      "away": "VfB Stuttgart",
+      "kickoff_utc": "2026-10-31T14:30:00Z",
+      "status": "sealed"
+    },
+    {
+      "home": "Borussia Mönchengladbach",
+      "away": "SC Paderborn 07",
+      "kickoff_utc": "2026-10-31T14:30:00Z",
+      "status": "sealed"
+    },
+    {
+      "home": "FC Augsburg",
+      "away": "SC Freiburg",
+      "kickoff_utc": "2026-10-31T14:30:00Z",
+      "status": "sealed"
+    },
+    {
+      "home": "FC Schalke 04",
+      "away": "RB Leipzig",
+      "kickoff_utc": "2026-10-31T14:30:00Z",
+      "status": "sealed"
+    },
+    {
+      "home": "SV Werder Bremen",
+      "away": "TSG Hoffenheim",
+      "kickoff_utc": "2026-10-31T14:30:00Z",
+      "status": "sealed"
     }
   ]
 }
