@@ -169,6 +169,11 @@
     },
     {
       "home_key": "fcbayernmunchen",
+      "away_key": "borussiadortmund",
+      "verified_at_utc": "2026-10-31T13:32:06Z"
+    },
+    {
+      "home_key": "fcbayernmunchen",
       "away_key": "rbleipzig",
       "verified_at_utc": "2026-10-17T12:32:14Z"
     },
