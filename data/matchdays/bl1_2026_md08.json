@@ -1112,9 +1112,191 @@
       "home": "FC Bayern München",
       "away": "Borussia Dortmund",
       "kickoff_utc": "2026-10-31T17:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "27222b79f6a7b734f53b94c6cdc4e307478e20b9bb79fbad17a6db9204a3a825",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.732,
+      "factors": {
+        "expected_goals": [
+          2.59,
+          1.04
+        ],
+        "probabilities": {
+          "home": 0.715,
+          "draw": 0.163,
+          "away": 0.122
+        },
+        "raw_probabilities": {
+          "home": 0.655,
+          "draw": 0.185,
+          "away": 0.16
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.72,
+          "draw": 0.162,
+          "away": 0.118,
+          "weight": 0.926
+        },
+        "home_advantage": 0.23,
+        "trained_on_matches": 676,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Bayern München gegen Borussia Dortmund - Bundesliga",
+              "description": "8. Spieltag: Anpfiff des Spiels ist am 31.10.2026 um 18:30 Uhr. Borussia Dortmund spielt in München.",
+              "published": "2026-10-31T18:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/bayern-muenchen-gegen-borussia-dortmund,audiostream-bayern-muenchen-gegen-borussia-dortmund-108.html"
+            },
+            {
+              "title": "Bundesliga heute: So sehen Sie Bayern – Dortmund live im TV",
+              "description": "Borussia Dortmund, Fußball, SKY, erste Bundesliga, FC Bayern München, Harry Kane, Kompany Vincent, Bundesliga, Sky Sport News, RTL, sport-standard, Live-Ticker, Aufmacher-Bereich",
+              "published": "2026-10-31T13:26:45+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-so-sehen-sie-heute-bayern-dortmund-live-im-tv-6ae46045e6383048f41d3c5b"
+            },
+            {
+              "title": "BVB: So denkt Serhou Guirassy über seine Zukunft",
+              "description": "Borussia Dortmund, erste Bundesliga, Guirassy Sehrou, Fußball, spielertransfer, Aufmacher-Bereich",
+              "published": "2026-10-31T13:26:28+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bvb-so-denkt-serhou-guirassy-ueber-seine-zukunft-6ae5aa64aedea8cd9ffbf13c"
+            },
+            {
+              "title": "Im „Dortmund Insider“: Darum scheiterte der Olise-Wechsel zum BVB!",
+              "description": "Hochkant BILD-Video intern, Dortmund-Insider, clipout, Borussia Dortmund, Bundesliga",
+              "published": "2026-10-31T13:11:37+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/im-dortmund-insider-darum-scheiterte-der-olise-wechsel-zum-bvb-6ae4c468bbc8f19bc019f1f8"
+            },
+            {
+              "title": "Ab 18.30 Uhr live - Bundesliga-Topspiel in München",
+              "description": "In der Bundesliga kommt es zum absoluten Topspiel zwischen Bayern München und Borussia Dortmund. Beide Teams stehen punktgleich an der Tabellenspitze.",
+              "published": "2026-10-31T13:02:08+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesliga/ma12194434/bayern-muenchen_borussia-dortmund/liveticker"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 4
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 49
+            }
+          ],
+          "total_matches": 53,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2632,
+          "output_tokens": 361,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1311,
+              "output_tokens": 84
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1321,
+              "output_tokens": 277
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Mein Tipp für den Klassiker in der Allianz Arena: 2:1 für den FC Bayern, und zwar ohne großes Zittern an der Säbener Straße. Die Münchner gehen mit rund 72 Prozent Siegchance als klarer Favorit ins Duell, dagegen wirkt das Dortmunder Gelb-Schwarz an diesem Abend eher wie ein Warnschild am Straßenrand als wie eine echte Mauer. Der Rekordmeister dürfte vorne ordentlich Druck machen und den BVB tief in die eigene Hälfte drängen. Ein Treffer der Borussen zum Ehrentor ist allerdings drin, denn ganz ohne Gruß aus dem Ruhrpott fährt man selten von der Isar heim.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "FC Bayern München gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.3,
+        "model_probability": 0.655,
+        "implied_probability": 0.7692,
+        "edge": -0.1485,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "FC Bayern München gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.3,
+          "model_probability": 0.655,
+          "implied_probability": 0.7692,
+          "edge": -0.1485,
+          "expected_value_eur": -3.33,
+          "stake_eur": 22.43,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "c1975c5d559cc51602a72bbfc922a23c"
     }
   ]
 }
