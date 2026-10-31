@@ -6,7 +6,7 @@
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 0,
   "matches_scored": 1,
-  "matches_open": 5,
+  "matches_open": 6,
   "hits": {
     "exact": 0,
     "goal_diff": 0,
@@ -132,6 +132,12 @@
       "home": "SV Werder Bremen",
       "away": "TSG Hoffenheim",
       "kickoff_utc": "2026-10-31T14:30:00Z",
+      "status": "sealed"
+    },
+    {
+      "home": "FC Bayern München",
+      "away": "Borussia Dortmund",
+      "kickoff_utc": "2026-10-31T17:30:00Z",
       "status": "sealed"
     }
   ]

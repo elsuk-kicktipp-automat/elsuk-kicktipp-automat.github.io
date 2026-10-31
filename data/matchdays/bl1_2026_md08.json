@@ -209,6 +209,14 @@
       "status": "sealed",
       "hash": "04205e806a3343d007ba81e36502527913b7a98add7bb61b75cda6361ad49944",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "FC Bayern München",
+      "away": "Borussia Dortmund",
+      "kickoff_utc": "2026-10-31T17:30:00Z",
+      "status": "sealed",
+      "hash": "27222b79f6a7b734f53b94c6cdc4e307478e20b9bb79fbad17a6db9204a3a825",
+      "paper_bet_status": "sealed"
     }
   ]
 }
