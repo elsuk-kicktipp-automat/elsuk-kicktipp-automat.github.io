@@ -174,41 +174,939 @@
       "home": "Bayer 04 Leverkusen",
       "away": "VfB Stuttgart",
       "kickoff_utc": "2026-10-31T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "8cdf6444d9f18fe33243b65e721c022daf6668bcd45bdfe6fc2ce98670ec9061",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.428,
+      "factors": {
+        "expected_goals": [
+          2.09,
+          1.3
+        ],
+        "probabilities": {
+          "home": 0.557,
+          "draw": 0.215,
+          "away": 0.228
+        },
+        "raw_probabilities": {
+          "home": 0.52,
+          "draw": 0.214,
+          "away": 0.265
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.56,
+          "draw": 0.215,
+          "away": 0.225,
+          "weight": 0.926
+        },
+        "home_advantage": 0.23,
+        "trained_on_matches": 676,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Bayer Leverkusen gegen VfB Stuttgart - Bundesliga",
+              "description": "8. Spieltag: Anpfiff des Spiels ist am 31.10.2026 um 15:30 Uhr. VfB Stuttgart spielt in Leverkusen.",
+              "published": "2026-10-31T15:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/bayer-leverkusen-gegen-vfb-stuttgart,audiostream-bayer-leverkusen-gegen-vfb-stuttgart-110.html"
+            },
+            {
+              "title": "VfB-Frauen ziehen souverän ins Pokal-Viertelfinale ein",
+              "description": "Die Fußballerinnen des VfB Stuttgart haben ihr Achtelfinale im DFB-Pokal gewonnen. Die Schwäbinnen besiegten die SGS Essen.",
+              "published": "2026-10-30T20:09:07+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/regional/swr/swr-vfb-frauen-ziehen-souveraen-ins-pokal-viertelfinale-ein-100.html"
+            },
+            {
+              "title": "VfB Stuttgart: Angelo Stiller verletzt, Chema verkauft: Hoeneß hat ein Mittelfeld-Problem",
+              "description": "VfB Stuttgart, Fußball, Hoeneß Sebastian, Wohlgemuth Fabian, Wehrle Alexander, Sport - Leuchtturm München, Stiller Angelo",
+              "published": "2026-10-30T17:23:23+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-angelo-stiller-verletzt-chema-verkauft-hoeness-hat-ein-mittelfeld-problem-6adf38788e175153b6abf9b8"
+            },
+            {
+              "title": "VfB Stuttgart: Bloß nicht „bodenlos“ bei Bayer: Stuttgart droht ein Abstiegsplatz",
+              "description": "VfB Stuttgart, Fußball, Hoeneß Sebastian, Wohlgemuth Fabian, erste Bundesliga, Sport - Leuchtturm München",
+              "published": "2026-10-30T15:23:59+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-bloss-nicht-bodenlos-bei-bayer-stuttgart-droht-ein-abstiegsplatz-6ae485939cc46e5eac2c3956"
+            },
+            {
+              "title": "Champions League: So sehen Sie ein deutsches Spiel kostenlos",
+              "description": "Champions League, Fußball, FC Bayern München, DAZN, Borussia Dortmund, RB Leipzig, VfB Stuttgart, Amazon Prime, Galatasaray Istanbul, Atlético Madrid, Betis Sevilla, Manchester City, FC Barcelona, Paris Saint-Germain, Aufmacher-Bereich",
+              "published": "2026-10-30T13:59:54+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/champions-league-so-sehen-sie-ein-deutsches-spiel-kostenlos-6ae483a3bfb85e617afeaef8"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 7
+            }
+          ],
+          "total_matches": 9,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": {
+          "tip": [
+            2,
+            0
+          ],
+          "grund": "Stuttgarts Mittelfeld-Schlüsselspieler Angelo Stiller fällt verletzt aus, Chema wurde verkauft, was die Offensive schwächt.",
+          "news_count": 5,
+          "applied": false
+        },
+        "llm_usage": {
+          "input_tokens": 2857,
+          "output_tokens": 735,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1433,
+              "output_tokens": 276
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1424,
+              "output_tokens": 459
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "2:1 für die Werkself, und zwar mit breiter Brust: In der BayArena ist Leverkusen klarer Favorit, mehr als jedes zweite Mal sollte hier ein Heimsieg herausspringen. Die Schwaben mit dem roten Brustring reisen trotzdem nicht als Kanonenfutter an den Rhein, gut zwei Tore für Bayer und mehr als eins für Stuttgart riechen nach einem munteren Hin und Her statt nach einem Abnutzungskampf. Dass beim VfB ausgerechnet Angelo Stiller verletzt im Mittelfeld fehlt und mit Chema eine weitere Offensivkraft verkauft wurde, könnte sogar zu einer weißen Weste für Bayer reichen. Ich bleibe aber dabei: Die Schwaben treffen einmal, und die Werkself zieht trotzdem davon.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ],
+        "llm_adjusted": [
+          2,
+          0
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.65,
+        "model_probability": 0.5201,
+        "implied_probability": 0.6061,
+        "edge": -0.1418,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Bayer 04 Leverkusen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.65,
+          "model_probability": 0.5201,
+          "implied_probability": 0.6061,
+          "edge": -0.1418,
+          "expected_value_eur": -2.09,
+          "stake_eur": 14.72,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "7b956328812f1218c54e82b9d9066068"
     },
     {
       "home": "Borussia Mönchengladbach",
       "away": "SC Paderborn 07",
       "kickoff_utc": "2026-10-31T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "dc1aa348760a287be383bd251bec6add0ca2920648294020383e92fe3e71fa42",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.186,
+      "factors": {
+        "expected_goals": [
+          1.58,
+          1.28
+        ],
+        "probabilities": {
+          "home": 0.44,
+          "draw": 0.254,
+          "away": 0.306
+        },
+        "raw_probabilities": {
+          "home": 0.448,
+          "draw": 0.296,
+          "away": 0.256
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.439,
+          "draw": 0.251,
+          "away": 0.31,
+          "weight": 0.926
+        },
+        "home_advantage": 0.23,
+        "trained_on_matches": 676,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Borussia Mönchengladbach gegen SC Paderborn 07 - Bundesliga",
+              "description": "8. Spieltag: Anpfiff des Spiels ist am 31.10.2026 um 15:30 Uhr. SC Paderborn 07 spielt in Mönchengladbach.",
+              "published": "2026-10-31T15:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/borussia-moenchengladbach-gegen-sc-paderborn-07,audiostream-borussia-moenchengladbach-gegen-sc-paderborn-07-102.html"
+            },
+            {
+              "title": "Borussia Mönchengladbach: Verbot von Alexander Blessin für die Serie",
+              "description": "Borussia Mönchengladbach, Blessin Alexander, Hochrainer Sebastian, SC Paderborn 07, Fußball, Bundesliga, Sport – Leuchtturm Essen",
+              "published": "2026-10-31T09:30:21+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/borussia-moenchengladbach-verbot-von-alexander-blessin-fuer-die-serie-6ae4c6962222e5e68793de7c"
+            },
+            {
+              "title": "Borussia Mönchengladbach: Jens Castrop mit Achterbahnfahrt",
+              "description": "erste Bundesliga, Borussia Mönchengladbach, Castrop Jens, Neuhaus Florian, Sport – Leuchtturm Essen, Paderborn, SC Paderborn 07, Stadion im Borussia-Park",
+              "published": "2026-10-31T06:01:19+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/borussia-moenchengladbach-jens-castrop-mit-achterbahnfahrt-6ae4d43aaedea8cd9ffbe87a"
+            },
+            {
+              "title": "Alle Infos zum 8. Bundesliga-Spieltag: 4 Bayern-Stars fallen aus",
+              "description": "Borussia Dortmund, Bayer Leverkusen, 1899 Hoffenheim, FC Bayern München, Hamburger SV, Eintracht Frankfurt, 1. FC Köln, 1. FC Union Berlin, SC Paderborn 07, Werder Bremen, SC Freiburg, Mainz 05",
+              "published": "2026-10-30T16:29:37+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/alle-infos-zum-8-bundesliga-spieltag-4-bayern-stars-fallen-aus-6ae4548daacefa08f5b9907d"
+            },
+            {
+              "title": "FC Bayern (noch) ohne Chance? Wie Wael Mohya über seine Zukunft denkt",
+              "description": "Borussia Mönchengladbach, Hochrainer Sebastian, Mohya Wael, Blessin Alexander, Schröder Rouven, Bundesliga, Fußball, Sport – Leuchtturm Essen",
+              "published": "2026-10-30T12:00:00+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-bei-wael-mohya-noch-ohne-chance-was-fuer-gladbach-spricht-6ae363bf553cb90dda6c4ddc"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 7
+            }
+          ],
+          "total_matches": 8,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2767,
+          "output_tokens": 635,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1435,
+              "output_tokens": 230
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1332,
+              "output_tokens": 405
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "2:1 für die Fohlen: Am Borussia-Park dürfen sich die Gladbacher Fans auf einen Heimsieg freuen, aber bitte ohne Champagner kaltzustellen, denn Favorit sind die Schwarz-Weiß-Grünen nur mit einer knappen Nasenlänge. Die Ostwestfalen aus Paderborn reisen nicht zum Kaffeetrinken an den Niederrhein, sie bringen genug Offensivdrang mit, um selbst einzunetzen. Gut zweieinhalb Tore liegen in der Luft, also eher munterer Schlagabtausch als zäher Abnutzungskampf. Am Ende sollte die Borussia mit ihrem Heimpublikum im Rücken das eine Tor mehr schießen, mehr als eine kleine Ecke Vorsprung hat sie aber nicht.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Borussia Mönchengladbach gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.15,
+        "model_probability": 0.4479,
+        "implied_probability": 0.4651,
+        "edge": -0.037,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Borussia Mönchengladbach gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 2.15,
+          "model_probability": 0.4479,
+          "implied_probability": 0.4651,
+          "edge": -0.037,
+          "expected_value_eur": -0.39,
+          "stake_eur": 10.6,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "27203f032dc63a9bac70aa07e85865ed"
     },
     {
       "home": "FC Augsburg",
       "away": "SC Freiburg",
       "kickoff_utc": "2026-10-31T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "8151d62598c961367e9a1537968535b3026e4d146d5878b2dc73a9b261170f9b",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.138,
+      "factors": {
+        "expected_goals": [
+          1.38,
+          1.59
+        ],
+        "probabilities": {
+          "home": 0.329,
+          "draw": 0.25,
+          "away": 0.421
+        },
+        "raw_probabilities": {
+          "home": 0.393,
+          "draw": 0.247,
+          "away": 0.36
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.324,
+          "draw": 0.251,
+          "away": 0.426,
+          "weight": 0.926
+        },
+        "home_advantage": 0.23,
+        "trained_on_matches": 676,
+        "news_checked": 4,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: FC Augsburg gegen SC Freiburg - Bundesliga",
+              "description": "8. Spieltag: Anpfiff des Spiels ist am 31.10.2026 um 15:30 Uhr. SC Freiburg spielt in Augsburg.",
+              "published": "2026-10-31T15:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/fc-augsburg-gegen-sc-freiburg,audiostream-fc-augsburg-gegen-sc-freiburg-108.html"
+            },
+            {
+              "title": "Alle Infos zum 8. Bundesliga-Spieltag: 4 Bayern-Stars fallen aus",
+              "description": "Borussia Dortmund, Bayer Leverkusen, 1899 Hoffenheim, FC Bayern München, Hamburger SV, Eintracht Frankfurt, 1. FC Köln, 1. FC Union Berlin, SC Paderborn 07, Werder Bremen, SC Freiburg, Mainz 05",
+              "published": "2026-10-30T16:29:37+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/alle-infos-zum-8-bundesliga-spieltag-4-bayern-stars-fallen-aus-6ae4548daacefa08f5b9907d"
+            },
+            {
+              "title": "Eintracht Frankfurt: Wichtige Transfer-Klausel enthüllt!",
+              "description": "erste Bundesliga, Atubolu Noah, Eintracht Frankfurt, Bundesliga, SC Freiburg, Sport - Leuchtturm Zentral, super-a-teaser, Aufmacher-Bereich",
+              "published": "2026-10-30T13:53:44+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-transfer-klausel-bei-torwart-atubolu-enthuellt-6ae46621a4ede285fb3059d4"
+            },
+            {
+              "title": "SC Freiburg: Super-Japaner erklärt seine Gewinner-Frisur",
+              "description": "SC Freiburg, erste Bundesliga, Fußball, Schuster Julian, Sport - Leuchtturm Zentral",
+              "published": "2026-10-29T14:26:50+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/sc-freiburg-super-japaner-erklaert-seine-gewinner-frisur-6ae32eecec13b5a805f8af5c"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 3
+            }
+          ],
+          "total_matches": 4,
+          "returned": 4,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2580,
+          "output_tokens": 341,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1263,
+              "output_tokens": 91
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1317,
+              "output_tokens": 250
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Ich tippe 1:2 für die Breisgauer, denn wer von der Dreisam an den Lech fährt, hat hier die etwas besseren Karten, ohne dass es ein Spaziergang wird. Rund 42 Prozent sprechen für den Sportclub, das ist ein leichter Vorteil und keine Machtdemonstration. Die Fuggerstädter in Rot-Grün-Weiß werden in ihrer Arena alles reinwerfen, und Tore auf beiden Seiten darf man erwarten. Am Ende traue ich Freiburg aber den einen Treffer mehr zu, und die Augsburger dürfen sich zumindest über ein Tor fürs Vereinsheim freuen.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "SC Freiburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.25,
+        "model_probability": 0.3598,
+        "implied_probability": 0.4444,
+        "edge": -0.1904,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "SC Freiburg gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 2.25,
+          "model_probability": 0.3598,
+          "implied_probability": 0.4444,
+          "edge": -0.1904,
+          "expected_value_eur": -1.06,
+          "stake_eur": 5.56,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "9ef70492f7f8187ac1d702102598eb3e"
     },
     {
       "home": "FC Schalke 04",
       "away": "RB Leipzig",
       "kickoff_utc": "2026-10-31T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "f95d42fc8dc2c0d3bfcde412a2a8e8afa61b0410b8acb0590f6f9f5125361eae",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        0,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.364,
+      "factors": {
+        "expected_goals": [
+          1.08,
+          1.69
+        ],
+        "probabilities": {
+          "home": 0.238,
+          "draw": 0.248,
+          "away": 0.514
+        },
+        "raw_probabilities": {
+          "home": 0.214,
+          "draw": 0.348,
+          "away": 0.438
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.239,
+          "draw": 0.24,
+          "away": 0.52,
+          "weight": 0.926
+        },
+        "home_advantage": 0.23,
+        "trained_on_matches": 676,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: FC Schalke 04 gegen RB Leipzig - Bundesliga",
+              "description": "8. Spieltag: Anpfiff des Spiels ist am 31.10.2026 um 15:30 Uhr. RB Leipzig spielt in Gelsenkirchen.",
+              "published": "2026-10-31T15:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/fc-schalke-04-gegen-rb-leipzig,audiostream-fc-schalke-04-gegen-rb-leipzig-104.html"
+            },
+            {
+              "title": "RB Leipzig: Bittere Schalke-Rückkehr für DFB-Juwel Ouédraogo",
+              "description": "RB Leipzig, erste Bundesliga, Sport-Tag im Ticker, Fußball, Sport - Leuchtturm Leipzig, Ouedraogo Assan, Demichelis Martin, Schäfer Marcel",
+              "published": "2026-10-31T06:06:19+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/rb-leipzig-bittere-schalke-rueckkehr-fuer-dfb-juwel-ouedraogo-6ae484b9bfb85e617afeaf2e"
+            },
+            {
+              "title": "RB Leipzig: Dauerbrenner! Vertrag endet 2027! Der Plan mit Willi Orban",
+              "description": "RB Leipzig, erste Bundesliga, Sport-Tag im Ticker, Demichelis Martin, spielertransfer, Sport - Leuchtturm Leipzig, Orban Willi, Schäfer Marcel",
+              "published": "2026-10-30T21:49:58+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/rb-leipzig-dauerbrenner-vertrag-endet-2027-der-plan-mit-willi-orban-6ae447ceaacefa08f5b98f5d"
+            },
+            {
+              "title": "Champions League: So sehen Sie ein deutsches Spiel kostenlos",
+              "description": "Champions League, Fußball, FC Bayern München, DAZN, Borussia Dortmund, RB Leipzig, VfB Stuttgart, Amazon Prime, Galatasaray Istanbul, Atlético Madrid, Betis Sevilla, Manchester City, FC Barcelona, Paris Saint-Germain, Aufmacher-Bereich",
+              "published": "2026-10-30T13:59:54+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/champions-league-so-sehen-sie-ein-deutsches-spiel-kostenlos-6ae483a3bfb85e617afeaef8"
+            },
+            {
+              "title": "Oha!: Muslic-Lob an Erzrivalen",
+              "description": "Hochkant BILD-Video intern, Bundesliga, erste Bundesliga, Pressekonferenz, FC Schalke, Muslic Miron, RB Leipzig",
+              "published": "2026-10-30T13:50:32+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/oha-muslic-lob-an-erzrivalen-6ae4918d3620137294c24786"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 7
+            }
+          ],
+          "total_matches": 8,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2730,
+          "output_tokens": 396,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1410,
+              "output_tokens": 150
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1320,
+              "output_tokens": 246
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Mein Tipp für Gelsenkirchen: 0:1, die Roten Bullen nehmen die drei Punkte aus der Arena mit. Leipzig geht als klarer Favorit in dieses Duell, mit gut 50 Prozent Siegchance ist das mehr als nur ein leichter Vorteil. Die Knappen werden sich vor der eigenen blau-weißen Wand reinhängen, wie man das im Pott eben macht, aber für ein Torfestival fehlt ihnen vorne der Punch. Ein zäher Arbeitssieg der Gäste mit einem einzigen Treffer, und auf Schalke wird anschließend wieder über die Chancenverwertung geflucht.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "RB Leipzig gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.8,
+        "model_probability": 0.4381,
+        "implied_probability": 0.5556,
+        "edge": -0.2115,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "RB Leipzig gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.8,
+          "model_probability": 0.4381,
+          "implied_probability": 0.5556,
+          "edge": -0.2115,
+          "expected_value_eur": -2.12,
+          "stake_eur": 10.03,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "bb4ddcf24b2bb9ca45dbd7d329f7230a"
     },
     {
       "home": "SV Werder Bremen",
       "away": "TSG Hoffenheim",
       "kickoff_utc": "2026-10-31T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "04205e806a3343d007ba81e36502527913b7a98add7bb61b75cda6361ad49944",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.046,
+      "factors": {
+        "expected_goals": [
+          1.58,
+          1.55
+        ],
+        "probabilities": {
+          "home": 0.384,
+          "draw": 0.245,
+          "away": 0.371
+        },
+        "raw_probabilities": {
+          "home": 0.393,
+          "draw": 0.232,
+          "away": 0.375
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.384,
+          "draw": 0.246,
+          "away": 0.371,
+          "weight": 0.926
+        },
+        "home_advantage": 0.23,
+        "trained_on_matches": 676,
+        "news_checked": 3,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Werder Bremen gegen TSG Hoffenheim - Bundesliga",
+              "description": "8. Spieltag: Anpfiff des Spiels ist am 31.10.2026 um 15:30 Uhr. TSG Hoffenheim spielt in Bremen.",
+              "published": "2026-10-31T15:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/werder-bremen-gegen-tsg-hoffenheim,audiostream-werder-bremen-gegen-tsg-hoffenheim-100.html"
+            },
+            {
+              "title": "Wadenbein-Bruch: Verteidiger Gendrey fällt TSG Hoffenheim lange aus",
+              "description": "1899 Hoffenheim, erste Bundesliga, Spielbericht, Fußball, DFB, DFB Pokal, Kieler SV Holstein, Sport - Leuchtturm Zentral",
+              "published": "2026-10-30T14:09:13+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/wadenbein-bruch-verteidiger-gendrey-faellt-tsg-hoffenheim-lange-aus-6ae46fae07389cfdaeb52cde"
+            },
+            {
+              "title": "TSG Hoffenheim: Ilzer rechnet nach Pokal-Blamage ab!",
+              "description": "1899 Hoffenheim, erste Bundesliga, Fußball, Kramaric Andrej, spielertransfer, Sport - Leuchtturm Zentral",
+              "published": "2026-10-29T15:05:43+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/tsg-hoffenheim-ilzer-rechnet-nach-pokal-blamage-ab-6ae34d1917b020aa62e903f8"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 2
+            }
+          ],
+          "total_matches": 3,
+          "returned": 3,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2454,
+          "output_tokens": 661,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1127,
+              "output_tokens": 375
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1327,
+              "output_tokens": 286
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Ich tippe 2:1 für Werder, aber ehrlich gesagt ist das hier eine Kiste auf Messers Schneide: 38 zu 37 Prozent, enger geht's kaum, da entscheidet am Ende vielleicht ein abgefälschter Ball oder der Heimvorteil an der Weser. Beide Teams dürften jeweils um die anderthalb Tore im Köfferchen haben, also eher kein Abnutzungskampf, sondern ein munteres Hin und Her, bei dem keiner hinten dicht macht. Wenn das Weserstadion die Grün-Weißen nach vorne peitscht, kann das genau den einen Treffer Unterschied ausmachen, aber wer die Kraichgauer abschreibt, hat am Ende ganz schnell ein langes Gesicht.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SV Werder Bremen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.45,
+        "model_probability": 0.393,
+        "implied_probability": 0.4082,
+        "edge": -0.0371,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "SV Werder Bremen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 2.45,
+          "model_probability": 0.393,
+          "implied_probability": 0.4082,
+          "edge": -0.0371,
+          "expected_value_eur": -0.28,
+          "stake_eur": 7.46,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "5b5161d1c741a8c8774bacf83455ecab"
     },
     {
       "home": "FC Bayern München",
