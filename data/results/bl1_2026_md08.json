@@ -4,28 +4,28 @@
   "matchday": 8,
   "stage": "8. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 0,
-  "matches_scored": 1,
-  "matches_open": 6,
+  "points_total": 8,
+  "matches_scored": 5,
+  "matches_open": 2,
   "hits": {
-    "exact": 0,
+    "exact": 1,
     "goal_diff": 0,
-    "tendency": 0,
-    "miss": 1
+    "tendency": 2,
+    "miss": 2
   },
   "shadow_points": {
-    "most_probable": 0,
-    "elo_favorite": 2,
-    "always_draw": 0,
+    "most_probable": 2,
+    "elo_favorite": 4,
+    "always_draw": 2,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 1,
-    "elo_favorite": 1,
-    "always_draw": 1,
+    "most_probable": 5,
+    "elo_favorite": 5,
+    "always_draw": 5,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.7566,
+  "brier_avg": 0.6076,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 5.0,
-      "payout_total_eur": 0.0,
-      "profit_total_eur": -5.0,
-      "roi": -1.0,
-      "bets_scored": 1,
-      "bets_won": 0,
+      "stake_total_eur": 38.65,
+      "payout_total_eur": 48.84,
+      "profit_total_eur": 10.19,
+      "roi": 0.2636,
+      "bets_scored": 5,
+      "bets_won": 3,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -114,25 +114,221 @@
       "home": "Borussia Mönchengladbach",
       "away": "SC Paderborn 07",
       "kickoff_utc": "2026-10-31T14:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        0,
+        0
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 0,
+        "always_draw": 2
+      },
+      "brier": 0.8438,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Borussia Mönchengladbach gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.15,
+        "model_probability": 0.4479,
+        "implied_probability": 0.4651,
+        "edge": -0.037,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 10.6,
+          "payout_eur": 0.0,
+          "profit_eur": -10.6
+        }
+      }
     },
     {
       "home": "FC Augsburg",
       "away": "SC Freiburg",
       "kickoff_utc": "2026-10-31T14:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        1,
+        2
+      ],
+      "points": 4,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.506,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "SC Freiburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.25,
+        "model_probability": 0.3598,
+        "implied_probability": 0.4444,
+        "edge": -0.1904,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 5.56,
+          "payout_eur": 12.51,
+          "profit_eur": 6.95
+        }
+      }
     },
     {
       "home": "FC Schalke 04",
       "away": "RB Leipzig",
       "kickoff_utc": "2026-10-31T14:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        0,
+        1
+      ],
+      "result": [
+        0,
+        2
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.3543,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "RB Leipzig gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.8,
+        "model_probability": 0.4381,
+        "implied_probability": 0.5556,
+        "edge": -0.2115,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 10.03,
+          "payout_eur": 18.05,
+          "profit_eur": 8.02
+        }
+      }
     },
     {
       "home": "SV Werder Bremen",
       "away": "TSG Hoffenheim",
       "kickoff_utc": "2026-10-31T14:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        2,
+        0
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 2,
+        "always_draw": 0
+      },
+      "brier": 0.5771,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SV Werder Bremen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.45,
+        "model_probability": 0.393,
+        "implied_probability": 0.4082,
+        "edge": -0.0371,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 7.46,
+          "payout_eur": 18.28,
+          "profit_eur": 10.82
+        }
+      }
     },
     {
       "home": "FC Bayern München",
