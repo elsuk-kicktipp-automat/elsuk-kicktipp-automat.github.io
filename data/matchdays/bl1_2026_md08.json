@@ -1305,6 +1305,14 @@
       "status": "sealed",
       "hash": "3c22d08ff8ac9183fff7be1e9a8bd9ea589df40f2323d5bef3c0ab81c3cad986",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "Eintracht Frankfurt",
+      "away": "Hamburger SV",
+      "kickoff_utc": "2026-11-01T16:30:00Z",
+      "status": "sealed",
+      "hash": "55a5b43e248dd02779599d56f5d355fa681a81d7ec1c02aaa18b745933bc5b31",
+      "paper_bet_status": "sealed"
     }
   ]
 }
