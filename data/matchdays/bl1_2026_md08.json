@@ -1492,9 +1492,203 @@
       "home": "Eintracht Frankfurt",
       "away": "Hamburger SV",
       "kickoff_utc": "2026-11-01T16:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "55a5b43e248dd02779599d56f5d355fa681a81d7ec1c02aaa18b745933bc5b31",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.557,
+      "factors": {
+        "expected_goals": [
+          2.18,
+          1.12
+        ],
+        "probabilities": {
+          "home": 0.617,
+          "draw": 0.204,
+          "away": 0.179
+        },
+        "raw_probabilities": {
+          "home": 0.575,
+          "draw": 0.219,
+          "away": 0.207
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.62,
+          "draw": 0.203,
+          "away": 0.177,
+          "weight": 0.931
+        },
+        "home_advantage": 0.221,
+        "trained_on_matches": 682,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Eintracht Frankfurt gegen Hamburger SV Live im Audiostream",
+              "description": "8. Spieltag: Anpfiff des Spiels ist am 01.11.2026 um 17:30 Uhr. Hamburger SV spielt in Frankfurt am Main.",
+              "published": "2026-11-01T17:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/eintracht-frankfurt-gegen-hamburger-sv,audiostream-eintracht-frankfurt-gegen-hamburger-sv-102.html"
+            },
+            {
+              "title": "HSV: Star-Ausfall gegen Frankfurt! Bittere Nachricht vorm Anpfiff",
+              "description": "Hamburger SV, erste Bundesliga, Polzin Merlin, Vieira Fabio, Bundesliga, Bornauw Sebastiaan, Torunarigha Jordan, Bissi-Mouelle Jason",
+              "published": "2026-11-01T13:22:12+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-star-ausfall-gegen-frankfurt-bittere-nachricht-vorm-anpfiff-6ae7216a82dfc5c67ce5a3b1"
+            },
+            {
+              "title": "Eintracht Frankfurt: Warum Präsident Beck ein Meisterstück gelang",
+              "description": "Eintracht Frankfurt, erste Bundesliga, Krösche Markus, Hellmann Axel, Hütter Adi, Sport - Leuchtturm Zentral, Chatzialexiou Joti, Toppmöller Dino, Trapp Kevin",
+              "published": "2026-11-01T12:58:00+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-warum-praesident-beck-ein-meisterstueck-gelang-6ae713656a5ed9f2131344eb"
+            },
+            {
+              "title": "Abraha wandelt bei der TSG auf Süles Spuren",
+              "description": "Im Sommer 2025 war Juniorennationalspieler Natnael Abraha (18) aus dem Nachwuchs von Eintracht Frankfurt nach Hoffenheim gewechselt. Am Samstag feierte das Talent sein Bundesligadebüt und folgt damit dem Weg eines berühmten Vorgängers.",
+              "published": "2026-11-01T10:47:04+00:00",
+              "source": "kicker",
+              "source_label": "Kicker",
+              "url": "https://www.kicker.de/abraha-wandelt-bei-der-tsg-auf-sueles-spuren-1267337/artikel#omrss"
+            },
+            {
+              "title": "Eintracht Frankfurt: Klartext von Trainer Adi Hütter",
+              "description": "Eintracht Frankfurt, erste Bundesliga, Bundesliga, Hütter Adi, Uzun Can, Koch Robin, Sport - Leuchtturm Zentral, Kompany Vincent",
+              "published": "2026-11-01T05:00:26+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-klartext-von-trainer-adi-huetter-6ae5e4e1aedea8cd9ffbf583"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 19
+            }
+          ],
+          "total_matches": 21,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": {
+          "tip": [
+            2,
+            0
+          ],
+          "grund": "Laut Bild fällt beim HSV kurz vor dem Spiel ein Star aus, wahrscheinlich Fabio Vieira, was die Offensive schwächt.",
+          "news_count": 5,
+          "applied": false
+        },
+        "llm_usage": {
+          "input_tokens": 2836,
+          "output_tokens": 793,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1424,
+              "output_tokens": 314
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1412,
+              "output_tokens": 479
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Ich tippe 2:1 für die Eintracht, und zwar ohne großes Zittern. Im Frankfurter Waldstadion sind die Adler klarer Favorit, gut sechs von zehn Mal geht so ein Abend an die Hausherren. Der HSV wird aber nicht nur zum Zuschauen an den Main gereist sein, und dass die Rothosen einen Treffer mitnehmen, gehört zum Gesamtbild. Laut Bild fehlt den Hamburgern kurzfristig ein Star, was nach einem Zu-null-Abend riechen könnte, aber ich bleibe beim 2:1 und lasse dem Dino seinen Ehrentreffer.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ],
+        "llm_adjusted": [
+          2,
+          0
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Eintracht Frankfurt gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 22,
+        "odds_decimal": 1.5,
+        "model_probability": 0.5746,
+        "implied_probability": 0.6667,
+        "edge": -0.1381,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Eintracht Frankfurt gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 22,
+          "odds_decimal": 1.5,
+          "model_probability": 0.5746,
+          "implied_probability": 0.6667,
+          "edge": -0.1381,
+          "expected_value_eur": -2.46,
+          "stake_eur": 17.83,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "832613a56c026a5b18daa6c7276fd439"
     }
   ]
 }
