@@ -1297,6 +1297,14 @@
         }
       },
       "salt": "c1975c5d559cc51602a72bbfc922a23c"
+    },
+    {
+      "home": "1. FC Union Berlin",
+      "away": "1. FC Köln",
+      "kickoff_utc": "2026-11-01T14:30:00Z",
+      "status": "sealed",
+      "hash": "3c22d08ff8ac9183fff7be1e9a8bd9ea589df40f2323d5bef3c0ab81c3cad986",
+      "paper_bet_status": "sealed"
     }
   ]
 }
