@@ -5,27 +5,27 @@
   "stage": "8. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 8,
-  "matches_scored": 7,
-  "matches_open": 2,
+  "matches_scored": 8,
+  "matches_open": 1,
   "hits": {
     "exact": 1,
     "goal_diff": 0,
     "tendency": 2,
-    "miss": 4
+    "miss": 5
   },
   "shadow_points": {
-    "most_probable": 2,
+    "most_probable": 6,
     "elo_favorite": 4,
-    "always_draw": 4,
+    "always_draw": 8,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 7,
-    "elo_favorite": 7,
-    "always_draw": 7,
+    "most_probable": 8,
+    "elo_favorite": 8,
+    "always_draw": 8,
     "llm_adjusted": 1
   },
-  "brier_avg": 0.7453,
+  "brier_avg": 0.7526,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,11 +39,11 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 75.8,
+      "stake_total_eur": 80.8,
       "payout_total_eur": 48.84,
-      "profit_total_eur": -26.96,
-      "roi": -0.3557,
-      "bets_scored": 7,
+      "profit_total_eur": -31.96,
+      "roi": -0.3955,
+      "bets_scored": 8,
       "bets_won": 3,
       "bankroll_start_eur": 1000.0
     }
@@ -439,7 +439,56 @@
       "home": "1. FC Union Berlin",
       "away": "1. FC Köln",
       "kickoff_utc": "2026-11-01T14:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        0,
+        1
+      ],
+      "result": [
+        1,
+        1
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 4,
+        "elo_favorite": 0,
+        "always_draw": 4
+      },
+      "brier": 0.8037,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "1. FC Köln gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 22,
+        "odds_decimal": 2.5,
+        "model_probability": 0.3238,
+        "implied_probability": 0.4,
+        "edge": -0.1904,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 5.0,
+          "payout_eur": 0.0,
+          "profit_eur": -5.0
+        }
+      }
     },
     {
       "home": "Eintracht Frankfurt",
