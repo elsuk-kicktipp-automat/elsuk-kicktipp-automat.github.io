@@ -139,6 +139,11 @@
     },
     {
       "home_key": "eintrachtfrankfurt",
+      "away_key": "hamburgersv",
+      "verified_at_utc": "2026-11-01T12:32:02Z"
+    },
+    {
+      "home_key": "eintrachtfrankfurt",
       "away_key": "scfreiburg",
       "verified_at_utc": "2026-09-19T09:32:39Z"
     },
