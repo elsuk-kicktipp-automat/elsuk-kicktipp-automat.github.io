@@ -568,6 +568,11 @@
       "stage": "12. Spieltag",
       "matches": [
         {
+          "home": "FC Bayern München",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2026-12-04T19:30:00Z"
+        },
+        {
           "home": "1. FC Union Berlin",
           "away": "Hamburger SV",
           "kickoff_utc": "2026-12-05T14:30:00Z"
@@ -578,23 +583,8 @@
           "kickoff_utc": "2026-12-05T14:30:00Z"
         },
         {
-          "home": "Eintracht Frankfurt",
-          "away": "SV Werder Bremen",
-          "kickoff_utc": "2026-12-05T14:30:00Z"
-        },
-        {
           "home": "FC Augsburg",
           "away": "1. FC Köln",
-          "kickoff_utc": "2026-12-05T14:30:00Z"
-        },
-        {
-          "home": "FC Bayern München",
-          "away": "SC Paderborn 07",
-          "kickoff_utc": "2026-12-05T14:30:00Z"
-        },
-        {
-          "home": "FC Schalke 04",
-          "away": "Borussia Dortmund",
           "kickoff_utc": "2026-12-05T14:30:00Z"
         },
         {
@@ -608,9 +598,19 @@
           "kickoff_utc": "2026-12-05T14:30:00Z"
         },
         {
+          "home": "Eintracht Frankfurt",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2026-12-05T17:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2026-12-06T14:30:00Z"
+        },
+        {
           "home": "SV 07 Elversberg",
           "away": "VfB Stuttgart",
-          "kickoff_utc": "2026-12-05T14:30:00Z"
+          "kickoff_utc": "2026-12-06T16:30:00Z"
         }
       ]
     },
@@ -619,13 +619,13 @@
       "stage": "13. Spieltag",
       "matches": [
         {
-          "home": "1. FC Köln",
-          "away": "RB Leipzig",
-          "kickoff_utc": "2026-12-12T14:30:00Z"
+          "home": "Hamburger SV",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2026-12-11T19:30:00Z"
         },
         {
-          "home": "1. FSV Mainz 05",
-          "away": "SC Freiburg",
+          "home": "1. FC Köln",
+          "away": "RB Leipzig",
           "kickoff_utc": "2026-12-12T14:30:00Z"
         },
         {
@@ -634,34 +634,34 @@
           "kickoff_utc": "2026-12-12T14:30:00Z"
         },
         {
-          "home": "Borussia Mönchengladbach",
-          "away": "Eintracht Frankfurt",
-          "kickoff_utc": "2026-12-12T14:30:00Z"
-        },
-        {
-          "home": "Hamburger SV",
-          "away": "FC Schalke 04",
-          "kickoff_utc": "2026-12-12T14:30:00Z"
-        },
-        {
           "home": "SC Paderborn 07",
           "away": "SV 07 Elversberg",
-          "kickoff_utc": "2026-12-12T14:30:00Z"
-        },
-        {
-          "home": "SV Werder Bremen",
-          "away": "Bayer 04 Leverkusen",
-          "kickoff_utc": "2026-12-12T14:30:00Z"
-        },
-        {
-          "home": "TSG Hoffenheim",
-          "away": "FC Bayern München",
           "kickoff_utc": "2026-12-12T14:30:00Z"
         },
         {
           "home": "VfB Stuttgart",
           "away": "1. FC Union Berlin",
           "kickoff_utc": "2026-12-12T14:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2026-12-12T17:30:00Z"
+        },
+        {
+          "home": "1. FSV Mainz 05",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2026-12-13T14:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2026-12-13T16:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2026-12-13T18:30:00Z"
         }
       ]
     },
