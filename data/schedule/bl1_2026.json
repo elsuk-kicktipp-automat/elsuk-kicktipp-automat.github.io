@@ -670,9 +670,9 @@
       "stage": "14. Spieltag",
       "matches": [
         {
-          "home": "1. FC Union Berlin",
-          "away": "TSG Hoffenheim",
-          "kickoff_utc": "2026-12-19T14:30:00Z"
+          "home": "FC Bayern München",
+          "away": "SV Werder Bremen",
+          "kickoff_utc": "2026-12-18T19:30:00Z"
         },
         {
           "home": "1. FSV Mainz 05",
@@ -690,29 +690,29 @@
           "kickoff_utc": "2026-12-19T14:30:00Z"
         },
         {
-          "home": "FC Bayern München",
-          "away": "SV Werder Bremen",
-          "kickoff_utc": "2026-12-19T14:30:00Z"
-        },
-        {
-          "home": "FC Schalke 04",
-          "away": "Borussia Mönchengladbach",
+          "home": "SV 07 Elversberg",
+          "away": "Hamburger SV",
           "kickoff_utc": "2026-12-19T14:30:00Z"
         },
         {
           "home": "RB Leipzig",
           "away": "Borussia Dortmund",
-          "kickoff_utc": "2026-12-19T14:30:00Z"
+          "kickoff_utc": "2026-12-19T17:30:00Z"
         },
         {
           "home": "SC Freiburg",
           "away": "VfB Stuttgart",
-          "kickoff_utc": "2026-12-19T14:30:00Z"
+          "kickoff_utc": "2026-12-20T14:30:00Z"
         },
         {
-          "home": "SV 07 Elversberg",
-          "away": "Hamburger SV",
-          "kickoff_utc": "2026-12-19T14:30:00Z"
+          "home": "1. FC Union Berlin",
+          "away": "TSG Hoffenheim",
+          "kickoff_utc": "2026-12-20T16:30:00Z"
+        },
+        {
+          "home": "FC Schalke 04",
+          "away": "Borussia Mönchengladbach",
+          "kickoff_utc": "2026-12-20T18:30:00Z"
         }
       ]
     },
@@ -721,18 +721,13 @@
       "stage": "15. Spieltag",
       "matches": [
         {
-          "home": "1. FC Köln",
-          "away": "SC Freiburg",
-          "kickoff_utc": "2027-01-09T14:30:00Z"
-        },
-        {
           "home": "Borussia Dortmund",
           "away": "1. FSV Mainz 05",
-          "kickoff_utc": "2027-01-09T14:30:00Z"
+          "kickoff_utc": "2027-01-08T19:30:00Z"
         },
         {
-          "home": "Borussia Mönchengladbach",
-          "away": "FC Bayern München",
+          "home": "1. FC Köln",
+          "away": "SC Freiburg",
           "kickoff_utc": "2027-01-09T14:30:00Z"
         },
         {
@@ -741,18 +736,8 @@
           "kickoff_utc": "2027-01-09T14:30:00Z"
         },
         {
-          "home": "Hamburger SV",
-          "away": "Bayer 04 Leverkusen",
-          "kickoff_utc": "2027-01-09T14:30:00Z"
-        },
-        {
           "home": "SC Paderborn 07",
           "away": "RB Leipzig",
-          "kickoff_utc": "2027-01-09T14:30:00Z"
-        },
-        {
-          "home": "SV Werder Bremen",
-          "away": "1. FC Union Berlin",
           "kickoff_utc": "2027-01-09T14:30:00Z"
         },
         {
@@ -764,6 +749,21 @@
           "home": "VfB Stuttgart",
           "away": "FC Augsburg",
           "kickoff_utc": "2027-01-09T14:30:00Z"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2027-01-09T17:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-01-10T14:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "Bayer 04 Leverkusen",
+          "kickoff_utc": "2027-01-10T16:30:00Z"
         }
       ]
     },
@@ -772,13 +772,13 @@
       "stage": "16. Spieltag",
       "matches": [
         {
-          "home": "1. FC Köln",
-          "away": "Borussia Dortmund",
-          "kickoff_utc": "2027-01-12T19:30:00Z"
+          "home": "RB Leipzig",
+          "away": "VfB Stuttgart",
+          "kickoff_utc": "2027-01-12T17:30:00Z"
         },
         {
-          "home": "1. FC Union Berlin",
-          "away": "SC Paderborn 07",
+          "home": "1. FC Köln",
+          "away": "Borussia Dortmund",
           "kickoff_utc": "2027-01-12T19:30:00Z"
         },
         {
@@ -792,29 +792,29 @@
           "kickoff_utc": "2027-01-12T19:30:00Z"
         },
         {
+          "home": "SV 07 Elversberg",
+          "away": "Eintracht Frankfurt",
+          "kickoff_utc": "2027-01-13T17:30:00Z"
+        },
+        {
+          "home": "1. FC Union Berlin",
+          "away": "SC Paderborn 07",
+          "kickoff_utc": "2027-01-13T19:30:00Z"
+        },
+        {
           "home": "FC Bayern München",
           "away": "Bayer 04 Leverkusen",
-          "kickoff_utc": "2027-01-12T19:30:00Z"
+          "kickoff_utc": "2027-01-13T19:30:00Z"
         },
         {
           "home": "FC Schalke 04",
           "away": "SV Werder Bremen",
-          "kickoff_utc": "2027-01-12T19:30:00Z"
-        },
-        {
-          "home": "RB Leipzig",
-          "away": "VfB Stuttgart",
-          "kickoff_utc": "2027-01-12T19:30:00Z"
+          "kickoff_utc": "2027-01-13T19:30:00Z"
         },
         {
           "home": "SC Freiburg",
           "away": "Hamburger SV",
-          "kickoff_utc": "2027-01-12T19:30:00Z"
-        },
-        {
-          "home": "SV 07 Elversberg",
-          "away": "Eintracht Frankfurt",
-          "kickoff_utc": "2027-01-12T19:30:00Z"
+          "kickoff_utc": "2027-01-13T19:30:00Z"
         }
       ]
     },
@@ -823,9 +823,9 @@
       "stage": "17. Spieltag",
       "matches": [
         {
-          "home": "Bayer 04 Leverkusen",
-          "away": "FC Schalke 04",
-          "kickoff_utc": "2027-01-16T14:30:00Z"
+          "home": "VfB Stuttgart",
+          "away": "1. FSV Mainz 05",
+          "kickoff_utc": "2027-01-15T19:30:00Z"
         },
         {
           "home": "Borussia Dortmund",
@@ -838,11 +838,6 @@
           "kickoff_utc": "2027-01-16T14:30:00Z"
         },
         {
-          "home": "Eintracht Frankfurt",
-          "away": "FC Bayern München",
-          "kickoff_utc": "2027-01-16T14:30:00Z"
-        },
-        {
           "home": "Hamburger SV",
           "away": "FC Augsburg",
           "kickoff_utc": "2027-01-16T14:30:00Z"
@@ -853,19 +848,24 @@
           "kickoff_utc": "2027-01-16T14:30:00Z"
         },
         {
-          "home": "SV Werder Bremen",
-          "away": "SV 07 Elversberg",
-          "kickoff_utc": "2027-01-16T14:30:00Z"
-        },
-        {
           "home": "TSG Hoffenheim",
           "away": "RB Leipzig",
           "kickoff_utc": "2027-01-16T14:30:00Z"
         },
         {
-          "home": "VfB Stuttgart",
-          "away": "1. FSV Mainz 05",
-          "kickoff_utc": "2027-01-16T14:30:00Z"
+          "home": "Eintracht Frankfurt",
+          "away": "FC Bayern München",
+          "kickoff_utc": "2027-01-16T17:30:00Z"
+        },
+        {
+          "home": "SV Werder Bremen",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2027-01-17T14:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "FC Schalke 04",
+          "kickoff_utc": "2027-01-17T16:30:00Z"
         }
       ]
     },
@@ -874,18 +874,13 @@
       "stage": "18. Spieltag",
       "matches": [
         {
-          "home": "Bayer 04 Leverkusen",
-          "away": "SV 07 Elversberg",
-          "kickoff_utc": "2027-01-23T14:30:00Z"
+          "home": "SV Werder Bremen",
+          "away": "SC Freiburg",
+          "kickoff_utc": "2027-01-22T19:30:00Z"
         },
         {
           "home": "Borussia Mönchengladbach",
           "away": "RB Leipzig",
-          "kickoff_utc": "2027-01-23T14:30:00Z"
-        },
-        {
-          "home": "Eintracht Frankfurt",
-          "away": "1. FC Union Berlin",
           "kickoff_utc": "2027-01-23T14:30:00Z"
         },
         {
@@ -894,29 +889,34 @@
           "kickoff_utc": "2027-01-23T14:30:00Z"
         },
         {
-          "home": "Hamburger SV",
-          "away": "Borussia Dortmund",
-          "kickoff_utc": "2027-01-23T14:30:00Z"
-        },
-        {
           "home": "SC Paderborn 07",
           "away": "1. FSV Mainz 05",
-          "kickoff_utc": "2027-01-23T14:30:00Z"
-        },
-        {
-          "home": "SV Werder Bremen",
-          "away": "SC Freiburg",
-          "kickoff_utc": "2027-01-23T14:30:00Z"
-        },
-        {
-          "home": "TSG Hoffenheim",
-          "away": "1. FC Köln",
           "kickoff_utc": "2027-01-23T14:30:00Z"
         },
         {
           "home": "VfB Stuttgart",
           "away": "FC Bayern München",
           "kickoff_utc": "2027-01-23T14:30:00Z"
+        },
+        {
+          "home": "Hamburger SV",
+          "away": "Borussia Dortmund",
+          "kickoff_utc": "2027-01-23T17:30:00Z"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "1. FC Union Berlin",
+          "kickoff_utc": "2027-01-24T14:30:00Z"
+        },
+        {
+          "home": "Bayer 04 Leverkusen",
+          "away": "SV 07 Elversberg",
+          "kickoff_utc": "2027-01-24T16:30:00Z"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "1. FC Köln",
+          "kickoff_utc": "2027-01-24T18:30:00Z"
         }
       ]
     },
