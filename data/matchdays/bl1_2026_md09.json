@@ -1,0 +1,24 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "matchday": 9,
+  "stage": "9. Spieltag",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-11-06T15:31:17Z",
+  "matches": [
+    {
+      "home": "Hamburger SV",
+      "away": "Borussia Mönchengladbach",
+      "kickoff_utc": "2026-11-06T19:30:00Z",
+      "status": "sealed",
+      "hash": "2acfdadc0a581ddc96299597e2ce83589ea469582cd90b99fa6420e0c5bded85",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}
