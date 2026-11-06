@@ -1,8 +1,8 @@
 {
-  "updated_utc": "2026-11-01T18:31:06Z",
+  "updated_utc": "2026-11-06T21:30:57Z",
   "competition": "bl1",
   "season": 2026,
-  "scored_matches": 71,
+  "scored_matches": 72,
   "llm_trust": {
     "samples": 4,
     "min_samples": 10,
@@ -12,14 +12,14 @@
     "trusted": false
   },
   "market_weight": {
-    "samples": 69,
+    "samples": 70,
     "min_samples": 20,
     "default": 0.7,
     "best": 1.0,
     "applied": 0.933,
     "log_loss": {
-      "best": 1.0309,
-      "default": 1.0373
+      "best": 1.0292,
+      "default": 1.0357
     }
   }
 }
