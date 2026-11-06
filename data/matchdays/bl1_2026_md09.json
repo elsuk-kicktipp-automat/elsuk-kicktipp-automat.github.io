@@ -16,9 +16,191 @@
       "home": "Hamburger SV",
       "away": "Borussia Mönchengladbach",
       "kickoff_utc": "2026-11-06T19:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "2acfdadc0a581ddc96299597e2ce83589ea469582cd90b99fa6420e0c5bded85",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        0
+      ],
+      "advance_tip": null,
+      "expected_points": 1.114,
+      "factors": {
+        "expected_goals": [
+          1.38,
+          1.21
+        ],
+        "probabilities": {
+          "home": 0.402,
+          "draw": 0.274,
+          "away": 0.324
+        },
+        "raw_probabilities": {
+          "home": 0.385,
+          "draw": 0.267,
+          "away": 0.348
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.403,
+          "draw": 0.275,
+          "away": 0.322,
+          "weight": 0.933
+        },
+        "home_advantage": 0.223,
+        "trained_on_matches": 684,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Bundesliga: Star-Ausfall beim BVB! Alle Infos und Aufstellungen zum 9. Spieltag",
+              "description": "Borussia Dortmund, Bayer Leverkusen, 1899 Hoffenheim, FC Bayern München, VfL Wolfsburg, erste Bundesliga, Spieltag 9, Hamburger SV, Mainz 05, 1. FC Köln, VfB Stuttgart, SC Freiburg",
+              "published": "2026-11-06T16:30:35+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-star-ausfall-beim-bvb-alle-infos-und-aufstellungen-zum-9-spieltag-6aed8ce947b5fce02f879c94"
+            },
+            {
+              "title": "Ab 20.30 Uhr live - Krisenduell in Hamburg",
+              "description": "In der Bundesliga treffen am Freitagabend die Kellerkinder Hamburger SV und Borussia Mönchengladbach aufeinander. In er vergangenen Woche verlor der HSV zweimal gegen Eintracht Frankfurt - erst im Pokal, dann auch in der Liga.",
+              "published": "2026-11-06T15:02:25+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesliga/ma12193654/hamburger-sv_borussia-moenchengladbach/liveticker"
+            },
+            {
+              "title": "HSV-Profi darf nur noch Nationalelf spielen – Abschied steht bevor",
+              "description": "Hamburger SV, Pherai Immanuel, Polzin Merlin, zweite Bundesliga, erste Bundesliga, Sport - Leuchtturm Hamburg, Suriname, Tangvik Sander, Wolfe David Moller, Ouahdi Zakaria El, Daka Patson, Omari Warmed, Lemke Louis, Stange Otto, Muheim Miro, Gronbaek Albert, Regionalliga Nord",
+              "published": "2026-11-06T15:00:47+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-profi-darf-nur-noch-nationalelf-spielen-abschied-steht-bevor-6aec546409e0301c03e804c2"
+            },
+            {
+              "title": "Borussia Mönchengladbach: Endlich Hoffnung bei Tim Kleindienst",
+              "description": "Borussia Mönchengladbach, Kleindienst Tim, erste Bundesliga, Blessin Alexander, Sport – Leuchtturm Essen",
+              "published": "2026-11-06T12:52:58+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/blessin-nennt-comeback-zeitpunkt-endlich-hoffnung-bei-kleindienst-6aecf14947b5fce02f879848"
+            },
+            {
+              "title": "Neuling von Jürgen Klopp: BILD erklärt Super-Küken Wael Mohya",
+              "description": "Borussia Mönchengladbach, Hochrainer Sebastian, Krümpelmann Dirk, Hornung Christian, Klopp Jürgen, Nationalmannschaft, U21 Nationalmannschaft Deutschland, Bundesliga, Fußball, Sport – Leuchtturm Essen, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-11-06T08:28:17+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/neuling-von-juergen-klopp-bild-erklaert-super-kueken-wael-mohya-6aec85b793d31cdb1e6ce9d0"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 15
+            }
+          ],
+          "total_matches": 16,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2855,
+          "output_tokens": 487,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1551,
+              "output_tokens": 156
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1304,
+              "output_tokens": 331
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Ich tippe ein knappes 1:0 für den HSV, weil im Volksparkstadion die Rothosen den Hauch eines Vorteils haben – mehr aber auch nicht. Das ist ein Duell auf Augenhöhe zwischen zwei Traditionsklubs, bei dem die Fohlen vom Niederrhein mit rund einem Drittel Siegchance alles andere als Statisten sind. Bei grob 1,4 zu 1,2 Toren riecht das eher nach enger Kiste als nach Torfestival, und genau deshalb setze ich darauf, dass ein einziger Treffer reicht, um die Hamburger Kurve zum Beben zu bringen. Wer hier auf ein lockeres Schützenfest der Hausherren wettet, hat die Borussia unterschätzt – wer aber einen Punkt für Gladbach fest einplant, hat den Volkspark noch nie an einem guten Abend erlebt.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Hamburger SV gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.3,
+        "model_probability": 0.3852,
+        "implied_probability": 0.4348,
+        "edge": -0.114,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Hamburger SV gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 2.3,
+          "model_probability": 0.3852,
+          "implied_probability": 0.4348,
+          "edge": -0.114,
+          "expected_value_eur": -0.8,
+          "stake_eur": 7.01,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "ded49c7eb0aee58be466ba02923aa892"
     }
   ]
 }
