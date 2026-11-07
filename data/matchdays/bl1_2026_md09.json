@@ -966,9 +966,191 @@
       "home": "VfB Stuttgart",
       "away": "SV Werder Bremen",
       "kickoff_utc": "2026-11-07T17:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "182408f487d1d215d579e96670c30a5f24434281aa115218a2b685620253fcc0",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.341,
+      "factors": {
+        "expected_goals": [
+          1.97,
+          1.36
+        ],
+        "probabilities": {
+          "home": 0.516,
+          "draw": 0.226,
+          "away": 0.258
+        },
+        "raw_probabilities": {
+          "home": 0.622,
+          "draw": 0.197,
+          "away": 0.181
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.508,
+          "draw": 0.228,
+          "away": 0.264,
+          "weight": 0.933
+        },
+        "home_advantage": 0.226,
+        "trained_on_matches": 685,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: VfB Stuttgart gegen Werder Bremen - Bundesliga",
+              "description": "9. Spieltag: Anpfiff des Spiels ist am 07.11.2026 um 18:30 Uhr. Werder Bremen spielt in Stuttgart.",
+              "published": "2026-11-07T18:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/vfb-stuttgart-gegen-werder-bremen,audiostream-vfb-stuttgart-gegen-werder-bremen-108.html"
+            },
+            {
+              "title": "VfB Stuttgart - Hansi Müller: „Vielleicht belastet Deniz Undav die Kapitänsbinde“",
+              "description": "VfB Stuttgart, Fußball, Hoeneß Sebastian, Bundesliga, erste Bundesliga, Sport - Leuchtturm München, Müller Hansi, Undav Deniz",
+              "published": "2026-11-07T09:58:58+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-hansi-mueller-vielleicht-belastet-deniz-undav-die-kapitaensbinde-6aee5fe7a389bc337cfc8929"
+            },
+            {
+              "title": "Niko Kappel: Para-Star Kappel über sein neues Papa-Sein",
+              "description": "Paralympics, VfB Stuttgart, Olympia, Kugelstoßen, Sport - Leuchtturm München",
+              "published": "2026-11-07T09:55:58+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/niko-kappel-para-star-kappel-ueber-sein-neues-papa-sein-6aee6b1347b5fce02f87ad1c"
+            },
+            {
+              "title": "Bundesliga: Star-Ausfall beim BVB! Alle Infos und Aufstellungen zum 9. Spieltag",
+              "description": "Borussia Dortmund, Bayer Leverkusen, 1899 Hoffenheim, FC Bayern München, VfL Wolfsburg, erste Bundesliga, Spieltag 9, Hamburger SV, Mainz 05, 1. FC Köln, VfB Stuttgart, SC Freiburg",
+              "published": "2026-11-06T16:55:35+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-star-ausfall-beim-bvb-alle-infos-und-aufstellungen-zum-9-spieltag-6aed8ce947b5fce02f879c94"
+            },
+            {
+              "title": "VfB Stuttgart: Von wegen Torwart-Rotation: Plötzlich wird Sebastian Hoeneß deutlich",
+              "description": "VfB Stuttgart, Fußball, Bundesliga, Hoeneß Sebastian, erste Bundesliga, Sport - Leuchtturm München, Aufmacher-Bereich",
+              "published": "2026-11-06T14:36:29+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-von-wegen-torwart-rotation-ploetzlich-wird-sebastian-hoeness-deutlich-6aedb050a389bc337cfc7ca4"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 7
+            }
+          ],
+          "total_matches": 8,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2672,
+          "output_tokens": 372,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1370,
+              "output_tokens": 87
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1302,
+              "output_tokens": 285
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "2:1 für den VfB, so einfach ist das: Im Neckarstadion hat Stuttgart mit gut 50 Prozent Siegchance die Favoritenrolle klar in der Hand, auch wenn die Schwaben das Spiel nicht im Vorbeigehen erledigen werden. Werder bringt von der Weser genug Offensivgeist mit, um selbst einzunetzen, nach hinten dicht machen und auf Zeit spielen ist nicht das Bremer Ding. Vorne dürfte es auf beiden Seiten krachen, nur haben die Weiß-Roten etwas mehr Wucht im Abschluss. Am Ende jubelt der Wasen, und die Grün-Weißen fahren mit einem Tor im Gepäck, aber ohne Punkte zurück an die Küste.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "VfB Stuttgart gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.83,
+        "model_probability": 0.6224,
+        "implied_probability": 0.5464,
+        "edge": 0.1389,
+        "expected_value_eur": 5.81,
+        "stake_eur": 41.85,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.1674,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "VfB Stuttgart gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.83,
+          "model_probability": 0.6224,
+          "implied_probability": 0.5464,
+          "edge": 0.1389,
+          "expected_value_eur": 2.86,
+          "stake_eur": 20.56,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "6d216d53acbc5e4910cd8379d28bbfdd"
     }
   ]
 }
