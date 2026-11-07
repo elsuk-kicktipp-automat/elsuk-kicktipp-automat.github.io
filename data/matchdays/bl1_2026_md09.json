@@ -233,6 +233,14 @@
       "status": "sealed",
       "hash": "271af4de5f360316f98d7a5bc66c20bb097ae099e6da8a9f18a2f343a8a4fbc1",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "VfB Stuttgart",
+      "away": "SV Werder Bremen",
+      "kickoff_utc": "2026-11-07T17:30:00Z",
+      "status": "sealed",
+      "hash": "182408f487d1d215d579e96670c30a5f24434281aa115218a2b685620253fcc0",
+      "paper_bet_status": "sealed"
     }
   ]
 }
