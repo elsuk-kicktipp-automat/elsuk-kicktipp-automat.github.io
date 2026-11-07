@@ -206,33 +206,761 @@
       "home": "1. FSV Mainz 05",
       "away": "FC Bayern München",
       "kickoff_utc": "2026-11-07T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "6b423901bae7b938005300056a42751426a6a41caf06327d8dd6a2a6ec844505",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        3
+      ],
+      "advance_tip": null,
+      "expected_points": 1.779,
+      "factors": {
+        "expected_goals": [
+          1.15,
+          2.9
+        ],
+        "probabilities": {
+          "home": 0.11,
+          "draw": 0.144,
+          "away": 0.745
+        },
+        "raw_probabilities": {
+          "home": 0.123,
+          "draw": 0.153,
+          "away": 0.724
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.11,
+          "draw": 0.144,
+          "away": 0.747,
+          "weight": 0.933
+        },
+        "home_advantage": 0.226,
+        "trained_on_matches": 685,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: 1. FSV Mainz 05 gegen Bayern München - Bundesliga",
+              "description": "9. Spieltag: Anpfiff des Spiels ist am 07.11.2026 um 15:30 Uhr. Bayern München spielt in Mainz.",
+              "published": "2026-11-07T15:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/1-fsv-mainz-05-gegen-bayern-muenchen,audiostream-1-fsv-mainz-05-gegen-bayern-muenchen-112.html"
+            },
+            {
+              "title": "FC Bayern: Warnung vor Mainz – Bayern-Stars mussten eigene Hilflos-Halbzeit sehen!",
+              "description": "erste Bundesliga, FC Bayern München, Mainz 05, Fußball, Champions League, Harry Kane, Kompany Vincent, Sport - Leuchtturm München",
+              "published": "2026-11-07T10:22:44+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-warnung-vor-mainz-bayern-stars-mussten-eigene-hilflos-halbzeit-sehen-6aedc39c47b5fce02f87a266"
+            },
+            {
+              "title": "Bundesliga heute: Wer überträgt Mainz 05 – FC Bayern im TV & Live-Stream?",
+              "description": "Fußball, Bundesliga, SKY, erste Bundesliga, sport-standard, TV, no-sport-app, FC Bayern München, Mainz 05",
+              "published": "2026-11-07T08:00:53+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-heute-wer-uebertraegt-mainz-05-fc-bayern-im-tv-live-stream-6aee2c4edc01c6aa86e20911"
+            },
+            {
+              "title": "Interessante Theorie: Droht Bayern ein unerwarteter Verlust?",
+              "description": "Stammplatz, Stammplatz Video, Kompany Vincent, FC Bayern München, Bundesliga, Hochkant BILD-Video intern, erste Bundesliga",
+              "published": "2026-11-07T00:34:31+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/interessante-theorie-droht-bayern-ein-unerwarteter-verlust-6aee5bc047b5fce02f87acb9"
+            },
+            {
+              "title": "Er wurde bei Bayern ausgebildet: Kennen Sie dieses deutsche Torwart-Juwel?",
+              "description": "Hochkant BILD-Video intern, Bundesliga, Stammplatz, Stammplatz Video, FC Bayern München, erste Bundesliga",
+              "published": "2026-11-07T00:34:26+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/er-wurde-bei-bayern-ausgebildet-kennen-sie-dieses-deutsche-torwart-juwel-6aee5d4247b5fce02f87acd2"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 33
+            }
+          ],
+          "total_matches": 34,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2609,
+          "output_tokens": 354,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1304,
+              "output_tokens": 80
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1305,
+              "output_tokens": 274
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Mein Tipp: 1:3 für die Bayern, und wer in Mainz auf eine Fastnachts-Sensation hofft, sollte die Narrenkappe lieber im Schrank lassen. Drei von vier Wegen führen hier zum Auswärtssieg des Rekordmeisters, die Münchner rollen mit klarer Favoritenrolle und gut und gern drei Toren im Gepäck an den Rhein. Die 05er werden in ihrer Arena trotzdem nicht stumm bleiben, ein Treffer für die Rot-Weißen ist drin, und dann darf die Kurve wenigstens einmal so richtig laut werden. Am Ende aber dürfte der Stern des Südens über Rheinhessen leuchten, und zwar ziemlich hell.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          3
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "FC Bayern München gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.27,
+        "model_probability": 0.7244,
+        "implied_probability": 0.7874,
+        "edge": -0.08,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "FC Bayern München gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.27,
+          "model_probability": 0.7244,
+          "implied_probability": 0.7874,
+          "edge": -0.08,
+          "expected_value_eur": -2.0,
+          "stake_eur": 25.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "55ef8dd77efdd31be2d2edef82013f70"
     },
     {
       "home": "Borussia Dortmund",
       "away": "SV 07 Elversberg",
       "kickoff_utc": "2026-11-07T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "87b25d1b093590bf671f55524a3d1d360a55fb4e53d39ac28666ed2f018ac2f8",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.741,
+      "factors": {
+        "expected_goals": [
+          2.57,
+          1.0
+        ],
+        "probabilities": {
+          "home": 0.719,
+          "draw": 0.164,
+          "away": 0.117
+        },
+        "raw_probabilities": {
+          "home": 0.673,
+          "draw": 0.174,
+          "away": 0.154
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.722,
+          "draw": 0.163,
+          "away": 0.114,
+          "weight": 0.933
+        },
+        "home_advantage": 0.226,
+        "trained_on_matches": 685,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Borussia Dortmund gegen SV 07 Elversberg - Bundesliga",
+              "description": "9. Spieltag: Anpfiff des Spiels ist am 07.11.2026 um 15:30 Uhr. SV 07 Elversberg spielt in Dortmund.",
+              "published": "2026-11-07T15:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/borussia-dortmund-gegen-sv-07-elversberg,audiostream-borussia-dortmund-gegen-sv-07-elversberg-100.html"
+            },
+            {
+              "title": "Bayern und BVB vor Stolpergefahr in der Bundesliga",
+              "description": "Bayern München und Borussia Dortmund haben nach ihrem direkten Duell und ihren Champions-League-Siegen im Liga-Alltag unangenehme Pflichtaufgaben in Mainz und gegen Elversberg zu erledigen.",
+              "published": "2026-11-07T09:18:05+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/stolpergefahr-fuer-die-branchenriesen,stolpergefahr-fuer-bayern-und-bvb-100.html"
+            },
+            {
+              "title": "Wichtige Entwicklung unter Kovac: Einkaufs-Explosion beim BVB",
+              "description": "Borussia Dortmund, Sport – Leuchtturm Essen, Kovac Niko, Bellingham Jobe, Hüber Yannick, Schröer Michel, Bundesliga, Champions League",
+              "published": "2026-11-07T04:11:50+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/wichtige-entwicklung-unter-kovac-einkaufs-explosion-beim-bvb-6aed801aa389bc337cfc7822"
+            },
+            {
+              "title": "Tuchel sorgt für Nominierungs-Kracher: BVB-Star erstmals für England nominiert",
+              "description": "Hochkant BILD-Video intern, erste Bundesliga, Bundesliga, Tuchel Thomas, Nationalmannschaft England, Borussia Dortmund, Bellingham Jobe",
+              "published": "2026-11-06T19:15:25+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/tuchel-sorgt-fuer-nominierungs-kracher-bvb-star-erstmals-fuer-england-nominiert-6aedfa86a389bc337cfc849e"
+            },
+            {
+              "title": "Deutliche Worte!: Dortmund-Insider kritisiert Bayerns Kane-Show",
+              "description": "Hochkant BILD-Video intern, Bundesliga, erste Bundesliga, FC Bayern München, Borussia Dortmund",
+              "published": "2026-11-06T17:25:35+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/deutliche-worte-dortmund-insider-kritisiert-bayerns-kane-show-6aecde0db24cf54a5c604e80"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 28
+            }
+          ],
+          "total_matches": 30,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2633,
+          "output_tokens": 367,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1329,
+              "output_tokens": 82
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1304,
+              "output_tokens": 285
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Mein Tipp: 2:1 für den BVB, und daran rüttelt an diesem 9. Spieltag kaum jemand. Wenn die Gelbe Wand an der Strobelallee bebt, geht Schwarz-Gelb als ganz klarer Favorit in dieses Duell, mit gut 70 Prozent Siegchance ist das eine Ansage. Die Saarländer aus Elversberg sind aber keine Laufkundschaft, die nur zum Staunen anreist, ein eigenes Tor trauen ihnen Buchmacher wie Experten durchaus zu. Am Ende dürfte Dortmund das Spiel trotzdem in die Hand nehmen, und der Westfalen-Express rollt mit einem verdienten Heimsieg, ohne dass es ein Spaziergang wird.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.3,
+        "model_probability": 0.6725,
+        "implied_probability": 0.7692,
+        "edge": -0.1257,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Borussia Dortmund gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.3,
+          "model_probability": 0.6725,
+          "implied_probability": 0.7692,
+          "edge": -0.1257,
+          "expected_value_eur": -2.95,
+          "stake_eur": 23.43,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "66c60665a6686e8676bb24f271f51930"
     },
     {
       "home": "RB Leipzig",
       "away": "FC Augsburg",
       "kickoff_utc": "2026-11-07T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "d07f438d29e0f8e0ba5c9c287dbdeb5575e59e2232ade5b85dbf9aa56d299adf",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.618,
+      "factors": {
+        "expected_goals": [
+          2.52,
+          1.24
+        ],
+        "probabilities": {
+          "home": 0.658,
+          "draw": 0.18,
+          "away": 0.162
+        },
+        "raw_probabilities": {
+          "home": 0.633,
+          "draw": 0.199,
+          "away": 0.168
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.66,
+          "draw": 0.179,
+          "away": 0.161,
+          "weight": 0.933
+        },
+        "home_advantage": 0.226,
+        "trained_on_matches": 685,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: RB Leipzig gegen FC Augsburg - Bundesliga",
+              "description": "9. Spieltag: Anpfiff des Spiels ist am 07.11.2026 um 15:30 Uhr. FC Augsburg spielt in Leipzig.",
+              "published": "2026-11-07T15:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/rb-leipzig-gegen-fc-augsburg,audiostream-rb-leipzig-gegen-fc-augsburg-108.html"
+            },
+            {
+              "title": "Bundesliga: RB Leipzig lässt Fans gegen Augsburg über Musik abstimmen",
+              "description": "RB Leipzig, erste Bundesliga, Demichelis Martin, Sport-Tag im Ticker, Fußball, FC Augsburg 1907, Sport - Leuchtturm Leipzig, Nusa Antonio, Fans, Musik, Zentralstadion Leipzig, Voting, Manchester City, Champions League",
+              "published": "2026-11-07T10:00:45+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-rb-leipzig-laesst-fans-gegen-augsburg-ueber-musik-abstimmen-6aee2900a389bc337cfc8738"
+            },
+            {
+              "title": "RB Leipzig: Bis zu 80 Mio.! Arsenal und Co. jagen Bundesliga-Star Nusa",
+              "description": "RB Leipzig, erste Bundesliga, spielertransfer, Sport-Tag im Ticker, Sport - Leuchtturm Leipzig, Nusa Antonio, FC Arsenal, Haaland Erling",
+              "published": "2026-11-07T08:15:09+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/rb-leipzig-bis-zu-80-mio-arsenal-und-co-jagen-bundesliga-star-nusa-6aecb48293d31cdb1e6ceecb"
+            },
+            {
+              "title": "Bundesliga: Dieses Mini-Haus löst ein hartnäckiges Stadion-Problem",
+              "description": "RB Leipzig, Leipzig, erste Bundesliga, Leipzig Mitte, Sport-Tag im Ticker, Taube, Sport - Leuchtturm Leipzig, Zentralstadion Leipzig",
+              "published": "2026-11-06T13:24:31+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-wovor-es-schuetzen-soll-rb-leipzig-stellt-mini-haus-am-stadion-auf-6aebc3c9eca9cecdd5d4716c"
+            },
+            {
+              "title": "Nationalmannschaft: Darum hat Klopp RB-Leipzig-Kapitän Raum aussortiert",
+              "description": "erste Bundesliga, RB Leipzig, spielertransfer, Klopp Jürgen, Sport - Leuchtturm Leipzig, Deutsche Nationalmannschaft, Mittelstädt Maximilian, Nations League, FC Bologna, Serie A, Manchester United, Vertrag",
+              "published": "2026-11-05T16:01:19+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/nationalmannschaft-darum-hat-klopp-rb-leipzig-kapitaen-raum-aussortiert-6aec71e7c7da7601aa4f88e7"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 6
+            }
+          ],
+          "total_matches": 7,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2740,
+          "output_tokens": 317,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1446,
+              "output_tokens": 84
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1294,
+              "output_tokens": 233
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Mein Tipp: 2:1 für die Roten Bullen, und daran gibt es in der Red Bull Arena wenig zu rütteln. Mit zwei Dritteln Siegchance ist Leipzig hier der klare Favorit, die Augsburger Fuggerstädter reisen als Außenseiter aus Bayerisch-Schwaben an. Gemütlich wird es für die Sachsen trotzdem nicht: Augsburg ist für ein Tor gut, und deshalb tippe ich nicht auf ein Schützenfest, sondern auf einen verdienten Heimsieg mit einem Gegentreffer als kleinem Schönheitsfehler.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "RB Leipzig gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.42,
+        "model_probability": 0.6333,
+        "implied_probability": 0.7042,
+        "edge": -0.1007,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "RB Leipzig gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.42,
+          "model_probability": 0.6333,
+          "implied_probability": 0.7042,
+          "edge": -0.1007,
+          "expected_value_eur": -2.13,
+          "stake_eur": 21.19,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "d7dcd3584ab902e442471e99cc4b6a9e"
     },
     {
       "home": "SC Paderborn 07",
       "away": "Eintracht Frankfurt",
       "kickoff_utc": "2026-11-07T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "271af4de5f360316f98d7a5bc66c20bb097ae099e6da8a9f18a2f343a8a4fbc1",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.092,
+      "factors": {
+        "expected_goals": [
+          1.4,
+          1.53
+        ],
+        "probabilities": {
+          "home": 0.343,
+          "draw": 0.256,
+          "away": 0.401
+        },
+        "raw_probabilities": {
+          "home": 0.315,
+          "draw": 0.31,
+          "away": 0.375
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.345,
+          "draw": 0.252,
+          "away": 0.403,
+          "weight": 0.933
+        },
+        "home_advantage": 0.226,
+        "trained_on_matches": 685,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: SC Paderborn 07 gegen Eintracht Frankfurt - Bundesliga",
+              "description": "9. Spieltag: Anpfiff des Spiels ist am 07.11.2026 um 15:30 Uhr. Eintracht Frankfurt spielt in Paderborn.",
+              "published": "2026-11-07T15:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/sc-paderborn-07-gegen-eintracht-frankfurt,audiostream-sc-paderborn-07-gegen-eintracht-frankfurt-100.html"
+            },
+            {
+              "title": "Eintracht Frankfurt: Vor Paderborn-Spiel: Bosse-Grillabend bei Krösche",
+              "description": "Eintracht Frankfurt, erste Bundesliga, Bundesliga, Sport - Leuchtturm Zentral, Hütter Adi, Krösche Markus, Hellmann Axel",
+              "published": "2026-11-07T11:28:34+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-vor-paderborn-spiel-bosse-grillabend-bei-kroesche-6aeee10780d3a1c6aa66bf52"
+            },
+            {
+              "title": "Doping-Ermittlungen: Neue Entwicklung im Fall Laura Freigang",
+              "description": "Frauen Fußball, Frauen Nationalmannschaften, DFB Frauen Nationalmannschaft, Eintracht Frankfurt, DFB, Dopingfahnder",
+              "published": "2026-11-07T06:00:42+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/doping-ermittlungen-neue-entwicklung-im-fall-laura-freigang-6aee30f8a389bc337cfc8772"
+            },
+            {
+              "title": "Marco Russ - leiser Abschied für einen großen Fußballer",
+              "description": "Marco Russ hat 280 Bundesliga-Spiele für Eintracht Frankfurt bestritten. Auch nach einer Krebsdiagnose im Jahr 2016 kämpfte er sich zurück. Einen großen Abschied gab es jedoch nicht.",
+              "published": "2026-11-06T23:42:17+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/marco-russ-leiser-abschied-fuer-einen-grossen-fussballer,video-historie-marco-russ-100.html"
+            },
+            {
+              "title": "Bricht Eintrachts Wunderkind Ilicevic den nächsten Bundesliga-Rekord?",
+              "description": "Eintracht Frankfurt, erste Bundesliga, Bundesliga, Sport - Leuchtturm Zentral, Hütter Adi, Hardung Timmo, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-11-06T22:26:01+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/eintracht-frankfurt-darf-wunderkind-ilicevic-jetzt-laenger-zaubern-6aeda51e320931eb80f5bd95"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 12
+            }
+          ],
+          "total_matches": 14,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2677,
+          "output_tokens": 511,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1370,
+              "output_tokens": 93
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1307,
+              "output_tokens": 418
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Ich tippe 1:2, die Adler aus Frankfurt nehmen die Punkte mit nach Hessen. Ein Selbstläufer wird das in Ostwestfalen aber nicht: Die Eintracht hat mit rund 40 Prozent Siegchance nur die Nase vorn, und die Blau-Schwarzen aus Paderborn sind vor eigenem Publikum keine Laufkundschaft. Auf beiden Seiten dürfte es klingeln, denn hier treffen zwei Teams aufeinander, die lieber nach vorne spielen, als hinten Beton anzurühren. Am Ende hat der Adler den etwas längeren Atem, aber für die Paderborner Fans gibt es trotzdem einen Grund zum Jubeln.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Eintracht Frankfurt gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.35,
+        "model_probability": 0.375,
+        "implied_probability": 0.4255,
+        "edge": -0.1187,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "Eintracht Frankfurt gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 2.35,
+          "model_probability": 0.375,
+          "implied_probability": 0.4255,
+          "edge": -0.1187,
+          "expected_value_eur": -0.76,
+          "stake_eur": 6.43,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "868fb516cd64c9585490ca74ea8377cf"
     },
     {
       "home": "VfB Stuttgart",
