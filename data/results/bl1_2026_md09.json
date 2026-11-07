@@ -4,47 +4,47 @@
   "matchday": 9,
   "stage": "9. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 10,
-  "matches_scored": 5,
-  "matches_open": 1,
+  "points_total": 13,
+  "matches_scored": 6,
+  "matches_open": 0,
   "hits": {
     "exact": 1,
-    "goal_diff": 0,
+    "goal_diff": 1,
     "tendency": 3,
     "miss": 1
   },
   "shadow_points": {
     "most_probable": 10,
-    "elo_favorite": 8,
+    "elo_favorite": 11,
     "always_draw": 2,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 5,
-    "elo_favorite": 5,
-    "always_draw": 5,
+    "most_probable": 6,
+    "elo_favorite": 6,
+    "always_draw": 6,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.3525,
+  "brier_avg": 0.3524,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
-    "stake_total_eur": 0.0,
-    "payout_total_eur": 0.0,
-    "profit_total_eur": 0.0,
-    "roi": null,
-    "bets_scored": 0,
-    "bets_won": 0,
+    "stake_total_eur": 41.85,
+    "payout_total_eur": 76.59,
+    "profit_total_eur": 34.74,
+    "roi": 0.8301,
+    "bets_scored": 1,
+    "bets_won": 1,
     "bankroll_start_eur": 1000.0
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 83.06,
-      "payout_total_eur": 108.42,
-      "profit_total_eur": 25.36,
-      "roi": 0.3053,
-      "bets_scored": 5,
-      "bets_won": 4,
+      "stake_total_eur": 103.62,
+      "payout_total_eur": 146.04,
+      "profit_total_eur": 42.42,
+      "roi": 0.4094,
+      "bets_scored": 6,
+      "bets_won": 5,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -328,7 +328,56 @@
       "home": "VfB Stuttgart",
       "away": "SV Werder Bremen",
       "kickoff_utc": "2026-11-07T17:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        1,
+        0
+      ],
+      "points": 3,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 3,
+        "always_draw": 0
+      },
+      "brier": 0.3519,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "VfB Stuttgart gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.83,
+        "model_probability": 0.6224,
+        "implied_probability": 0.5464,
+        "edge": 0.1389,
+        "expected_value_eur": 5.81,
+        "stake_eur": 41.85,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.1674,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "won",
+        "stake_eur": 41.85,
+        "payout_eur": 76.59,
+        "profit_eur": 34.74
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 20.56,
+          "payout_eur": 37.62,
+          "profit_eur": 17.06
+        }
+      }
     }
   ]
 }
