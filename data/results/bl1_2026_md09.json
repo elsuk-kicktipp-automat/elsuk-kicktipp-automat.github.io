@@ -4,17 +4,17 @@
   "matchday": 9,
   "stage": "9. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 11,
+  "points_total": 10,
   "matches_scored": 5,
   "matches_open": 1,
   "hits": {
     "exact": 1,
-    "goal_diff": 1,
-    "tendency": 2,
+    "goal_diff": 0,
+    "tendency": 3,
     "miss": 1
   },
   "shadow_points": {
-    "most_probable": 11,
+    "most_probable": 10,
     "elo_favorite": 8,
     "always_draw": 2,
     "llm_adjusted": 0
@@ -114,12 +114,12 @@
         3
       ],
       "result": [
-        0,
+        1,
         2
       ],
-      "points": 3,
+      "points": 2,
       "shadow_points": {
-        "most_probable": 3,
+        "most_probable": 2,
         "elo_favorite": 0,
         "always_draw": 0
       },
@@ -224,8 +224,8 @@
         1
       ],
       "result": [
-        4,
-        1
+        5,
+        2
       ],
       "points": 2,
       "shadow_points": {
