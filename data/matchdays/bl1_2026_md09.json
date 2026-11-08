@@ -1346,9 +1346,191 @@
       "home": "SC Freiburg",
       "away": "1. FC Union Berlin",
       "kickoff_utc": "2026-11-08T16:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "d2baa48b46cd86b58ac02ac7a7de434828133cef41c7673d364e55ce9993d931",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        0
+      ],
+      "advance_tip": null,
+      "expected_points": 1.648,
+      "factors": {
+        "expected_goals": [
+          2.09,
+          0.88
+        ],
+        "probabilities": {
+          "home": 0.654,
+          "draw": 0.204,
+          "away": 0.142
+        },
+        "raw_probabilities": {
+          "home": 0.594,
+          "draw": 0.224,
+          "away": 0.182
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.658,
+          "draw": 0.203,
+          "away": 0.139,
+          "weight": 0.937
+        },
+        "home_advantage": 0.23,
+        "trained_on_matches": 690,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: SC Freiburg gegen 1. FC Union Berlin - Bundesliga",
+              "description": "9. Spieltag: Anpfiff des Spiels ist am 08.11.2026 um 17:30 Uhr. 1. FC Union Berlin spielt in Freiburg.",
+              "published": "2026-11-08T17:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/sc-freiburg-gegen-1-fc-union-berlin,audiostream-sc-freiburg-gegen-1-fc-union-berlin-108.html"
+            },
+            {
+              "title": "Ab 17.30 Uhr live - Union Berlin in Freiburg unter Druck",
+              "description": "Union Berlin braucht beim SC Freiburg einen Sieg, um den Abstiegs-Relegationsplatz zu verlassen. Die Freiburger waren in dieser Saison bislang weitestgehend souverän gegen Mannschaften aus dem Keller.",
+              "published": "2026-11-08T12:15:53+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesliga/ma12193624/sc-freiburg_1-fc-union-berlin/liveticker"
+            },
+            {
+              "title": "Frauen-Bundesliga: Freiburg leistet sich gegen Nürnberg zu viele Patzer",
+              "description": "Der Negativtrend des SC Freiburg in der Frauen-Bundesliga hält an. Gegen den 1. FC Nürnberg machen sich die fehleranfälligen Breisgauerinnen selbst das Leben schwer und verlieren verdient vor heimischer Kulisse.",
+              "published": "2026-11-07T14:10:35+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/regional/swr/swr-deutliche-pleite-sc-freiburg-leistet-sich-gegen-den-1-fc-nuernberg-zu-viele-patzer-100.html"
+            },
+            {
+              "title": "Union Berlin: Hier muss Union im Winter nachlegen!",
+              "description": "1. FC Union Berlin, Fußball, Sport-Tag im Ticker, erste Bundesliga, Heldt Horst, Sport - Leuchtturm Berlin, Wintertransfer, spielertransfer, Haberer Janik, Trimmel Christopher, Burke Oliver",
+              "published": "2026-11-07T13:54:01+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/union-berlin-hier-muss-union-im-winter-nachlegen-6aec6b4a93d31cdb1e6ce685"
+            },
+            {
+              "title": "Union Berlin: Lustrinelli erklärt den Plan für Mega-Talent Güther",
+              "description": "1. FC Union Berlin, Fußball, erste Bundesliga, Sport-Tag im Ticker, Sport - Leuchtturm Berlin, Talent, Trainer",
+              "published": "2026-11-07T12:06:47+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/union-berlin-lustrinelli-erklaert-den-plan-fuer-mega-talent-guether-6aee06d947b5fce02f87a90e"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 6
+            }
+          ],
+          "total_matches": 9,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2710,
+          "output_tokens": 386,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1409,
+              "output_tokens": 84
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1301,
+              "output_tokens": 302
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Mein Tipp: 1:0 für den Sport-Club, und das ist eher vorsichtig gedacht als mutig. Freiburg geht als klarer Favorit ins Spiel, zwei von drei Partien dieser Art landen beim Heimteam, und vor eigener Kulisse im Breisgau ist eher ein Doppelpack als ein einzelner Treffer drin. Die Eisernen aus Köpenick werden trotzdem tun, was sie am besten können: sich in Rot einmauern, jeden Zweikampf zum Abnutzungskampf machen und auf den einen Konter hoffen. Deshalb rechne ich eher mit einem zähen Arbeitssieg als mit einem Torfestival, aber wer im Schwarzwald auf einen Punkt für die Berliner setzt, braucht schon eine gute Portion Gottvertrauen.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          0
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SC Freiburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.42,
+        "model_probability": 0.5939,
+        "implied_probability": 0.7042,
+        "edge": -0.1567,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "SC Freiburg gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.42,
+          "model_probability": 0.5939,
+          "implied_probability": 0.7042,
+          "edge": -0.1567,
+          "expected_value_eur": -2.97,
+          "stake_eur": 18.94,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "80ad7a3f0b5cf1162363a592b21f112e"
     },
     {
       "home": "TSG Hoffenheim",
