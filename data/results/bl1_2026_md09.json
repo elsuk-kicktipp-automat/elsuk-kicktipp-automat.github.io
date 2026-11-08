@@ -4,28 +4,28 @@
   "matchday": 9,
   "stage": "9. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 17,
-  "matches_scored": 7,
-  "matches_open": 2,
+  "points_total": 19,
+  "matches_scored": 8,
+  "matches_open": 1,
   "hits": {
     "exact": 2,
     "goal_diff": 1,
-    "tendency": 3,
+    "tendency": 4,
     "miss": 1
   },
   "shadow_points": {
-    "most_probable": 10,
-    "elo_favorite": 11,
+    "most_probable": 14,
+    "elo_favorite": 13,
     "always_draw": 2,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 7,
-    "elo_favorite": 7,
-    "always_draw": 7,
+    "most_probable": 8,
+    "elo_favorite": 8,
+    "always_draw": 8,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.348,
+  "brier_avg": 0.3272,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 118.48,
-      "payout_total_eur": 171.3,
-      "profit_total_eur": 52.82,
-      "roi": 0.4458,
-      "bets_scored": 7,
-      "bets_won": 6,
+      "stake_total_eur": 137.42,
+      "payout_total_eur": 198.19,
+      "profit_total_eur": 60.77,
+      "roi": 0.4422,
+      "bets_scored": 8,
+      "bets_won": 7,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -438,7 +438,56 @@
       "home": "SC Freiburg",
       "away": "1. FC Union Berlin",
       "kickoff_utc": "2026-11-08T16:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        0
+      ],
+      "result": [
+        2,
+        0
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 4,
+        "elo_favorite": 2,
+        "always_draw": 0
+      },
+      "brier": 0.1815,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SC Freiburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.42,
+        "model_probability": 0.5939,
+        "implied_probability": 0.7042,
+        "edge": -0.1567,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 18.94,
+          "payout_eur": 26.89,
+          "profit_eur": 7.95
+        }
+      }
     },
     {
       "home": "TSG Hoffenheim",
