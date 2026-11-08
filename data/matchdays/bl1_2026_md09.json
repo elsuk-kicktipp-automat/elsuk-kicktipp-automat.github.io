@@ -1156,9 +1156,191 @@
       "home": "1. FC Köln",
       "away": "Bayer 04 Leverkusen",
       "kickoff_utc": "2026-11-08T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "494bb96bbd474a9a17bdf743ed6164c00b01ea0122416f4f6b3098f1f6973acb",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.402,
+      "factors": {
+        "expected_goals": [
+          1.14,
+          1.85
+        ],
+        "probabilities": {
+          "home": 0.228,
+          "draw": 0.235,
+          "away": 0.537
+        },
+        "raw_probabilities": {
+          "home": 0.254,
+          "draw": 0.224,
+          "away": 0.523
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.226,
+          "draw": 0.236,
+          "away": 0.538,
+          "weight": 0.937
+        },
+        "home_advantage": 0.23,
+        "trained_on_matches": 690,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "1. FC Köln: Klopp + Liebesbriefe + El Mama: Jetzt spricht Köln-Star Said El Mala",
+              "description": "1. FC Köln, erste Bundesliga, FC Viktoria Köln, El Mala Said, Sport – Leuchtturm Essen, Premier League, Derby, Bayer Leverkusen, Brighton & Hove Albion F.C., Klopp Jürgen, Nagelsmann Julian",
+              "published": "2026-11-08T09:47:43+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/1-fc-koeln-klopp-liebesbriefe-el-mama-jetzt-spricht-koeln-star-said-el-mala-6af028d6a389bc337cfc9b14"
+            },
+            {
+              "title": "Nutzt El Mala Bayers Schwachstelle? Letzte Fragen und Antworten vor Leverkusen-Köln",
+              "description": "Vor dem Aufeinandertreffen zwischen dem 1. FC Köln und Bayer 04 Leverkusen stehen beide Teams unter Druck. Der kicker beantwortet die wichtigsten Fragen vor dem Prestigeduell.",
+              "published": "2026-11-08T07:47:51+00:00",
+              "source": "kicker",
+              "source_label": "Kicker",
+              "url": "https://www.kicker.de/nutzt-el-mala-bayers-schwachstelle-letzte-fragen-und-antworten-vor-leverkusen-koeln-1268815/artikel#omrss"
+            },
+            {
+              "title": "Bundesliga: Star-Ausfall beim BVB! Alle Infos und Aufstellungen zum 9. Spieltag",
+              "description": "Borussia Dortmund, Bayer Leverkusen, 1899 Hoffenheim, FC Bayern München, VfL Wolfsburg, erste Bundesliga, Spieltag 9, Hamburger SV, Mainz 05, 1. FC Köln, VfB Stuttgart, SC Freiburg",
+              "published": "2026-11-06T16:55:35+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-star-ausfall-beim-bvb-alle-infos-und-aufstellungen-zum-9-spieltag-6aed8ce947b5fce02f879c94"
+            },
+            {
+              "title": "1. FC Köln: Überraschung möglich: Kölns Sturm-Plan mit Ache und El-Mala-Bruder",
+              "description": "1. FC Köln, erste Bundesliga, Fußball, El Mala Said, Derby, Bayer Leverkusen, Sport – Leuchtturm Essen",
+              "published": "2026-11-06T16:39:19+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/1-fc-koeln-ueberraschung-moeglich-koelns-sturm-plan-mit-ache-und-el-mala-bruder-6aed83d0320931eb80f5babf"
+            },
+            {
+              "title": "1. FC Köln: Party oder Panik: Nächstes Druck-Derby für Köln-Coach René Wagner",
+              "description": "1. FC Köln, erste Bundesliga, Bayer Leverkusen, Sport – Leuchtturm Essen, El Mala Said, Spieltag 9, RheinEnergieStadion, Derby, Trainer",
+              "published": "2026-11-06T14:11:35+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/1-fc-koeln-party-oder-panik-naechstes-druck-derby-fuer-koeln-coach-rene-wagner-6aed812c320931eb80f5ba86"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 5
+            }
+          ],
+          "total_matches": 6,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2801,
+          "output_tokens": 383,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1493,
+              "output_tokens": 84
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1308,
+              "output_tokens": 299
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Mein Tipp fürs Rheinderby: 1:2, die Werkself nimmt die Punkte mit nach Leverkusen. Mit gut der Hälfte aller Chancen auf einen Auswärtssieg reisen die Schwarz-Roten als klarer Favorit in den Kölner Westen, und das sieht nicht nur der Stammtisch so, auch die Buchmacher stehen geschlossen dahinter. Der Effzeh wird im Müngersdorfer Stadion von seiner Kurve nach vorne gepeitscht und darf sich durchaus ein Tor zutrauen, Geißbock Hennes soll schließlich nicht umsonst am Rasen stehen. Am Ende dürfte aber die feinere Klinge vom anderen Rheinufer den Unterschied machen, und das tut am Dom traditionell besonders weh.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.7,
+        "model_probability": 0.5226,
+        "implied_probability": 0.5882,
+        "edge": -0.1116,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "Bayer 04 Leverkusen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.7,
+          "model_probability": 0.5226,
+          "implied_probability": 0.5882,
+          "edge": -0.1116,
+          "expected_value_eur": -1.66,
+          "stake_eur": 14.86,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "c5e39a83fe36cdbb79ae072d931b3579"
     },
     {
       "home": "SC Freiburg",
