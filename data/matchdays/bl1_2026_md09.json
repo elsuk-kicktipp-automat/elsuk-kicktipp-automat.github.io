@@ -1536,9 +1536,183 @@
       "home": "TSG Hoffenheim",
       "away": "FC Schalke 04",
       "kickoff_utc": "2026-11-08T18:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "ada1549eef50a0dd16ee61ae6d3069d2e3cf0a3c3f4d7baba9ef3c52e6ff9046",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.516,
+      "factors": {
+        "expected_goals": [
+          1.94,
+          1.01
+        ],
+        "probabilities": {
+          "home": 0.59,
+          "draw": 0.225,
+          "away": 0.186
+        },
+        "raw_probabilities": {
+          "home": 0.538,
+          "draw": 0.307,
+          "away": 0.155
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.593,
+          "draw": 0.219,
+          "away": 0.188,
+          "weight": 0.937
+        },
+        "home_advantage": 0.23,
+        "trained_on_matches": 690,
+        "news_checked": 4,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: TSG Hoffenheim gegen FC Schalke 04 - Bundesliga",
+              "description": "9. Spieltag: Anpfiff des Spiels ist am 08.11.2026 um 19:30 Uhr. FC Schalke 04 spielt in Sinsheim.",
+              "published": "2026-11-08T19:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/tsg-hoffenheim-gegen-fc-schalke-04,audiostream-tsg-hoffenheim-gegen-fc-schalke-04-100.html"
+            },
+            {
+              "title": "TSG Hoffenheim: Trainer Ilzer warnt vor Krisen-Schalke",
+              "description": "1899 Hoffenheim, erste Bundesliga, Fußball, spielertransfer, Kramaric Andrej, FC Schalke, Muslic Miron, Sport - Leuchtturm Zentral",
+              "published": "2026-11-08T13:43:23+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/tsg-hoffenheim-trainer-ilzer-warnt-vor-krisen-schalke-6af0672ba389bc337cfca02f"
+            },
+            {
+              "title": "Jetzt live - Union hofft gegen Hoffenheim auf ersten Sieg",
+              "description": "Am 9. Spieltag der Frauen Bundesliga empfangen die noch Sieglosen Berlinerinnen die TSG Hoffenheim im Stadion an der alten Försterei.",
+              "published": "2026-11-08T12:27:53+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesliga-frauen/ma12306286/1-fc-union-berlin_tsg-hoffenheim/liveticker"
+            },
+            {
+              "title": "Ab 19.30 Uhr live - Schalke kann Hoffenheim in den Keller ziehen",
+              "description": "Zuletzt bot der FC Schalke 04 zähe Vorstellungen und rutschte in den Tabellenkeller ab. Gelingt in Sinsheim die Wende?",
+              "published": "2026-11-08T12:18:30+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesliga/ma12193615/tsg-hoffenheim_fc-schalke-04/info"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 1
+            }
+          ],
+          "total_matches": 4,
+          "returned": 4,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2522,
+          "output_tokens": 362,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1219,
+              "output_tokens": 80
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1303,
+              "output_tokens": 282
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Mein Tipp für Sinsheim: 2:1 für Hoffenheim, und das mit breiter Brust. Die Kraichgauer gehen als klarer Favorit ins Spiel, fast sechs von zehn Anläufen enden hier mit einem Heimsieg, und knapp zwei Tore sollten in der heimischen Arena locker drin sein. Die Knappen aus dem Ruhrpott bringen ihre Tradition und ihre Kumpel-Mentalität mit, für einen Treffer reicht das wohl, für mehr eher nicht. Am Ende dürfte Blau-Weiß gegen Blau-Weiß ausgehen wie so oft, wenn der Gastgeber den Ton angibt: Schalke darf jubeln, Hoffenheim kassiert die Punkte.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "TSG Hoffenheim gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.57,
+        "model_probability": 0.5377,
+        "implied_probability": 0.6369,
+        "edge": -0.1559,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "TSG Hoffenheim gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.57,
+          "model_probability": 0.5377,
+          "implied_probability": 0.6369,
+          "edge": -0.1559,
+          "expected_value_eur": -2.45,
+          "stake_eur": 15.72,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "2f83350589db827ac031c7859707b326"
     }
   ]
 }
