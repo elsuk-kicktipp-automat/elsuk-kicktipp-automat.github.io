@@ -6,7 +6,7 @@
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 13,
   "matches_scored": 6,
-  "matches_open": 1,
+  "matches_open": 2,
   "hits": {
     "exact": 1,
     "goal_diff": 1,
@@ -383,6 +383,12 @@
       "home": "1. FC Köln",
       "away": "Bayer 04 Leverkusen",
       "kickoff_utc": "2026-11-08T14:30:00Z",
+      "status": "sealed"
+    },
+    {
+      "home": "SC Freiburg",
+      "away": "1. FC Union Berlin",
+      "kickoff_utc": "2026-11-08T16:30:00Z",
       "status": "sealed"
     }
   ]

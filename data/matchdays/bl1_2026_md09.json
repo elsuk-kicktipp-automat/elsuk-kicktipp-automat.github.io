@@ -1159,6 +1159,14 @@
       "status": "sealed",
       "hash": "494bb96bbd474a9a17bdf743ed6164c00b01ea0122416f4f6b3098f1f6973acb",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "SC Freiburg",
+      "away": "1. FC Union Berlin",
+      "kickoff_utc": "2026-11-08T16:30:00Z",
+      "status": "sealed",
+      "hash": "d2baa48b46cd86b58ac02ac7a7de434828133cef41c7673d364e55ce9993d931",
+      "paper_bet_status": "sealed"
     }
   ]
 }
