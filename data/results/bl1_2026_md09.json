@@ -4,28 +4,28 @@
   "matchday": 9,
   "stage": "9. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 19,
-  "matches_scored": 8,
-  "matches_open": 1,
+  "points_total": 23,
+  "matches_scored": 9,
+  "matches_open": 0,
   "hits": {
-    "exact": 2,
+    "exact": 3,
     "goal_diff": 1,
     "tendency": 4,
     "miss": 1
   },
   "shadow_points": {
     "most_probable": 14,
-    "elo_favorite": 13,
+    "elo_favorite": 17,
     "always_draw": 2,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 8,
-    "elo_favorite": 8,
-    "always_draw": 8,
+    "most_probable": 9,
+    "elo_favorite": 9,
+    "always_draw": 9,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.3272,
+  "brier_avg": 0.319,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 137.42,
-      "payout_total_eur": 198.19,
-      "profit_total_eur": 60.77,
-      "roi": 0.4422,
-      "bets_scored": 8,
-      "bets_won": 7,
+      "stake_total_eur": 153.14,
+      "payout_total_eur": 222.87,
+      "profit_total_eur": 69.73,
+      "roi": 0.4553,
+      "bets_scored": 9,
+      "bets_won": 8,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -493,7 +493,56 @@
       "home": "TSG Hoffenheim",
       "away": "FC Schalke 04",
       "kickoff_utc": "2026-11-08T18:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        2,
+        1
+      ],
+      "points": 4,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 4,
+        "always_draw": 0
+      },
+      "brier": 0.2533,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "TSG Hoffenheim gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.57,
+        "model_probability": 0.5377,
+        "implied_probability": 0.6369,
+        "edge": -0.1559,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 15.72,
+          "payout_eur": 24.68,
+          "profit_eur": 8.96
+        }
+      }
     }
   ]
 }
