@@ -4,11 +4,11 @@
   "matchday": 9,
   "stage": "9. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 13,
-  "matches_scored": 6,
-  "matches_open": 3,
+  "points_total": 17,
+  "matches_scored": 7,
+  "matches_open": 2,
   "hits": {
-    "exact": 1,
+    "exact": 2,
     "goal_diff": 1,
     "tendency": 3,
     "miss": 1
@@ -20,12 +20,12 @@
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 6,
-    "elo_favorite": 6,
-    "always_draw": 6,
+    "most_probable": 7,
+    "elo_favorite": 7,
+    "always_draw": 7,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.3524,
+  "brier_avg": 0.348,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 103.62,
-      "payout_total_eur": 146.04,
-      "profit_total_eur": 42.42,
-      "roi": 0.4094,
-      "bets_scored": 6,
-      "bets_won": 5,
+      "stake_total_eur": 118.48,
+      "payout_total_eur": 171.3,
+      "profit_total_eur": 52.82,
+      "roi": 0.4458,
+      "bets_scored": 7,
+      "bets_won": 6,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -383,7 +383,56 @@
       "home": "1. FC Köln",
       "away": "Bayer 04 Leverkusen",
       "kickoff_utc": "2026-11-08T14:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        1,
+        2
+      ],
+      "points": 4,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.3216,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.7,
+        "model_probability": 0.5226,
+        "implied_probability": 0.5882,
+        "edge": -0.1116,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 14.86,
+          "payout_eur": 25.26,
+          "profit_eur": 10.4
+        }
+      }
     },
     {
       "home": "SC Freiburg",
