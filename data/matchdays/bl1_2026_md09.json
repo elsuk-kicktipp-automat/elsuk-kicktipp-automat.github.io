@@ -1151,6 +1151,14 @@
         }
       },
       "salt": "6d216d53acbc5e4910cd8379d28bbfdd"
+    },
+    {
+      "home": "1. FC Köln",
+      "away": "Bayer 04 Leverkusen",
+      "kickoff_utc": "2026-11-08T14:30:00Z",
+      "status": "sealed",
+      "hash": "494bb96bbd474a9a17bdf743ed6164c00b01ea0122416f4f6b3098f1f6973acb",
+      "paper_bet_status": "sealed"
     }
   ]
 }
