@@ -1167,6 +1167,14 @@
       "status": "sealed",
       "hash": "d2baa48b46cd86b58ac02ac7a7de434828133cef41c7673d364e55ce9993d931",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "TSG Hoffenheim",
+      "away": "FC Schalke 04",
+      "kickoff_utc": "2026-11-08T18:30:00Z",
+      "status": "sealed",
+      "hash": "ada1549eef50a0dd16ee61ae6d3069d2e3cf0a3c3f4d7baba9ef3c52e6ff9046",
+      "paper_bet_status": "sealed"
     }
   ]
 }
