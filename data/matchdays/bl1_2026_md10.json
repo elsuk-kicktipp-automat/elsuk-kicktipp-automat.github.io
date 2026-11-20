@@ -1,0 +1,24 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "matchday": 10,
+  "stage": "10. Spieltag",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-11-20T15:31:23Z",
+  "matches": [
+    {
+      "home": "FC Bayern München",
+      "away": "1. FC Köln",
+      "kickoff_utc": "2026-11-20T19:30:00Z",
+      "status": "sealed",
+      "hash": "cbdcade2314b10a3500d6a1ee63d5f2a31f048cfa987937185f3a847724bd2d6",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}
