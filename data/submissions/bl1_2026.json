@@ -189,6 +189,11 @@
     },
     {
       "home_key": "fcbayernmunchen",
+      "away_key": "1fckoln",
+      "verified_at_utc": "2026-11-20T15:32:34Z"
+    },
+    {
+      "home_key": "fcbayernmunchen",
       "away_key": "1fcunionberlin",
       "verified_at_utc": "2026-09-18T14:31:51Z"
     },
