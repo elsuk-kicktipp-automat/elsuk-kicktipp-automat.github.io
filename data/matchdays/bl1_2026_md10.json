@@ -16,9 +16,191 @@
       "home": "FC Bayern München",
       "away": "1. FC Köln",
       "kickoff_utc": "2026-11-20T19:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "cbdcade2314b10a3500d6a1ee63d5f2a31f048cfa987937185f3a847724bd2d6",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        4,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 2.043,
+      "factors": {
+        "expected_goals": [
+          3.72,
+          1.03
+        ],
+        "probabilities": {
+          "home": 0.878,
+          "draw": 0.077,
+          "away": 0.045
+        },
+        "raw_probabilities": {
+          "home": 0.896,
+          "draw": 0.071,
+          "away": 0.033
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.876,
+          "draw": 0.078,
+          "away": 0.046,
+          "weight": 0.939
+        },
+        "home_advantage": 0.232,
+        "trained_on_matches": 693,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Bayern München gegen 1. FC Köln - Bundesliga",
+              "description": "10. Spieltag: Anpfiff des Spiels ist am 20.11.2026 um 20:30 Uhr. 1. FC Köln spielt in München.",
+              "published": "2026-11-20T20:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/bayern-muenchen-gegen-1-fc-koeln,audiostream-bayern-muenchen-gegen-1-fc-koeln-106.html"
+            },
+            {
+              "title": "Bundesliga: Alle Infos und Aufstellungen zum 10. Spieltag: BVB bangt um zwei Stars!",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, VfL Wolfsburg, 1. FC Köln, SC Paderborn 07, Eintracht Frankfurt, 1. FC Union Berlin, RB Leipzig, Borussia Mönchengladbach, SV Elversberg, SC Freiburg, FC Schalke, VfB Stuttgart, Bundesliga, Spieltag 10",
+              "published": "2026-11-20T16:27:56+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-alle-infos-und-aufstellungen-zum-10-spieltag-bvb-bangt-um-zwei-stars-6afffa4eb237b5b41c9a1fa3"
+            },
+            {
+              "title": "FC Bayern: Kompany trägt heute Abend gegen Köln eine Armschlinge",
+              "description": "Kompany Vincent, FC Bayern München, erste Bundesliga, Champions League, Eberl Max, Sport - Leuchtturm München, Dreesen Jan-Christian, TorAlarm Top-News, Meningitis, Aufmacher-Bereich, super-a-teaser",
+              "published": "2026-11-20T16:23:17+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/fc-bayern-comeback-nach-zusammenbruch-kompany-heute-mit-armschlinge-auf-der-trainerbank-6b001e89be487c5437746dc3"
+            },
+            {
+              "title": "Während seiner Reha: Neuer mit unbekannter Frau in Brasilien",
+              "description": "Neuer Manuel, FC Bayern München, Bundesliga",
+              "published": "2026-11-20T16:10:37+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/waehrend-seiner-reha-neuer-mit-unbekannter-frau-in-brasilien-6b00154a39a3e8110f0e386b"
+            },
+            {
+              "title": "Bayern-Sorgenkinder zurück! Hier kommen Kompany & Musiala am Hotel an",
+              "description": "FC Bayern München, Kompany Vincent, Musiala Jamal, Hochkant BILD-Video intern, Sport - Leuchtturm München, Hotel, Bundesliga, erste Bundesliga",
+              "published": "2026-11-20T15:52:01+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bayern-sorgenkinder-zurueck-hier-kommen-kompany-musiala-am-hotel-an-6b004a765842ff528b9e1c1f"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 45
+            }
+          ],
+          "total_matches": 48,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2702,
+          "output_tokens": 406,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1407,
+              "output_tokens": 189
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1295,
+              "output_tokens": 217
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "4:1 für den Rekordmeister, und wer da noch auf ein Kölner Wunder an der Isar hofft, hat zu tief ins Kölschglas geschaut. Fast neun von zehn Mal räumt der FC Bayern so ein Heimspiel in der Allianz Arena ab, die Roten dürften dem Geißbock-Klub vier Stück einschenken. Ganz ohne Gegentor geht's aber selten: Einen Ehrentreffer trauen wir den Domstädtern zu, damit die Fans auf der Heimfahrt am Rhein wenigstens ein Lied anstimmen können.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          4,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "FC Bayern München gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.08,
+        "model_probability": 0.8963,
+        "implied_probability": 0.9259,
+        "edge": -0.032,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "FC Bayern München gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.08,
+          "model_probability": 0.8963,
+          "implied_probability": 0.9259,
+          "edge": -0.032,
+          "expected_value_eur": -0.8,
+          "stake_eur": 25.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "8797eba06bf847996e58f7626310e118"
     }
   ]
 }
