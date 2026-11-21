@@ -5,27 +5,27 @@
   "stage": "10. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 13,
-  "matches_scored": 6,
-  "matches_open": 1,
+  "matches_scored": 7,
+  "matches_open": 0,
   "hits": {
     "exact": 0,
     "goal_diff": 3,
     "tendency": 2,
-    "miss": 1
+    "miss": 2
   },
   "shadow_points": {
-    "most_probable": 7,
+    "most_probable": 9,
     "elo_favorite": 5,
-    "always_draw": 4,
-    "llm_adjusted": 0
+    "always_draw": 6,
+    "llm_adjusted": 2
   },
   "shadow_matches": {
-    "most_probable": 6,
-    "elo_favorite": 6,
-    "always_draw": 6,
-    "llm_adjusted": 0
+    "most_probable": 7,
+    "elo_favorite": 7,
+    "always_draw": 7,
+    "llm_adjusted": 1
   },
-  "brier_avg": 0.5259,
+  "brier_avg": 0.5795,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,11 +39,11 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 98.12,
+      "stake_total_eur": 111.9,
       "payout_total_eur": 118.79,
-      "profit_total_eur": 20.67,
-      "roi": 0.2107,
-      "bets_scored": 6,
+      "profit_total_eur": 6.89,
+      "roi": 0.0616,
+      "bets_scored": 7,
       "bets_won": 5,
       "bankroll_start_eur": 1000.0
     }
@@ -383,7 +383,57 @@
       "home": "FC Schalke 04",
       "away": "VfB Stuttgart",
       "kickoff_utc": "2026-11-21T17:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        0,
+        0
+      ],
+      "points": 0,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 0,
+        "always_draw": 2,
+        "llm_adjusted": 2
+      },
+      "brier": 0.901,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "VfB Stuttgart gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.8,
+        "model_probability": 0.5037,
+        "implied_probability": 0.5556,
+        "edge": -0.0934,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "lost",
+          "stake_eur": 13.78,
+          "payout_eur": 0.0,
+          "profit_eur": -13.78
+        }
+      }
     }
   ]
 }
