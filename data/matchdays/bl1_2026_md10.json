@@ -206,41 +206,911 @@
       "home": "1. FC Union Berlin",
       "away": "RB Leipzig",
       "kickoff_utc": "2026-11-21T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "b37c66805e7ee7b79d407997b74fefad4c7e5d0c96417391ec4660fe2dc7022d",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.592,
+      "factors": {
+        "expected_goals": [
+          1.08,
+          2.22
+        ],
+        "probabilities": {
+          "home": 0.165,
+          "draw": 0.2,
+          "away": 0.634
+        },
+        "raw_probabilities": {
+          "home": 0.211,
+          "draw": 0.229,
+          "away": 0.56
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.162,
+          "draw": 0.199,
+          "away": 0.639,
+          "weight": 0.939
+        },
+        "home_advantage": 0.226,
+        "trained_on_matches": 694,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Mit einem Instagram-Star! Babyglück für Bundesliga-Star Marc Guiu",
+              "description": "RB Leipzig, erste Bundesliga, Demichelis Martin, spielertransfer, Sport - Leuchtturm Leipzig, Baby, FC Chelsea, Wellenreiten, Surfurlaub, Instagram, Aufmacher-Bereich",
+              "published": "2026-11-21T06:06:40+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/rb-leipzig-mit-einem-instagram-star-babyglueck-fuer-bundesliga-star-guiu-6b000695b237b5b41c9a20c9"
+            },
+            {
+              "title": "Union Berlin: Eiskalt erwischt! 6. Niederlage für Etas Unionerinnen",
+              "description": "Bayer Leverkusen, erste Bundesliga, Spielbericht, 1. FC Union Berlin, Sport-Tag im Ticker, Sport - Leuchtturm Berlin, Frauen Fußball",
+              "published": "2026-11-20T20:44:37+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/union-berlin-eiskalt-erwischt-6-niederlage-fuer-etas-unionerinnen-6b00839939a3e8110f0e47f2"
+            },
+            {
+              "title": "Ex-Nationalspieler Demme wechselt in Berliner Kreisliga A",
+              "description": "Sport - Leuchtturm Berlin, Sport - Leuchtturm Leipzig, Hertha BSC, RB Leipzig, SSC Neapel, Maradona Diego Armando, Pizza, Lamprecht Roberto, zweite Bundesliga, erste Bundesliga, Olympiastadion Berlin, Champions League, Aufmacher-Bereich",
+              "published": "2026-11-20T18:45:38+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hertha-bsc-amateurklub-jubelt-ex-nationalspieler-in-die-9-liga-6b00549439a3e8110f0e42f8"
+            },
+            {
+              "title": "Bundesliga: Alle Infos und Aufstellungen zum 10. Spieltag: BVB bangt um zwei Stars!",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, VfL Wolfsburg, 1. FC Köln, SC Paderborn 07, Eintracht Frankfurt, 1. FC Union Berlin, RB Leipzig, Borussia Mönchengladbach, SV Elversberg, SC Freiburg, FC Schalke, VfB Stuttgart, Bundesliga, Spieltag 10",
+              "published": "2026-11-20T17:03:51+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-alle-infos-und-aufstellungen-zum-10-spieltag-bvb-bangt-um-zwei-stars-6afffa4eb237b5b41c9a1fa3"
+            },
+            {
+              "title": "Tommi Schmitt: Ist er der Cousin von Laura Abla?",
+              "description": "Olmo Dani, Fußball, RB Leipzig, FC Barcelona, Spanien, Team First",
+              "published": "2026-11-20T16:09:56+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/unterhaltung/stars-und-leute/tommi-schmitt-ist-er-der-cousin-von-laura-abla-6b0034cabe487c5437747110"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 11
+            }
+          ],
+          "total_matches": 11,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2797,
+          "output_tokens": 328,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1495,
+              "output_tokens": 86
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1302,
+              "output_tokens": 242
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Mein Tipp für die Alte Försterei: 1:2, und zwar ohne großes Zittern. Leipzig reist als klarer Favorit nach Köpenick, fast zwei von drei Szenarien enden mit einem roten Bullen-Sieg, und auch die Buchmacher sehen das nicht anders. Die Eisernen werden sich mit Herz, Grätsche und ihrem Publikum im Rücken reinhauen, für ein Ehrentor reicht das allemal. Am Ende dürfte Leipzig aber schlicht die größere Feuerkraft haben, und die Union-Fans müssen ihren Glühwein mit einer knappen Niederlage herunterspülen.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          2
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "RB Leipzig gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.45,
+        "model_probability": 0.56,
+        "implied_probability": 0.6897,
+        "edge": -0.188,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "RB Leipzig gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.45,
+          "model_probability": 0.56,
+          "implied_probability": 0.6897,
+          "edge": -0.188,
+          "expected_value_eur": -3.2,
+          "stake_eur": 17.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "cbe0bb620db0b8fc13bbc6f97fd5acab"
     },
     {
       "home": "Bayer 04 Leverkusen",
       "away": "SC Paderborn 07",
       "kickoff_utc": "2026-11-21T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "fe1e8f0831ae0fcb31e42c7b715444d2422ae0b374f7abe60a0b66ebdac434df",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        3,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.78,
+      "factors": {
+        "expected_goals": [
+          2.77,
+          1.04
+        ],
+        "probabilities": {
+          "home": 0.744,
+          "draw": 0.15,
+          "away": 0.106
+        },
+        "raw_probabilities": {
+          "home": 0.613,
+          "draw": 0.24,
+          "away": 0.147
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.752,
+          "draw": 0.144,
+          "away": 0.104,
+          "weight": 0.939
+        },
+        "home_advantage": 0.226,
+        "trained_on_matches": 694,
+        "news_checked": 2,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Bundesliga: Alle Infos und Aufstellungen zum 10. Spieltag: BVB bangt um zwei Stars!",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, VfL Wolfsburg, 1. FC Köln, SC Paderborn 07, Eintracht Frankfurt, 1. FC Union Berlin, RB Leipzig, Borussia Mönchengladbach, SV Elversberg, SC Freiburg, FC Schalke, VfB Stuttgart, Bundesliga, Spieltag 10",
+              "published": "2026-11-20T17:03:51+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-alle-infos-und-aufstellungen-zum-10-spieltag-bvb-bangt-um-zwei-stars-6afffa4eb237b5b41c9a1fa3"
+            },
+            {
+              "title": "Bayer Leverkusen: Achtung! Hier ist Paderborn viel besser als Bayer",
+              "description": "Sport – Leuchtturm Essen, Bayer Leverkusen, Leverkusen, Bundesliga, SC Paderborn 07, Fußball, erste Bundesliga, BayArena",
+              "published": "2026-11-20T16:01:40+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bayer-leverkusen-achtung-hier-ist-paderborn-viel-besser-als-bayer-6aff6a49363d90628aa26ee7"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 2
+            }
+          ],
+          "total_matches": 2,
+          "returned": 2,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2426,
+          "output_tokens": 516,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1115,
+              "output_tokens": 89
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1311,
+              "output_tokens": 427
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "3:1 für die Werkself, und das ist kein Wunschdenken, sondern das Mindeste, was man unterm Bayer-Kreuz von so einem Nachmittag erwarten darf. Leverkusen geht als glasklarer Favorit in die BayArena, rund drei von vier Spielen dieser Art enden mit einem Heimsieg, und die Rot-Schwarzen dürften die Ostwestfalen phasenweise regelrecht in die eigene Hälfte schnüren. Paderborn wird trotzdem nicht nur Beton anrühren: Ein Treffer für die Blau-Schwarzen ist durchaus drin, mehr als ein Ehrentor zum Durchatmen sollte es aber nicht werden. Wer hier auf eine Überraschung setzt, glaubt auch, dass am Rhein der Karneval ausfällt.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          2,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.25,
+        "model_probability": 0.613,
+        "implied_probability": 0.8,
+        "edge": -0.2338,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Bayer 04 Leverkusen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.25,
+          "model_probability": 0.613,
+          "implied_probability": 0.8,
+          "edge": -0.2338,
+          "expected_value_eur": -4.68,
+          "stake_eur": 20.03,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "a173cbff2f4fcda4feb00b12f2f54d6c"
     },
     {
       "home": "Borussia Mönchengladbach",
       "away": "Borussia Dortmund",
       "kickoff_utc": "2026-11-21T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "90c685048dfdc2b448827ee45782ee6d26b3449244973ecf5fc8b9707b2df027",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.532,
+      "factors": {
+        "expected_goals": [
+          1.09,
+          2.08
+        ],
+        "probabilities": {
+          "home": 0.184,
+          "draw": 0.214,
+          "away": 0.603
+        },
+        "raw_probabilities": {
+          "home": 0.183,
+          "draw": 0.225,
+          "away": 0.591
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.184,
+          "draw": 0.213,
+          "away": 0.603,
+          "weight": 0.939
+        },
+        "home_advantage": 0.226,
+        "trained_on_matches": 694,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Hans Meyer - Abschied trotz Klassenerhalt",
+              "description": "Hans Meyer sichert im Jahr 2009 mit dem Aufsteiger Borussia Mönchengladbach am letzten Spieltag der Saison den Klassenerhalt. Kurz darauf tritt der damals 67-Jährige zurück.",
+              "published": "2026-11-21T11:14:39+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/video/hans-meyer-abschied-trotz-klassenerhalt,video-hans-meyer-100.html"
+            },
+            {
+              "title": "Borussia Mönchengladbach: Florian Neuhaus mit BVB-Horror-Serie!",
+              "description": "Borussia Mönchengladbach, erste Bundesliga, Neuhaus Florian, Blessin Alexander, Sport – Leuchtturm Essen, Stadion im Borussia-Park",
+              "published": "2026-11-21T06:01:40+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/borussia-moenchengladbach-florian-neuhaus-mit-bvb-horror-serie-6b005e3939a3e8110f0e4435"
+            },
+            {
+              "title": "„Dortmund Insider“ vom 19.11.26: Dortmunds Transferpläne & Schlotterbeck-Gerüchte",
+              "description": "Dortmund-Insider, Borussia Dortmund, Makus Michael, Weiler Jörg, Wessing Max, erste Bundesliga, Bundesliga, Schlotterbeck Nico, Kovac Niko",
+              "published": "2026-11-20T19:47:43+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/dortmund-insider-vom-19-11-26-dortmunds-transferplaene-schlotterbeck-geruechte-6aff22c7e79e7594eb9b625b"
+            },
+            {
+              "title": "Bundesliga: Die Die Streichlisten aller Klubs – 46 Spieler können im Winter weg",
+              "description": "erste Bundesliga, spielertransfer, Eintracht Frankfurt, Borussia Dortmund, FC Bayern München, quad-teaser, super-a-teaser, Aufmacher-Bereich",
+              "published": "2026-11-20T18:50:49+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-die-die-streichlisten-aller-klubs-46-spieler-koennen-im-winter-weg-6b0000ba5842ff528b9e1268"
+            },
+            {
+              "title": "Bundesliga: Alle Infos und Aufstellungen zum 10. Spieltag: BVB bangt um zwei Stars!",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, VfL Wolfsburg, 1. FC Köln, SC Paderborn 07, Eintracht Frankfurt, 1. FC Union Berlin, RB Leipzig, Borussia Mönchengladbach, SV Elversberg, SC Freiburg, FC Schalke, VfB Stuttgart, Bundesliga, Spieltag 10",
+              "published": "2026-11-20T17:03:51+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-alle-infos-und-aufstellungen-zum-10-spieltag-bvb-bangt-um-zwei-stars-6afffa4eb237b5b41c9a1fa3"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 24
+            }
+          ],
+          "total_matches": 25,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2793,
+          "output_tokens": 395,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1485,
+              "output_tokens": 92
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1308,
+              "output_tokens": 303
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Mein Tipp für das Borussen-Duell am Niederrhein: 1:2 für Dortmund, und wer im Borussia-Park auf ein Fohlen-Wunder wettet, braucht schon ein sehr grünes Herz. Schwarz-Gelb reist als klarer Favorit an, rund 60 Prozent sprechen für den Auswärtssieg, und vorne dürfte der BVB gut doppelt so oft treffen wie die Gastgeber. Gladbach wird vor eigenem Publikum sein Tor schon machen, die Fohlen sind ja keine Statisten, aber am Ende hat Dortmund schlicht den längeren Atem. Ein Torfestival wird's nicht, eher ein Abend, an dem die Gäste aus dem Pott ihre Klasse mit einem Tor Vorsprung nach Hause schaukeln.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          2
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.55,
+        "model_probability": 0.5915,
+        "implied_probability": 0.6452,
+        "edge": -0.0832,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "Borussia Dortmund gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.55,
+          "model_probability": 0.5915,
+          "implied_probability": 0.6452,
+          "edge": -0.0832,
+          "expected_value_eur": -1.56,
+          "stake_eur": 18.8,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "92c318ab5e120736e10f540103697f4e"
     },
     {
       "home": "Eintracht Frankfurt",
       "away": "TSG Hoffenheim",
       "kickoff_utc": "2026-11-21T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "aebc809343f624eb8c8825defe85e62e8173fbb07fb3870eed3bb64cd6afdc0c",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        2,
+        1
+      ],
+      "advance_tip": null,
+      "expected_points": 1.052,
+      "factors": {
+        "expected_goals": [
+          1.72,
+          1.68
+        ],
+        "probabilities": {
+          "home": 0.391,
+          "draw": 0.236,
+          "away": 0.374
+        },
+        "raw_probabilities": {
+          "home": 0.478,
+          "draw": 0.211,
+          "away": 0.311
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.385,
+          "draw": 0.237,
+          "away": 0.378,
+          "weight": 0.939
+        },
+        "home_advantage": 0.226,
+        "trained_on_matches": 694,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "LIVE! Kampf um Europa gegen Abstiegskampf: Frankfurt empfängt den HSV",
+              "description": "Eintracht Frankfurt möchte den dritten Platz in der Frauen-Bundesliga von Bayer Leverkusen zurückerobern. Am 11. Spieltag ist der HSV zu Gast. Die Hamburgerinnen haben zuletzt 6:1 gegen Mainz gewonnen, stecken aber trotzdem im Tabellenkeller.",
+              "published": "2026-11-21T10:00:00+00:00",
+              "source": "kicker",
+              "source_label": "Kicker",
+              "url": "https://www.kicker.de/koeln-gegen-bremen-2026-frauen-bundesliga-5243504/spielbericht#omrss"
+            },
+            {
+              "title": "FBL live: Eintracht Frankfurt gegen Hamburger SV",
+              "description": "Am 11. Spieltag reisen die HSV-Frauen zu Eintracht Frankfurt. NDR 90,3 überträgt das Spiel in einer Audiovollreportage.",
+              "published": "2026-11-21T10:50:15+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/regional/ndr/eintracht-frankfurt-gegen-hamburger-sv,audiostream-eintracht-frankfurt-hsv-frauen-104.html"
+            },
+            {
+              "title": "Ab 12 Uhr live - Eintracht Frankfurt empfängt den Hamburger SV",
+              "description": "Eintracht Frankfurt schielt in der Frauen-Bundesliga auf Rang drei. Dafür braucht es aber einen Pflichtsieg gegen Kellerkind Hamburger SV.",
+              "published": "2026-11-21T10:04:15+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesliga-frauen/ma12306331/eintracht-frankfurt_hamburger-sv/liveticker"
+            },
+            {
+              "title": "Hütter über Bundesliga-Trainer: „Früher mochten wir uns nicht so...“",
+              "description": "Hochkant BILD-Video intern, Pressekonferenz, Bundesliga, erste Bundesliga, Eintracht Frankfurt, 1899 Hoffenheim, Hütter Adi",
+              "published": "2026-11-20T21:27:14+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/huetter-ueber-bundesliga-trainer-frueher-mochten-wir-uns-nicht-so-6b003f815842ff528b9e1acf"
+            },
+            {
+              "title": "Bundesliga: Die Die Streichlisten aller Klubs – 46 Spieler können im Winter weg",
+              "description": "erste Bundesliga, spielertransfer, Eintracht Frankfurt, Borussia Dortmund, FC Bayern München, quad-teaser, super-a-teaser, Aufmacher-Bereich",
+              "published": "2026-11-20T18:50:49+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-die-die-streichlisten-aller-klubs-46-spieler-koennen-im-winter-weg-6b0000ba5842ff528b9e1268"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 2
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 15
+            }
+          ],
+          "total_matches": 18,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2716,
+          "output_tokens": 354,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1408,
+              "output_tokens": 101
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1308,
+              "output_tokens": 253
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "2:1 für die Eintracht. Viel mehr als ein Haarbreit trennt die Adler im Frankfurter Stadtwald allerdings nicht von den Kraichgauern, denn hier treffen sich zwei Teams auf Augenhöhe, und beide bringen genug Offensivdrang mit, um das Netz ordentlich zu beulen. Bei 39 zu 37 Prozent für Heim- und Auswärtssieg ist das eine enge Kiste, in der am Ende vielleicht nur die Frankfurter Kurve den Ausschlag gibt. Wer hier auf ein müdes 0:0 setzt, hat die Rechnung ohne den Hunger beider Angriffsreihen gemacht.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Eintracht Frankfurt gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.45,
+        "model_probability": 0.4776,
+        "implied_probability": 0.4082,
+        "edge": 0.17,
+        "expected_value_eur": 4.98,
+        "stake_eur": 29.31,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.1172,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "Eintracht Frankfurt gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 2.45,
+          "model_probability": 0.4776,
+          "implied_probability": 0.4082,
+          "edge": 0.17,
+          "expected_value_eur": 2.09,
+          "stake_eur": 12.29,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "dc5db458001c071233c4ee35dc014ae4"
     },
     {
       "home": "SV 07 Elversberg",
       "away": "SC Freiburg",
       "kickoff_utc": "2026-11-21T14:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "4c1c348385db4339bac8b7057c8545867596e4f36e35ea91d258f4bae0f4728c",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.246,
+      "factors": {
+        "expected_goals": [
+          1.24,
+          1.66
+        ],
+        "probabilities": {
+          "home": 0.281,
+          "draw": 0.252,
+          "away": 0.467
+        },
+        "raw_probabilities": {
+          "home": 0.482,
+          "draw": 0.213,
+          "away": 0.305
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.268,
+          "draw": 0.255,
+          "away": 0.477,
+          "weight": 0.939
+        },
+        "home_advantage": 0.226,
+        "trained_on_matches": 694,
+        "news_checked": 3,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Bundesliga: Alle Infos und Aufstellungen zum 10. Spieltag: BVB bangt um zwei Stars!",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, VfL Wolfsburg, 1. FC Köln, SC Paderborn 07, Eintracht Frankfurt, 1. FC Union Berlin, RB Leipzig, Borussia Mönchengladbach, SV Elversberg, SC Freiburg, FC Schalke, VfB Stuttgart, Bundesliga, Spieltag 10",
+              "published": "2026-11-20T17:03:51+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-alle-infos-und-aufstellungen-zum-10-spieltag-bvb-bangt-um-zwei-stars-6afffa4eb237b5b41c9a1fa3"
+            },
+            {
+              "title": "Zockt Wagner nur?: So stehen die Pinckert-Chancen gegen Freiburg",
+              "description": "SV Elversberg, Fußball, Saarland, zweite Bundesliga, Bundesliga, Sport - Leuchtturm Zentral, Bundesliga bei BILD, SC Freiburg, Schuster Julian, Frantz Mike",
+              "published": "2026-11-20T16:09:53+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/zockt-wagner-nur-so-stehen-die-pinckert-chancen-gegen-freiburg-6b00554db237b5b41c9a2b8f"
+            },
+            {
+              "title": "Interessante Aussage: Was Elversbergs Wagner über die Top-Teams denkt",
+              "description": "SV Elversberg, Saarland, Fußball, zweite Bundesliga, Steffen Horst, Sport - Leuchtturm Zentral, SC Freiburg, Bundesliga, Bundesliga bei BILD",
+              "published": "2026-11-20T12:25:24+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/interessante-aussage-was-elversbergs-wagner-ueber-die-top-teams-denkt-6b00039ebe487c5437746a3d"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 3
+            }
+          ],
+          "total_matches": 3,
+          "returned": 3,
+          "has_news": true
+        },
+        "llm_adjustment": null,
+        "llm_usage": {
+          "input_tokens": 2544,
+          "output_tokens": 357,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1244,
+              "output_tokens": 86
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1300,
+              "output_tokens": 271
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "1:2 für den Sportclub – mehr ist da nicht zu deuteln, wenn die Breisgauer an die Kaiserlinde ins saarländische Spiesen-Elversberg reisen. Freiburg kommt mit fast jeder zweiten Siegchance als Favorit, aber nicht als Dampfwalze: Die Elversberger haben vor eigenem Publikum genug Saarland-Trotz, um selbst einmal zu treffen und die Gäste ordentlich ins Schwitzen zu bringen. Am Ende sollte sich aber die abgezocktere Mannschaft aus dem Schwarzwald durchsetzen – knapp, verdient und mit einem Fass Ärger für die Gastgeber, die sich mehr verdient gehabt hätten.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "SC Freiburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.97,
+        "model_probability": 0.3045,
+        "implied_probability": 0.5076,
+        "edge": -0.4001,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "SC Freiburg gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.97,
+          "model_probability": 0.3045,
+          "implied_probability": 0.5076,
+          "edge": -0.4001,
+          "expected_value_eur": -2.0,
+          "stake_eur": 5.0,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "97b6b2bf901a150592d90657a413b894"
     },
     {
       "home": "FC Schalke 04",
