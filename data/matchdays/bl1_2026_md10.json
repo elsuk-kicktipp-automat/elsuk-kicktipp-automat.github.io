@@ -241,6 +241,14 @@
       "status": "sealed",
       "hash": "4c1c348385db4339bac8b7057c8545867596e4f36e35ea91d258f4bae0f4728c",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "FC Schalke 04",
+      "away": "VfB Stuttgart",
+      "kickoff_utc": "2026-11-21T17:30:00Z",
+      "status": "sealed",
+      "hash": "fb2684ea054210cfbc580d9d3654df1874dc43886996462f336043c4a0fcacae",
+      "paper_bet_status": "sealed"
     }
   ]
 }
