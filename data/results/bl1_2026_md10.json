@@ -4,47 +4,47 @@
   "matchday": 10,
   "stage": "10. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 0,
-  "matches_scored": 1,
-  "matches_open": 6,
+  "points_total": 11,
+  "matches_scored": 5,
+  "matches_open": 2,
   "hits": {
     "exact": 0,
-    "goal_diff": 0,
-    "tendency": 0,
+    "goal_diff": 3,
+    "tendency": 1,
     "miss": 1
   },
   "shadow_points": {
-    "most_probable": 0,
-    "elo_favorite": 0,
+    "most_probable": 5,
+    "elo_favorite": 5,
     "always_draw": 4,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 1,
-    "elo_favorite": 1,
-    "always_draw": 1,
+    "most_probable": 5,
+    "elo_favorite": 5,
+    "always_draw": 5,
     "llm_adjusted": 0
   },
-  "brier_avg": 1.6248,
+  "brier_avg": 0.5909,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
-    "stake_total_eur": 0.0,
-    "payout_total_eur": 0.0,
-    "profit_total_eur": 0.0,
-    "roi": null,
-    "bets_scored": 0,
-    "bets_won": 0,
+    "stake_total_eur": 29.31,
+    "payout_total_eur": 71.81,
+    "profit_total_eur": 42.5,
+    "roi": 1.45,
+    "bets_scored": 1,
+    "bets_won": 1,
     "bankroll_start_eur": 1000.0
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 25.0,
-      "payout_total_eur": 0.0,
-      "profit_total_eur": -25.0,
-      "roi": -1.0,
-      "bets_scored": 1,
-      "bets_won": 0,
+      "stake_total_eur": 81.12,
+      "payout_total_eur": 94.14,
+      "profit_total_eur": 13.02,
+      "roi": 0.1605,
+      "bets_scored": 5,
+      "bets_won": 4,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -114,25 +114,221 @@
       "home": "Bayer 04 Leverkusen",
       "away": "SC Paderborn 07",
       "kickoff_utc": "2026-11-21T14:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        3,
+        1
+      ],
+      "result": [
+        4,
+        0
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 2,
+        "always_draw": 0
+      },
+      "brier": 0.0993,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Bayer 04 Leverkusen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.25,
+        "model_probability": 0.613,
+        "implied_probability": 0.8,
+        "edge": -0.2338,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 20.03,
+          "payout_eur": 25.04,
+          "profit_eur": 5.01
+        }
+      }
     },
     {
       "home": "Borussia Mönchengladbach",
       "away": "Borussia Dortmund",
       "kickoff_utc": "2026-11-21T14:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        0,
+        1
+      ],
+      "points": 3,
+      "shadow_points": {
+        "most_probable": 3,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.2373,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "Borussia Dortmund gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.55,
+        "model_probability": 0.5915,
+        "implied_probability": 0.6452,
+        "edge": -0.0832,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 18.8,
+          "payout_eur": 29.14,
+          "profit_eur": 10.34
+        }
+      }
     },
     {
       "home": "Eintracht Frankfurt",
       "away": "TSG Hoffenheim",
       "kickoff_utc": "2026-11-21T14:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        2,
+        1
+      ],
+      "result": [
+        1,
+        0
+      ],
+      "points": 3,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 3,
+        "always_draw": 0
+      },
+      "brier": 0.5665,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "Eintracht Frankfurt gewinnt",
+        "status": "recommended",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 2.45,
+        "model_probability": 0.4776,
+        "implied_probability": 0.4082,
+        "edge": 0.17,
+        "expected_value_eur": 4.98,
+        "stake_eur": 29.31,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.1172,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "won",
+        "stake_eur": 29.31,
+        "payout_eur": 71.81,
+        "profit_eur": 42.5
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 12.29,
+          "payout_eur": 30.11,
+          "profit_eur": 17.82
+        }
+      }
     },
     {
       "home": "SV 07 Elversberg",
       "away": "SC Freiburg",
       "kickoff_utc": "2026-11-21T14:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        0,
+        1
+      ],
+      "points": 3,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.4266,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "SC Freiburg gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.97,
+        "model_probability": 0.3045,
+        "implied_probability": 0.5076,
+        "edge": -0.4001,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 5.0,
+          "payout_eur": 9.85,
+          "profit_eur": 4.85
+        }
+      }
     },
     {
       "home": "FC Schalke 04",
