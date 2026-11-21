@@ -4,28 +4,28 @@
   "matchday": 10,
   "stage": "10. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 11,
-  "matches_scored": 5,
-  "matches_open": 2,
+  "points_total": 13,
+  "matches_scored": 6,
+  "matches_open": 1,
   "hits": {
     "exact": 0,
     "goal_diff": 3,
-    "tendency": 1,
+    "tendency": 2,
     "miss": 1
   },
   "shadow_points": {
-    "most_probable": 5,
+    "most_probable": 7,
     "elo_favorite": 5,
     "always_draw": 4,
     "llm_adjusted": 0
   },
   "shadow_matches": {
-    "most_probable": 5,
-    "elo_favorite": 5,
-    "always_draw": 5,
+    "most_probable": 6,
+    "elo_favorite": 6,
+    "always_draw": 6,
     "llm_adjusted": 0
   },
-  "brier_avg": 0.5909,
+  "brier_avg": 0.5259,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 81.12,
-      "payout_total_eur": 94.14,
-      "profit_total_eur": 13.02,
-      "roi": 0.1605,
-      "bets_scored": 5,
-      "bets_won": 4,
+      "stake_total_eur": 98.12,
+      "payout_total_eur": 118.79,
+      "profit_total_eur": 20.67,
+      "roi": 0.2107,
+      "bets_scored": 6,
+      "bets_won": 5,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -108,7 +108,56 @@
       "home": "1. FC Union Berlin",
       "away": "RB Leipzig",
       "kickoff_utc": "2026-11-21T14:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        2
+      ],
+      "result": [
+        1,
+        5
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 2,
+        "elo_favorite": 0,
+        "always_draw": 0
+      },
+      "brier": 0.2012,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "RB Leipzig gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.45,
+        "model_probability": 0.56,
+        "implied_probability": 0.6897,
+        "edge": -0.188,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 17.0,
+          "payout_eur": 24.65,
+          "profit_eur": 7.65
+        }
+      }
     },
     {
       "home": "Bayer 04 Leverkusen",
