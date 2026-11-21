@@ -1116,9 +1116,203 @@
       "home": "FC Schalke 04",
       "away": "VfB Stuttgart",
       "kickoff_utc": "2026-11-21T17:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "fb2684ea054210cfbc580d9d3654df1874dc43886996462f336043c4a0fcacae",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        2
+      ],
+      "advance_tip": null,
+      "expected_points": 1.363,
+      "factors": {
+        "expected_goals": [
+          1.15,
+          1.79
+        ],
+        "probabilities": {
+          "home": 0.239,
+          "draw": 0.242,
+          "away": 0.519
+        },
+        "raw_probabilities": {
+          "home": 0.184,
+          "draw": 0.312,
+          "away": 0.504
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.242,
+          "draw": 0.237,
+          "away": 0.52,
+          "weight": 0.939
+        },
+        "home_advantage": 0.226,
+        "trained_on_matches": 694,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: FC Schalke 04 gegen VfB Stuttgart - Bundesliga",
+              "description": "10. Spieltag: Anpfiff des Spiels ist am 21.11.2026 um 18:30 Uhr. VfB Stuttgart spielt in Gelsenkirchen.",
+              "published": "2026-11-21T18:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/fc-schalke-04-gegen-vfb-stuttgart,audiostream-fc-schalke-04-gegen-vfb-stuttgart-102.html"
+            },
+            {
+              "title": "Verrückte Wette bei Schalke 04: Sylla trifft Samstag in Minute 54!",
+              "description": "FC Schalke, Veltins-Arena, Sport – Leuchtturm Essen, Kitsch Christian, Backhaus Max, Sylla Moussa, Muslic Miron, Stürmer, Mittelstürmer, Sportarten, Sport, Sport, Sportbegriffe, DFB, Fussball Bundesliga, erste Bundesliga, Fußball, Bundesliga, Bundesliga bei BILD, Bundesliga der Samstag, Tor, sportliche Krise, VfB Stuttgart, abstieg, Abstiegskampf",
+              "published": "2026-11-20T17:04:08+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/verrueckte-wette-bei-schalke-04-sylla-trifft-samstag-in-minute-54-6acfb49c8793815072940ccd"
+            },
+            {
+              "title": "Bundesliga: Alle Infos und Aufstellungen zum 10. Spieltag: BVB bangt um zwei Stars!",
+              "description": "Borussia Dortmund, FC Bayern München, Bayer Leverkusen, 1899 Hoffenheim, VfL Wolfsburg, 1. FC Köln, SC Paderborn 07, Eintracht Frankfurt, 1. FC Union Berlin, RB Leipzig, Borussia Mönchengladbach, SV Elversberg, SC Freiburg, FC Schalke, VfB Stuttgart, Bundesliga, Spieltag 10",
+              "published": "2026-11-20T17:03:51+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/bundesliga-alle-infos-und-aufstellungen-zum-10-spieltag-bvb-bangt-um-zwei-stars-6afffa4eb237b5b41c9a1fa3"
+            },
+            {
+              "title": "VfB Stuttgart: Nicht fit für Schalke, aber…: Hoeneß macht Angelo Stiller Inter-Hoffnung",
+              "description": "VfB Stuttgart, Fußball, Hoeneß Sebastian, Wohlgemuth Fabian, Wehrle Alexander, Sport - Leuchtturm München, Bundesliga, Stiller Angelo",
+              "published": "2026-11-20T16:54:03+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-nicht-fit-fuer-schalke-aber-hoeness-macht-angelo-stiller-inter-hoffnung-6b003995be487c54377471d1"
+            },
+            {
+              "title": "VfB Stuttgart: Viele Top-Klubs interessiert: Hoeneß: Finn Jeltsch hat „keine Grenzen“",
+              "description": "VfB Stuttgart, Fußball, Hoeneß Sebastian, Wehrle Alexander, Wohlgemuth Fabian, Sport - Leuchtturm München, Jeltsch Finn, Bundesliga, FC Schalke, 1.FC Nürnberg",
+              "published": "2026-11-20T14:18:04+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/vfb-stuttgart-viele-top-klubs-interessiert-hoeness-finn-jeltsch-hat-keine-grenzen-6b002aa05842ff528b9e1816"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 1
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 6
+            }
+          ],
+          "total_matches": 7,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": {
+          "tip": [
+            1,
+            1
+          ],
+          "grund": "Stuttgarts Schlüsselspieler Angelo Stiller ist laut Bild nicht fit für das Spiel auf Schalke.",
+          "news_count": 5,
+          "applied": false
+        },
+        "llm_usage": {
+          "input_tokens": 3018,
+          "output_tokens": 648,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1641,
+              "output_tokens": 194
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1377,
+              "output_tokens": 454
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Mein Tipp für den Abend in Gelsenkirchen: 1:2, die Schwaben nehmen die Punkte mit nach Hause. Gut jede zweite Wette spricht für den VfB, und das ist kein Zufall: Die Gäste mit dem roten Brustring sind hier klarer Favorit und bringen schlicht mehr Durchschlagskraft mit in den Ruhrpott. Die Knappen werden in der Veltins-Arena königsblau ackern und sich ihr Tor verdienen, aber am Ende dürfte Stuttgart einmal öfter zuschlagen. Bleibt Angelo Stiller laut Bild tatsächlich draußen, riecht das zwar nach einem zähen 1:1, doch auch ohne ihn würde ich mein Bier auf die Schwaben setzen.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ],
+        "llm_adjusted": [
+          1,
+          1
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "away",
+        "selection_label": "VfB Stuttgart gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.8,
+        "model_probability": 0.5037,
+        "implied_probability": 0.5556,
+        "edge": -0.0934,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "away",
+          "selection_label": "VfB Stuttgart gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.8,
+          "model_probability": 0.5037,
+          "implied_probability": 0.5556,
+          "edge": -0.0934,
+          "expected_value_eur": -1.29,
+          "stake_eur": 13.78,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "7ff7b8646082173a0f9b8e8b45d733a4"
     }
   ]
 }
