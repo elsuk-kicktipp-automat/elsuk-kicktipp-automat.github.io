@@ -1321,6 +1321,14 @@
       "status": "sealed",
       "hash": "5ea71f7f171db8a9045dc255d0e445bc95fb7bda50609af8b12cc85289380eb3",
       "paper_bet_status": "sealed"
+    },
+    {
+      "home": "SV Werder Bremen",
+      "away": "Hamburger SV",
+      "kickoff_utc": "2026-11-22T16:30:00Z",
+      "status": "sealed",
+      "hash": "217a04ea3c747133577569473cb21c954311240806f2b96b4782a2b87a80a2fd",
+      "paper_bet_status": "sealed"
     }
   ]
 }

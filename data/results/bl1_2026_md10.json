@@ -6,7 +6,7 @@
   "model_version": "dixon-coles-elo-3-market-llm-news",
   "points_total": 13,
   "matches_scored": 7,
-  "matches_open": 1,
+  "matches_open": 2,
   "hits": {
     "exact": 0,
     "goal_diff": 3,
@@ -439,6 +439,12 @@
       "home": "FC Augsburg",
       "away": "1. FSV Mainz 05",
       "kickoff_utc": "2026-11-22T14:30:00Z",
+      "status": "sealed"
+    },
+    {
+      "home": "SV Werder Bremen",
+      "away": "Hamburger SV",
+      "kickoff_utc": "2026-11-22T16:30:00Z",
       "status": "sealed"
     }
   ]
