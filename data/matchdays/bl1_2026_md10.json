@@ -1461,9 +1461,203 @@
       "home": "SV Werder Bremen",
       "away": "Hamburger SV",
       "kickoff_utc": "2026-11-22T16:30:00Z",
-      "status": "sealed",
+      "status": "revealed",
       "hash": "217a04ea3c747133577569473cb21c954311240806f2b96b4782a2b87a80a2fd",
-      "paper_bet_status": "sealed"
+      "paper_bet_status": "sealed",
+      "tip": [
+        1,
+        0
+      ],
+      "advance_tip": null,
+      "expected_points": 1.523,
+      "factors": {
+        "expected_goals": [
+          1.92,
+          0.99
+        ],
+        "probabilities": {
+          "home": 0.591,
+          "draw": 0.223,
+          "away": 0.186
+        },
+        "raw_probabilities": {
+          "home": 0.502,
+          "draw": 0.249,
+          "away": 0.249
+        },
+        "elo": {
+          "home": null,
+          "away": null,
+          "beta": 0.0
+        },
+        "market": {
+          "home": 0.597,
+          "draw": 0.221,
+          "away": 0.182,
+          "weight": 0.943
+        },
+        "home_advantage": 0.226,
+        "trained_on_matches": 700,
+        "news_checked": 5,
+        "news_sources": {
+          "snippets": [
+            {
+              "title": "Live hören: Werder Bremen gegen Hamburger SV - Bundesliga",
+              "description": "10. Spieltag: Anpfiff des Spiels ist am 22.11.2026 um 17:30 Uhr. Hamburger SV spielt in Bremen.",
+              "published": "2026-11-22T17:15:00+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/fussball/bundesliga/werder-bremen-gegen-hamburger-sv,audiostream-werder-bremen-gegen-hamburger-sv-102.html"
+            },
+            {
+              "title": "HSV: Nordderby gegen Werder – Mario Vuskovic nach vier Jahren zurück",
+              "description": "Hamburger SV, Vuskovic Mario, zweite Bundesliga, Epo, Doping-Missbrauch, Sport - Leuchtturm Hamburg, Polzin Merlin, DFB, Vuskovic Luka, Huwer Eric, Jatta Bakery, dokumentarfilm, Kino, Lausanne, Split, Nationalmannschaft Kroatien",
+              "published": "2026-11-22T13:19:11+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-nordderby-gegen-werder-mario-vuskovic-nach-vier-jahren-zurueck-6b02793039a3e8110f0e5fde"
+            },
+            {
+              "title": "Ab 17.30 Uhr live - Nordderby zum Spieltags-Abschluss",
+              "description": "In der Bundesliga steigt am späten Sonntagnachmittag das brisante Nordderby zwischen Werder Bremen und dem Hamburger SV.",
+              "published": "2026-11-22T12:20:34+01:00",
+              "source": "sportschau",
+              "source_label": "Sportschau",
+              "url": "https://www.sportschau.de/live-und-ergebnisse/fussball/deutschland-bundesliga/ma12193789/werder-bremen_hamburger-sv/liveticker"
+            },
+            {
+              "title": "HSV: Spektakuläre Pyro-Überraschung für die Stars vor dem Nordderby bei Werder Bremen",
+              "description": "Hamburger SV, erste Bundesliga, Polzin Merlin, Werder Bremen, zweite Bundesliga, Pyrotechnik, Ultras, Fans, Sport - Leuchtturm Hamburg",
+              "published": "2026-11-22T07:12:59+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/hsv-spektakulaere-pyro-ueberraschung-fuer-die-stars-vor-dem-nordderby-bei-werder-bremen-6b002afe39a3e8110f0e3ca8"
+            },
+            {
+              "title": "Verletzungspech: Werder-Boss bestätigt Doppel-Aus vor HSV-Derby",
+              "description": "Bundesliga, Hochkant BILD-Video intern, Pressekonferenz, erste Bundesliga, Werder Bremen, Hamburger SV, Weiser Mitchell, Fritz Clemens, Grüll Marco",
+              "published": "2026-11-21T14:38:23+01:00",
+              "source": "bild",
+              "source_label": "BILD",
+              "url": "https://www.bild.de/sport/fussball/verletzungspech-werder-boss-bestaetigt-doppel-aus-vor-hsv-derby-6b019b9539a3e8110f0e5611"
+            }
+          ],
+          "checked": 3,
+          "sources": [
+            {
+              "source": "kicker",
+              "label": "Kicker",
+              "checked": true,
+              "matches": 0
+            },
+            {
+              "source": "sportschau",
+              "label": "Sportschau",
+              "checked": true,
+              "matches": 3
+            },
+            {
+              "source": "bild",
+              "label": "BILD",
+              "checked": true,
+              "matches": 10
+            }
+          ],
+          "total_matches": 13,
+          "returned": 5,
+          "has_news": true
+        },
+        "llm_adjustment": {
+          "tip": [
+            0,
+            0
+          ],
+          "grund": "Werder bestätigt vor dem Derby den Ausfall der Offensivkräfte Mitchell Weiser und Marco Grüll.",
+          "news_count": 5,
+          "applied": false
+        },
+        "llm_usage": {
+          "input_tokens": 2780,
+          "output_tokens": 795,
+          "calls": [
+            {
+              "zweck": "news",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1407,
+              "output_tokens": 298
+            },
+            {
+              "zweck": "begruendung",
+              "model": "claude-opus-5-5",
+              "input_tokens": 1373,
+              "output_tokens": 497
+            }
+          ]
+        },
+        "method_version": 9
+      },
+      "begruendung": "Ich tippe ein knappes 1:0 für Werder, denn im Nordderby an der Weser sind die Grün-Weißen klarer Favorit, und das mit rund 60 Prozent Siegchance nicht nur nach dem Gefühl am Tresen. Dass Werder ausgerechnet vor dem Derby auf die Offensivkräfte Mitchell Weiser und Marco Grüll verzichten muss, nimmt dem Angriff allerdings einiges an Wucht, deshalb rechne ich eher mit einem zähen Abnutzungskampf als mit einem Torfestival. Der HSV reist als klarer Außenseiter ins Weserstadion, und die Rothosen werden alles daransetzen, den Bremern das Leben so schwer zu machen, dass am Ende sogar ein 0:0 nicht völlig abwegig wäre. Trotzdem bleibe ich dabei: Ein einziger Treffer reicht Werder, damit die Hanseaten von der Elbe ohne Punkte nach Hause fahren.",
+      "begruendung_source": "llm",
+      "shadow_tips": {
+        "most_probable": [
+          1,
+          1
+        ],
+        "elo_favorite": [
+          2,
+          1
+        ],
+        "always_draw": [
+          1,
+          1
+        ],
+        "llm_adjusted": [
+          0,
+          0
+        ]
+      },
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SV Werder Bremen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.55,
+        "model_probability": 0.5021,
+        "implied_probability": 0.6452,
+        "edge": -0.2218,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "shadow_bets": {
+        "locker": {
+          "mode": "paper",
+          "variant": "locker",
+          "market": "h2h_90min",
+          "selection": "home",
+          "selection_label": "SV Werder Bremen gewinnt",
+          "status": "recommended",
+          "source": "tipico_de",
+          "source_label": "Tipico",
+          "bookmaker_count": 23,
+          "odds_decimal": 1.55,
+          "model_probability": 0.5021,
+          "implied_probability": 0.6452,
+          "edge": -0.2218,
+          "expected_value_eur": -3.04,
+          "stake_eur": 13.69,
+          "staking_mode": "confidence",
+          "bankroll_eur": 1000.0
+        }
+      },
+      "salt": "cf5f065492f7e01d88e5429352465248"
     }
   ]
 }
