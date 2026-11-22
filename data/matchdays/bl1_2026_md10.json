@@ -1313,6 +1313,14 @@
         }
       },
       "salt": "7ff7b8646082173a0f9b8e8b45d733a4"
+    },
+    {
+      "home": "FC Augsburg",
+      "away": "1. FSV Mainz 05",
+      "kickoff_utc": "2026-11-22T14:30:00Z",
+      "status": "sealed",
+      "hash": "5ea71f7f171db8a9045dc255d0e445bc95fb7bda50609af8b12cc85289380eb3",
+      "paper_bet_status": "sealed"
     }
   ]
 }
