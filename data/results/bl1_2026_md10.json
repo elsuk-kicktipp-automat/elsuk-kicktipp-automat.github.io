@@ -4,28 +4,28 @@
   "matchday": 10,
   "stage": "10. Spieltag",
   "model_version": "dixon-coles-elo-3-market-llm-news",
-  "points_total": 13,
-  "matches_scored": 8,
-  "matches_open": 1,
+  "points_total": 15,
+  "matches_scored": 9,
+  "matches_open": 0,
   "hits": {
     "exact": 0,
     "goal_diff": 3,
-    "tendency": 2,
+    "tendency": 3,
     "miss": 3
   },
   "shadow_points": {
     "most_probable": 9,
-    "elo_favorite": 7,
+    "elo_favorite": 9,
     "always_draw": 6,
     "llm_adjusted": 2
   },
   "shadow_matches": {
-    "most_probable": 8,
-    "elo_favorite": 8,
-    "always_draw": 8,
-    "llm_adjusted": 1
+    "most_probable": 9,
+    "elo_favorite": 9,
+    "always_draw": 9,
+    "llm_adjusted": 2
   },
-  "brier_avg": 0.5876,
+  "brier_avg": 0.5503,
   "advance_points_total": 0,
   "advance_scored": 0,
   "paper_betting": {
@@ -39,12 +39,12 @@
   },
   "shadow_betting": {
     "locker": {
-      "stake_total_eur": 116.98,
-      "payout_total_eur": 118.79,
-      "profit_total_eur": 1.81,
-      "roi": 0.0155,
-      "bets_scored": 8,
-      "bets_won": 5,
+      "stake_total_eur": 130.67,
+      "payout_total_eur": 140.01,
+      "profit_total_eur": 9.34,
+      "roi": 0.0715,
+      "bets_scored": 9,
+      "bets_won": 6,
       "bankroll_start_eur": 1000.0
     }
   },
@@ -494,7 +494,57 @@
       "home": "SV Werder Bremen",
       "away": "Hamburger SV",
       "kickoff_utc": "2026-11-22T16:30:00Z",
-      "status": "revealed"
+      "status": "revealed",
+      "tip": [
+        1,
+        0
+      ],
+      "result": [
+        4,
+        0
+      ],
+      "points": 2,
+      "shadow_points": {
+        "most_probable": 0,
+        "elo_favorite": 2,
+        "always_draw": 0,
+        "llm_adjusted": 0
+      },
+      "brier": 0.2516,
+      "paper_bet": {
+        "mode": "paper",
+        "market": "h2h_90min",
+        "selection": "home",
+        "selection_label": "SV Werder Bremen gewinnt",
+        "status": "skipped_no_value",
+        "source": "tipico_de",
+        "source_label": "Tipico",
+        "bookmaker_count": 23,
+        "odds_decimal": 1.55,
+        "model_probability": 0.5021,
+        "implied_probability": 0.6452,
+        "edge": -0.2218,
+        "expected_value_eur": -0.0,
+        "stake_eur": 0.0,
+        "max_stake_eur": 100.0,
+        "kelly_fraction": 0.0,
+        "applied_kelly_fraction": 0.25,
+        "bankroll_eur": 1000.0
+      },
+      "paper_bet_result": {
+        "outcome": "skipped",
+        "stake_eur": 0.0,
+        "payout_eur": 0.0,
+        "profit_eur": 0.0
+      },
+      "shadow_bet_results": {
+        "locker": {
+          "outcome": "won",
+          "stake_eur": 13.69,
+          "payout_eur": 21.22,
+          "profit_eur": 7.53
+        }
+      }
     }
   ]
 }
