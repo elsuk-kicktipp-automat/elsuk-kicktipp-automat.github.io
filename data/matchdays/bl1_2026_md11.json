@@ -1,0 +1,24 @@
+{
+  "competition": "bl1",
+  "season": 2026,
+  "matchday": 11,
+  "stage": "11. Spieltag",
+  "model_version": "dixon-coles-elo-3-market-llm-news",
+  "kicktipp_scheme": {
+    "exact": 4,
+    "goal_diff": 3,
+    "tendency": 2,
+    "advance": 2
+  },
+  "sealed_at_utc": "2026-11-27T15:31:39Z",
+  "matches": [
+    {
+      "home": "SV Werder Bremen",
+      "away": "Borussia Mönchengladbach",
+      "kickoff_utc": "2026-11-27T19:30:00Z",
+      "status": "sealed",
+      "hash": "55c908fd7e1bc72fd17727cf559132a4cf4190c50e8ff7e86f80cb1aee3ae82e",
+      "paper_bet_status": "sealed"
+    }
+  ]
+}
