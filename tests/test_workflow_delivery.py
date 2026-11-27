@@ -22,6 +22,15 @@ def test_delivery_receipt_and_audit_run_after_kicktipp_submission():
     assert "python -m engine.cli audit" in text
 
 
+def test_kicktipp_session_comes_from_secret_before_submission():
+    text = SPIELTAG.read_text(encoding="utf-8")
+    session = text.index("- name: Kicktipp-Sitzung bereitstellen")
+    submission = text.index("- name: Kicktipp-Tippabgabe")
+    assert session < submission
+    assert "secrets.KICKTIPP_STATE" in text
+    assert '> data/cache/kicktipp_state.json' in text
+
+
 def test_data_workflows_have_timeouts_and_shared_lock():
     for path in (SPIELTAG, UNSEAL):
         text = path.read_text(encoding="utf-8")

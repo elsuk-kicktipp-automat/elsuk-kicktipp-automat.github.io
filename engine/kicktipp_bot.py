@@ -81,6 +81,14 @@ def _is_logged_in(page) -> bool:
     return page.locator("#kennung").count() == 0
 
 
+def _login_error(page) -> str:
+    """Kicktipps eigene Fehlermeldung auf der Login-Seite ("" wenn keine dasteht)."""
+    box = page.locator(".messagebox, .errors")
+    if box.count() == 0:
+        return ""
+    return " ".join((box.first.inner_text() or "").split())[:200]
+
+
 def login(page, email: str, password: str) -> None:
     """Meldet an; wirft RuntimeError, wenn danach immer noch die Login-Seite steht."""
     page.goto(LOGIN_URL)
@@ -90,10 +98,21 @@ def login(page, email: str, password: str) -> None:
     page.fill("#kennung", email)
     page.fill("#passwort", password)
     page.get_by_role("button", name="Anmelden").click()
-    page.wait_for_load_state("networkidle")
+    # Best-effort wie beim Speichern: Seit Ende November 2026 steckt im Formular
+    # eine Cloudflare-Prüfung, deren Skripte Verbindungen offen halten. Die Seite
+    # wird dann nie "idle", und der Timeout verdeckte am 27.11.2026 die
+    # eigentliche Ursache (Kicktipp lehnt den Login des Headless-Browsers ab).
+    try:
+        page.wait_for_load_state("networkidle", timeout=10000)
+    except Exception:
+        pass
     if not _is_logged_in(page):
+        detail = _login_error(page) or "falsche Zugangsdaten oder Login-Seite geändert?"
         raise RuntimeError(
-            "Kicktipp-Login fehlgeschlagen (falsche Zugangsdaten oder Login-Seite geändert?)"
+            f"Kicktipp-Login fehlgeschlagen: {detail} - Im Betrieb meldet sich der "
+            "Automat nicht selbst an, sondern nutzt die Sitzung aus dem Secret "
+            "KICKTIPP_STATE (spieltag.yml, Schritt 'Kicktipp-Sitzung bereitstellen'). "
+            "Fehlt sie oder ist sie abgelaufen: von Hand anmelden und das Secret erneuern."
         )
 
 

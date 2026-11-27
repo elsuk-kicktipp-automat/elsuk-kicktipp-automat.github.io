@@ -186,6 +186,26 @@ jobs:
         if: steps.pending.outputs.pending == 'true'
         run: playwright install --with-deps chromium
 
+      # Seit Ende November 2026 schützt Kicktipp das Login-Formular mit einer
+      # Cloudflare-Prüfung, die der Headless-Browser nicht besteht. Die
+      # Tippabgabe selbst hat keine: Mit dem ein Jahr gültigen login-Cookie aus
+      # dem Secret ist der Bot angemeldet, ohne das Formular anzufassen
+      # (engine/kicktipp_bot.py lädt die Datei als Playwright-storage_state).
+      # Das Secret enthält genau dieses Cookie als storage_state-JSON; läuft es
+      # ab (zuletzt gesetzt mit Ablauf 14.08.2027), von Hand anmelden und das
+      # Secret erneuern. Die Datei liegt unter data/cache/ (gitignored) und darf
+      # weder committet noch in einen Actions-Cache gelegt werden - das Repo ist
+      # öffentlich.
+      - name: Kicktipp-Sitzung bereitstellen
+        if: steps.pending.outputs.pending == 'true'
+        run: |
+          if [ -n "$KICKTIPP_STATE" ]; then
+            mkdir -p data/cache
+            printf '%s' "$KICKTIPP_STATE" > data/cache/kicktipp_state.json
+          fi
+        env:
+          KICKTIPP_STATE: ${{ secrets.KICKTIPP_STATE }}
+
       - name: Kicktipp-Tippabgabe (verifiziert, schlägt bei Anomalien fehl)
         if: steps.pending.outputs.pending == 'true'
         run: python -m engine.cli kicktipp

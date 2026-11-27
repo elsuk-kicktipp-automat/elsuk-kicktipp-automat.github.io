@@ -35,12 +35,34 @@ class FakeClickLocator:
             self.page.logged_in = True
 
 
+class FakeTextLocator:
+    """Simuliert die Fehlermeldungs-Box der Login-Seite (.messagebox/.errors)."""
+
+    def __init__(self, text: str):
+        self.text = text
+        self.first = self
+
+    def count(self):
+        return 1 if self.text else 0
+
+    def inner_text(self):
+        return self.text
+
+
 class FakePage:
     """Deckt genau die Playwright-Methoden ab, die login()/_is_logged_in() aufrufen."""
 
-    def __init__(self, login_succeeds: bool = True, logged_in: bool = False):
+    def __init__(
+        self,
+        login_succeeds: bool = True,
+        logged_in: bool = False,
+        error_text: str = "",
+        never_idle: bool = False,
+    ):
         self.logged_in = logged_in
         self.login_succeeds = login_succeeds
+        self.error_text = error_text
+        self.never_idle = never_idle
         self.filled = {}
         self.url = ""
 
@@ -51,13 +73,16 @@ class FakePage:
         self.filled[selector] = value
 
     def locator(self, selector):
+        if "messagebox" in selector:
+            return FakeTextLocator(self.error_text)
         return FakeCountLocator(self)
 
     def get_by_role(self, role, name=None):
         return FakeClickLocator(self, self.login_succeeds)
 
-    def wait_for_load_state(self, state):
-        pass
+    def wait_for_load_state(self, state, timeout=None):
+        if self.never_idle:
+            raise TimeoutError(f"Timeout {timeout}ms exceeded.")
 
 
 class TestIsLoggedIn:
@@ -93,6 +118,27 @@ class TestLogin:
 
         with pytest.raises(RuntimeError):
             login(page, "bot@example.com", "falsch")
+
+    def test_rejected_login_reports_kicktipps_message_instead_of_timeout(self, monkeypatch):
+        # 27.11.2026: Cloudflare-Prüfung im Formular. Die Seite wird nie "idle",
+        # und Kicktipp lehnt den Login mit einer eigenen Meldung ab.
+        monkeypatch.setattr("engine.kicktipp_bot._accept_consent", lambda page: None)
+        page = FakePage(
+            login_succeeds=False,
+            never_idle=True,
+            error_text="Die automatische Sicherheitsprüfung ist fehlgeschlagen.",
+        )
+
+        with pytest.raises(RuntimeError, match="Sicherheitsprüfung.*KICKTIPP_STATE"):
+            login(page, "bot@example.com", "geheim")
+
+    def test_login_succeeds_even_if_page_never_goes_idle(self, monkeypatch):
+        monkeypatch.setattr("engine.kicktipp_bot._accept_consent", lambda page: None)
+        page = FakePage(login_succeeds=True, never_idle=True)
+
+        login(page, "bot@example.com", "geheim")
+
+        assert page.logged_in is True
 
     def test_uses_documented_login_url(self):
         assert LOGIN_URL == "https://www.kicktipp.de/info/profil/login/"
