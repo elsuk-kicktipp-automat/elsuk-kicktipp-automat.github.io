@@ -429,6 +429,11 @@
     },
     {
       "home_key": "werderbremen",
+      "away_key": "bormonchengladbach",
+      "verified_at_utc": "2026-11-27T18:37:35Z"
+    },
+    {
+      "home_key": "werderbremen",
       "away_key": "fcaugsburg",
       "verified_at_utc": "2026-09-19T09:32:39Z"
     },
