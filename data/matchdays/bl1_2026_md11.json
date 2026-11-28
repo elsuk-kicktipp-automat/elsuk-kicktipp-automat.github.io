@@ -201,6 +201,38 @@
         }
       },
       "salt": "aa470e260a0f4163c7ec926428fde4b9"
+    },
+    {
+      "home": "1. FC Köln",
+      "away": "SV 07 Elversberg",
+      "kickoff_utc": "2026-11-28T14:30:00Z",
+      "status": "sealed",
+      "hash": "7bb3a159a98a5ea1f36b3b47f64d840dbd0832d0e00e58064f9f8ae9db4e648f",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "1. FSV Mainz 05",
+      "away": "1. FC Union Berlin",
+      "kickoff_utc": "2026-11-28T14:30:00Z",
+      "status": "sealed",
+      "hash": "445c6eb518377fc13a74ba49b3ac61e8a28d22024b9a0d96e052ba1d723dbf1e",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "Hamburger SV",
+      "away": "FC Bayern München",
+      "kickoff_utc": "2026-11-28T14:30:00Z",
+      "status": "sealed",
+      "hash": "770569cd74fe1555bc6dcfcb2b4dfc058996d1bdbb0037a99d16368caff07ede",
+      "paper_bet_status": "sealed"
+    },
+    {
+      "home": "SC Paderborn 07",
+      "away": "FC Schalke 04",
+      "kickoff_utc": "2026-11-28T14:30:00Z",
+      "status": "sealed",
+      "hash": "252ce97c78afcc7590378ca3eb381e13af1f00dac97fc7ef56bfb3b9d1611616",
+      "paper_bet_status": "sealed"
     }
   ]
 }
