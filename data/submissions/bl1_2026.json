@@ -49,6 +49,11 @@
     },
     {
       "home_key": "1fckoln",
+      "away_key": "svelversberg",
+      "verified_at_utc": "2026-11-28T10:33:21Z"
+    },
+    {
+      "home_key": "1fckoln",
       "away_key": "werderbremen",
       "verified_at_utc": "2026-09-12T12:32:15Z"
     },
@@ -259,6 +264,11 @@
     },
     {
       "home_key": "fsvmainz05",
+      "away_key": "1fcunionberlin",
+      "verified_at_utc": "2026-11-28T10:33:21Z"
+    },
+    {
+      "home_key": "fsvmainz05",
       "away_key": "bayer04leverkusen",
       "verified_at_utc": "2026-10-10T09:33:35Z"
     },
@@ -291,6 +301,11 @@
       "home_key": "hamburgersv",
       "away_key": "bormonchengladbach",
       "verified_at_utc": "2026-11-06T15:32:18Z"
+    },
+    {
+      "home_key": "hamburgersv",
+      "away_key": "fcbayernmunchen",
+      "verified_at_utc": "2026-11-28T10:33:21Z"
     },
     {
       "home_key": "hamburgersv",
@@ -361,6 +376,11 @@
       "home_key": "scpaderborn07",
       "away_key": "eintrachtfrankfurt",
       "verified_at_utc": "2026-11-07T10:33:16Z"
+    },
+    {
+      "home_key": "scpaderborn07",
+      "away_key": "fcschalke04",
+      "verified_at_utc": "2026-11-28T10:33:21Z"
     },
     {
       "home_key": "scpaderborn07",
